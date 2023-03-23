@@ -22,29 +22,33 @@ function App() {
         <BrowserRouter>
           <div className='container'>
             <Navbar />
-            {user && <Sidebar />}
-            <Switch>
-              <Route exact path='/'>
-                {!user && <Redirect to="/login" />}
-                {user && <ProjectList />}
-              </Route>
-              <Route path='/create'>
-                {!user && <Redirect to="/login" />}
-                {user && <Create />}
-              </Route>
-              <Route path='/project/:id'>
-                {!user && <Redirect to="/login" />}
-                {user && <Project />}
-              </Route>
-              <Route path='/login'>
-                {user && <Redirect to="/" />}
-                {!user && <Login />}
-              </Route>
-              <Route path='/signup'>
-                {user && <Redirect to="/" />}
-                {!user && <Signup />}               
-              </Route>       
-            </Switch>
+            <div className='sub-container'>
+              {user && <Sidebar />}
+              <div className='content-container'>
+                <Switch>
+                  <Route exact path='/'>
+                    {!user && <Redirect to="/login" />}
+                    {user && <ProjectList />}
+                  </Route>
+                  <Route path='/create'>
+                    {!user && <Redirect to="/login" />}
+                    {user && <Create />}
+                  </Route>
+                  <Route path='/project/:id'>
+                    {!user && <Redirect to="/login" />}
+                    {user && <Project />}
+                  </Route>
+                  <Route path='/login'>
+                    {user && <Redirect to="/" />}
+                    {!user && <Login />}
+                  </Route>
+                  <Route path='/signup'>
+                    {user && <Redirect to="/" />}
+                    {!user && <Signup />}               
+                  </Route>       
+                </Switch>
+                </div>
+            </div>
           </div>
         </BrowserRouter>
       )}

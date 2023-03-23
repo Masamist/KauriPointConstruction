@@ -6,14 +6,19 @@ import './Sidebar.css'
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <ul>
-        <li>
-          <NavLink exact to="/">Project List</NavLink>
-        </li>
-        <li>
-          <NavLink to="/create">Create Project</NavLink>
-        </li>
-      </ul>     
+      <nav className="links">
+        <ul>
+          <li>
+            <NavLink exact to="/">Project List</NavLink>
+          </li>
+          <li>
+            <NavLink to="/create">Create Project</NavLink>
+          </li>
+          <li>
+            <NavLink to="/setting">Setting</NavLink>
+          </li>
+        </ul> 
+      </nav>    
     </div>
   )
 }

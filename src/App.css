@@ -3,5 +3,14 @@
 }
 .App .container{
   flex-grow: 1;
-  padding: 0 60px;
+  padding: 0;
+}
+.App .sub-container{
+  display: flex;
+  flex-direction: row;
+  background-color: #eee;
+}
+.App .content-container {
+  flex-grow: 1;
+  padding: 4rem;
 }

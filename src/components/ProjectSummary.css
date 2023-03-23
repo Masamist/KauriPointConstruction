@@ -1,0 +1,33 @@
+.project-summary {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+}
+.project-summary a {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+}
+.project-summary h4 {
+  font-size: 0.9em;
+  color: var(--heading-color);
+}
+.project-summary p {
+  color: var(--text-color);
+  font-size: 0.9em;
+}
+.project-summary .assigned-to {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+.project-summary ul {
+  margin: 10px 0;
+  display: flex;
+}
+.project-summary li {
+  margin-right: 10px;
+}
