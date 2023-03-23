@@ -13,4 +13,8 @@
 .App .content-container {
   flex-grow: 1;
   padding: 4rem;
+  margin: 3rem;
+  max-width: 50rem;
+  background-color: #fff;
+  border-radius: 5px;
 }

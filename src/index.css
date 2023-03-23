@@ -27,7 +27,8 @@ ul {
 
 /* layout */
 .page-title {
-  font-size: 1em;
+  font-size: 2.3em;
+  font-weight: 300;
   color: var(--heading-color);
   display: inline-block;
 }
