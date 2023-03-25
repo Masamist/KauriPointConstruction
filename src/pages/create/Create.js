@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 
 // styles
 import './Create.css'
+import Sidebar from '../../components/Sidebar'
 
 
 export default function Create() {
@@ -140,6 +141,9 @@ export default function Create() {
 
 
   return (
+    <>
+    <Sidebar />
+    <div className='content-container'>
     <div className="create-form">
       <h2 className="page-title">Create a new project</h2>
       <form onSubmit={handleSubmit}>
@@ -283,5 +287,7 @@ export default function Create() {
         {formError && <p className="error">{formError}</p>}
       </form>
     </div>
+    </div>
+    </>
   )
 }

@@ -5,6 +5,7 @@ import ProjectDetail from './projectDetail'
 
 // styles
 import './Project.css'
+import Sidebar from '../../components/Sidebar'
 
 export default function Project() {
   const { id } = useParams()
@@ -18,8 +19,13 @@ export default function Project() {
   }
 
   return (
-    <div className="project-details">
-      <ProjectDetail project={document} />
-    </div>
+    <>
+      <Sidebar />
+        <div className='content-container'>
+          <div className="project-details">
+            <ProjectDetail project={document} />
+          </div>
+      </div>
+    </>
   )
 }

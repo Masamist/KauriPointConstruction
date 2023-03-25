@@ -12,6 +12,7 @@ import Signup from './pages/signup/Signup'
 import Project from './pages/project/Project'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import Home from './pages/home/home';
 
 function App() {
   const { user, authIsReady } = useAuthContext()
@@ -22,12 +23,10 @@ function App() {
         <BrowserRouter>
           <div className='container'>
             <Navbar />
-            <div className='sub-container'>
-              {user && <Sidebar />}
-              <div className='content-container'>
+              <div className='sub-container'>
                 <Switch>
                   <Route exact path='/'>
-                    {!user && <Redirect to="/login" />}
+                    {!user && <Redirect to="/home" />}
                     {user && <ProjectList />}
                   </Route>
                   <Route path='/create'>
@@ -45,11 +44,15 @@ function App() {
                   <Route path='/signup'>
                     {user && <Redirect to="/" />}
                     {!user && <Signup />}               
-                  </Route>       
+                  </Route>      
+                  <Route path='/home'>
+                    <Home />
+                  </Route>
+
                 </Switch>
                 </div>
             </div>
-          </div>
+          
         </BrowserRouter>
       )}
     </div>
