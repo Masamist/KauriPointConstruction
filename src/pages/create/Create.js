@@ -4,7 +4,7 @@ import { timestamp } from '../../firebase/config'
 // import { useAuthContext } from '../../hooks/useAuthContext'
 import { useFirestore } from '../../hooks/useFirestore'
 import { useHistory } from 'react-router-dom'
-// import Select from 'react-select'
+import Select from 'react-select'
 
 // styles
 import './Create.css'
@@ -13,122 +13,123 @@ import './Create.css'
 export default function Create() {
   const history = useHistory()
   const { addDocument, response } = useFirestore('projects')
-  const { documents } = useCollection('taskLibrary')
+  const { documents } = useCollection('projects')
   // const { user } = useAuthContext()
 
   // form field values
   const [name, setName] = useState('')
-  const [client, setClient] = useState('')
+  const [clientName, setClientName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
-  const [address, setAddress] = useState('')
+  const [line1, setLine1] = useState('')
+  const [line2, setLine2] = useState('')
+  const [suburb, setSuburb] = useState('')
+  const [city, setCity] = useState('')
+  
   // const [financialSummary, setfinancialSummary] = useState([])
-  const [taskGroup, setTaskGroup] = useState([])
-  const [tempMainList, setTempMainList] = useState([])
-  // const [mainList, setMainList] = useState([])
+  const [projectList, setProjectList] = useState([])
+  const [tempProject, setTempProject] = useState([])
+
   const [startDate, setStartDate] = useState('')
-  const [gstNo, setGstNo] = useState('')
+  const [GSTno, setGSTno] = useState('')
   const [subContractFee, setSubContractFee] = useState('')
   const [description, setDescription] = useState([])
-  const [staffOne, setStaffOne] = useState('')
-  const [staffTwo, setStaffTwo] = useState('')
-  const [staffThree, setStaffThree] = useState('')
+  const [teamList, setTeamList] = useState([{ team:""},])
+  
+  console.log(teamList)
+
+  const [staffName, setStaffName] = useState('')
+  const [staffRole, setStaffRole] = useState('')
+  const [staffRate, setStaffRate] = useState('')
   const [formError, setFormError] = useState(null)
 
+  const staffRoleOption = [
+    { value:'foreman', label: 'Foreman' },
+    { value:'builder', label: 'Builder' },
+    { value:'Apprentice', label: 'Apprentice' },
+  ]
 
   useEffect(() => {
     if(documents){
-      const options = documents.map(task => {
-        return { value: {...task, id:task.id}, label: task.taskGroup}
+      const options = documents.map(project => {
+        return { value: {...project, id:project.id}, label: project.name}
       })
-      setTaskGroup(options.reverse())
+      setProjectList(options)
     }
   }, [documents])
 
-  console.log(taskGroup)
-  console.log(tempMainList)
-  
-  const handleChecklist = (e) => {
-    const newCheck = e.target.value
-    if (!tempMainList.includes(newCheck)){
-        setTempMainList(    
-        [...tempMainList, newCheck]   
-      )
-    }
-    else {
-      const index = tempMainList.indexOf(newCheck)
-      if (index > -1) {
-        tempMainList.splice(index, 1)
-      }
-    }
+  console.log(projectList)
+
+  const handleTeamAdd = () => {
+    setTeamList([...teamList, { team:""}])
   }
 
+  const handleTeamRemove = (index) => {
+    const list = [...teamList]
+    list.splice(index, 1)
+    setTeamList(list)
+  }
 
-  const checkbox = taskGroup.map((t) => (
-    <div className="check-box" key={t.value.id} >
-      <label htmlFor={t.value.id}>{t.label}</label>
-      <input type="checkbox"
-        onChange={handleChecklist} 
-        // onChange={(e) => setTempMainList(e.target.value)}  
-        id={t.value.id}
-        name={t.value.id} 
-        value={t.value.taskGroup} /> 
-    </div>
-    ))
+  const handleStaffChange = (e, index) => {
+    const {name, value} = e.target
+    const list = [...teamList]
+    list[index][name] = value
+    setTeamList(list)
+  }
+
+  
+  // const handleChecklist = (e) => {
+  //   const newCheck = e.target.value
+  //   if (!tempMainList.includes(newCheck)){
+  //       setTempMainList(    
+  //       [...tempMainList, newCheck]   
+  //     )
+  //   }
+  //   else {
+  //     const index = tempMainList.indexOf(newCheck)
+  //     if (index > -1) {
+  //       tempMainList.splice(index, 1)
+  //     }
+  //   }
+  // }
 
 
   const handleSubmit = async(e) => {
     e.preventDefault()
     setFormError(null)
-    if(!taskGroup){
+    if(!projectList){
       setFormError('Please select a task group')
       return
     }
 
-    //   const mainList = taskGroup.map(t => {
-      
-    //   if(tempMainList.includes(t.label)){
-    //      return t.value
-    //     } 
-    //   }
-    // })
-
-    // const mainList = taskGroup.map(t => {
-      
-    //   if(tempMainList.includes(t.label)){
-    //      return t.value
-    //     } 
-    //   }
-    // })
-
-
-
-    const mainList = tempMainList.map((t) => {     
-      return {
-        id: t.id,
-        taskGroup: t.taskGroup,
-      }    
-    })
-
-    const staffRate = {
-      staffOne,
-      staffTwo,
-      staffThree
+    const address = {
+      address: {
+        line1,
+        line2,
+        suburb,
+        city,
+      }     
     }
+
+    // const staffRate = {
+    //   staffOne,
+    //   staffTwo,
+    //   staffThree
+    // }
 
     const project = {
       name,
-      client,
+      clientName,
       phone,
       email,
       address, 
       financialSummary: [],
-      mainList,
+      mainList: tempProject.value.mainList,
       startDate: timestamp.fromDate(new Date(startDate)),
-      gstNo,
+      GSTno,
       subContractFee,
       description,
-      staffRate,
+      teamList,
     }
 
     await addDocument(project)
@@ -158,8 +159,8 @@ export default function Create() {
           <input
             required 
             type="text" 
-            onChange={(e) => setClient(e.target.value)}
-            value={client}
+            onChange={(e) => setClientName(e.target.value)}
+            value={clientName}
           />
         </label>
         <label>
@@ -182,11 +183,32 @@ export default function Create() {
         </label>
         <label>
           <span>Address:</span>
+          <p>Line 1</p>
           <input
             required 
             type="text" 
-            onChange={(e) => setAddress(e.target.value)}
-            value={address}
+            onChange={(e) => setLine1(e.target.value)}
+            value={line1}
+          />
+          <p>Line 2</p>
+          <input
+            type="text" 
+            onChange={(e) => setLine2(e.target.value)}
+            value={line2}
+          />
+          <p>Suburb</p>
+          <input
+            required 
+            type="text" 
+            onChange={(e) => setSuburb(e.target.value)}
+            value={suburb}
+          />
+          <p>City</p>
+          <input
+            required 
+            type="text" 
+            onChange={(e) => setCity(e.target.value)}
+            value={city}
           />
         </label>
         <h3>Financial Summary:</h3>
@@ -205,17 +227,12 @@ export default function Create() {
           /> */}
         </label>
         <h3>Main List:</h3>
-        <span>Task Group:</span>
-
-        {checkbox}
-
-
-          {/* <Select
-            onChange={(option) => setTaskGroup(option)}
-            options={taskGroup}
-            isMulti
-          /> */}
-
+        <span>Main List Template:</span>
+          <Select
+            onChange={(option) => setTempProject(option)}
+            options={projectList}
+          />
+        <br />
         <h3>Project Details:</h3>
         <label>
           <span>Start date:</span>
@@ -231,8 +248,8 @@ export default function Create() {
           <input
             required 
             type="number" 
-            onChange={(e) => setGstNo(e.target.value)}
-            value={gstNo}
+            onChange={(e) => setGSTno(e.target.value)}
+            value={GSTno}
           />
         </label>
         <label>
@@ -253,32 +270,75 @@ export default function Create() {
             value={description} 
           ></textarea>
         </label>
+
+        <form>
+          <div>
+            <label>
+              {teamList.map((singleStaff, index) => (
+                  <div key={index}>
+                    <div>
+                      <span>Staff {index + 1}:</span>
+                      <input 
+                        name="yeam" 
+                        type="text" 
+                        id="team" 
+                        required
+                        value={singleStaff.team}
+                        onChange = {(e) => handleStaffChange(e, index)}
+                      />
+                      
+                      {teamList.length -1 === index && 
+                        <button 
+                          type="button" 
+                          className="btn"
+                          onClick={handleTeamAdd}
+                          >
+                            Add Staff
+                        </button>
+                      }                      
+                    </div>
+                    <div>                      
+                        {teamList.length > 1 && (
+                          <button 
+                            type="button" 
+                            className="btn"
+                            onClick={() => handleTeamRemove(index)}
+                          >
+                            <span>Remove</span>
+                        </button>
+                        )}                       
+                    </div>
+
+                  </div>
+
+                ))}
+            </label>
+          </div>
+        </form>
+
+
+
         <label>
-          <span>Staff 1: Foreman</span>
+          <span>Staff 1:</span>
+          <p>Name</p>
+          <input
+            type="text" 
+            onChange={(e) => setStaffName(e.target.value)}
+            value={staffName}
+          />
+          <p>Role</p>
+          <Select
+            onChange={(option) => setStaffRole(option)}
+            options={staffRoleOption}
+          />
+          <p>Rate</p>
           <input
             type="number" 
-            onChange={(e) => setStaffOne(e.target.value)}
-            value={staffOne}
+            onChange={(e) => setStaffRate(e.target.value)}
+            value={staffRate}
           />
         </label>
-        <label>
-          <span>Staff 2: Builder</span>
-          <input
-            required 
-            type="number" 
-            onChange={(e) => setStaffTwo(e.target.value)}
-            value={staffTwo}
-          />
-        </label>
-        <label>
-          <span>Staff 3: Apprentice</span>
-          <input
-            required 
-            type="number" 
-            onChange={(e) => setStaffThree(e.target.value)}
-            value={staffThree}
-          />
-        </label>
+        
         <button className="btn">Add Project</button>
         {formError && <p className="error">{formError}</p>}
       </form>
