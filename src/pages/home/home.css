@@ -1,0 +1,31 @@
+.poster {
+    width: 100vw;
+    min-height: 40vh;
+}
+
+.backingImage {
+    background-image: url('../../assets/Framing.jpeg');
+    position: absolute;
+    min-height: 40vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    filter: brightness(40%);
+}
+
+.poster-header {
+    position: relative;
+    float: right;
+    margin: 3rem 2rem;
+    color: var(--bg-color);
+    font-weight: 500;
+}
+
+.poster-text {
+    margin: 30vh 2rem 2rem 4rem;
+    color: var(--bg-color);
+    width: 50%;
+    font-weight: 500;
+    position: absolute;
+}
