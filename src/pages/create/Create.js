@@ -1,27 +1,20 @@
 import { useState, useEffect } from 'react'
-import Select from 'react-select'
 import { useCollection } from '../../hooks/useCollection'
 import { timestamp } from '../../firebase/config'
-import { useAuthContext } from '../../hooks/useAuthContext'
+// import { useAuthContext } from '../../hooks/useAuthContext'
 import { useFirestore } from '../../hooks/useFirestore'
 import { useHistory } from 'react-router-dom'
+// import Select from 'react-select'
 
 // styles
 import './Create.css'
 
-const taskGroupList = [
-  { value: 'preliminaryAndGeneral', label: 'Preliminary And General'},
-  { value: 'equipmentAndMachinery', label: 'Equipment And Machinery'},
-  { value: 'siteWorks', label: 'Site Works'},
-  { value: 'concreteWorks', label: 'Concrete works'},
-]
 
 export default function Create() {
   const history = useHistory()
   const { addDocument, response } = useFirestore('projects')
-  const { documents } = useCollection('users')
-  const [users, setUsers] = useState([])
-  const { user } = useAuthContext()
+  const { documents } = useCollection('taskLibrary')
+  // const { user } = useAuthContext()
 
   // form field values
   const [name, setName] = useState('')
@@ -30,7 +23,9 @@ export default function Create() {
   const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
   // const [financialSummary, setfinancialSummary] = useState([])
-  const [taskGroup, setTaskGroup] = useState('')
+  const [taskGroup, setTaskGroup] = useState([])
+  const [tempMainList, setTempMainList] = useState([])
+  // const [mainList, setMainList] = useState([])
   const [startDate, setStartDate] = useState('')
   const [gstNo, setGstNo] = useState('')
   const [subContractFee, setSubContractFee] = useState('')
@@ -40,14 +35,47 @@ export default function Create() {
   const [staffThree, setStaffThree] = useState('')
   const [formError, setFormError] = useState(null)
 
+
   useEffect(() => {
     if(documents){
-      const options = documents.map(user => {
-        return { value: user, label: user.displayName}
+      const options = documents.map(task => {
+        return { value: {...task, id:task.id}, label: task.taskGroup}
       })
-      setUsers(options)
+      setTaskGroup(options.reverse())
     }
   }, [documents])
+
+  console.log(taskGroup)
+  console.log(tempMainList)
+  
+  const handleChecklist = (e) => {
+    const newCheck = e.target.value
+    if (!tempMainList.includes(newCheck)){
+        setTempMainList(    
+        [...tempMainList, newCheck]   
+      )
+    }
+    else {
+      const index = tempMainList.indexOf(newCheck)
+      if (index > -1) {
+        tempMainList.splice(index, 1)
+      }
+    }
+  }
+
+
+  const checkbox = taskGroup.map((t) => (
+    <div className="check-box" key={t.value.id} >
+      <label htmlFor={t.value.id}>{t.label}</label>
+      <input type="checkbox"
+        onChange={handleChecklist} 
+        // onChange={(e) => setTempMainList(e.target.value)}  
+        id={t.value.id}
+        name={t.value.id} 
+        value={t.value.taskGroup} /> 
+    </div>
+    ))
+
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -57,10 +85,30 @@ export default function Create() {
       return
     }
 
-    const mainList = {
-      taskGroup: taskGroup.value,
+    //   const mainList = taskGroup.map(t => {
+      
+    //   if(tempMainList.includes(t.label)){
+    //      return t.value
+    //     } 
+    //   }
+    // })
 
-    }
+    // const mainList = taskGroup.map(t => {
+      
+    //   if(tempMainList.includes(t.label)){
+    //      return t.value
+    //     } 
+    //   }
+    // })
+
+
+
+    const mainList = tempMainList.map((t) => {     
+      return {
+        id: t.id,
+        taskGroup: t.taskGroup,
+      }    
+    })
 
     const staffRate = {
       staffOne,
@@ -68,12 +116,6 @@ export default function Create() {
       staffThree
     }
 
-    const createdBy = {
-      displayName:user.displayName,
-      photoURL: user.photoURL,
-      id: user.uid
-    }
-    
     const project = {
       name,
       client,
@@ -87,16 +129,14 @@ export default function Create() {
       subContractFee,
       description,
       staffRate,
-      createdBy,
     }
 
     await addDocument(project)
+
     if (!response.error) {
       history.push('/')
     }
   }
-
-
 
 
   return (
@@ -165,14 +205,17 @@ export default function Create() {
           /> */}
         </label>
         <h3>Main List:</h3>
-        <label>
-          <span>Task Group:</span>
-          <Select
+        <span>Task Group:</span>
+
+        {checkbox}
+
+
+          {/* <Select
             onChange={(option) => setTaskGroup(option)}
-            options={taskGroupList}
-          
-          />
-        </label>
+            options={taskGroup}
+            isMulti
+          /> */}
+
         <h3>Project Details:</h3>
         <label>
           <span>Start date:</span>

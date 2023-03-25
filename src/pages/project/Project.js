@@ -18,7 +18,7 @@ export default function Project() {
   }
 
   return (
-    <div class="project-details">
+    <div className="project-details">
       <ProjectDetail project={document} />
     </div>
   )
