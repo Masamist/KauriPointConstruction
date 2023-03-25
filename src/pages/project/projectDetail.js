@@ -7,13 +7,13 @@ export default function projectDetail({project}) {
         <p>Client Name: {project.client}</p>
         <p>Phone: {project.phone}</p>
         <p>Email: {project.email}</p>
-        <p>Address: {project.address}</p>
+        <p>Address: {Object.entries(project.address).map( ([key,value]) => { return (key + ': ' + value + ', ') })}</p>
         <h4>Task Group</h4>
         <p>{project.taskGroup}</p>
         
         <h4>Project Detail</h4>
         <p className="due-date">
-          Start date: {project.startDate.toDate().toDateString()}
+          Start date: {project.startDate}
         </p>
         <p>GST NO: {project.gstNo}</p>
         <p>Sub Contract Fee: {project.gstNo}%</p>
