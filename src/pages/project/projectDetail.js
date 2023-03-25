@@ -30,13 +30,8 @@ export default function ProjectDetail({project}) {
             <p><span>Cost to Completion excluding GST:</span>$00.00</p>
         </div>
         
+        <MainList mainList={project.mainList} />
 
-        {/* Main List */}
-        <h3>Main LIst</h3>
-        <p>Task Group</p>
-        <p>{project.taskGroup}</p>
-
-        
         <h3>Project Detail</h3>
         <p className="due-date">
           Start date:
@@ -52,5 +47,33 @@ export default function ProjectDetail({project}) {
         ))} */}
       </div>
     </div>
+  )
+}
+
+function MainList({ mainList }) {
+  return (
+    <>
+      {Object.entries(mainList).map( ([key, tasks]) => { return ( 
+        <div key={key}>
+          <strong>{key}</strong>
+          <MainListTask tasks={tasks}/>
+        </div> 
+    )})}
+    </>
+  )
+}
+
+function MainListTask( {tasks} ) {
+  return (
+    <>
+      {Object.entries(tasks).map( ([key, task]) => {
+        const name = task.task
+        return (
+          <div key={key}>
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </>
   )
 }
