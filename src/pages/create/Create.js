@@ -34,8 +34,10 @@ export default function Create() {
   const [GSTno, setGSTno] = useState('')
   const [subContractFee, setSubContractFee] = useState('')
   const [description, setDescription] = useState([])
-  const [teamList, setTeamList] = useState([{ team:""},])
-  
+  const [teamList, setTeamList] = useState([{ team:[{staff:'', rate:'', role:''}]},])
+  // const [teamList, setTeamList] = useState([{ team:{staff:'', roll:'', rate:''}},])
+
+
   console.log(teamList)
 
   const [staffName, setStaffName] = useState('')
@@ -43,11 +45,6 @@ export default function Create() {
   const [staffRate, setStaffRate] = useState('')
   const [formError, setFormError] = useState(null)
 
-  const staffRoleOption = [
-    { value:'foreman', label: 'Foreman' },
-    { value:'builder', label: 'Builder' },
-    { value:'Apprentice', label: 'Apprentice' },
-  ]
 
   useEffect(() => {
     if(documents){
@@ -58,11 +55,17 @@ export default function Create() {
     }
   }, [documents])
 
-  console.log(projectList)
+  // console.log(projectList)
 
   const handleTeamAdd = () => {
-    setTeamList([...teamList, { team:""}])
+    setTeamList([...teamList, { team:[]}])
   }
+
+  // const handleTeamRemove = (index) => {
+  //   const list = [...teamList]
+  //   list.splice(index, 1)
+  //   setTeamList(list)
+  // }
 
   const handleTeamRemove = (index) => {
     const list = [...teamList]
@@ -76,8 +79,7 @@ export default function Create() {
     list[index][name] = value
     setTeamList(list)
   }
-
-  
+ 
   // const handleChecklist = (e) => {
   //   const newCheck = e.target.value
   //   if (!tempMainList.includes(newCheck)){
@@ -129,7 +131,7 @@ export default function Create() {
       GSTno,
       subContractFee,
       description,
-      teamList,
+      team: teamList,
     }
 
     await addDocument(project)
@@ -271,6 +273,9 @@ export default function Create() {
           ></textarea>
         </label>
 
+{/* ////////////////////////////////////////////////////////////////////
+BUG HERE after delete item, state is deleted but not updated input UI 
+///////////////////////////////////////////////////////////////////////*/}
         <form>
           <div>
             <label>
@@ -278,12 +283,31 @@ export default function Create() {
                   <div key={index}>
                     <div>
                       <span>Staff {index + 1}:</span>
+                      <p>Staff Name</p>
                       <input 
-                        name="yeam" 
+                        name="staff" 
                         type="text" 
-                        id="team" 
+                        id="staff" 
                         required
-                        value={singleStaff.team}
+                        value={singleStaff.team.staff}
+                        onChange = {(e) => handleStaffChange(e, index)}
+                      />
+                      <p>Role</p>
+                      <input 
+                        name="role" 
+                        type="text" 
+                        id="role" 
+                        required
+                        value={singleStaff.team.role}
+                        onChange = {(e) => handleStaffChange(e, index)}
+                      />
+                      <p>Rate</p>
+                      <input 
+                        name="rate" 
+                        type="text" 
+                        id="rate" 
+                        required
+                        value={singleStaff.team.rate}
                         onChange = {(e) => handleStaffChange(e, index)}
                       />
                       
@@ -298,17 +322,16 @@ export default function Create() {
                       }                      
                     </div>
                     <div>                      
-                        {teamList.length > 1 && (
-                          <button 
-                            type="button" 
-                            className="btn"
-                            onClick={() => handleTeamRemove(index)}
-                          >
-                            <span>Remove</span>
-                        </button>
-                        )}                       
+                      {teamList.length > 1 && (
+                        <button 
+                          type="button" 
+                          className="btn"
+                          onClick={() => handleTeamRemove(index)}
+                        >
+                          <span>Remove</span>
+                      </button>
+                      )}                       
                     </div>
-
                   </div>
 
                 ))}
@@ -318,7 +341,7 @@ export default function Create() {
 
 
 
-        <label>
+        {/* <label>
           <span>Staff 1:</span>
           <p>Name</p>
           <input
@@ -337,7 +360,7 @@ export default function Create() {
             onChange={(e) => setStaffRate(e.target.value)}
             value={staffRate}
           />
-        </label>
+        </label> */}
         
         <button className="btn">Add Project</button>
         {formError && <p className="error">{formError}</p>}
