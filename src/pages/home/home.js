@@ -15,6 +15,7 @@ export default function Home() {
             <Poster />
             <Services />
             <Testimonial />
+            <Sustainability />
         </div>
     )
 }
@@ -23,7 +24,7 @@ function Poster() {
     return (
         <div className='poster'>
             <div className='backingImage'></div>
-            <h2 className='poster-header'>Bringing our Ideas to Life.<br/>
+            <h2 className='poster-header'>Bringing our ideas to life.<br/>
                 Through our expertise.
             </h2>
             <div className='poster-text'>
@@ -104,6 +105,22 @@ function Testimonial() {
                     tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <img className='testimonial-image' src={testimonial} alt='previous clients'></img>
+        </div>
+    )
+}
+
+function Sustainability () {
+    return (
+        <div className='sustainability'>
+            <div className='sustainabilityImage'> </div>
+            <div className='poster-text'>
+                <h1>Supporting Local communitites with sustainable practices.</h1>
+                <h2>
+                    Kauri Point Construction has a key focus on the environment, 
+                    it's part of everything we do.
+                </h2>
+                <button className='btn-green'>Plan your project with us</button>
+            </div>
         </div>
     )
 }
