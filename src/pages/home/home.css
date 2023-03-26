@@ -33,7 +33,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: end;
 }
 
 .services{
@@ -118,4 +118,12 @@
     background-size: cover;
     background-position: center;
     opacity: 30%;
+}
+
+.backingTint {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--highlight-color);
+    opacity:14%;
 }

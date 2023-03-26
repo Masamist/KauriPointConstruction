@@ -1,15 +1,15 @@
-import { format } from "path"
+//import { format } from "path"
 
 export default function ProjectDetail({project}) {
 
     const name = project.name
-    const startDate = project.startDate ? Object.entries(project.startDate).map( ([key,value]) => {return key + ': ' + value / 60 / 60 / 24 / 365 }) : "undefined"
+    //const startDate = project.startDate ? Object.entries(project.startDate).map( ([key,value]) => {return key + ': ' + value / 60 / 60 / 24 / 365 }) : "undefined"
     const clientName = project.clientName
     const phone = project.phone ? project.phone : '-'
     const email = project.email ? project.email : '-'
     const address = Object.entries(project.address).map( ([key,value]) => { return (key + ': ' + value + ', ') })
     const details = project.description ? project.description : '-' 
-    const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
+    //const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
 
   return (
     <div>

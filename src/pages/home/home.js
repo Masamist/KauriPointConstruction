@@ -6,6 +6,7 @@ import Service_demolition from '../../assets/service_demolition.JPG'
 import Service_houseRemoval from '../../assets/service_houseRemoval.JPG'
 import Service_extension from '../../assets/service_extension.JPG'
 import testimonial from '../../assets/testimonial.jpg'
+import Navbar from '../../components/Navbar'
 
 
 
@@ -16,6 +17,7 @@ export default function Home() {
             <Services />
             <Testimonial />
             <Sustainability />
+            <Footer />
         </div>
     )
 }
@@ -24,6 +26,7 @@ function Poster() {
     return (
         <div className='poster'>
             <div className='backingImage'></div>
+            <div className='backingTint'></div>
             <h2 className='poster-header'>Bringing our ideas to life.<br/>
                 Through our expertise.
             </h2>
@@ -121,6 +124,14 @@ function Sustainability () {
                 </h2>
                 <button className='btn-green'>Plan your project with us</button>
             </div>
+        </div>
+    )
+}
+
+function Footer () {
+    return (
+        <div className='footer'>
+            <Navbar />
         </div>
     )
 }
