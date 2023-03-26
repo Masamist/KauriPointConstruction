@@ -5,6 +5,7 @@ import Service_fencingDecking from '../../assets/service_fencingDecking.JPG'
 import Service_demolition from '../../assets/service_demolition.JPG'
 import Service_houseRemoval from '../../assets/service_houseRemoval.JPG'
 import Service_extension from '../../assets/service_extension.JPG'
+import testimonial from '../../assets/testimonial.jpg'
 
 
 
@@ -13,6 +14,7 @@ export default function Home() {
         <div>
             <Poster />
             <Services />
+            <Testimonial />
         </div>
     )
 }
@@ -86,6 +88,22 @@ function Service({ title, text, imageURL }) {
             <img className='service-image' src={imageURL} alt='service'/>
             <h2>{title}</h2>
             <p>{text}</p>
+        </div>
+    )
+}
+
+function Testimonial() {
+    return (
+        <div className='testimonial'>
+            <div className='testimonial-text'>
+                <h2>
+                   Thanks to Simon and the KPC team. Stunning results and great communication.
+                </h2>
+                <h3>John and Ann Smith</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img className='testimonial-image' src={testimonial} alt='previous clients'></img>
         </div>
     )
 }

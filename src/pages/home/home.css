@@ -62,3 +62,25 @@
     padding: 30px;
     text-align: center;
 }
+
+.testimonial {
+    background-color: var(--secondary-color);
+    padding: 40px 80px;
+    display: flex;
+}
+
+.testimonial-text > h2, .testimonial-text > h3, .testimonial-text > p{
+    color: var(--bg-color);
+}
+
+.testimonial-text {
+    flex-grow: 2;
+    margin-right: 30px;
+}
+
+.testimonial-image {
+    background-color: var(--primary-color);
+    flex-grow: 1;
+    min-width: 20%;
+    min-height: 200px;
+}
