@@ -1,16 +1,18 @@
 .poster {
     width: 100vw;
     min-height: 40vh;
+    position: relative;
 }
 
 .backingImage {
-    background-image: url('../../assets/Framing.jpeg');
+    background-image: url('../../assets/service_construction.JPG');
     position: absolute;
+    bottom: 0;
     min-height: 40vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    background-position: center;
     filter: brightness(40%);
 }
 
@@ -23,9 +25,40 @@
 }
 
 .poster-text {
-    margin: 30vh 2rem 2rem 4rem;
+    margin: 2rem 4rem;
     color: var(--bg-color);
     width: 50%;
     font-weight: 500;
     position: absolute;
+    bottom: 0;
+}
+
+.services{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px;;
+}
+
+.service{
+    margin: 50px 15px;
+    max-width: 30%;
+    min-width: 300px;
+}
+
+.service > p {
+    color: var(--text-color);
+}
+
+.service-image {
+    display: block;
+    width: 100%;
+    height: 17rem;
+    object-fit: cover;
+}
+
+.pad {
+    padding: 30px;
+    text-align: center;
 }
