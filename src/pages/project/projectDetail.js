@@ -1,4 +1,5 @@
 import { format } from "path"
+import './ProjectDetail.css'
 
 export default function ProjectDetail({project}) {
 
@@ -12,13 +13,18 @@ export default function ProjectDetail({project}) {
     const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
 
   return (
-    <div>
+    <div className="project-detail">
       <div className="project-summary">
         <h2 className="page-title">Project: {name}</h2>
-        <p>Client Name: {clientName}</p>
         <p>Phone: {phone}</p>
+        <p>Client Name: {clientName}</p>
         <p>Email: {email}</p>
-        <p>Address: {address}</p>
+        <p>Address: {address.line1}</p>
+        {/* {!address && address.map((add) => (
+          <>{add.line1}</>
+        ))}
+        <p>{address.line1}</p> */}
+        
 
         {/* Financial details */}
         <div>
@@ -36,12 +42,31 @@ export default function ProjectDetail({project}) {
         <p className="due-date">
           Start date:
         </p>
-        <p>GST NO: {project.gstNo}</p>
-        <p>Sub Contract Fee: {project.gstNo}%</p>
+        <p>GST NO: {project.GSTno}</p>
+        <p>Sub Contract Fee: {subContractFee}</p>
         <p className="details">{details}</p>
         <p>Staff Rate:</p>
-
-        {/* <h4>Staff Rate:</h4>
+        <table class="team-table">
+          <tr>
+            <th>Staff</th>
+            <th>Rate</th>
+            <th>9.5H</th>
+            <th>Week</th>
+            <th>Month</th>
+          </tr>
+        {project.team.map((t) => (
+          <tr>
+            <td>{t.staff}</td>
+            <td>{t.role}</td>
+            <td>{t.rate}</td>
+            <td>{t.rate}</td>
+            <td>{t.rate}</td>
+            <td></td>
+          </tr>
+        ))}
+          
+        </table>
+                {/* <h4>Staff Rate:</h4>
         {project.staffRate.map(staff => (
           <div key={staff.name}>{staff.name} {staff.rate}</div>
         ))} */}

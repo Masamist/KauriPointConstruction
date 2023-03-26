@@ -1,0 +1,15 @@
+.project-detail .team-table {
+  border: 1px solid #999;
+  border-radius: 5px;
+  border-spacing: 0;
+}
+
+.project-detail .team-table th {
+  background-color: #c2cf76;
+  color: #333;
+}
+
+.project-detail .team-table td {
+  padding:.5rem 0 0 1rem
+}
+

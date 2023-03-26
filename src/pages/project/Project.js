@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useDocument } from '../../hooks/useDocument'
-import ProjectDetail from './projectDetail'
+import ProjectDetail from './ProjectDetail'
 
 
 // styles

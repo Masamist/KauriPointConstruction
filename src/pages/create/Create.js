@@ -35,14 +35,9 @@ export default function Create() {
   const [subContractFee, setSubContractFee] = useState('')
   const [description, setDescription] = useState([])
   const [teamList, setTeamList] = useState([{ team:[{staff:'', rate:'', role:''}]},])
-  // const [teamList, setTeamList] = useState([{ team:{staff:'', roll:'', rate:''}},])
-
 
   console.log(teamList)
 
-  const [staffName, setStaffName] = useState('')
-  const [staffRole, setStaffRole] = useState('')
-  const [staffRate, setStaffRate] = useState('')
   const [formError, setFormError] = useState(null)
 
 
@@ -55,17 +50,9 @@ export default function Create() {
     }
   }, [documents])
 
-  // console.log(projectList)
-
   const handleTeamAdd = () => {
     setTeamList([...teamList, { team:[]}])
   }
-
-  // const handleTeamRemove = (index) => {
-  //   const list = [...teamList]
-  //   list.splice(index, 1)
-  //   setTeamList(list)
-  // }
 
   const handleTeamRemove = (index) => {
     const list = [...teamList]
@@ -249,7 +236,7 @@ export default function Create() {
           <span>GST No:</span>
           <input
             required 
-            type="number" 
+            type="text" 
             onChange={(e) => setGSTno(e.target.value)}
             value={GSTno}
           />
