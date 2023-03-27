@@ -19,9 +19,13 @@
   color: var(--text-color);
   font-size: 0.9em;
 }
+#btn-active{
+  pointer-events: none;
+  cursor: none;
+}
+
 #btn-disabled{
   background-color: #999;
   color: #fff;
-  pointer-events: none;
-  cursor: none;
+
 }

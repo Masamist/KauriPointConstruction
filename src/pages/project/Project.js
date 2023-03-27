@@ -34,13 +34,13 @@ export default function Project() {
     <div className="project">
       <ProjectClientInfo project={document} />
       <div>
-      <button onClick={ handleSwitchList } className="btn" id={!switchLabourList && 'btn-disabled'}>MainList</button>
-      <button onClick={ handleSwitchList } className="btn" id={switchLabourList && 'btn-disabled'}>LabourList</button>
+        <p>+ Update Project</p>
+        <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
+        <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
       </div>
       
       {!switchLabourList && <ProjectDetail project={document} />}
       {switchLabourList && <ProjectLabourList project={document} />}
-      
     </div>
   )
 }

@@ -1,0 +1,10 @@
+.project-labour-list{
+  background-color: #fff;
+  padding: .8rem;
+  border-radius: 5px;
+}
+
+.project-labour-list .task-group-container{
+  margin: 1rem;
+  background-color: aqua;
+}

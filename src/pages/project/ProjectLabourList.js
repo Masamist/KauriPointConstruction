@@ -1,19 +1,43 @@
+// styles
+import './ProjectLabourList.css'
+
 
 export default function ProjectLabourList({project}) {
 
-    // const startDate = project.startDate ? Object.entries(project.startDate).map( ([key,value]) => {return key + ': ' + value / 60 / 60 / 24 / 365 }) : "undefined"
-    const startdate = project.startDate.toDate().toDateString()
-    // const address = Object.entries(project.address).map( ([key,value]) => { return (key + ': ' + value + ', ') })
-    const details = project.description ? project.description : '-' 
-    const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
 
   return (
     <div className="project-detail">
-      <div className="project-summary">
         <h3>Labour Const Breakdown by Stage</h3>
-        <p>Table here</p>
+        <LabourList labourList={project.labourList} />
         
-      </div>
     </div>
+  )
+}
+
+function LabourList({ labourList }) {
+  return (
+    <div className="project-labour-list">
+      {Object.entries(labourList).map( ([key, groups]) => { return ( 
+        <div key={key} className="task-group-container">
+          <strong>{key}</strong>
+          <LabourListTask groups={groups}/>
+        </div> 
+    )})}
+    </div>
+  )
+}
+
+function LabourListTask( {groups} ) {
+  return (
+    <>
+      {Object.entries(groups).map( ([key, groups]) => {
+        const name = groups.name
+        return (
+          <div key={key}>
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </>
   )
 }

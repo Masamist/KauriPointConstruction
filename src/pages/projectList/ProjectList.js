@@ -1,4 +1,4 @@
-import ProjectSummary from '../../components/ProjectSummary'
+import ProjectSummary from './ProjectSummary'
 import { useCollection } from '../../hooks/useCollection'
 
 // styles

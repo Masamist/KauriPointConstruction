@@ -28,13 +28,14 @@ export default function Create() {
   
   // const [financialSummary, setfinancialSummary] = useState([])
   const [projectList, setProjectList] = useState([])
-  const [tempProject, setTempProject] = useState([])
+  const [tempMain, setTempMain] = useState([])
+  const [tempLabourList, setTempLabourList] = useState([])
 
   const [startDate, setStartDate] = useState('')
   const [GSTno, setGSTno] = useState('')
   const [subContractFee, setSubContractFee] = useState('')
   const [description, setDescription] = useState([])
-  const [teamList, setTeamList] = useState([{ team:[{staff:'', rate:'', role:''}]},])
+  const [teamList, setTeamList] = useState([{staff:'', role:'', rate:''}])
 
   console.log(teamList)
 
@@ -51,7 +52,7 @@ export default function Create() {
   }, [documents])
 
   const handleTeamAdd = () => {
-    setTeamList([...teamList, { team:[]}])
+    setTeamList([...teamList, {}])
   }
 
   const handleTeamRemove = (index) => {
@@ -66,22 +67,6 @@ export default function Create() {
     list[index][name] = value
     setTeamList(list)
   }
- 
-  // const handleChecklist = (e) => {
-  //   const newCheck = e.target.value
-  //   if (!tempMainList.includes(newCheck)){
-  //       setTempMainList(    
-  //       [...tempMainList, newCheck]   
-  //     )
-  //   }
-  //   else {
-  //     const index = tempMainList.indexOf(newCheck)
-  //     if (index > -1) {
-  //       tempMainList.splice(index, 1)
-  //     }
-  //   }
-  // }
-
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -98,20 +83,14 @@ export default function Create() {
         city,   
     }
 
-    // const staffRate = {
-    //   staffOne,
-    //   staffTwo,
-    //   staffThree
-    // }
-
     const project = {
       name,
       clientName,
       phone,
       email,
       address, 
-      financialSummary: [],
-      mainList: tempProject.value.mainList,
+      mainList: tempMain.value.mainList,
+      labourList: tempLabourList.value.labourList,
       startDate: timestamp.fromDate(new Date(startDate)),
       GSTno,
       subContractFee,
@@ -198,29 +177,34 @@ export default function Create() {
             value={city}
           />
         </label>
-        <h3>Financial Summary:</h3>
-        {/* - total excluding gst
-        - GST
-        -Total including GST
-        -Payment Claim to Due
-        - Current Claim
-        -Cost to Completion */}
+
         <label>
-          <span>Total excluding GST:</span>
+        <h3>Main List</h3>
+          <span>Main List Template:</span>
+            <Select
+              onChange={(option) => setTempMain(option)}
+              options={projectList}
+            />
+        </label>
+        
+        
+        <label>
+        <h3>Labour List</h3>
+        <span>Labour List Template:</span>
+          <Select
+            onChange={(option) => setTempLabourList(option)}
+            options={projectList}
+          />
+          <br />
           {/* <input
             type="number" 
             onChange={(e) => setName(e.target.value)}
             value={address}
           /> */}
         </label>
-        <h3>Main List:</h3>
-        <span>Main List Template:</span>
-          <Select
-            onChange={(option) => setTempProject(option)}
-            options={projectList}
-          />
-        <br />
-        <h3>Project Details:</h3>
+
+
+        <h3>Project Details</h3>
         <label>
           <span>Start date:</span>
             <input
@@ -274,7 +258,7 @@ BUG HERE after delete item, state is deleted but not updated input UI
                         type="text" 
                         id="staff" 
                         required
-                        value={singleStaff.team.staff}
+                        value={singleStaff.staff}
                         onChange = {(e) => handleStaffChange(e, index)}
                       />
                       <p>Role</p>
@@ -283,7 +267,7 @@ BUG HERE after delete item, state is deleted but not updated input UI
                         type="text" 
                         id="role" 
                         required
-                        value={singleStaff.team.role}
+                        value={singleStaff.role}
                         onChange = {(e) => handleStaffChange(e, index)}
                       />
                       <p>Rate</p>
@@ -292,7 +276,7 @@ BUG HERE after delete item, state is deleted but not updated input UI
                         type="text" 
                         id="rate" 
                         required
-                        value={singleStaff.team.rate}
+                        value={singleStaff.rate}
                         onChange = {(e) => handleStaffChange(e, index)}
                       />
                       

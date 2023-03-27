@@ -5,7 +5,7 @@ export function ProjectClientInfo({ project }) {
   const email = project.email ? project.email : '-'
 
   return (
-    <>
+    <div className="project-client-info">
       <h2 className="page-title">Project: {name}</h2>       
         <p>Client Name: {clientName}</p>
         <p>Phone: {phone}</p>
@@ -16,6 +16,6 @@ export function ProjectClientInfo({ project }) {
           <span>{project.address.suburb}, </span>
           <span>{project.address.city}</span>
         </p>
-    </>
+    </div>
   )
 }
