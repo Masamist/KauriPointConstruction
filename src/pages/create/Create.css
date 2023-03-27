@@ -1,15 +1,6 @@
 .create-form {
   max-width: 600px;
-}
-
-.create-form .check-box input {
-  width:unset;
-  margin: .8rem 1.2rem;
-  display: inline;
-
-}
-
-.create-form .check-box label {
-  display: inline;
-
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 3rem;
 }

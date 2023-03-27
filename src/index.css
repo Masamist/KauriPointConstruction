@@ -20,6 +20,7 @@ body {
 ul, li, p, h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
+  font-weight: normal;
 }
 ul {
   list-style-type: none;
@@ -43,8 +44,22 @@ ul {
 }
 .btn:hover {
   color: var(--primary-color);
-  background: #fff;
+  background: inherit;
   border: 1px solid var(--primary-color);
+}
+
+/* color */
+#pc-Green {
+  color: var(--primary-color);
+}
+
+/* table */
+table {
+  background-color: #fff;
+  border-radius: 3px;
+}
+th {
+  font-weight: 600;
 }
 
 /* forms */

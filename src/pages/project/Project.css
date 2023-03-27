@@ -1,0 +1,27 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+}
+.project a {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+}
+.project h4 {
+  font-size: 0.9em;
+  color: var(--heading-color);
+}
+.project p {
+  color: var(--text-color);
+  font-size: 0.9em;
+}
+#btn-disabled{
+  background-color: #999;
+  color: #fff;
+  pointer-events: none;
+  cursor: none;
+}

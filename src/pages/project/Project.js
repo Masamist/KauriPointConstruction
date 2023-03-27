@@ -31,11 +31,13 @@ export default function Project() {
   }
 
   return (
-    <div className="project-details">
+    <div className="project">
       <ProjectClientInfo project={document} />
-      <button onClick={ handleSwitchList }>MainList</button>
-      {/* <button onClick={ handleSwitchList }>LabourList</button> */}
-
+      <div>
+      <button onClick={ handleSwitchList } className="btn" id={!switchLabourList && 'btn-disabled'}>MainList</button>
+      <button onClick={ handleSwitchList } className="btn" id={switchLabourList && 'btn-disabled'}>LabourList</button>
+      </div>
+      
       {!switchLabourList && <ProjectDetail project={document} />}
       {switchLabourList && <ProjectLabourList project={document} />}
       
