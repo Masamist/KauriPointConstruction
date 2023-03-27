@@ -38,7 +38,7 @@
 .services{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: stretch;
     flex-wrap: wrap;
     padding: 20px;
     text-align: left;
@@ -46,8 +46,7 @@
 
 .service{
     margin: 50px 15px;
-    max-width: 30%;
-    min-width: 300px;
+    width: 30%;
 }
 
 .service > h2 {
@@ -139,8 +138,17 @@
     opacity:14%;
 }
 
+@media screen and (max-width: 950px) {
+    .service{
+        width: 43%;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .testimonial{
         flex-wrap: wrap;
+    }
+    .service{
+        width: 100%;
     }
 }
