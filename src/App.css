@@ -1,20 +1,25 @@
-.App {
-  display: flex;
+
+.App{
+  font-size: 16;
 }
-.App .container{
-  flex-grow: 1;
+
+.App > .container{
   padding: 0;
-}
-.App .sub-container{
-  display: flex;
-  flex-direction: row;
+  width: 100vw;
   background-color: #eee;
 }
-.App .content-container {
-  flex-grow: 1;
+
+.content-container {
+  display: inline-block;
   padding: 4rem;
-  margin: 3rem;
+  margin: 0 3rem;
   max-width: 50rem;
   background-color: #fff;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 700px) {
+  .App{
+    font-size: 12px;
+  }
 }

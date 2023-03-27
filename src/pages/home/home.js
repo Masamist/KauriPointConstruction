@@ -12,13 +12,13 @@ import Navbar from '../../components/Navbar'
 
 export default function Home() {
     return (
-        <div>
+        <>
             <Poster />
             <Services />
             <Testimonial />
             <Sustainability />
             <Footer />
-        </div>
+        </>
     )
 }
 
@@ -116,7 +116,7 @@ function Sustainability () {
     return (
         <div className='sustainability'>
             <div className='sustainabilityImage'> </div>
-            <div className='poster-text'>
+            <div className='sustainability-text'>
                 <h1>Supporting Local communitites with sustainable practices.</h1>
                 <h2>
                     Kauri Point Construction has a key focus on the environment, 
