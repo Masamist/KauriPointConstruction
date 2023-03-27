@@ -92,12 +92,10 @@ export default function Create() {
     }
 
     const address = {
-      address: {
         line1,
         line2,
         suburb,
-        city,
-      }     
+        city,   
     }
 
     // const staffRate = {
