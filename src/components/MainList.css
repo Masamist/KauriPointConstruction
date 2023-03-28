@@ -1,0 +1,36 @@
+.mainlist-task {
+    margin-left: 30px;
+}
+
+.mainlist-taskBackground {
+    background-color: rgb(213,240,137);
+    margin: 3px 0px;
+}
+
+.mainlist-taskHeader {
+    margin-left: 30px;
+    color:aliceblue;
+    font-weight: 600;
+}
+
+.mainlist-taskHeader > span{
+    margin-left: 30px;
+}
+
+.mainlist-taskHeaderBackground{
+    display: block;
+    background-color: rgb(137, 172, 39);
+    width: 100%;
+}
+.mainlist-task span{
+    width: 20%;
+}
+
+.mainlist-stageCard{ 
+    margin: 10px 0;
+    background-color: aliceblue;
+}
+
+.mainlist-stageCard h3{
+    margin-left: 20px;
+}

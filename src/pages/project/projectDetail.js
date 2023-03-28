@@ -1,4 +1,6 @@
 import { format } from "path"
+import React from "react"
+import MainList from "../../components/MainList"
 import './ProjectDetail.css'
 
 export default function ProjectDetail({project}) {
@@ -23,7 +25,7 @@ export default function ProjectDetail({project}) {
             <p><span>Cost to Completion excluding GST:</span>$00.00</p>
         </div>
         
-        <MainList mainList={project.mainList} />
+        <MainList stages={project.mainList} />
 
         <h3>Project Detail</h3>
         <p className="due-date">
@@ -44,46 +46,50 @@ export default function ProjectDetail({project}) {
             <th>Week</th>
             <th>Month</th>
           </tr>
-        {project.team.map((t, i) => (
-          <tr key={i}>
-            <td>{t.staff}</td>
-            <td>{t.role}</td>
-            <td>{t.rate}</td>
-            <td>{`${parseInt(t.rate)*9.5}`}</td>
-            <td>{`${parseInt(t.rate)*47.5}`}</td>
-            <td>{`${parseInt(t.rate)*190}`}</td>
-          </tr>
-        ))}    
+        {Object.entries(project.team).map( ([key, member]) => {
+                        return (
+                            <React.Fragment key={key}>
+                            <tr>
+                                <td>{member.role}</td>
+                                <td>{member.name}</td>
+                                <td>{member.rate}</td>
+                                <td>${parseFloat(member.rate) * 9.5 }</td>
+                                <td>${parseFloat(member.rate) * 45 }</td>
+                                <td>${parseFloat(member.rate) * 180 }</td>
+                            </tr>
+                            </React.Fragment>
+                        )
+                    })}   
         </table>
       </div>
     </div>
   )
 }
 
-function MainList({ mainList }) {
-  return (
-    <>
-      {Object.entries(mainList).map( ([key, tasks]) => { return ( 
-        <div key={key}>
-          <strong>{key}</strong>
-          <MainListTask tasks={tasks}/>
-        </div> 
-    )})}
-    </>
-  )
-}
+// function MainList({ mainList }) {
+//   return (
+//     <>
+//       {Object.entries(mainList).map( ([key, tasks]) => { return ( 
+//         <div key={key}>
+//           <strong>{key}</strong>
+//           <MainListTask tasks={tasks}/>
+//         </div> 
+//     )})}
+//     </>
+//   )
+// }
 
-function MainListTask( {tasks} ) {
-  return (
-    <>
-      {Object.entries(tasks).map( ([key, task]) => {
-        const name = task.task
-        return (
-          <div key={key}>
-            <span>{name}</span>
-          </div>
-        )
-      })}
-    </>
-  )
-}
+// function MainListTask( {tasks} ) {
+//   return (
+//     <>
+//       {Object.entries(tasks).map( ([key, task]) => {
+//         const name = task.task
+//         return (
+//           <div key={key}>
+//             <span>{name}</span>
+//           </div>
+//         )
+//       })}
+//     </>
+//   )
+// }
