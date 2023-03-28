@@ -1,0 +1,13 @@
+.labourList-StageHeader {
+    background-color: green;
+    color:aliceblue;
+    padding: 10px 20px;
+    margin: 3px;
+}
+
+
+.labourList-StageTask{
+    font-size: .8em;
+    margin: .3em 1em;
+    border-bottom: 1px solid green;
+}

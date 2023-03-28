@@ -65,31 +65,3 @@ export default function ProjectDetail({project}) {
     </div>
   )
 }
-
-// function MainList({ mainList }) {
-//   return (
-//     <>
-//       {Object.entries(mainList).map( ([key, tasks]) => { return ( 
-//         <div key={key}>
-//           <strong>{key}</strong>
-//           <MainListTask tasks={tasks}/>
-//         </div> 
-//     )})}
-//     </>
-//   )
-// }
-
-// function MainListTask( {tasks} ) {
-//   return (
-//     <>
-//       {Object.entries(tasks).map( ([key, task]) => {
-//         const name = task.task
-//         return (
-//           <div key={key}>
-//             <span>{name}</span>
-//           </div>
-//         )
-//       })}
-//     </>
-//   )
-// }
