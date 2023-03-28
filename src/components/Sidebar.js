@@ -14,9 +14,6 @@ export default function Sidebar() {
           <li>
             <NavLink to="/create">Create Project</NavLink>
           </li>
-          <li>
-            <NavLink to="/setting">Setting</NavLink>
-          </li>
         </ul> 
       </nav>    
     </div>

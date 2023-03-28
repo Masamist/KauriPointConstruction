@@ -1,0 +1,26 @@
+.teamposter{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.teamposter > h1, .teamposter > p {
+    margin: 0 2rem 2rem 2rem;
+}
+
+.managerCard {
+    margin: 2rem;
+}
+
+.greenLine { 
+    display: block;
+    border: var(--primary-color) 1px solid;
+    width: 80%;
+}
+.photo-right {
+    height: 100%;
+    width: 50%;
+    background-color: blue;
+    float: right;
+}

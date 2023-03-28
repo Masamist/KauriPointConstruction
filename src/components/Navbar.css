@@ -1,10 +1,10 @@
 .navbar {
   width: 100%;
   padding: 1rem 2rem .8rem 1rem;
-  box-sizing: border-box;
 }
 .navbar ul {
   display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   align-items: center;
   justify-content: flex-end;

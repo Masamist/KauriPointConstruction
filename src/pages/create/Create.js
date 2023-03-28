@@ -8,6 +8,7 @@ import Select from 'react-select'
 
 // styles
 import './Create.css'
+import Sidebar from '../../components/Sidebar'
 
 
 export default function Create() {
@@ -107,6 +108,9 @@ export default function Create() {
 
 
   return (
+    <>
+    <Sidebar />
+    <div className='content-container'>
     <div className="create-form">
       <h2 className="page-title">Create a new project</h2>
       <form onSubmit={handleSubmit}>
@@ -335,5 +339,7 @@ BUG HERE after delete item, state is deleted but not updated input UI
         {formError && <p className="error">{formError}</p>}
       </form>
     </div>
+    </div>
+    </>
   )
 }

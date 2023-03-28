@@ -22,10 +22,16 @@ export default function Navbar() {
           <>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/signup">Signup</Link></li>
+            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/team">Team</Link></li>
           </>
         )}
         {user && (
           <>
+            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/team">Team</Link></li>
+            <li><Link to="/">Projects</Link></li>
+
             <li>Hi {user.displayName}, </li>
             <li><Avatar src={user.photoURL} /></li>
             <li>
