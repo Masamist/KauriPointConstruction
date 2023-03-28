@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import './LabourList.css'
 
@@ -30,18 +31,16 @@ function LabourStageCard({name, stage }) {
 }
 
 export default function LabourList({ list }) {
-    const labourList = list;
     
-
-    console.log('list: ', labourList)
+    console.log('list: ', list)
 
     return (
-        <>
+        <React.Fragment>
             <h2>LABOUR LIST</h2>
-            { Object.entries( labourList ).map( ([key, stage ]) => {
+            { Object.entries( list ).map( ([key, stage ]) => {
                 return <LabourStageCard key={key} name={key} stage={stage}/>
             })}
-        </>
+        </React.Fragment>
     )
 
 }

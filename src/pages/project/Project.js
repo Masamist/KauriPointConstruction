@@ -23,11 +23,7 @@ export default function Project() {
   }
 
   const handleSwitchList = () => {
-    if(switchLabourList === false){
-      SetSwitchLabourList(true)
-    } else {
-      SetSwitchLabourList(false)
-    }
+    SetSwitchLabourList(!switchLabourList)
   }
 
   return (

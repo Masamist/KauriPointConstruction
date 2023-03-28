@@ -8,7 +8,6 @@ import Service_extension from '../../assets/service_extension.JPG'
 import testimonial from '../../assets/testimonial.jpg'
 import Logo from '../../assets/logo.png'
 
-import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
 
 

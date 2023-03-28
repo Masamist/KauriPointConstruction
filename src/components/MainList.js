@@ -8,13 +8,12 @@ function Tasks ({ stage }) {
         <div>
 
             <table className='mainlist-taskHeaderBackground'>
-                <tr className='mainlist-taskHeader flex'>
+                <thead className='mainlist-taskHeader flex'>
                     <th>Task Items</th>
                     <th>SubContractor</th>
                     <th>Charge Amount</th>
                     <th>Status</th>
-                </tr>
-            
+                </thead>
                 {Object.entries(stage).map( ([key,task]) => {
                     const taskName = task.task ? task.task : ' -'
                     const subContractor = task.subcontractor ? task.subcontractor : " -"
@@ -22,12 +21,12 @@ function Tasks ({ stage }) {
                     const status = task.status ? task.status : ' -'
                     
                     return (
-                        <tr className='mainlist-taskBackground' key={key}>
+                        <tbody className='mainlist-taskBackground' key={key}>
                             <td >{taskName} </td>
                             <td>{subContractor}</td>
                             <td>{calculatedamount}</td>
                             <td>{status}</td>
-                        </tr>
+                        </tbody>
                     )
                 })}
             </table>
