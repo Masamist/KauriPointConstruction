@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDocument } from '../../hooks/useDocument'
 import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
+import Sidebar from '../../components/Sidebar'
 
 // styles
 import './Project.css'
@@ -27,16 +28,21 @@ export default function Project() {
   }
 
   return (
-    <div className="project">
-      <ProjectClientInfo project={document} />
-      <div>
-        <p>+ Update Project</p>
-        <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
-        <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
+    <>
+      <Sidebar />
+      <div className='content-container'>
+        <div className="project">
+          <ProjectClientInfo project={document} />
+          <div>
+            <p>+ Update Project</p>
+            <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
+            <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
+          </div>
+          
+          {!switchLabourList && <ProjectDetail project={document} />}
+          {switchLabourList && <ProjectLabourList project={document} />}
+        </div>
       </div>
-      
-      {!switchLabourList && <ProjectDetail project={document} />}
-      {switchLabourList && <ProjectLabourList project={document} />}
-    </div>
+    </>
   )
 }

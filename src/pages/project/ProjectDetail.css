@@ -5,10 +5,12 @@
 
 .project-detail .team-table th {
   background-color: #c2cf76;
-  color: #333;
+  color: #555;
+  text-align: left;
 }
 
 .project-detail .team-table td {
-  padding:.5rem 0 .3rem 1rem
+  padding:.5rem .3rem;
+  color: #555;
 }
 

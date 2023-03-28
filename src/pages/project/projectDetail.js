@@ -1,7 +1,8 @@
-//import { format } from "path"
-
 import React from "react"
 import MainList from "../../components/MainList"
+
+// styles
+import './ProjectDetail.css'
 
 export default function ProjectDetail({project}) {
 
@@ -45,19 +46,21 @@ export default function ProjectDetail({project}) {
             <th>Month</th>
           </tr>
         {Object.entries(project.team).map( ([key, member]) => {
-                        return (
-                            <React.Fragment key={key}>
-                            <tr>
-                                <td>{member.role}</td>
-                                <td>{member.name}</td>
-                                <td>{member.rate}</td>
-                                <td>${parseFloat(member.rate) * 9.5 }</td>
-                                <td>${parseFloat(member.rate) * 45 }</td>
-                                <td>${parseFloat(member.rate) * 180 }</td>
-                            </tr>
-                            </React.Fragment>
-                        )
-                    })}   
+          return (
+            (member.staff &&
+            <React.Fragment key={key}>
+                <tr>
+                    <td>{member.staff}</td>
+                    <td>{member.role}</td>
+                    <td>$ {member.rate}</td>
+                    <td>$ {parseFloat(member.rate) * 9.5 }</td>
+                    <td>$ {parseFloat(member.rate) * 45 }</td>
+                    <td>$ {parseFloat(member.rate) * 180 }</td>
+                </tr>
+            </React.Fragment>
+            )
+          )
+          })}   
         </table>
       </div>
     </div>

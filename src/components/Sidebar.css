@@ -2,7 +2,7 @@
   display: inline-block;
   width: 12em;
   background: var(--primary-color);
-  height: 100vh;
+  height: 200vh;
   box-sizing: border-box;
   position: relative;
   color: #fff;
