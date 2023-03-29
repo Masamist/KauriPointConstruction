@@ -36,7 +36,7 @@ export default function ProjectDetail({project}) {
         <p className="details">{details}</p>
         
         <p>Staff Rate:</p>
-        <table class="team-table">
+        <table className="team-table">
           <tr>
             <th>Staff</th>
             <th>Role</th>
@@ -47,10 +47,10 @@ export default function ProjectDetail({project}) {
           </tr>
         {Object.entries(project.team).map( ([key, member]) => {
           return (
-            (member.staff &&
+            (member.name &&
             <React.Fragment key={key}>
                 <tr>
-                    <td>{member.staff}</td>
+                    <td>{member.name}</td>
                     <td>{member.role}</td>
                     <td>$ {member.rate}</td>
                     <td>$ {parseFloat(member.rate) * 9.5 }</td>

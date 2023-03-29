@@ -36,7 +36,7 @@ export default function Create() {
   const [GSTno, setGSTno] = useState('')
   const [subContractFee, setSubContractFee] = useState('')
   const [description, setDescription] = useState([])
-  const [teamList, setTeamList] = useState([{staff:'', role:'', rate:''}])
+  const [teamList, setTeamList] = useState([{name:'', role:'', rate:''}])
 
   console.log(teamList)
 
@@ -258,11 +258,11 @@ BUG HERE after delete item, state is deleted but not updated input UI
                       <span>Staff {index + 1}:</span>
                       <p>Staff Name</p>
                       <input 
-                        name="staff" 
+                        name="name" 
                         type="text" 
-                        id="staff" 
+                        id="name" 
                         required
-                        value={singleStaff.staff}
+                        value={singleStaff.name}
                         onChange = {(e) => handleStaffChange(e, index)}
                       />
                       <p>Role</p>
