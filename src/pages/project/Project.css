@@ -1,3 +1,10 @@
+.page-container{
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  min-height: 100vh;
+}
+
 .project {
   display: flex;
   flex-direction: column;
@@ -28,4 +35,34 @@
   background-color: #999;
   color: #fff;
 
+}
+
+@media screen and (max-width: 700px) {
+  .page-container{
+    flex-direction: column;
+    align-content: stretch;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: auto;
+    margin: 1em 0;
+  }
+
+  .sidebar .links {
+    margin: 1em 0 1em 1em;
+  }
+
+  .sidebar .links ul {
+    padding: 10px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .sidebar .links a.active {
+    color: #555;
+    background: #eee;
+    border-radius: 20px 20px;
+  }
 }

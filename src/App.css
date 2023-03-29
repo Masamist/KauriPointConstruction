@@ -5,15 +5,17 @@
 .App > .container{
   padding: 0;
   width: 100vw;
+  min-height: 100vh;
   background-color: #eee;
 }
 
 .content-container {
-  display: inline-block;
-  padding: 4rem;
-  margin: 0 3rem;
-  max-width: 50rem;
+  display: block;
+  background-color: var(--bg-color);
+  padding: 2em;
+  margin: 0 1em 1em 1em;
   border-radius: 5px;
+  width: 100%;
 }
 
 @media screen and (max-width: 700px) {

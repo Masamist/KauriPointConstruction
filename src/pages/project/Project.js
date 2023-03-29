@@ -28,7 +28,7 @@ export default function Project() {
   }
 
   return (
-    <>
+    <div className='page-container'>
       <Sidebar />
       <div className='content-container'>
         <div className="project">
@@ -43,6 +43,6 @@ export default function Project() {
           {switchLabourList && <ProjectLabourList project={document} />}
         </div>
       </div>
-    </>
+    </div>
   )
 }

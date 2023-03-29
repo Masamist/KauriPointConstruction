@@ -108,7 +108,7 @@ export default function Create() {
 
 
   return (
-    <>
+    <div className='page-container'>
     <Sidebar />
     <div className='content-container'>
     <div className="create-form">
@@ -340,6 +340,6 @@ BUG HERE after delete item, state is deleted but not updated input UI
       </form>
     </div>
     </div>
-    </>
+    </div>
   )
 }
