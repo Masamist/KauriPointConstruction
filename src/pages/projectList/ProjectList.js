@@ -9,7 +9,7 @@ export default function ProjectList() {
   const { documents, error } = useCollection('projects')
 
   return (
-    <>
+    <div className='page-container'>
     <Sidebar />
     <div className='content-container'>
       <div className="project-list">
@@ -18,6 +18,6 @@ export default function ProjectList() {
         {documents && <ProjectSummary projects={documents} />}
       </div>
     </div>
-    </>
+    </div>
   )
 }

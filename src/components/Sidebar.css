@@ -1,10 +1,7 @@
 .sidebar {
-  display: inline-block;
+  display: block;
   width: 12em;
   background: var(--primary-color);
-  height: 200vh;
-  box-sizing: border-box;
-  position: relative;
   color: #fff;
 }
 .sidebar-content {
@@ -18,13 +15,17 @@
 .sidebar .links li {
   margin-top: 10px;
 }
-.sidebar .links a {
+.sidebar .links ul {
   display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.sidebar .links a {
+  display: inline-block;
+  width: 100%;
   padding: 10px;
   text-decoration: none;
-  width: 100%;
   color: #fff;
-  box-sizing: border-box;
 }
 .sidebar .links img {
   margin-right: 10px;
