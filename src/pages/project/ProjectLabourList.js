@@ -10,7 +10,7 @@ export default function ProjectLabourList({project}) {
     <div className="project-detail">
         <h3>Labour Const Breakdown by Stage</h3>
         <div className="project-labour-list">
-          <LabourList list={project.labourList} />
+          <LabourList list={project.labourList} team={project.team} />
         </div>    
     </div>
   )
