@@ -13,13 +13,13 @@ export default function ProjectSummary({ projects }) {
       {projects.map(project => {
         const results = calculateProjectProgress(project);
 
-        const initial = (results.totalClaimed / results.totalCost) * 100
+        const claimed = (results.totalClaimed / results.totalCost) * 100
 
         console.log('RESULTS:', stringify(results))
         return (
         <Link to={`/project/${project.id}`} key={project.id}>
           <h4>{project.name}</h4>
-          <ProgressBar initial={initial} warning='20' progress='10'/>
+          <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
           <p>Start date: {project.startDate.toDate().toDateString()}</p>
         </Link>
       )})}
