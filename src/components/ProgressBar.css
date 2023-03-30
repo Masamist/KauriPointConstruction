@@ -1,0 +1,36 @@
+
+.progress-initial {
+    border-radius: 8px;
+    background-color: rgb(82, 82, 173);
+    float: left;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .progress-warning {
+    border-radius: 8px;
+    background-color: rgb(204, 123, 91);
+    float: left;
+    width: 0%;
+    height: 80%;
+    position: absolute;
+  }
+
+  .progress-progress {
+    border-radius:8px;
+    background-color: rgb(61, 134, 61);
+    float: left;
+    width: 0%;
+    height: 70%;
+    position: absolute;
+  }
+  
+  .progressbar {
+    background-color: rgb(196, 196, 196);
+    border-radius: 8px;
+    width: 50%;
+    height: 15px;
+    margin: auto;
+    position: relative;
+  }

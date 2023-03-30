@@ -1,19 +1,28 @@
+import { stringify } from 'json5';
 import { Link } from 'react-router-dom'
+import { ProgressBar, calculateProjectProgress } from '../../components/ProgressBar'
 // styles
 import './ProjectSummary.css'
 
 
 export default function ProjectSummary({ projects }) {
+
   return (
     <div className="project-summary">
       {projects.length === 0 && <p>No projects yet!</p>}
-      {projects.map(project => (
+      {projects.map(project => {
+        const results = calculateProjectProgress(project);
+
+        const initial = (results.totalClaimed / results.totalCost) * 100
+
+        console.log('RESULTS:', stringify(results))
+        return (
         <Link to={`/project/${project.id}`} key={project.id}>
           <h4>{project.name}</h4>
-          <progress value="32" max="100"> 32% </progress>
+          <ProgressBar initial={initial} warning='20' progress='10'/>
           <p>Start date: {project.startDate.toDate().toDateString()}</p>
         </Link>
-      ))}
+      )})}
     </div>
   )
 }
