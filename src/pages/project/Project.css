@@ -77,13 +77,13 @@
 
 .modal {
   position: fixed;
-  width: 400px;
+  width: 40rem;
   z-index: 1040;
-  top: 30%;
+  top: 20%;
   left: 30%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
