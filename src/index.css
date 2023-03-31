@@ -63,6 +63,18 @@ ul {
   align-self: center;
   font-weight: 600;
 }
+
+.btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  border: 1px solid var(--primary-color);
+  align-self: center;
+}
+
 .btn:hover {
   color: var(--primary-color);
   background: inherit;
@@ -72,7 +84,7 @@ ul {
 .btn-cancel {
   color: #fff;
   background-color: #888;
-  padding: 7px 12px;
+  padding: 5px 12px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
