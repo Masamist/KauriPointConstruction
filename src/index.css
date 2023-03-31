@@ -7,6 +7,7 @@
   --text-color: #999;
   --primary-color: #768423;
   --secondary-color: rgb(84, 93, 30);
+  --tertiary-color: #918776;
   --highlight-color: #d13267;
   --bg-color: #ffffff;
 }
@@ -39,14 +40,15 @@ ul {
   color: var(--heading-color);
   display: inline-block;
 }
-.btn {
-  background-color: var(--primary-color);
-  color: #fff;
+.btn-white {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
   padding: 7px 12px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
-  border: 1px solid var(--primary-color);
+  box-shadow: 5px 5px 5px var(--heading-color);
+  text-align: center;
 }
 .btn-green {
   background-color: var(--primary-color);
