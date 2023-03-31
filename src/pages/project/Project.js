@@ -8,6 +8,7 @@ import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
 
 import ProjectClientInfoUpdate from './projectUpdate/ProjectClientInfoUpdate'
+import ProjectClientInfoUpdateModal from './projectUpdate/ProjectClientInfoUpdateModal'
 
 
 // styles
@@ -21,7 +22,6 @@ export default function Project() {
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
   const [ switchUpdate, setSwitchUpdate ] = useState(false)
 
-  
   if(error) {
     return <div className="error">{error}</div>
   }
@@ -38,7 +38,6 @@ export default function Project() {
     SetSwitchLabourList(!switchLabourList)
   }
 
-
   return (
     <div className='page-container'>
       <Sidebar />
@@ -48,11 +47,12 @@ export default function Project() {
             <ProjectClientInfo project={document}/>
           }
           {switchUpdate && <ProjectClientInfoUpdate project={document} />}
+
+
           <div>
             <button className="btn" onClick={ handleSwitchUpdate }>+ Update Customer Detail</button>
           </div>
-          
-
+          <ProjectClientInfoUpdateModal project={document}/>
 
           <div>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
