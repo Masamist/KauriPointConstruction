@@ -1,4 +1,4 @@
-export function ProjectClientInfo({ project }) {
+export default function ProjectClientInfo({ project }) {
   const name = project.name
   const clientName = project.clientName
   const phone = project.phone ? project.phone : '-'

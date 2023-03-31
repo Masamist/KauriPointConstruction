@@ -1,19 +1,25 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useDocument } from '../../hooks/useDocument'
+
+import Sidebar from '../../components/Sidebar'
+import ProjectClientInfo from './ProjectClientInfo'
 import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
-import Sidebar from '../../components/Sidebar'
+
+import ProjectClientInfoUpdate from './projectUpdate/ProjectClientInfoUpdate'
+
 
 // styles
 import './Project.css'
-import { ProjectClientInfo } from './ProjectClientInfo'
+
 
 export default function Project() {
   const { id } = useParams()
   const { error, document } = useDocument('projects' , id)
 
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
+  const [ switchUpdate, setSwitchUpdate ] = useState(false)
 
   
   if(error) {
@@ -23,22 +29,35 @@ export default function Project() {
     return <div className="loading">Loading...</div>
   }
 
+  // Switches to swap Update components
+  const handleSwitchUpdate = () => {
+    setSwitchUpdate(!switchUpdate)
+  }
+
   const handleSwitchList = () => {
     SetSwitchLabourList(!switchLabourList)
   }
+
 
   return (
     <div className='page-container'>
       <Sidebar />
       <div className='content-container'>
         <div className="project">
-          <ProjectClientInfo project={document} />
+          {!switchUpdate && 
+            <ProjectClientInfo project={document}/>
+          }
+          {switchUpdate && <ProjectClientInfoUpdate project={document} />}
           <div>
-            <p>+ Update Project</p>
-            <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
-            <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
+            <button className="btn" onClick={ handleSwitchUpdate }>+ Update Customer Detail</button>
           </div>
           
+
+
+          <div>
+            <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
+            <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
+          </div>       
           {!switchLabourList && <ProjectDetail project={document} />}
           {switchLabourList && <ProjectLabourList project={document} />}
         </div>
