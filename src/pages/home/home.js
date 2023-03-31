@@ -6,9 +6,7 @@ import Service_demolition from '../../assets/service_demolition.JPG'
 import Service_houseRemoval from '../../assets/service_houseRemoval.JPG'
 import Service_extension from '../../assets/service_extension.JPG'
 import testimonial from '../../assets/testimonial.jpg'
-import Logo from '../../assets/logo.png'
 
-import { Link } from 'react-router-dom'
 import Footer from '../../components/Footer'
 
 
