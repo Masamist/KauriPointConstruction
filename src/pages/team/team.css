@@ -13,16 +13,20 @@
     margin: 2em 10em;
 }
 
+.managerCard > .memberPhoto{
+    width:400px;
+}
+
 .greenLine { 
     display: block;
     border: var(--primary-color) 1px solid;
     width: 100%;
 }
-.photo-right {
-    height: 20em;
+.memberPhoto {
     background-color: blue;
     float: right;
     object-fit: cover;
+    width: 100%;
 }
 
 .mugShots{
@@ -78,4 +82,22 @@
 }
 .bragText > p{
     color: var(--bg-color);
+}
+
+@media screen and (min-width: 1200px) {
+    .teamMemberCard{
+        max-width: 400px;
+    }
+    .managerCard > .memberPhoto {
+        width: 500px;
+    }
+    .managerCard > .text {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+.managerCard > .memberPhoto {
+    width: 300px;
+}
 }

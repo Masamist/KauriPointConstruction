@@ -79,7 +79,7 @@ function ManagerCard() {
                     commodo consequa
                 </p>
             </div>
-            <img className='photo-right' src={mugshotSimon}  alt='team member'></img>
+            <img className='memberPhoto' src={mugshotSimon}  alt='team member'></img>
         </div>
     )
 }
@@ -87,7 +87,7 @@ function ManagerCard() {
 function TeamMemberCard({name, position, text, mugshot}) {
     return (
         <div className='teamMemberCard'>
-            <img className='photo-right' src={mugshot}  alt='team member'></img>
+            <img className='memberPhoto' src={mugshot}  alt='team member'></img>
             <div className='text'>
                 <h3>{position}</h3>
                 <h1>{name}</h1>
