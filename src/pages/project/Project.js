@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useDocument } from '../../hooks/useDocument'
 
+
+import Modal from "react-overlays/Modal";
 import Sidebar from '../../components/Sidebar'
 import ProjectClientInfo from './ProjectClientInfo'
 import ProjectDetail from './ProjectDetail'
@@ -20,6 +22,7 @@ export default function Project() {
 
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
   const [ switchUpdate, setSwitchUpdate ] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   
   if(error) {
@@ -38,6 +41,14 @@ export default function Project() {
     SetSwitchLabourList(!switchLabourList)
   }
 
+  const handleClose = () => setShowModal(false)
+
+  const handleSave = () => {
+    console.log("success")
+  }
+
+  const renderBackdrop = (props) => <div className="backdrop" {...props} />
+
 
   return (
     <div className='page-container'>
@@ -48,9 +59,48 @@ export default function Project() {
             <ProjectClientInfo project={document}/>
           }
           {switchUpdate && <ProjectClientInfoUpdate project={document} />}
+
           <div>
             <button className="btn" onClick={ handleSwitchUpdate }>+ Update Customer Detail</button>
           </div>
+          <div>
+          <button type="button" onClick={() => setShowModal(true)}>
+            Update Customer Detail
+          </button>
+          </div>
+
+          <Modal
+            className="modal"
+            show={showModal}
+            onHide={handleClose}
+            renderBackdrop={renderBackdrop}
+            >
+              <div>
+                <div className="modal-header">
+                  <div className="modal-title">Update Customers Detail</div>
+                  <div>
+                    <span className="close-button" onClick={handleClose}>
+                      x
+                    </span>
+                  </div>
+                </div>
+                <div className="modal-desc">
+                  <p>Modal body contains text.</p>
+                  <form>
+                  <input></input>
+                  </form>
+                  
+                </div>
+                <div className="modal-footer">
+                  <button className="secondary-button" onClick={handleClose}>
+                    Cancel
+                  </button>
+                  <button className="primary-button" onClick={handleSave}>
+                    Update
+                  </button>
+                </div>
+              </div>
+          </Modal>
           
 
 
