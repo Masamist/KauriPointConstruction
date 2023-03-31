@@ -1,0 +1,104 @@
+/* ////////////// ProjectClientInfoModel.css ///////////////// */
+.modal {
+  font-family: inherit;
+}
+
+.modal {
+  position: fixed;
+  width: 38rem;
+  z-index: 1040;
+  top: 10%;
+  left: 40%;
+  bottom: 10%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+}
+@media screen and (max-width: 1100px) {
+  .modal {
+    left:15%;
+    width: 35rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .modal {
+    top: 8%;
+    left:5%;
+    width: 30rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .modal {
+    left:3%;
+    width: 20rem;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.modal-title {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-desc,
+.modal-header,
+.modal-footer {
+  padding: 1rem 1.3rem;
+}
+
+.close-button {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #888;
+  border: none;
+  background-color: white;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  color: #888;
+}
+
+.modal-footer {
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+.modal-example {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

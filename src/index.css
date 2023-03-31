@@ -60,12 +60,26 @@ ul {
   width: 30%;
   align-self: center;
   font-weight: 600;
-  
 }
 .btn:hover {
   color: var(--primary-color);
   background: inherit;
-  border: 1px solid var(--primary-color);
+  border: .9px solid var(--primary-color);
+}
+
+.btn-cancel {
+  color: #fff;
+  background-color: #888;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  border: .9px solid #888;
+}
+.btn-cancel:hover {
+  color: #888;
+  background: inherit;
+  border: .9px solid #888;
 }
 
 /* color */

@@ -6,9 +6,7 @@ import Sidebar from '../../components/Sidebar'
 import ProjectClientInfo from './ProjectClientInfo'
 import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
-
-import ProjectClientInfoUpdate from './projectUpdate/ProjectClientInfoUpdate'
-import ProjectClientInfoUpdateModal from './projectUpdate/ProjectClientInfoUpdateModal'
+import ProjectUpdateClientInfoModal from './projectUpdate/ProjectUpdateClientInfoModal'
 
 
 // styles
@@ -29,11 +27,7 @@ export default function Project() {
     return <div className="loading">Loading...</div>
   }
 
-  // Switches to swap Update components
-  const handleSwitchUpdate = () => {
-    setSwitchUpdate(!switchUpdate)
-  }
-
+  // Switches for Main and Labour components
   const handleSwitchList = () => {
     SetSwitchLabourList(!switchLabourList)
   }
@@ -42,17 +36,11 @@ export default function Project() {
     <div className='page-container'>
       <Sidebar />
       <div className='content-container'>
-        <div className="project">
-          {!switchUpdate && 
-            <ProjectClientInfo project={document}/>
-          }
-          {switchUpdate && <ProjectClientInfoUpdate project={document} />}
+        <div className="project">      
 
+          <ProjectClientInfo project={document}/>
 
-          <div>
-            <button className="btn" onClick={ handleSwitchUpdate }>+ Update Customer Detail</button>
-          </div>
-          <ProjectClientInfoUpdateModal project={document}/>
+          <ProjectUpdateClientInfoModal project={document}/>
 
           <div>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
