@@ -32,7 +32,7 @@
 }
 
 .completedProjects h1{
-    margin: 3em 0 2em 0;
+    margin: 4em 0 2em 0;
     text-align: center;
 }
 
@@ -58,8 +58,49 @@
 }
 
 .projectCard > img{
-    height: 350px;
+    height: 300px;
     max-width: 50vw;
+}
+
+.skillsPoster{
+    background-color: var(--secondary-color);
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3em;
+}
+.skillsPoster > .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.skillsPoster > .text > h1{
+    color: var(--bg-color);
+    font-weight: 150;
+    text-align: center;
+}
+.skillsPoster > .text > p{
+    color: var(--bg-color);
+    width: 60%;
+    font-size: .8em;
+    text-align: center;
+}
+.skillsPoster > ul{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.skillsPoster > ul > li{
+    color: var(--bg-color);
+    flex-grow: 1;
+    font-size: .8em;
+    margin: 1em;
+    width: 5em;
+    text-align: center; 
 }
 
 @media screen and (max-width: 700px) {

@@ -10,6 +10,7 @@ export default function Projects() {
         <>
             <ShowcasePoster />
             <CompletedProjects />
+            <SkillsPoster />
         </>
     )
 }
@@ -79,5 +80,30 @@ function Project ({imageUrl, title, subTitle, text}) {
                 <img src={imageUrl} alt='previous work example'></img>
             </div>
         </>
+    )
+}
+
+function SkillsPoster() {
+    return (
+        <div className='skillsPoster'>
+            <div className='text'>
+                <h1>We make it happen</h1>
+                <h1>Multi-skilled in all aspects of construction.</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna 
+                    liqua.
+                </p>
+            </div>
+            <ul>
+                <li>Construction</li>
+                <li>Renovations</li>
+                <li>Extensions</li>
+                <li>Fencing & Decking</li>
+                <li>Demolition</li>
+                <li>House Removal</li>
+            </ul>
+            <div className='btn-white'>Contact us</div>
+        </div>
     )
 }
