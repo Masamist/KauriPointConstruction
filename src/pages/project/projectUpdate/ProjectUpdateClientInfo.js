@@ -4,11 +4,10 @@ import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
 
 // styles
-import './ProjectUpdateClientInfoModal.css'
+import './ProjectUpdateClientInfo.css'
 
-export default function ProjectUpdateClientInfoModal({ project }) {
+export default function ProjectUpdateClientInfo({ project }) {
   const { updateDocument, response } = useFirestore('projects')
-  const [formError, setFormError] = useState(null)
   const history = useHistory()
   const { id } = useParams()
   const location = useLocation()
@@ -23,6 +22,7 @@ export default function ProjectUpdateClientInfoModal({ project }) {
   const [line2, setLine2] = useState(project.address.line2)
   const [suburb, setSuburb] = useState(project.address.suburb)
   const [city, setCity] = useState(project.address.city)
+  const [formError, setFormError] = useState(null)
   const [showModal, setShowModal] = useState(false)
 
 

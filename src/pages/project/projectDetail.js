@@ -6,7 +6,7 @@ import './ProjectDetail.css'
 
 export default function ProjectDetail({project}) {
 
-    const startDate = project.startDate ? Object.entries(project.startDate).map( ([key,value]) => {return key + ': ' + value / 60 / 60 / 24 / 365 }) : "undefined"
+    const startDate = project.startDate ? project.startDate.toDate().toDateString() : "undefined"
     const details = project.description ? project.description : '-' 
     const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
 

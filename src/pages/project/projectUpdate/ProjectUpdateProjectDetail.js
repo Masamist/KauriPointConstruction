@@ -4,9 +4,9 @@ import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
 
 // styles
-import './ProjectUpdateClientInfoModal.css'
 
-export default function ProjectUpdateClientInfoModal({ project }) {
+
+export default function ProjectUpdateProjectDetail({ project }) {
   const { updateDocument, response } = useFirestore('projects')
   const [formError, setFormError] = useState(null)
   const history = useHistory()
@@ -15,37 +15,46 @@ export default function ProjectUpdateClientInfoModal({ project }) {
 
   console.log(location.pathname)
 
-  // const [ currentProject, setCurrentProject ] = useState('projects')
-  const [ clientName, setClientName]  = useState(project.clientName)
-  const [ phone, setPhone ] = useState(project.phone)
-  const [ email, setEmail ] = useState(project.email)
-  const [line1, setLine1] = useState(project.address.line1)
-  const [line2, setLine2] = useState(project.address.line2)
-  const [suburb, setSuburb] = useState(project.address.suburb)
-  const [city, setCity] = useState(project.address.city)
+  const [startDate, setStartDate] = useState(project.startDate.toDate().toISOString().substring(0, 10))
+  const [GSTno, setGSTno] = useState(project.GSTno)
+  const [subContractFee, setSubContractFee] = useState(project.subContractFee)
+  const [description, setDescription] = useState(project.description)
+  const [memberName, setMemberName ] = useState('') 
+  const [memberRole, setMemberRole ] = useState('') 
+  const [memberRate, setMemberRate ] = useState('') 
+  const [teamList, setTeamList] = useState([])
+
   const [showModal, setShowModal] = useState(false)
 
-
+  // Modal display functions
   const handleClose = () => setShowModal(false)
-
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
+
+  // Modifing Staff Members functions
+  const handleTeamAdd = () => {
+    const member = {name: memberName, role: memberRole, rate: memberRate}
+    setTeamList([...teamList, member])
+    setMemberName('')
+    setMemberRole('') 
+    setMemberRate('') 
+  }
+  const handleTeamRemove = (index) => {
+    const list = [...teamList]
+    list.splice(index, 1)
+    setTeamList(list)
+  }
+
 
   const handleUpdate = async(e) => {
     e.preventDefault()
     setFormError(null)
 
-    const address = {
-        line1,
-        line2,
-        suburb,
-        city,   
-    }
 
     const updateProject = {
-      clientName,
-      phone,
-      email,
-      address,
+      GSTno,
+      subContractFee,
+      description,
+      team: teamList,
     }
 
     await updateDocument(id, updateProject)
@@ -59,7 +68,7 @@ export default function ProjectUpdateClientInfoModal({ project }) {
     <div className="project-client-info">
       <div>
         <button type="btn" onClick={() => setShowModal(true)}>
-          + Update Client Details
+          + Update Project Details
         </button>
       </div>
 
@@ -72,88 +81,128 @@ export default function ProjectUpdateClientInfoModal({ project }) {
           <div>
             <div className="modal-header">
               <div className="modal-title">
-                <h3>Update Client Details:</h3></div>
-              <div>
-                <span className="close-button" onClick={handleClose}>
-                  x
-                </span>
-              </div>
-            </div>
-            <div className="modal-desc">
-
-              <form onSubmit={handleUpdate}>
-                <label>
-                  <span>Client:</span>
-                  <input
-                    required 
-                    type="text" 
-                    key="clientName"
-                    onChange={(e) => setClientName(e.target.value)}
-                    value={clientName}
-                  />
-                </label>
-                <label>
-                  <span>Phone:</span>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setPhone(e.target.value)}
-                    value={phone}
-                  />
-                </label>
-                <label>
-                  <span>Email:</span>
-                  <input
-                    required 
-                    type="email" 
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                  />
-                </label>
-                <label>
-                  <span>Address:</span>
-                  <p>Line 1</p>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setLine1(e.target.value)}
-                    value={line1}
-                  />
-                  <p>Line 2</p>
-                  <input
-                    type="text" 
-                    onChange={(e) => setLine2(e.target.value)}
-                    value={line2}
-                  />
-                  <p>Suburb</p>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setSuburb(e.target.value)}
-                    value={suburb}
-                  />
-                  <p>City</p>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setCity(e.target.value)}
-                    value={city}
-                  />
-                </label>
-                <div className="modal-footer">
-                  <div>
-                    <button className="btn-cancel" onClick={handleClose}>
-                      Cancel
-                    </button>
-                  </div>
-                  <div>
-                    <button className="btn">
-                      Update Client Detail
-                    </button>
-                  </div>
+                <h3>Update Project Details:</h3></div>
+                <div>
+                  <span className="close-button" onClick={handleClose}>
+                    x
+                  </span>
                 </div>
-              {formError && <p className="error">{formError}</p>}
-            </form>
+              </div>
+              <div className="modal-desc">
+
+
+                <form onSubmit={handleUpdate}>
+                <label>
+                  <span>Start date:</span>
+                    <input
+                      required 
+                      type="date" 
+                      onChange={(e) => setStartDate(e.target.value)} 
+                      value={startDate}
+                    />
+                </label>
+                <label>
+                  <span>GST No:</span>
+                  <input
+                    required 
+                    type="text" 
+                    onChange={(e) => setGSTno(e.target.value)}
+                    value={GSTno}
+                  />
+                </label>
+                <label>
+                  <span>Sub Contract Fee:</span>
+                  <input
+                    required 
+                    type="number" 
+                    onChange={(e) => setSubContractFee(e.target.value)}
+                    value={subContractFee}
+                  />
+                </label>
+
+                <label>
+                  <span>Project Description:</span>
+                  <textarea 
+                    required
+                    onChange={(e) => setDescription(e.target.value)}
+                    value={description} 
+                  ></textarea>
+                </label>
+
+
+                <div>
+                  <h3>Assign Staff Members</h3>
+                  {teamList.map((singleStaff, index) => (
+                    <div key={index}>
+                      <div>
+                        <span>Staff {index + 1}:</span>
+                        <p><span>Staff Name: </span> {singleStaff.name}</p>
+                        <p><span>Role: </span> {singleStaff.role}</p>
+                        <p><span>Rate: </span> {singleStaff.rate}</p>            
+                      </div>
+                      <button 
+                          type="button" 
+                          className="btn"
+                          onClick={() => handleTeamRemove(index)}
+                        >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <form>
+                  <label>
+                    <div>
+                      <span>New Staff:</span>
+                      <p>Staff Name</p>
+                      <input 
+                        name="name" 
+                        type="text" 
+                        id="name" 
+                        required
+                        value={memberName}
+                        
+                        onChange = {(e) => setMemberName(e.target.value)}
+                      />
+                      <p>Role</p>
+                      <input 
+                        name="role" 
+                        type="text" 
+                        id="role" 
+                        required
+                        value={memberRole}
+                        onChange = {(e) => setMemberRole(e.target.value)}
+                      />
+                      <p>Rate</p>
+                      <input 
+                        name="rate" 
+                        type="text" 
+                        id="rate" 
+                        required
+                        value={memberRate}
+                        onChange = {(e) => setMemberRate(e.target.value)}
+                      />
+                      <button className="btn" onClick={handleTeamAdd}>Add Staff</button>                     
+                    </div>
+                  </label>
+                </form>
+
+
+                  <div className="modal-footer">
+                    <div>
+                      <button className="btn-cancel" onClick={handleClose}>
+                        Cancel
+                      </button>
+                    </div>
+                    <div>
+                      <button className="btn">
+                        Update Project Details
+                      </button>
+                    </div>
+                  </div>
+                {formError && <p className="error">{formError}</p>}
+              </form>
 
 
             </div>

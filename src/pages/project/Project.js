@@ -6,7 +6,8 @@ import Sidebar from '../../components/Sidebar'
 import ProjectClientInfo from './ProjectClientInfo'
 import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
-import ProjectUpdateClientInfoModal from './projectUpdate/ProjectUpdateClientInfoModal'
+import ProjectUpdateClientInfo from './projectUpdate/ProjectUpdateClientInfo'
+import ProjectUpdateProjectDetail from './projectUpdate/ProjectUpdateProjectDetail'
 
 
 // styles
@@ -16,10 +17,8 @@ import './Project.css'
 export default function Project() {
   const { id } = useParams()
   const { error, document } = useDocument('projects' , id)
-
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
-  const [ switchUpdate, setSwitchUpdate ] = useState(false)
-
+  
   if(error) {
     return <div className="error">{error}</div>
   }
@@ -39,14 +38,18 @@ export default function Project() {
         <div className="project">      
 
           <ProjectClientInfo project={document}/>
-
-          <ProjectUpdateClientInfoModal project={document}/>
+          <ProjectUpdateClientInfo project={document}/>
 
           <div>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
             <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
           </div>       
-          {!switchLabourList && <ProjectDetail project={document} />}
+          {!switchLabourList && 
+            <>
+              <ProjectDetail project={document} />
+              <ProjectUpdateProjectDetail project={document} />
+            </>
+          }
           {switchLabourList && <ProjectLabourList project={document} />}
         </div>
       </div>

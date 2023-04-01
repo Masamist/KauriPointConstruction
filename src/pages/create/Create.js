@@ -36,13 +36,16 @@ export default function Create() {
   const [GSTno, setGSTno] = useState('')
   const [subContractFee, setSubContractFee] = useState('')
   const [description, setDescription] = useState([])
-  const [teamList, setTeamList] = useState([{name:'', role:'', rate:''}])
+  const [memberName, setMemberName ] = useState('') 
+  const [memberRole, setMemberRole ] = useState('') 
+  const [memberRate, setMemberRate ] = useState('') 
+  const [teamList, setTeamList] = useState([])
 
-  console.log(teamList)
+  // console.log(teamList)
 
   const [formError, setFormError] = useState(null)
 
-
+  console.log(startDate)
   useEffect(() => {
     if(documents){
       const options = documents.map(project => {
@@ -53,19 +56,16 @@ export default function Create() {
   }, [documents])
 
   const handleTeamAdd = () => {
-    setTeamList([...teamList, {}])
+    const member = {name: memberName, role: memberRole, rate: memberRate}
+    setTeamList([...teamList, member])
+    setMemberName('')
+    setMemberRole('') 
+    setMemberRate('') 
   }
 
   const handleTeamRemove = (index) => {
     const list = [...teamList]
     list.splice(index, 1)
-    setTeamList(list)
-  }
-
-  const handleStaffChange = (e, index) => {
-    const {name, value} = e.target
-    const list = [...teamList]
-    list[index][name] = value
     setTeamList(list)
   }
 
@@ -123,7 +123,7 @@ export default function Create() {
             value={name}
           />
         </label>
-        <h3>Client details:</h3>
+        <h3>Client details</h3>
         <label>
           <span>Client:</span>
           <input
@@ -246,72 +246,63 @@ export default function Create() {
           ></textarea>
         </label>
 
-{/* ////////////////////////////////////////////////////////////////////
-BUG HERE after delete item, state is deleted but not updated input UI 
-///////////////////////////////////////////////////////////////////////*/}
-        <form>
-          <div>
-            <label>
-              {teamList.map((singleStaff, index) => (
-                  <div key={index}>
-                    <div>
-                      <span>Staff {index + 1}:</span>
-                      <p>Staff Name</p>
-                      <input 
-                        name="name" 
-                        type="text" 
-                        id="name" 
-                        required
-                        value={singleStaff.name}
-                        onChange = {(e) => handleStaffChange(e, index)}
-                      />
-                      <p>Role</p>
-                      <input 
-                        name="role" 
-                        type="text" 
-                        id="role" 
-                        required
-                        value={singleStaff.role}
-                        onChange = {(e) => handleStaffChange(e, index)}
-                      />
-                      <p>Rate</p>
-                      <input 
-                        name="rate" 
-                        type="text" 
-                        id="rate" 
-                        required
-                        value={singleStaff.rate}
-                        onChange = {(e) => handleStaffChange(e, index)}
-                      />
-                      
-                      {teamList.length -1 === index && 
-                        <button 
-                          type="button" 
-                          className="btn"
-                          onClick={handleTeamAdd}
-                          >
-                            Add Staff
-                        </button>
-                      }                      
-                    </div>
-                    <div>                      
-                      {teamList.length > 1 && (
-                        <button 
-                          type="button" 
-                          className="btn"
-                          onClick={() => handleTeamRemove(index)}
-                        >
-                          <span>Remove</span>
-                      </button>
-                      )}                       
-                    </div>
+        <div>
+          <h3>Assign Staff Members</h3>
+            {teamList.map((singleStaff, index) => (
+                <div key={index}>
+                  <div>
+                    <span>Staff {index + 1}:</span>
+                    <p><span>Staff Name: </span> {singleStaff.name}</p>
+                    <p><span>Role: </span> {singleStaff.role}</p>
+                    <p><span>Rate: </span> {singleStaff.rate}</p>            
                   </div>
+                  <button 
+                      type="button" 
+                      className="btn"
+                      onClick={() => handleTeamRemove(index)}
+                    >
+                    Remove
+                  </button>
+                </div>
+              ))}
+        </div>
 
-                ))}
-            </label>
-          </div>
+        <form>
+          <label>
+            <div>
+                <span>New Staff:</span>
+                <p>Staff Name</p>
+                <input 
+                  name="name" 
+                  type="text" 
+                  id="name" 
+                  required
+                  value={memberName}
+                  
+                  onChange = {(e) => setMemberName(e.target.value)}
+                />
+                <p>Role</p>
+                <input 
+                  name="role" 
+                  type="text" 
+                  id="role" 
+                  required
+                  value={memberRole}
+                  onChange = {(e) => setMemberRole(e.target.value)}
+                />
+                <p>Rate</p>
+                <input 
+                  name="rate" 
+                  type="text" 
+                  id="rate" 
+                  required
+                  value={memberRate}
+                  onChange = {(e) => setMemberRate(e.target.value)}
+                />
+                <button className="btn" onClick={handleTeamAdd}>Add Staff</button>                     
+              </div>
+          </label>
         </form>
-
 
 
         {/* <label>
