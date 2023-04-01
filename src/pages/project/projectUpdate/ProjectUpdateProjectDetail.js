@@ -4,6 +4,7 @@ import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
 
 // styles
+import './ProjectUpdate.css'
 
 
 export default function ProjectUpdateProjectDetail({ project }) {
@@ -12,6 +13,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
   const history = useHistory()
   const { id } = useParams()
   const location = useLocation()
+
 
   console.log(location.pathname)
 
@@ -22,7 +24,9 @@ export default function ProjectUpdateProjectDetail({ project }) {
   const [memberName, setMemberName ] = useState('') 
   const [memberRole, setMemberRole ] = useState('') 
   const [memberRate, setMemberRate ] = useState('') 
-  const [teamList, setTeamList] = useState([])
+  const [teamList, setTeamList] = useState(project.team)
+
+  console.log(project.team)
 
   const [showModal, setShowModal] = useState(false)
 
@@ -133,21 +137,23 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 <div>
                   <h3>Assign Staff Members</h3>
                   {teamList.map((singleStaff, index) => (
-                    <div key={index}>
-                      <div>
-                        <span>Staff {index + 1}:</span>
-                        <p><span>Staff Name: </span> {singleStaff.name}</p>
-                        <p><span>Role: </span> {singleStaff.role}</p>
-                        <p><span>Rate: </span> {singleStaff.rate}</p>            
+                    <>
+                      <div key={index}>
+                        <div>
+                          <span>Staff {index + 1}:</span>
+                          <p><span>Staff Name: </span> {singleStaff.name}</p>
+                          <p><span>Role: </span> {singleStaff.role}</p>
+                          <p><span>Rate: </span> {singleStaff.rate}</p>            
+                        </div>
+                        <button 
+                            type="button" 
+                            className="btn"
+                            onClick={() => handleTeamRemove(index)}
+                          >
+                          Remove
+                        </button>
                       </div>
-                      <button 
-                          type="button" 
-                          className="btn"
-                          onClick={() => handleTeamRemove(index)}
-                        >
-                        Remove
-                      </button>
-                    </div>
+                    </>
                   ))}
                 </div>
 

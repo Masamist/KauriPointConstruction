@@ -4,7 +4,7 @@ import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
 
 // styles
-import './ProjectUpdateClientInfo.css'
+import './ProjectUpdate.css'
 
 export default function ProjectUpdateClientInfo({ project }) {
   const { updateDocument, response } = useFirestore('projects')

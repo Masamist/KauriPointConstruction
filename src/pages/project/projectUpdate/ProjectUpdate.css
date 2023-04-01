@@ -87,6 +87,10 @@ button {
   color: #888;
 }
 
+button:hover {
+  color: var(--primary-color);
+}
+
 .modal-footer {
   border-top: 1px solid #e9ecef;
   display: flex;
