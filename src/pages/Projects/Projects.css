@@ -1,0 +1,43 @@
+.showcasePoster{
+    background-color: var(--tertiary-color);
+    min-height: 40vh;
+    position: relative;
+}
+.showcasePoster >.text{
+    position: absolute;
+    z-index: 1;
+    left: 3em;
+    bottom: 3em;
+    width: 70%;
+}
+.showcasePoster >.text > h1{
+    color: var(--bg-color);
+    font-weight: 400;
+}
+.showcasePoster > .text > p{
+    color: var(--bg-color);
+    width: 55%;
+    font-weight: 350;
+}
+.showcaseImage{
+    background-color: red;
+    width: 10em;
+    height: 10em;
+    position: absolute;
+    right: 0;
+    width: 65vw;
+    height: 30vh;
+    margin-top: 5vh;
+    object-fit: cover;
+    z-index: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .showcasePoster{
+        height: 350px;
+    }
+    .showcaseImage{
+        height: 300px;
+        margin-top: 25px;
+    }
+}

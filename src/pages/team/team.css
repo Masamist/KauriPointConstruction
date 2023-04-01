@@ -69,6 +69,7 @@
 
 .bragImage{
     width: 40%;
+    object-fit: cover;
 }
 
 .bragText{
