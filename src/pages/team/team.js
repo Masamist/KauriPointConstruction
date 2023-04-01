@@ -7,7 +7,8 @@ import mugshotChaz from '../../assets/team/Chaz.jpg'
 import mugshotIsaac from '../../assets/team/Isaac.jpg'
 import mugshotLudo from '../../assets/team/Ludo.jpg'
 import postFoundations from '../../assets/team/postFoundations.JPG'
-import Footer from '../../components/Footer'
+import wineRack from '../../assets/team/wineRack.jpg'
+
 
 export default function Team() {
     return (
@@ -43,7 +44,6 @@ export default function Team() {
                     />
             </div>
             <Brag />
-            <Footer />
         </div>
     )   
 }
@@ -51,6 +51,7 @@ export default function Team() {
 function TeamPoster() {
     return (
         <div className='teamposter'>
+            <div className='teamposter-backingImage'></div>
             <div className='teamBackingImage'></div>
             <h1>Kauri Point Construction</h1>
             <p>

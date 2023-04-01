@@ -13,6 +13,8 @@ import Project from './pages/project/Project'
 import Navbar from './components/Navbar'
 import Home from './pages/home/home';
 import Team from './pages/team/team';
+import Projects from './pages/Projects/Projects';
+import Footer from './components/Footer';
 
 function App() {
   const { user, authIsReady } = useAuthContext()
@@ -51,11 +53,14 @@ function App() {
               <Route path='/team'>
                 <Team />
               </Route>
+              <Route path='/projects'>
+                <Projects />
+              </Route>
 
             </Switch>
             
             </div>
-          
+          <Footer />
         </BrowserRouter>
       )}
     </div>

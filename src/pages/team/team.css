@@ -1,12 +1,29 @@
 .teamposter{
-    height: 20vh;
+    height: 40vh;
+    min-height: 350px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
+.teamposter-backingImage {
+    background-image: url('../../assets/team/wineRack.jpg');
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+    from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+
 .teamposter > h1, .teamposter > p {
     margin: 0 2rem 2rem 2rem;
+    z-index: 2;
 }
 
 .managerCard {
@@ -69,6 +86,7 @@
 
 .bragImage{
     width: 40%;
+    object-fit: cover;
 }
 
 .bragText{
@@ -100,4 +118,12 @@
 .managerCard > .memberPhoto {
     width: 300px;
 }
+}
+@media screen and (max-width: 700px) {
+    .managerCard > .memberPhoto {
+        width: 150px;
+    }
+    .teamMemberCard{
+        max-width: 40%;
+    }
 }

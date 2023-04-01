@@ -11,7 +11,7 @@ export default function Footer () {
             <ul>
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/team">Team</Link></li>
-                <li><Link to="/team">Projects</Link></li>
+                <li><Link to="/projects">Projects</Link></li>
                 <li><Link to="/team">Contact Us</Link></li>
             </ul>
             <div className='footer-copyright'>
