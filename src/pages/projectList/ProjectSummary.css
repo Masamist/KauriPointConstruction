@@ -1,15 +1,20 @@
 .project-summary {
   display: flex;
   flex-direction: column;
-  grid-gap: 20px;
+  grid-gap: 10px;
+  justify-content: flex-start;
 }
+
+.projectListCard{
+  background-color: var(--bg-color);
+  display: flex;
+  padding: .5em;
+  border-radius: 5px;
+}
+
 .project-summary a {
-  background-color: #fff;
-  padding: 16px;
-  border-radius: 6px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
   text-decoration: none;
-  color: inherit;
+  flex-grow: 2;
 }
 .project-summary h4 {
   font-size: 0.9em;
@@ -30,4 +35,39 @@
 }
 .project-summary li {
   margin-right: 10px;
+}
+.projectListCard > .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 40%;
+}
+
+.projectListCard > .progressbar {
+  background-color: rgb(196, 196, 196);
+  border-radius: 8px;
+  width: 50%;
+  height: 15px;
+  margin: auto;
+  position: relative;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  
+  border-top: 18px solid rgb(190, 216, 190);
+}
+
+.arrow-right {
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  
+  border-left: 18px solid green;
 }

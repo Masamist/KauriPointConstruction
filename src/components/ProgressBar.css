@@ -25,12 +25,3 @@
     height: 70%;
     position: absolute;
   }
-  
-  .progressbar {
-    background-color: rgb(196, 196, 196);
-    border-radius: 8px;
-    width: 50%;
-    height: 15px;
-    margin: auto;
-    position: relative;
-  }
