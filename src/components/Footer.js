@@ -15,7 +15,7 @@ export default function Footer () {
                 <li><Link to="/team">Contact Us</Link></li>
             </ul>
             <div className='footer-copyright'>
-                2023 Kauri Point Construction, All Rights Reserved
+                2021 Kauri Point Construction, All Rights Reserved
             </div>
         </div>
     )

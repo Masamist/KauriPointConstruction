@@ -1,4 +1,5 @@
 import { stringify } from 'json5';
+import dayjs from 'dayjs';
 import { Link } from 'react-router-dom'
 import { ProgressBar, calculateProjectProgress } from '../../components/ProgressBar'
 // styles
@@ -23,7 +24,7 @@ export default function ProjectSummary({ projects }) {
               </Link>
             </div>
               <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
-              <p>{project.startDate.toDate().toDateString()}</p>
+              <p>{dayjs(project.startDate.toDate()).format('DD/MMM')}</p>
           </div>
       )})}
     </div>

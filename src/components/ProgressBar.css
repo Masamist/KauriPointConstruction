@@ -19,7 +19,7 @@
 
   .progress-progress {
     border-radius:8px;
-    background-color: rgb(61, 134, 61);
+    background-color:var(--primary-color);
     float: left;
     width: 0%;
     height: 70%;

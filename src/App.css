@@ -1,11 +1,10 @@
 .App{
   font-size: 16;
+  min-height: 100vh;
 }
 
 .App > .container{
   padding: 0;
-  width: 100vw;
-  min-height: 100vh;
   background-color: #eee;
 }
 
@@ -13,7 +12,7 @@
   display: block;
   margin: 0 1em 1em 1em;
   border-radius: 5px;
-  width: 100%;
+  width: 95%;
 }
 
 img{
