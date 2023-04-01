@@ -7,7 +7,6 @@ import mugshotChaz from '../../assets/team/Chaz.jpg'
 import mugshotIsaac from '../../assets/team/Isaac.jpg'
 import mugshotLudo from '../../assets/team/Ludo.jpg'
 import postFoundations from '../../assets/team/postFoundations.JPG'
-import Footer from '../../components/Footer'
 
 export default function Team() {
     return (
@@ -43,7 +42,6 @@ export default function Team() {
                     />
             </div>
             <Brag />
-            <Footer />
         </div>
     )   
 }

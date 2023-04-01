@@ -7,8 +7,6 @@ import Service_houseRemoval from '../../assets/service_houseRemoval.JPG'
 import Service_extension from '../../assets/service_extension.JPG'
 import testimonial from '../../assets/testimonial.jpg'
 
-import Footer from '../../components/Footer'
-
 
 
 export default function Home() {
@@ -18,7 +16,6 @@ export default function Home() {
             <Services />
             <Testimonial />
             <Sustainability />
-            <Footer />
         </>
     )
 }
