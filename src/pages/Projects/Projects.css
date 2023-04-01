@@ -22,22 +22,65 @@
 .showcaseImage{
     background-color: red;
     width: 10em;
-    height: 10em;
+    height: 300px;;
     position: absolute;
     right: 0;
     width: 65vw;
-    height: 30vh;
     margin-top: 5vh;
     object-fit: cover;
     z-index: 0;
 }
 
+.completedProjects h1{
+    margin: 3em 0 2em 0;
+    text-align: center;
+}
+
+.projectCard{
+    width: 80%;
+    margin: 4em auto;
+    display: flex;
+}
+
+.projectCard > .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.projectCard h2{
+    color: var(--primary-color);
+    margin: .5em 0;
+}
+
+.projectCard p {
+    margin: .25em 0;
+}
+
+.projectCard > img{
+    height: 350px;
+    max-width: 50vw;
+}
+
+@media screen and (max-width: 700px) {
+    .projectCard{
+        flex-direction: column;
+    }
+
+    .projectCard > img{
+        height: 350px;
+        max-width: 100vw;
+    }
+}
 @media screen and (max-width: 1000px) {
     .showcasePoster{
         height: 350px;
     }
+}
+
+@media screen and (max-width: 1200x) {
     .showcaseImage{
-        height: 300px;
-        margin-top: 25px;
+        height:500px;
+        
     }
 }
