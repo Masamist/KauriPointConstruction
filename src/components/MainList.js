@@ -51,19 +51,23 @@ function Stage({ name, stage }) {
     )
 }
 
-
 export default function MainList({ stages}) {
     
-    //console.log('stages: ',stages)
+    console.log('stages: ',stages)
     
     return (
             <div>
                 <h2>Main List:</h2>
                 
-                {Object.entries(stages).map( ([key, stage]) => {
-                    return <Stage key={key} name={key} stage={stage} />
+                {  Object.entries(stages).map( ([key, stage]) => {
+                    return (
+                        Object.entries(stage).map( ([key, stage]) => {
+                            //console.log('FinalStage: ',key, ' :: ', stage )
+                            return <Stage key={key} name={key} stage={stage} />
+                        })
+                    )
+                    
                 })}
-
             </div> 
     )
 }

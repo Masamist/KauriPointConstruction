@@ -1,15 +1,25 @@
 .project-summary {
   display: flex;
   flex-direction: column;
-  grid-gap: 20px;
+  justify-content: flex-start;
 }
+
+.projectListCard{
+  background-color: var(--bg-color);
+  display: flex;
+  padding: .5em;
+  margin-top: .5em;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+.cardStages{
+  border: 2px solid red;
+}
+
 .project-summary a {
-  background-color: #fff;
-  padding: 16px;
-  border-radius: 6px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
   text-decoration: none;
-  color: inherit;
+  flex-grow: 2;
 }
 .project-summary h4 {
   font-size: 0.9em;
@@ -30,4 +40,47 @@
 }
 .project-summary li {
   margin-right: 10px;
+}
+.projectListCard > .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 40%;
+}
+
+.projectListCard > .progressbar {
+  background-color: rgb(196, 196, 196);
+  border-radius: 8px;
+  width: 50%;
+  height: 15px;
+  margin: auto 1em;
+  position: relative;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-top: 15px solid rgb(190, 216, 190);
+}
+
+.arrow-right {
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  
+  border-left: 15px solid green;
+}
+@media screen and (max-width: 700px) {
+  .projectListCard > .progressbar {
+    width: 40%;
+    height: 15px;
+    margin: auto .5em;
+    position: relative;
+  }
 }

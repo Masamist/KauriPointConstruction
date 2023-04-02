@@ -152,4 +152,7 @@
     .service{
         width: 100%;
     }
+    .btn-green{
+        width: 60%;
+    }
 }

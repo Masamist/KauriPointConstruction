@@ -84,7 +84,7 @@ export default function Create() {
         city,   
     }
 
-    const project = {
+    let project = {
       name,
       clientName,
       phone,
