@@ -13,9 +13,12 @@ export default function ProjectList() {
 
   const handleSetProject = (project) => { setProject(project) }
 
+  function handleExitProject() {
+    handleSetProject(null)
+  }
   return (
     <div className='page-container'>
-    <Sidebar />
+    <Sidebar handleExitProject={handleExitProject}/>
     <div className='content-container'>
 
       {project? <Project document={project}/>
