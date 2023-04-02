@@ -15,7 +15,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
   console.log(location.pathname)
 
-  const [startDate, setStartDate] = useState(project.startDate.toDate().toISOString().substring(0, 10))
+  const [startDate, setStartDate] = useState('DATE') //(project.startDate.toDate().toISOString().substring(0, 10))
   const [GSTno, setGSTno] = useState(project.GSTno)
   const [subContractFee, setSubContractFee] = useState(project.subContractFee)
   const [description, setDescription] = useState(project.description)

@@ -6,7 +6,7 @@ import './ProjectDetail.css'
 
 export default function ProjectDetail({project}) {
 
-    const startDate = project.startDate ? project.startDate.toDate().toDateString() : "undefined"
+    const startDate = "DATE" //project.startDate ? project.startDate.toDate().toDateString() : "undefined"
     const details = project.description ? project.description : '-' 
     const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
 

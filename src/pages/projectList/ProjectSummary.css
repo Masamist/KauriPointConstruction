@@ -1,7 +1,6 @@
 .project-summary {
   display: flex;
   flex-direction: column;
-  grid-gap: 10px;
   justify-content: flex-start;
 }
 
@@ -9,8 +8,13 @@
   background-color: var(--bg-color);
   display: flex;
   padding: .5em;
+  margin-top: .5em;
   border-radius: 5px;
   justify-content: space-between;
+}
+
+.cardStages{
+  border: 2px solid red;
 }
 
 .project-summary a {

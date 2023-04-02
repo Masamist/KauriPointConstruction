@@ -14,9 +14,10 @@ import ProjectUpdateProjectDetail from './projectUpdate/ProjectUpdateProjectDeta
 import './Project.css'
 
 
-export default function Project() {
+export default function Project({document}) {
   const { id } = useParams()
-  const { error, document } = useDocument('projects' , id)
+  //const { error, document } = useDocument('projects' , id)
+  const error = document ? null : 'Project Error';
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
   
   if(error) {
@@ -33,7 +34,6 @@ export default function Project() {
 
   return (
     <div className='page-container'>
-      <Sidebar />
       <div className='content-container'>
         <div className="project">      
 

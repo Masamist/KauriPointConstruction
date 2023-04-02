@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import { ProgressBar, calculateProjectProgress } from '../../components/ProgressBar'
 // styles
 import './ProjectSummary.css'
+import { useState } from 'react';
 
 
-export default function ProjectSummary({ projects }) {
+export default function ProjectSummary({ projects, handleSetProject }) {
 
   return (
     <div className="project-summary">
@@ -16,17 +17,42 @@ export default function ProjectSummary({ projects }) {
         const claimed = (results.totalClaimed / results.totalCost) * 100
 
         return (
-          <div className='projectListCard'>
-            <div className='title'>
-              <div className='arrow-right' />
-              <Link to={`/project/${project.id}`} key={project.id}>
-                <h4>{project.name}</h4>
-              </Link>
-            </div>
-              <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
-              <p>{dayjs(project.startDate.toDate()).format('DD/MMM')}</p>
-          </div>
+          <ProjectListCard key={project.id} project={project} claimed={claimed} handleSetProject={handleSetProject}/>
       )})}
     </div>
+  )
+}
+
+function ProjectListCard({project, claimed, handleSetProject}) {
+  const [expandProjectListCard, setExpandProjectListCard] = useState(false) 
+
+  const handleExpandProjectListCard = () => {
+    setExpandProjectListCard(!expandProjectListCard)
+  }
+
+  const handleEnterProject = () => {
+    handleSetProject(project)
+  }
+//<p>{dayjs(project.startDate.toDate()).format('DD/MMM')}</p>
+  return (
+    <>
+    <div className='projectListCard'>
+      <div className='title'>
+        <div className='arrow-right' onClick={handleExpandProjectListCard}/>
+        
+          <h4 onClick={handleEnterProject}>{project.name}</h4>
+       
+      </div>
+        <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
+        
+    </div>
+    {expandProjectListCard && <CardStages />}
+    </>
+  )
+}
+
+function CardStages() {
+  return (
+    <div className='cardStages'>Stages</div>
   )
 }

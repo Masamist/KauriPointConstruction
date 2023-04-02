@@ -15,11 +15,15 @@ export default function LabourList({ list , team }) {
     return (
         <React.Fragment>
             <h2>LABOUR LIST</h2>
-            { Object.entries( list ).map( ([k, id ]) => (
-                Object.entries( id ).map( ([key, stage ]) => {
-                return <LabourStageCard key={key} name={key} stage={stage} team={staffRole} />
-                })
-            ))}
+            { Object.entries( list ).map( ([k, id ]) => {
+                return (
+                    <React.Fragment key={k}>
+                        {Object.entries( id ).map( ([key, stage ]) => {
+                        return <LabourStageCard key={key} name={key} stage={stage} team={staffRole} />
+                        })}
+                    </React.Fragment>
+                    )}
+            )}
         </React.Fragment>
     )
 

@@ -5,7 +5,7 @@ import './ProjectLabourList.css'
 
 
 export default function ProjectLabourList({project}) {
-
+  console.log('labour List: ', project.labourList)
   return (
     <div className="project-detail">
         <h3>Labour Const Breakdown by Stage</h3>
