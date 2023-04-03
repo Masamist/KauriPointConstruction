@@ -5,7 +5,7 @@ import './Sidebar.css'
 
 export default function Sidebar({ handleExitProject} ) {
   
-  const viewProjectList= () => { {handleExitProject()} }
+  const viewProjectList= () => { handleExitProject() }
   
   return (
     <div className="sidebar">

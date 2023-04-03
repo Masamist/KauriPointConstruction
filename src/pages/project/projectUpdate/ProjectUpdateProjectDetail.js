@@ -136,7 +136,8 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
                 <div>
                   <h3>Assign Staff Members</h3>
-                  {teamList.map((singleStaff, index) => (
+                  {teamList ? teamList.map((singleStaff, index) => {
+                    return (
                     <>
                       <div key={index}>
                         <div>
@@ -154,7 +155,8 @@ export default function ProjectUpdateProjectDetail({ project }) {
                         </button>
                       </div>
                     </>
-                  ))}
+                  )
+                  }) : <p>No team staff assigned</p>}
                 </div>
 
                 <form>

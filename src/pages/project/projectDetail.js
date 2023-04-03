@@ -45,7 +45,7 @@ export default function ProjectDetail({project}) {
             <th>Week</th>
             <th>Month</th>
           </tr>
-        {Object.entries(project.team).map( ([key, member]) => {
+        {project.team ? Object.entries(project.team).map( ([key, member]) => {
           return (
             (member.name &&
             <React.Fragment key={key}>
@@ -60,7 +60,7 @@ export default function ProjectDetail({project}) {
             </React.Fragment>
             )
           )
-          })}   
+          }) : <p>No team staff assigned...</p>}   
         </table>
       </div>
     </div>

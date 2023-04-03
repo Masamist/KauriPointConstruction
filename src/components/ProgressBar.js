@@ -40,9 +40,9 @@ const calculateStageInitialProgress = (stage) => {
     //     })
     // )
 
-    let results = {"totalCost": totalCost, "totalComplete": totalComplete, "totalClaimed": totalClaimed}
+    // let results = {"totalCost": totalCost, "totalComplete": totalComplete, "totalClaimed": totalClaimed}
 
-    return results
+    // return results
 }
 
 function calculateStageClaimed(stage){
