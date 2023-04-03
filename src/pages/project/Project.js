@@ -14,10 +14,9 @@ import ProjectUpdateProjectDetail from './projectUpdate/ProjectUpdateProjectDeta
 import './Project.css'
 
 
-export default function Project({document}) {
+export default function Project() {
   const { id } = useParams()
-  //const { error, document } = useDocument('projects' , id)
-  const error = document ? null : 'Project Error';
+  const { error, document } = useDocument('projects' , id)
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
   
   if(error) {

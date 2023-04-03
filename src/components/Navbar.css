@@ -1,6 +1,7 @@
 .navbar {
   width: 100%;
   padding: 1rem 2rem .8rem 1rem;
+  background-color: var(--bg-color);
 }
 .navbar ul {
   display: flex;

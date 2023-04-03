@@ -7,7 +7,7 @@ import './ProjectSummary.css'
 import { useState } from 'react';
 
 
-export default function ProjectSummary({ projects, handleSetProject }) {
+export default function ProjectSummary({ projects }) {
 
   return (
     <div className="project-summary">
@@ -17,30 +17,30 @@ export default function ProjectSummary({ projects, handleSetProject }) {
         const claimed = (results.totalClaimed / results.totalCost) * 100
 
         return (
-          <ProjectListCard key={project.id} project={project} claimed={claimed} handleSetProject={handleSetProject}/>
+          <ProjectListCard key={project.id} project={project} claimed={claimed}/>
       )})}
     </div>
   )
 }
 
-function ProjectListCard({project, claimed, handleSetProject}) {
+function ProjectListCard({project, claimed}) {
   const [expandProjectListCard, setExpandProjectListCard] = useState(false) 
 
   const handleExpandProjectListCard = () => {
     setExpandProjectListCard(!expandProjectListCard)
   }
 
-  const handleEnterProject = () => {
-    handleSetProject(project)
-  }
 //<p>{dayjs(project.startDate.toDate()).format('DD/MMM')}</p>
   return (
     <>
     <div className='projectListCard'>
       <div className='title'>
-        <div className='arrow-right' onClick={handleExpandProjectListCard}/>
+        {expandProjectListCard ? <div className='arrow-down' onClick={handleExpandProjectListCard}/>
+                              : <div className='arrow-right' onClick={handleExpandProjectListCard}/>}
         
-          <h4 onClick={handleEnterProject}>{project.name}</h4>
+        <Link to={`/project/${project.id}`} key={project.id}>
+          <h4>{project.name}</h4>
+        </Link>
        
       </div>
         <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
