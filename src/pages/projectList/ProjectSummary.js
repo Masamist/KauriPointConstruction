@@ -13,11 +13,11 @@ export default function ProjectSummary({ projects }) {
     <div className="project-summary">
       {projects.length === 0 && <p>No projects yet!</p>}
       {projects.map(project => {
-        const results = calculateProjectProgress(project);
-        const claimed = (results.totalClaimed / results.totalCost) * 100
+        //const results = calculateProjectProgress(project);
+        //const claimed = (results.totalClaimed / results.totalCost) * 100
 
         return (
-          <ProjectListCard key={project.id} project={project} claimed={claimed}/>
+          <ProjectListCard key={project.id} project={project} /> //claimed={claimed}
       )})}
     </div>
   )
