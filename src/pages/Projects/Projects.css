@@ -45,7 +45,7 @@
 .projectCard > .text{
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .projectCard h2{
