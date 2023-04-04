@@ -5,6 +5,7 @@ import { ProgressBar, calculateProjectProgress } from '../../components/Progress
 // styles
 import './ProjectSummary.css'
 import { useState } from 'react';
+import React from 'react';
 
 
 export default function ProjectSummary({ projects }) {
@@ -46,13 +47,49 @@ function ProjectListCard({project, claimed}) {
         <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
         
     </div>
-    {expandProjectListCard && <CardStages />}
+    {expandProjectListCard && <CardStages mainList={project.mainList} />}
     </>
   )
 }
 
-function CardStages() {
+function CardStages({mainList}) {
   return (
-    <div className='cardStages'>Stages</div>
+    <div className='cardStages'>
+    {Object.entries(mainList).map( ([key, value]) => {
+      //console.log('value1: ', value)
+      return(
+        <React.Fragment key={key}>
+          {Object.entries(value).map( ([key, value]) => {
+            //console.log('value2: ', value)
+            const taskName = value.task? value.task : '-'
+            return (
+              <div key={key}> 
+                <h3>{key}</h3> <CardStageTasks stageTasks={value}/>
+              </div>
+            )
+          })}
+        </React.Fragment>
+      )
+    })}    
+    
+    </div>
+  )
+}
+
+function CardStageTasks({stageTasks}) {
+  console.log('stageTasks: ', stageTasks)
+  return(
+    <div>
+      {Object.entries(stageTasks).map( ([key, task]) => {
+        return (
+          <div className='cardStageTasks' key={key}>
+            <span>{task.task}</span>
+            <span>{task.status}</span>
+          </div>
+        )
+        
+      })}
+
+    </div>
   )
 }
