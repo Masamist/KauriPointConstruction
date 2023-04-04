@@ -1,3 +1,4 @@
+import React from 'react';
 import './ProgressBar.css'
 
 function ProgressBar({ initial, warning, progress }) {
@@ -25,31 +26,36 @@ function calculateTaskClaimed(task){
 //calculate stage completion
 const calculateStageProgress = (stage) => { 
     let totalCost = 0;
-    let totalComplete = 0;
     let totalClaimed = 0;
-    
-    Object.entries(stage).map(([key, tasks]) => {
-            Object.entries(tasks).map(([key, task]) => {
-                    totalCost += parseFloat(task.calculatedamount);
-                    totalComplete += parseFloat(task.calculatedamount) * parseFloat(task.complete)
-                    totalClaimed += parseFloat(calculateTaskClaimed(task))
-                })
-            })
+    Object.entries(stage).map(([key, task]) => {
+        //console.log('StageProgressTask: ', task)
+        totalCost += parseFloat(task.calculatedamount);
+        totalClaimed += parseFloat(calculateTaskClaimed(task))
+        return <></>
+    })
+            
 
-    // let results = {"totalCost": totalCost, "totalComplete": totalComplete, "totalClaimed": totalClaimed}
+    let results = {"totalCost": totalCost, "totalClaimed": totalClaimed}
 
-    // return results
+    return results
 }
 
 const calculateProjectProgress = (project) => {
     let totalClaimed = 0
     let totalCost = 0
     Object.entries(project.mainList).map(([key,stage]) => {
-        console.log('Stage: ', stage)
-        let stageSums = calculateStageProgress(stage)
-        totalClaimed += stageSums.totalClaimed
-        totalCost += stageSums.totalCost
-    })
+        return(
+            <React.Fragment key={key}>
+                {Object.entries(stage).map( ([key,stage]) => {
+                    //console.log('Stage: ', stage)
+                    let stageSums = calculateStageProgress(stage)
+                    totalClaimed += stageSums.totalClaimed
+                    totalCost += stageSums.totalCost
+                    return <></>}
+                )}
+                </React.Fragment>
+            )}
+        )        
 
     return { "totalClaimed": totalClaimed, "totalCost": totalCost,}    
 }

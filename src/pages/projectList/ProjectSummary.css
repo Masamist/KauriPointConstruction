@@ -50,15 +50,6 @@
   width: 40%;
 }
 
-.projectListCard > .progressbar {
-  background-color: rgb(196, 196, 196);
-  border-radius: 8px;
-  width: 50%;
-  height: 15px;
-  margin: auto 1em;
-  position: relative;
-}
-
 .arrow-down {
   width: 0; 
   height: 0; 
@@ -78,11 +69,35 @@
   border-left: 15px solid green;
 }
 
+.cardStage-stageHeader{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--primary-color);
+}
+.cardStage-stageHeader > .progressbar{
+  height: 10px;
+  width: 35%;
+}
+
+.cardStage-stageName{
+  font-weight: 500;  
+}
 .cardStageTasks{
   display: flex;
   justify-content: space-between;
 }
 
+.cardStagetask-name{
+  width: 40%;
+}
+.cardStagetask-status{
+  width: 10%;
+}
+
+.cardStageTasks > .progressbar{
+  height: 8px;
+  width: 30%;
+}
 
 @media screen and (max-width: 700px) {
   .projectListCard > .progressbar {

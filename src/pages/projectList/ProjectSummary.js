@@ -1,7 +1,9 @@
-import { stringify } from 'json5';
-import dayjs from 'dayjs';
+//import dayjs from 'dayjs';
 import { Link } from 'react-router-dom'
 import { ProgressBar, calculateProjectProgress } from '../../components/ProgressBar'
+//functions
+import {calculateTaskClaimed, calculateStageProgress} from '../../components/ProgressBar'
+
 // styles
 import './ProjectSummary.css'
 import { useState } from 'react';
@@ -14,11 +16,11 @@ export default function ProjectSummary({ projects }) {
     <div className="project-summary">
       {projects.length === 0 && <p>No projects yet!</p>}
       {projects.map(project => {
-        //const results = calculateProjectProgress(project);
-        //const claimed = (results.totalClaimed / results.totalCost) * 100
+        const results = calculateProjectProgress(project);
+        const claimed = results.totalClaimed / results.totalCost * 100
 
         return (
-          <ProjectListCard key={project.id} project={project} /> //claimed={claimed}
+          <ProjectListCard key={project.id} project={project} claimed={claimed}/> 
       )})}
     </div>
   )
@@ -61,9 +63,12 @@ function CardStages({mainList}) {
         <React.Fragment key={key}>
           {Object.entries(value).map( ([key, stage]) => {
             //console.log('value2: ', value)
+            const stageStats = calculateStageProgress(stage)
+            const stageClaimed = stageStats.totalClaimed / stageStats.totalCost * 100
+
             return (
               <div key={key}> 
-                <CardStageTasks stageName={key} stageTasks={stage}/>
+                <CardStageTasks stageName={key} stageTasks={stage} stageClaimed={stageClaimed}/>
               </div>
             )
           })}
@@ -75,7 +80,7 @@ function CardStages({mainList}) {
   )
 }
 
-function CardStageTasks({stageName, stageTasks}) {
+function CardStageTasks({stageName, stageTasks, stageClaimed}) {
   const [expandStage, setExpandStage] = useState(false) 
 
   const ToggleExpandStage = () => {
@@ -83,16 +88,27 @@ function CardStageTasks({stageName, stageTasks}) {
 }
 
   console.log('stageTasks: ', stageTasks)
+
+
   return(
     <div>
-      <h3 onClick={ToggleExpandStage}>{stageName}</h3> 
-      {expandStage && Object.entries(stageTasks).map( ([key, task]) => {
-        return (
-          <div className='cardStageTasks' key={key}>
-            <span>{task.task}</span>
-            <span>{task.status}</span>
-          </div>
-        )
+      <div className='cardStage-stageHeader'>
+        <h3 onClick={ToggleExpandStage} className='cardStage-stageName'>{stageName}</h3> 
+        <ProgressBar progress={stageClaimed} />
+      </div>
+
+      {expandStage && 
+        Object.entries(stageTasks).map( ([key, task]) => {
+
+          const claimed = calculateTaskClaimed(task)/ parseInt(task.calculatedamount) * 100
+
+          return (
+            <div className='cardStageTasks' key={key}>
+              <span className='cardStagetask-name'>{task.task}</span>
+              <ProgressBar progress={claimed}/>
+              <span className='cardStagetask-status'>{task.status}</span>
+            </div>
+      )
         
       })}
 
