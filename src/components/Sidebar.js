@@ -3,15 +3,13 @@ import { NavLink } from 'react-router-dom'
 //styles
 import './Sidebar.css'
 
-export default function Sidebar({ handleExitProject} ) {
-  
-  const viewProjectList= () => { handleExitProject() }
+export default function Sidebar( ) {
   
   return (
     <div className="sidebar">
       <nav className="links">
         <ul>
-          <li onClick={viewProjectList}>
+          <li>
             <NavLink exact to="/">Project List</NavLink>
           </li>
           <li>
