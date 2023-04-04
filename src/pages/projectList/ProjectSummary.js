@@ -59,12 +59,11 @@ function CardStages({mainList}) {
       //console.log('value1: ', value)
       return(
         <React.Fragment key={key}>
-          {Object.entries(value).map( ([key, value]) => {
+          {Object.entries(value).map( ([key, stage]) => {
             //console.log('value2: ', value)
-            const taskName = value.task? value.task : '-'
             return (
               <div key={key}> 
-                <h3>{key}</h3> <CardStageTasks stageTasks={value}/>
+                <CardStageTasks stageName={key} stageTasks={stage}/>
               </div>
             )
           })}
@@ -76,11 +75,18 @@ function CardStages({mainList}) {
   )
 }
 
-function CardStageTasks({stageTasks}) {
+function CardStageTasks({stageName, stageTasks}) {
+  const [expandStage, setExpandStage] = useState(false) 
+
+  const ToggleExpandStage = () => {
+  setExpandStage(!expandStage)
+}
+
   console.log('stageTasks: ', stageTasks)
   return(
     <div>
-      {Object.entries(stageTasks).map( ([key, task]) => {
+      <h3 onClick={ToggleExpandStage}>{stageName}</h3> 
+      {expandStage && Object.entries(stageTasks).map( ([key, task]) => {
         return (
           <div className='cardStageTasks' key={key}>
             <span>{task.task}</span>

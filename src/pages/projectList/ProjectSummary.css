@@ -14,7 +14,8 @@
 }
 
 .cardStages{
-  border: 2px solid red;
+  background-color: var(--bg-color);
+  border-radius: 8px;
 }
 
 .project-summary a {
