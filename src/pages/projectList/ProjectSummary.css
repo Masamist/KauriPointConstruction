@@ -13,7 +13,7 @@
   justify-content: space-between;
 }
 
-.cardStages{
+.cardMainList{
   background-color: var(--bg-color);
   border-radius: 8px;
 }

@@ -8,6 +8,7 @@ import {calculateTaskClaimed, calculateStageProgress} from '../../components/Pro
 import './ProjectSummary.css'
 import { useState } from 'react';
 import React from 'react';
+import { stringify } from 'querystring';
 
 
 export default function ProjectSummary({ projects }) {
@@ -49,14 +50,17 @@ function ProjectListCard({project, claimed}) {
         <ProgressBar initial={claimed} warning={claimed} progress={claimed}/>
         
     </div>
-    {expandProjectListCard && <CardStages mainList={project.mainList} />}
+    {expandProjectListCard && <CardMainList mainList={project.mainList} />}
+    {expandProjectListCard && <CardLabourList labourList={project.labourList} />}
     </>
   )
 }
 
-function CardStages({mainList}) {
+//MAIN LIST
+function CardMainList({mainList}) {
   return (
-    <div className='cardStages'>
+    <div className='cardMainList'>
+      MainList
     {Object.entries(mainList).map( ([key, value]) => {
       //console.log('value1: ', value)
       return(
@@ -86,9 +90,7 @@ function CardStageTasks({stageName, stageTasks, stageClaimed}) {
   const ToggleExpandStage = () => {
   setExpandStage(!expandStage)
 }
-
-  console.log('stageTasks: ', stageTasks)
-
+  //console.log('stageTasks: ', stageTasks)
 
   return(
     <div>
@@ -107,6 +109,60 @@ function CardStageTasks({stageName, stageTasks, stageClaimed}) {
               <span className='cardStagetask-name'>{task.task}</span>
               <ProgressBar progress={claimed}/>
               <span className='cardStagetask-status'>{task.status}</span>
+            </div>
+      )
+        
+      })}
+
+    </div>
+  )
+}
+
+
+//LABOUR LIST
+function CardLabourList({labourList}) {
+  //<CardLabourListTasks stageName={key} stageTasks={stage} stageClaimed={stageClaimed}/>
+  let VARIABLE = "VARIABLE"
+  return (
+    <div className='cardMainList'>
+      Labour List
+      {Object.entries(labourList).map( ([key, value]) => {
+        return(<div key={key}>{
+          Object.entries(value).map( ([key, value]) => {
+            return(
+              <React.Fragment key={key}>
+                <CardLabourListTasks stageName={key} stageTasks={value} />
+              </React.Fragment>
+            )
+          })
+          
+          }</div>)
+      })}   
+    
+    </div>
+  )
+}
+
+
+function CardLabourListTasks({stageName, stageTasks}) {
+  const [expandLabourStage, setExpandLabourStage] = useState(false) 
+
+  const ToggleExpandLabourStage = () => {
+    setExpandLabourStage(!expandLabourStage)
+}
+
+  return(
+    <div>
+      <div className='cardStage-stageHeader'>
+        <h3 onClick={ToggleExpandLabourStage} className='cardStage-stageName'>{stageName}</h3> 
+      </div>
+
+      {expandLabourStage && 
+        Object.entries(stageTasks).map( ([key, task]) => {
+
+          return (
+            <div className='cardStageTasks' key={key}>
+              <span className='cardStagetask-name'>{task.name}</span>
             </div>
       )
         

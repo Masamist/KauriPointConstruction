@@ -18,7 +18,7 @@ function ProgressBar({ initial, warning, progress }) {
 //FUNCTIONS
 function calculateTaskClaimed(task){
     let totalClaimed = 0;
-    console.log('task: ', task)
+    //console.log('task: ', task)
     Object.entries(task.claims).map(([key, claim]) => totalClaimed += parseFloat(claim) )
     return totalClaimed 
 }
