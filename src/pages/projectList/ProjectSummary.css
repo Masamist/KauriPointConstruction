@@ -16,6 +16,7 @@
 .cardMainList{
   background-color: var(--bg-color);
   border-radius: 8px;
+  margin-top: .5em;
 }
 
 .project-summary a {

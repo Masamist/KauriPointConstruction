@@ -58,24 +58,32 @@ function ProjectListCard({project, claimed}) {
 
 //MAIN LIST
 function CardMainList({mainList}) {
+  const [expandList, setExpandMainList] = useState(true)
+
+  const HandleCollapseMainList = () => {
+    setExpandMainList(!expandList)
+  }
+
   return (
     <div className='cardMainList'>
-      MainList
+      <h4 onClick={HandleCollapseMainList}>MainList</h4>
     {Object.entries(mainList).map( ([key, value]) => {
       //console.log('value1: ', value)
       return(
         <React.Fragment key={key}>
-          {Object.entries(value).map( ([key, stage]) => {
-            //console.log('value2: ', value)
-            const stageStats = calculateStageProgress(stage)
-            const stageClaimed = stageStats.totalClaimed / stageStats.totalCost * 100
+          {expandList &&
+            Object.entries(value).map( ([key, stage]) => {
+              //console.log('value2: ', value)
+              const stageStats = calculateStageProgress(stage)
+              const stageClaimed = stageStats.totalClaimed / stageStats.totalCost * 100
 
-            return (
-              <div key={key}> 
-                <CardStageTasks stageName={key} stageTasks={stage} stageClaimed={stageClaimed}/>
-              </div>
-            )
-          })}
+              return (
+                <div key={key}> 
+                  <CardStageTasks stageName={key} stageTasks={stage} stageClaimed={stageClaimed}/>
+                </div>
+              )
+            })
+          }
         </React.Fragment>
       )
     })}    
@@ -121,23 +129,29 @@ function CardStageTasks({stageName, stageTasks, stageClaimed}) {
 
 //LABOUR LIST
 function CardLabourList({labourList}) {
-  //<CardLabourListTasks stageName={key} stageTasks={stage} stageClaimed={stageClaimed}/>
+  const [expandLabourList, setExpandLabourList] = useState(false)
+
+  const HandlesetExpandLabourList = () => {
+    setExpandLabourList(!expandLabourList)
+  }
+
   let VARIABLE = "VARIABLE"
   return (
     <div className='cardMainList'>
-      Labour List
-      {Object.entries(labourList).map( ([key, value]) => {
-        return(<div key={key}>{
-          Object.entries(value).map( ([key, value]) => {
-            return(
-              <React.Fragment key={key}>
-                <CardLabourListTasks stageName={key} stageTasks={value} />
-              </React.Fragment>
-            )
-          })
+      <h4 onClick={HandlesetExpandLabourList}>Labour List</h4>
+      {expandLabourList && 
+        Object.entries(labourList).map( ([key, value]) => {
+          return(<div key={key}>{
+            Object.entries(value).map( ([key, value]) => {
+              return(
+                <React.Fragment key={key}>
+                  <CardLabourListTasks stageName={key} stageTasks={value} />
+                </React.Fragment>
+              )
+            })
           
-          }</div>)
-      })}   
+            }</div>)
+        })}   
     
     </div>
   )
