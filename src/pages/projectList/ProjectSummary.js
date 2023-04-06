@@ -140,16 +140,11 @@ function CardLabourList({labourList}) {
     <div className='cardMainList'>
       <h4 onClick={HandlesetExpandLabourList}>Labour List</h4>
       {expandLabourList && 
-        Object.entries(labourList).map( ([key, value]) => {
+        Object.entries(labourList).map( ([key, stage]) => {
           return(<div key={key}>{
-            Object.entries(value).map( ([key, value]) => {
-              return(
                 <React.Fragment key={key}>
-                  <CardLabourListTasks stageName={key} stageTasks={value} />
+                  <CardLabourListTasks stage={stage} />
                 </React.Fragment>
-              )
-            })
-          
             }</div>)
         })}   
     
@@ -158,13 +153,14 @@ function CardLabourList({labourList}) {
 }
 
 
-function CardLabourListTasks({stageName, stageTasks}) {
+function CardLabourListTasks({ stage }) {
   const [expandLabourStage, setExpandLabourStage] = useState(false) 
 
   const ToggleExpandLabourStage = () => {
     setExpandLabourStage(!expandLabourStage)
 }
 
+  let stageName = stage.name ? stage.name : '-'
   return(
     <div>
       <div className='cardStage-stageHeader'>
@@ -172,7 +168,7 @@ function CardLabourListTasks({stageName, stageTasks}) {
       </div>
 
       {expandLabourStage && 
-        Object.entries(stageTasks).map( ([key, task]) => {
+        Object.entries(stage.tasks).map( ([key, task]) => {
 
           return (
             <div className='cardStageTasks' key={key}>
