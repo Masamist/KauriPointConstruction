@@ -1,4 +1,13 @@
 
+.progressbar {
+  background-color: rgb(196, 196, 196);
+  border-radius: 8px;
+  width: 50%;
+  height: 15px;
+  margin: auto 1em;
+  position: relative;
+}
+
 .progress-initial {
     border-radius: 8px;
     background-color: rgb(82, 82, 173);

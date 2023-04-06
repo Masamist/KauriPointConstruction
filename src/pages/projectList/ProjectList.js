@@ -4,7 +4,6 @@ import { useCollection } from '../../hooks/useCollection'
 
 // styles
 import './ProjectList.css'
-import { useState } from 'react'
 
 export default function ProjectList() {
   const { documents, error } = useCollection('projects')

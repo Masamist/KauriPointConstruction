@@ -40,7 +40,7 @@
 
 .labourList-StageTask .hours-container{
     width: 40%;
-    justify-content: end;
+    justify-content: flex-end;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
