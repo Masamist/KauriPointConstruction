@@ -1,21 +1,38 @@
 import './contact.css'
 import { projectFirestore } from '../../firebase/config'
-import { useFirestore } from '../../hooks/useFirestore'
+import { useState } from 'react'
 
 export default function ContactUs() {
+//     const history = useHistory()
+// const { addContact, response } = useFirestore('contacts')
 
-const { addContact, response } = useFirestore('contacts')
+  // form field values
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
-    handleSubmit = async(e) => {
-        e.preventDefault()
 
-        const message = {
-            
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const contactMessage = {
+            name,
+            email,
+            message
         }
 
-        await addContact(message)
+        projectFirestore.collection('contacts').add(contactMessage)
+            .then( ()=> {
+                alert('Message has been submnitted')
+            })
+            .catch((error) => {
+                alert(error.message);
+            })
+
+        setName('');
+        setEmail('');
+        setMessage('');
     }
-}
 
     return (
         <div className='contactUs'>
@@ -25,16 +42,28 @@ const { addContact, response } = useFirestore('contacts')
                 <form className='contactForm'>
                     <h1 >Contact Form</h1>
 
-                    <label>nName</label>
-                    <input placeholder='name'></input>
+                    <div>
+                    {name && <label>name</label>}
+                    <input placeholder='name'
+                        value={name}
+                        onChange={ (e)=>setName(e.target.value) }></input>
+                    </div>
 
-                    <label>Email</label>
-                    <input placeholder='email'></input>
+                    <div>
+                    {email && <label>email</label>}
+                    <input placeholder='email'
+                        value={email}
+                        onChange={ (e)=>setEmail(e.target.value) }></input>
+                    </div>
 
-                    <label>Message</label>
-                    <textarea placeholder='message...'></textarea>
+                    <div>
+                    {message && <label>message</label>}
+                    <textarea placeholder='message...'
+                        value={message}
+                        onChange={ (e)=>setMessage(e.target.value) }></textarea>
+                    </div>
 
-                    <button className='btn-green' type='submit'>Submit</button>
+                    <button className='btn-green' type='submit' onClick={handleSubmit}>Submit</button>
                 </form>
             </div>
         </div>
@@ -61,15 +90,15 @@ const ContactInfo = () => {
 
 const ContactPhone = () => {
     return (
-        <div>
+        <div className='contactCard'>
             <h3>Phone Number</h3>
-            <p> 09 234 5678</p>
+            <p className='number'> 09 234 5678</p>
         </div>
     )
 }
 const ContactEmail = () => {
     return (
-        <div>
+        <div className='contactCard'>
             <h3>Email</h3>
             <p> simon@kauripointconstruction.co.nz</p>
         </div>
