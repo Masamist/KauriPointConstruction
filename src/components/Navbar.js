@@ -25,6 +25,7 @@ export default function Navbar() {
             <li><Link to="/home">Home</Link></li>
             <li><Link to="/team">Team</Link></li>
             <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
             
           </>
         )}
@@ -33,6 +34,7 @@ export default function Navbar() {
             <li><Link to="/home">Home</Link></li>
             <li><Link to="/team">Team</Link></li>
             <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/">App</Link></li>
 
             <li>Hi {user.displayName}, </li>

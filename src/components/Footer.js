@@ -12,7 +12,7 @@ export default function Footer () {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/team">Team</Link></li>
                 <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/team">Contact Us</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
             </ul>
             <div className='footer-copyright'>
                 2021 Kauri Point Construction, All Rights Reserved

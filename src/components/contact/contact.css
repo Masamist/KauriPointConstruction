@@ -1,0 +1,28 @@
+.contactHeader {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 1em;
+}
+
+.contact-container{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+}
+
+.contactForm{
+    background-color: var(--bg-color);
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 1.5em;
+    position: relative;
+    top: -1.5em;
+}
