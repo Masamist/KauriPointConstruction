@@ -1,16 +1,17 @@
 import './team.css'
+import { Link } from 'react-router-dom'
 //mugshot photos
-import mugshotSimon from '../../assets/team/Simon.jpg'
-import mugshotCam from '../../assets/team/Cam.jpg'
-import mugshotCTroy from '../../assets/team/Troy.jpg'
-import mugshotChaz from '../../assets/team/Chaz.jpg'
-import mugshotIsaac from '../../assets/team/Isaac.jpg'
-import mugshotLudo from '../../assets/team/Ludo.jpg'
+import mugshotSimon from '../../assets/team/cropped_Simon.jpg'
+import mugshotCam from '../../assets/team/cropped_Cam.jpg'
+import mugshotCTroy from '../../assets/team/cropped_Troy.jpg'
+import mugshotChaz from '../../assets/team/cropped_Chaz.jpg'
+import mugshotIsaac from '../../assets/team/cropped_Isaac.jpg'
+import mugshotLudo from '../../assets/team/cropped_Ludo.jpg'
 import postFoundations from '../../assets/team/postFoundations.JPG'
-import wineRack from '../../assets/team/wineRack.jpg'
 
 
 export default function Team() {
+    
     return (
         <div>
             <TeamPoster />
@@ -21,32 +22,67 @@ export default function Team() {
                     name='Cam' 
                     position='Carpenter' 
                     mugshot={mugshotCam}
-                    />
+                    text={CamCert()}
+                    >
+                </TeamMemberCard>
                 <TeamMemberCard 
                     name='Troy' 
                     position='Carpenter' 
                     mugshot={mugshotCTroy}
-                    />
-                <TeamMemberCard 
-                    name='Chaz' 
-                    position='Apprentice' 
-                    mugshot={mugshotChaz}
-                    />
-                <TeamMemberCard 
-                    name='Isaac' 
-                    position='Apprentice' 
-                    mugshot={mugshotIsaac}
+                    text={TroyCert()}
                     />
                 <TeamMemberCard 
                     name='Ludo' 
                     position='Carpenter' 
                     mugshot={mugshotLudo}
+                    text={LudoCert()}
                     />
+                <TeamMemberCard 
+                    name='Chaz' 
+                    position='Apprentice' 
+                    mugshot={mugshotChaz}
+                    text={ChazCert()}
+                    />
+                <TeamMemberCard 
+                    name='Isaac' 
+                    position='Apprentice' 
+                    mugshot={mugshotIsaac}
+                    text={IsaacCert()}
+                    />
+                
             </div>
+            <Attributes />
             <Brag />
         </div>
     )   
 }
+
+const CamCert = ()=>{
+    return (
+        <>  Foreman/ builder<br/>
+            National Cert. Carpentry
+        </>)}
+const TroyCert = ()=>{
+    return (
+        <>  Foreman/ builder
+            National Cert. Carpentry
+        </>)}
+const ChazCert = ()=>{
+    return (
+        <>  Foreman/ builder<br/>
+            National Cert. Carpentry
+        </>)}
+const LudoCert = ()=>{
+    return (
+        <>  builder<br/>
+            National Cert. Carpentry
+        </>)}
+const IsaacCert = ()=>{
+    return (
+        <>  Foreman/ builder<br/>
+            National Cert. Carpentry
+        </>)}
+
 
 function TeamPoster() {
     return (
@@ -55,10 +91,10 @@ function TeamPoster() {
             <div className='teamBackingImage'></div>
             <h1>Kauri Point Construction</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna 
-                liqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                With a team culture that revolves around leadership at all levels, 
+                we work together in a way that makes achieving maximum quality and 
+                efficiency our standard. We all bring individual skills and strengths 
+                to the team, there are no challenges we can’t overcome
             </p>
 
         </div>
@@ -70,14 +106,15 @@ function ManagerCard() {
     return (
         <div className='managerCard'>
             <div className='text'>
-                <h3>Manager</h3>
+                <h3>Director</h3>
                 <h1>Simon Cattley</h1>
                 <div className='greenLine'></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore 
-                    magna liqua. Ut enim ad minim veniam, quis nostrud 
-                    exercitation ullamco laboris nisi ut aliquip ex ea 
-                    commodo consequa
+                <p>Project Manager <br/>
+                    LBP<br/>
+                    National Cert. Carpentry<br/>
+                    Comprehensive First Aid<br/>
+                    Height Safety/Fall Arrest Systems Cert.<br/>
+                    Mapei Waterproofing Cert.<br/> 
                 </p>
             </div>
             <img className='memberPhoto' src={mugshotSimon}  alt='team member'></img>
@@ -93,9 +130,7 @@ function TeamMemberCard({name, position, text, mugshot}) {
                 <h3>{position}</h3>
                 <h1>{name}</h1>
                 <div className='greenLine'></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore 
-                    magna liqua.
+                <p>{text}
                 </p>
             </div>
             
@@ -103,17 +138,58 @@ function TeamMemberCard({name, position, text, mugshot}) {
         )
 }
 
+function Attributes() {
+    return (
+        <div className='attributes'>
+            <Attribute title='Cost'
+                        text='Our efficiency and organization ensures we 
+                        can keep costs low and work within your budget'/>
+            <Attribute title='Quality'
+                        text='We strive for perfection and refuse to compromise. 
+                        Our quality at all stages is at the highest level'/>
+            <Attribute title='Communication'
+                        text='We aim to set ourselves apart by using clear communication to offer 
+                        complete transparency and build lasting relationships '/>
+            <Attribute title='Planning'
+                        text='Our planning ensures we deliver your project on time and on budget'/>
+            <Attribute title='Scheduling'
+                        text='Our detailed programme ensures that our amazing 
+                        network of subcontractors and suppliers work in seamlessly 
+                        with our construction plan'/>
+            <Attribute title='Team Work'
+                        text='We form a great working relationship with everybody 
+                        involved in our projects. We like to maintain an enjoyable 
+                        environment on all of our sites '/>
+
+
+        </div>
+    )
+}
+
+function Attribute( { title, text} ) {
+    return (
+        <div className='attribute'>
+            <div className='circles'></div>
+            <h4>{title}</h4>
+            <p>
+                {text}
+            </p>
+        </div>
+    )
+}
+
 function Brag () {
     return (
         <div className='brag'>
             <img className='bragImage' src={postFoundations} alt='pouring foundations'></img>
             <div className='bragText'>
-                <h1>We are experienced and skilled at all building work</h1>
+                <h1>If you can dream it, <br/>
+                    we can build it</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                    tempor incididunt ut labore et dolore magna liqua
+                    With a broad range of experience in all aspects of construction, 
+                    we have the skills required to take on even the most challenging projects
                 </p>
-                <div className='btn-white'>Plan your project with us</div>
+                <Link to="/contact"><div className='btn-white'>Plan your project <br/> with us</div></Link>
             </div>
         </div>
     )

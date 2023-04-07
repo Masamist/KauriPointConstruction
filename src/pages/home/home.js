@@ -1,4 +1,5 @@
 import './home.css'
+import { Link } from 'react-router-dom'
 import renovation from '../../assets/renovation.jpg'
 import cedarExterior from '../../assets/cedarExterior.JPG'
 import customJoinery from '../../assets/customJoinery.jpg'
@@ -92,7 +93,7 @@ function Testimonial() {
         <div className='testimonial'>
             <div className='testimonial-text'>
                 <h2>
-                   Thanks to Simon and the KPC team. Stunning results and great communication.
+                    <i>"Thanks to Simon and the KPC team. Stunning results and great communication."</i>
                 </h2>
                 <p>We hired Kauri Point in 2022 to renovate our Ponsonby Villa. 
                     Simon was a dream to work with. Not only is he an excellent builder, 
@@ -101,7 +102,7 @@ function Testimonial() {
                     liaised with our other tradespersons, such as our painter, electrician, plumber etc. 
                     to make sure everything was running smoothly during the renovation. 
                     Simon is both professional and personable and I would absolutely recommend to anyone 
-                    considering a new build or renovation. 
+                    considering a new build or renovation.
                 </p>
                 <h3>Anna Miles</h3>
             </div>
@@ -115,12 +116,12 @@ function Sustainability () {
         <div className='sustainability'>
             <div className='sustainabilityImage'> </div>
             <div className='sustainability-text'>
-                <h1>Supporting Local communitites with sustainable practices.</h1>
+                <h1>Supporting local communitites <br/>with sustainable practices.</h1>
                 <h2>
-                    Kauri Point Construction has a key focus on the environment, 
-                    it's part of everything we do.
+                    Kauri Point Construction has a key focus on the environment. 
+                    It's part of everything we do.
                 </h2>
-                <button className='btn-green'>Plan your project with us</button>
+                <Link to="/contact"><button className='btn-green'>Plan your project <br/> with us</button></Link>
             </div>
         </div>
     )

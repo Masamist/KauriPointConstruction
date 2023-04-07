@@ -52,6 +52,7 @@ ul {
   font-size: 1em;
   box-shadow: 5px 5px 5px var(--heading-color);
   text-align: center;
+  text-decoration: none;
 }
 .btn-green {
   background-color: var(--primary-color);

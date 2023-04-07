@@ -1,4 +1,5 @@
 import './Projects.css'
+import { Link } from 'react-router-dom'
 import FrontDoor from '../../assets/projects/FrontDoor.JPG'
 
 import bathroom from '../../assets/projects/bathroom.JPG'
@@ -88,7 +89,7 @@ function SkillsPoster() {
                     <li>Bespoke carpentry</li>
                 </ul>
             </div>
-            <div className='btn-white'>Contact us</div>
+            <Link to="/contact"><div className='btn-white'>Contact us</div></Link>
         </div>
     )
 }
