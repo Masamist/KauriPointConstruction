@@ -8,14 +8,10 @@
   flex-wrap: wrap;
   margin: 0 auto;
   align-items: center;
-  justify-content: flex-end;
 }
 .navbar .logo {
   font-weight: bold;
   color: var(--heading-color);
-  display: flex;
-  align-items: center;
-  margin-right: auto;
 }
 .navbar .logo img {
   margin-right: 10px;
@@ -27,4 +23,20 @@
   color: #333;
   text-decoration: none;
   margin-right: 20px;
+}
+
+.quickContactCard {
+  float: right;
+}
+.quickContactCard > .phone{
+  color: var(--primary-color);
+  text-align: right;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+.quickContactCard > .email{
+  color: var(--secondary-color);
+  font-weight: 500;
+  text-align: right;
+  font-size: .8em;
 }

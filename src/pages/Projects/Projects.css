@@ -26,8 +26,7 @@
     position: absolute;
     right: 0;
     width: 65vw;
-    margin-top: 5vh;
-    object-fit: cover;
+    margin: 2em 0;
     z-index: 0;
 }
 
@@ -45,7 +44,7 @@
 .projectCard > .text{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .projectCard h2{
@@ -55,11 +54,16 @@
 
 .projectCard p {
     margin: .25em 0;
+    font-size: 1.5em;
+}
+
+.projectCard .text > p{
+    margin-right: .6em;
 }
 
 .projectCard > img{
     height: 300px;
-    max-width: 50vw;
+    min-width: 40vw;
 }
 
 .skillsPoster{
@@ -103,7 +107,9 @@
     text-align: center; 
 }
 
-@media screen and (max-width: 700px) {
+
+
+@media screen and (max-width: 500px) {
     .projectCard{
         flex-direction: column;
     }
@@ -125,3 +131,11 @@
         
     }
 }
+
+@media screen and (min-width:1200px) {
+    .projectCard > img{
+        min-width: 470px
+    }
+}
+
+

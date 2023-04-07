@@ -13,6 +13,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
+      <ContactCard />
       <ul>
         <li className="logo">
           <img src={Logo} alt="pkc logo" />
@@ -48,7 +49,16 @@ export default function Navbar() {
         )}
         
       </ul>
+      
     </nav>
   )
 }
 
+const ContactCard = ()=> {
+  return(
+    <div className='quickContactCard'>
+      <div className='phone'>021 037 2837</div>
+      <div className='email'>simon@kauripointconstruction.co.nz</div>
+    </div>
+  )
+}
