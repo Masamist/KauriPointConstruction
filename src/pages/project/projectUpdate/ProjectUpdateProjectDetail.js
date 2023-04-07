@@ -134,7 +134,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 </label>
 
 
-                <div>
+                {/* <div>
                   <h3>Assign Staff Members</h3>
                   {teamList ? teamList.map((singleStaff, index) => {
                     return (
@@ -157,7 +157,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
                     </>
                   )
                   }) : <p>No team staff assigned</p>}
-                </div>
+                </div> */}
 
                 <form>
                   <label>

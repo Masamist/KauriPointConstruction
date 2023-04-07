@@ -1,5 +1,6 @@
 import React from "react"
 import MainList from "../../components/MainList"
+import ProjectUpdateMainList from "./projectUpdate/ProjectUpdateMainList"
 
 // styles
 import './ProjectDetail.css'
@@ -25,6 +26,8 @@ export default function ProjectDetail({project}) {
         </div>
         
         <MainList stages={project.mainList} />
+        <ProjectUpdateMainList stages={project.mainList} />
+        
 
         <h3>Project Detail</h3>
         <p className="due-date">

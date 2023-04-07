@@ -43,7 +43,8 @@ export default function Project() {
           <div>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
             <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
-          </div>       
+          </div>
+
           {!switchLabourList && 
             <>
               <ProjectDetail project={document} />
