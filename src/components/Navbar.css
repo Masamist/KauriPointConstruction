@@ -1,6 +1,6 @@
 .navbar {
   width: 100%;
-  padding: 1rem 2rem .8rem 1rem;
+  padding: 1rem 2rem 0 1rem;
   background-color: var(--bg-color);
 }
 .navbar ul {
