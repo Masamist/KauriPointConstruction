@@ -34,7 +34,7 @@ function Tasks ({ stage }) {
     )
 }
 
-function Stage({ name, stage }) {
+function Stage({ stage }) {
     const [expandStages, setCollapseStages] = useState(false)
     
     function handleExpand() { setCollapseStages(!expandStages)}
@@ -42,10 +42,10 @@ function Stage({ name, stage }) {
     return (
         <div className='mainlist-stageCard'>
             <div className='flex'>
-                <h3 onClick={handleExpand}>{name}</h3>
+                <h3 onClick={handleExpand}>{stage.name}</h3>
             </div>
             <div>
-                {expandStages && <Tasks stage={stage} />}
+                {expandStages && <Tasks stage={stage.tasks} />}
             </div>
         </div>
     )
@@ -59,14 +59,8 @@ export default function MainList({ stages}) {
             <div>
                 <h2>Main List:</h2>
                 
-                {  Object.entries(stages).map( ([key, stage]) => {
-                    return (
-                        Object.entries(stage).map( ([key, stage]) => {
-                            //console.log('FinalStage: ',key, ' :: ', stage )
-                            return <Stage key={key} name={key} stage={stage} />
-                        })
-                    )
-                    
+                { Object.entries(stages).map( ([key, stage]) => {
+                            return <Stage key={key} stage={stage} />
                 })}
             </div> 
     )

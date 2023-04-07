@@ -25,8 +25,8 @@ export default function ProjectDetail({project}) {
             <p><span>Cost to Completion excluding GST:</span>$00.00</p>
         </div>
         
-        <MainList stages={project.mainList} />
-        <ProjectUpdateMainList stages={project.mainList} />
+        <MainList stages={project.MainList} />
+        <ProjectUpdateMainList stages={project.MainList} />
         
 
         <h3>Project Detail</h3>

@@ -18,14 +18,12 @@ function reducer(stage, action) {
             console.log("stage", stage)
             console.log("test:",action.payload.id)
             return stage.map(singleStage => {
-                if(singleStage.id === action.payload.id){
+                if(singleStage === action.payload.id){
                     return {...singleStage, status: action.payload.status}
                 }
             return singleStage
             })    
             
-            
-
         default:
             return stage
     }
@@ -91,7 +89,7 @@ function Tasks ({ stage, dispatch }) {
     )
 }
 
-function Stage({ name, stage }) {
+function Stage({ stage }) {
     const [expandStages, setCollapseStages] = useState(false)
     const [stageDtails, dispatch] = useReducer(reducer, stage)
         console.log('allStage', stageDtails)
@@ -101,10 +99,10 @@ function Stage({ name, stage }) {
     return (
         <div className='mainlist-stageCard'>
             <div className='flex'>
-                <h3 onClick={handleExpand}>{name}</h3>
+                <h3 onClick={handleExpand}>{stage.name}</h3>
             </div>
             <div>
-                {expandStages && <Tasks stage={stageDtails} dispatch={dispatch} />}
+                {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
             </div>
         </div>
     )
@@ -116,15 +114,9 @@ export default function MainList({stages}) {
             <div>
                 <h2>Main List:</h2>
                 
-                {  Object.entries(stages).map( ([key, stage]) => {
-                    return (
-                        Object.entries(stage).map( ([key, stage]) => {
-                            //console.log('FinalStage: ',key, ' :: ', stage )
-                            return <Stage key={key} name={key} stage={stage} />
-                        })
-                    )
-                    
+                { Object.entries(stages).map( ([key, stage]) => {
+                            return <Stage key={key} stage={stage} />
                 })}
-        </div> 
-    )
+            </div> 
+        )
 }
