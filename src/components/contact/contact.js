@@ -1,21 +1,38 @@
 import './contact.css'
 import { projectFirestore } from '../../firebase/config'
+import { useFirestore } from '../../hooks/useFirestore'
+import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function ContactUs() {
-//     const history = useHistory()
-// const { addContact, response } = useFirestore('contacts')
+    const history = useHistory()
+    const { addDocument, response } = useFirestore('contacts')
 
   // form field values
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
+  const [formError, setFormError] = useState(null)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
+        setFormError(null)
+        if(!name){
+            setFormError('please select a name') 
+            return
+        }
+        if(!email){
+            setFormError('please enter an email') 
+            return
+        }
+        if(!message){
+            setFormError('please enter a message') 
+            return
+        }
 
-        const contactMessage = {
+
+        let contactMessage = {
             name,
             email,
             message
@@ -28,10 +45,16 @@ export default function ContactUs() {
             .catch((error) => {
                 alert(error.message);
             })
+        //await addDocument(contactMessage)
 
-        setName('');
-        setEmail('');
-        setMessage('');
+        if (!response.error) {
+            setName('');
+            setEmail('');
+            setMessage('');
+            //history.push('/')
+          }
+
+
     }
 
     return (
@@ -64,6 +87,7 @@ export default function ContactUs() {
                     </div>
 
                     <button className='btn-green' type='submit' onClick={handleSubmit}>Submit</button>
+                    {formError && <p className="error">{formError}</p>}
                 </form>
             </div>
         </div>
