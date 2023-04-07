@@ -74,20 +74,20 @@ function SkillsPoster() {
             <div className='text'>
                 <h1>We make it happen</h1>
                 <h1>Multi-skilled in all aspects of construction.</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna 
-                    liqua.
-                </p>
+                
             </div>
-            <ul>
-                <li>Construction</li>
-                <li>Renovations</li>
-                <li>Extensions</li>
-                <li>Fencing & Decking</li>
-                <li>Maintanence and repair</li>
-                <li>Bespoke carpentry</li>
-            </ul>
+            <div className='skillsList'>
+                <ul>
+                    <li>Construction</li>
+                    <li>Renovations</li>
+                    <li>Extensions</li>
+                </ul>
+                <ul>
+                    <li>Fencing & Decking</li>
+                    <li>Maintanence and repair</li>
+                    <li>Bespoke carpentry</li>
+                </ul>
+            </div>
             <div className='btn-white'>Contact us</div>
         </div>
     )

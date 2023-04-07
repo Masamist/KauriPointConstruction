@@ -9,6 +9,7 @@
     left: 3em;
     bottom: 3em;
     width: 70%;
+    margin-bottom:  1em;
 }
 .showcasePoster >.text > h1{
     color: var(--bg-color);
@@ -68,7 +69,7 @@
 
 .skillsPoster{
     background-color: var(--secondary-color);
-    height: 450px;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -81,32 +82,41 @@
     justify-content: space-around;
     align-items: center;
 }
+.skillsPoster > .btn-white {
+    margin-top: 2em;
+}
 .skillsPoster > .text > h1{
     color: var(--bg-color);
     font-weight: 150;
     text-align: center;
 }
-.skillsPoster > .text > p{
-    color: var(--bg-color);
-    width: 60%;
-    font-size: .8em;
-    text-align: center;
-}
-.skillsPoster > ul{
-    width: 80%;
+
+.skillsPoster > .skillsList > ul{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.skillsPoster > ul > li{
+.skillsPoster > .skillsList> ul > li{
     color: var(--bg-color);
-    flex-grow: 1;
     font-size: .8em;
+    font-weight: 450;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 100%;
+    width: 10em;
+    height: 10em;
     margin: 1em;
-    width: 5em;
     text-align: center; 
+    background-color: lightgrey;
+    color: var(--primary-color)
 }
 
+.skillsList{
+    display: flex;
+
+}
 
 
 @media screen and (max-width: 500px) {

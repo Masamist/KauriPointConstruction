@@ -14,11 +14,13 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <ContactCard />
-      <ul>
-        <li className="logo">
-          <img src={Logo} alt="pkc logo" />
-        </li>
 
+      <div className="logo">
+          <img src={Logo} alt="pkc logo" />
+        </div>
+
+      <ul>
+        
         {!user && (
           <>
             <li><Link to="/login">Login</Link></li>
