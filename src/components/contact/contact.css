@@ -20,11 +20,17 @@
 
 .contactCard {
     background-color: var(--bg-color);
-    margin: 2em 0;
-    padding: 1em 0;
+    margin: 4em 0 1em 0;
+    padding: 0 0 1em 0;
     border: 1px solid gray;
+    position: relative;
 }
 
+.contactCard > img{
+    height: 5em;
+    position: relative;
+    top: -1em;
+}
 .contactCard > .number{
     font-weight: 600;
 }
@@ -53,13 +59,13 @@
 @media screen and (max-width: 800px) {
     .contact-container{
         flex-direction: column;
-        gap: 2em;
+        gap: 6em;
     } 
 
     .contactInfo{
-        width: 90%
+        width: 100%
     }
     .contactForm{
-        width: 90%
+        width: 100%
     }
 }
