@@ -31,7 +31,18 @@
 .quickContactCard {
   float: right;
 }
-.quickContactCard > .phone{
+
+.quickContactCard > .phone {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.quickContactCard > .phone > img {
+  height: 1.5em;
+  margin-right: .5em;
+}
+
+.quickContactCard > .phone > .phone-text{
   color: var(--primary-color);
   text-align: right;
   font-weight: 500;

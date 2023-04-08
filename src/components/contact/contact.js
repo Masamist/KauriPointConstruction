@@ -4,6 +4,9 @@ import { useFirestore } from '../../hooks/useFirestore'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 
+import phone from '../../assets/icons/phone.png'
+import email from '../../assets/icons/email.png'
+
 export default function ContactUs() {
     const history = useHistory()
     const { addDocument, response } = useFirestore('contactMessage')
@@ -116,6 +119,7 @@ const ContactInfo = () => {
 const ContactPhone = () => {
     return (
         <div className='contactCard'>
+            <img src={phone} alt='phone'></img>
             <h3>Phone Number</h3>
             <p className='number'> 09 234 5678</p>
         </div>
@@ -124,6 +128,7 @@ const ContactPhone = () => {
 const ContactEmail = () => {
     return (
         <div className='contactCard'>
+            <img src={email} alt='email'></img>
             <h3>Email</h3>
             <p> simon@kauripointconstruction.co.nz</p>
         </div>
