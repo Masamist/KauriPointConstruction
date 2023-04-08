@@ -90,7 +90,7 @@ export default function Create() {
       phone,
       email,
       address, 
-      MainList: tempMain.value.MainList,
+      mainList: tempMain.value.mainList,
       labourList: tempLabourList.value.labourList,
       startDate: timestamp.fromDate(new Date(startDate)),
       GSTno,

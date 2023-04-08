@@ -160,11 +160,11 @@ export default function MainList({stages}) {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        const MainList = {
-            MainList: reStages
+        const mainList = {
+            mainList: reStages
         }
         
-        await updateDocument(id, MainList)
+        await updateDocument(id, mainList)
 
         if (!response.error) {
             history.push('/')
