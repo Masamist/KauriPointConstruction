@@ -8,7 +8,13 @@ import mugshotChaz from '../../assets/team/cropped_Chaz.jpg'
 import mugshotIsaac from '../../assets/team/cropped_Isaac.jpg'
 import mugshotLudo from '../../assets/team/cropped_Ludo.jpg'
 import postFoundations from '../../assets/team/postFoundations.JPG'
-
+//Icons
+import img_cost from '../../assets/icons/cost.png'
+import img_quality from '../../assets/icons/quality.png'
+import img_communication from '../../assets/icons/communication.png'
+import img_planning from '../../assets/icons/planning.png'
+import img_scheduling from '../../assets/icons/scheduling.png'
+import img_teamWork from '../../assets/icons/teamWork.png'
 
 export default function Team() {
     
@@ -64,23 +70,21 @@ const CamCert = ()=>{
         </>)}
 const TroyCert = ()=>{
     return (
-        <>  Foreman/ builder
+        <>  Foreman/ builder<br/>
             National Cert. Carpentry
         </>)}
 const ChazCert = ()=>{
     return (
-        <>  Foreman/ builder<br/>
-            National Cert. Carpentry
+        <>  Apprentice BCITO
         </>)}
 const LudoCert = ()=>{
     return (
-        <>  builder<br/>
+        <>  Builder<br/>
             National Cert. Carpentry
         </>)}
 const IsaacCert = ()=>{
     return (
-        <>  Foreman/ builder<br/>
-            National Cert. Carpentry
+        <>  Apprentice BCITO
         </>)}
 
 
@@ -140,36 +144,43 @@ function TeamMemberCard({name, position, text, mugshot}) {
 
 function Attributes() {
     return (
-        <div className='attributes'>
-            <Attribute title='Cost'
-                        text='Our efficiency and organization ensures we 
-                        can keep costs low and work within your budget'/>
-            <Attribute title='Quality'
-                        text='We strive for perfection and refuse to compromise. 
-                        Our quality at all stages is at the highest level'/>
-            <Attribute title='Communication'
-                        text='We aim to set ourselves apart by using clear communication to offer 
-                        complete transparency and build lasting relationships '/>
-            <Attribute title='Planning'
-                        text='Our planning ensures we deliver your project on time and on budget'/>
-            <Attribute title='Scheduling'
-                        text='Our detailed programme ensures that our amazing 
-                        network of subcontractors and suppliers work in seamlessly 
-                        with our construction plan'/>
-            <Attribute title='Team Work'
-                        text='We form a great working relationship with everybody 
-                        involved in our projects. We like to maintain an enjoyable 
-                        environment on all of our sites '/>
-
-
-        </div>
+        <>
+            <h2 className='attributesHeading'>Kauri Point Construction</h2>   
+            <div className='attributes'>
+                <Attribute title='Cost'
+                            img={img_cost}
+                            text='Our efficiency and organization ensures we 
+                            can keep costs low and work within your budget'/>
+                <Attribute title='Quality'
+                            img={img_quality}
+                            text='We strive for perfection and refuse to compromise. 
+                            Our quality at all stages is at the highest level'/>
+                <Attribute title='Communication'
+                            img={img_communication}
+                            text='We aim to set ourselves apart by using clear communication to offer 
+                            complete transparency and build lasting relationships '/>
+                <Attribute title='Planning'
+                            img={img_planning}
+                            text='Our planning ensures we deliver your project on time and on budget'/>
+                <Attribute title='Scheduling'
+                            img={img_scheduling}
+                            text='Our detailed programme ensures that our amazing 
+                            network of subcontractors and suppliers work in seamlessly 
+                            with our construction plan'/>
+                <Attribute title='Team Work'
+                            img={img_teamWork}
+                            text='We form a great working relationship with everybody 
+                            involved in our projects. We like to maintain an enjoyable 
+                            environment on all of our sites '/>
+            </div>
+        </>
     )
 }
 
-function Attribute( { title, text} ) {
+function Attribute( { title, text, img} ) {
     return (
         <div className='attribute'>
-            <div className='circles'></div>
+            <img src={img} alt='icon' className='circles'></img>
             <h4>{title}</h4>
             <p>
                 {text}

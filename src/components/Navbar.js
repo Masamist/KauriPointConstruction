@@ -11,6 +11,8 @@ export default function Navbar() {
   const { logout, isPending } = useLogout()
   const { user } = useAuthContext()
 
+
+  // removed link for Security // <li><Link to="/signup">Signup</Link></li>
   return (
     <nav className="navbar">
       <ContactCard />
@@ -23,20 +25,20 @@ export default function Navbar() {
         
         {!user && (
           <>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/signup">Signup</Link></li>
             <li><Link to="/home">Home</Link></li>
-            <li><Link to="/team">Team</Link></li>
             <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/team">Team</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            
             
           </>
         )}
         {user && (
           <>
             <li><Link to="/home">Home</Link></li>
-            <li><Link to="/team">Team</Link></li>
             <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/team">Team</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/">App</Link></li>
 

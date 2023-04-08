@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 export default function ContactUs() {
     const history = useHistory()
-    const { addDocument, response } = useFirestore('contacts')
+    const { addDocument, response } = useFirestore('contactMessage')
 
   // form field values
   const [name, setName] = useState('')
@@ -38,19 +38,20 @@ export default function ContactUs() {
             message
         }
 
-        projectFirestore.collection('contacts').add(contactMessage)
+        //projectFirestore.collection('contactMessage').add(contactMessage)
+        await addDocument(contactMessage)
             .then( ()=> {
-                alert('Message has been submnitted')
+                alert('Message has been submitted')
             })
             .catch((error) => {
                 alert(error.message);
             })
-        //await addDocument(contactMessage)
 
         if (!response.error) {
             setName('');
             setEmail('');
             setMessage('');
+
             //history.push('/')
           }
 
