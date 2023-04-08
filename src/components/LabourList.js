@@ -13,32 +13,30 @@ export default function LabourList({ list , team }) {
 
 
     return (
-        <React.Fragment>
+        <>
             <h2>LABOUR LIST</h2>
-            { Object.entries( list ).map( ([k, id ]) => {
+            { Object.entries( list ).map( ([key, stage ]) => {
                 return (
-                    <React.Fragment key={k}>
-                        {Object.entries( id ).map( ([key, stage ]) => {
-                        return <LabourStageCard key={key} name={key} stage={stage} team={staffRole} />
-                        })}
-                    </React.Fragment>
-                    )}
-            )}
-        </React.Fragment>
+                    <LabourStageCard key={key} stage={stage} team={staffRole} />    
+            )})}
+        </>
     )
 
 }
 
-function LabourStageCard({name, stage, team}) {
+function LabourStageCard({stage, team}) {
     const [expandLabourStage, setExpandLabourStage] = useState(false)
     const handleToggleStage = ()=>{setExpandLabourStage(!expandLabourStage)}
 
     // const [totalHours, setTotalHours] = useState([{}])
    
 
-    const calcHours = Object.entries(stage).map(([key, task]) => (
+    const calcHours = Object.entries(stage.tasks).map(([key, task]) => (
         Object.entries(task.hoursPredicted).map(([cat, id]) =>  id.hours)
     ))
+    const calcHours2 = stage.tasks.map( task => {
+        Object.entries(task.hoursPredicted).map(([cat, id]) =>  id.hours)
+    })
 
     // const roleOne = calcHours.map((role) => role.at(0))
     // const a = roleOne.reduce(setSum, 0)
@@ -64,10 +62,10 @@ function LabourStageCard({name, stage, team}) {
     }   
 
     return (
-        <React.Fragment key={name}>
+        <>
             <div onClick={handleToggleStage} className='stage-container'>
                 
-                <div className="stage-name-container">{name}</div>
+                <div className="stage-name-container">{stage.name}</div>
                 <div className="stage-role-container">
                 {team.map((role) => (
                     <div>{role}</div>
@@ -75,7 +73,7 @@ function LabourStageCard({name, stage, team}) {
                 </div>
                 
             </div>
-            {expandLabourStage && <LabourStageTask stage={stage} />}
+            {expandLabourStage && <LabourStageTask stage={stage.tasks} />}
             <div className='labourList-StageTask'>
                 <div className='task-container'>Total Days:</div>
                 <div className='hours-container'>
@@ -88,7 +86,7 @@ function LabourStageCard({name, stage, team}) {
             <div className='labourList-StageTask'>
                 <div>Stage Total: 000days $00000</div>
             </div>
-        </React.Fragment>
+        </>
     )
 }
 
