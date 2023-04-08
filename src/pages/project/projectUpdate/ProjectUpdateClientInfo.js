@@ -11,6 +11,8 @@ export default function ProjectUpdateClientInfo({ project }) {
   const history = useHistory()
   const { id } = useParams()
   const location = useLocation()
+  const [formError, setFormError] = useState(null)
+  const [showModal, setShowModal] = useState(false)
 
   console.log(location.pathname)
 
@@ -22,8 +24,7 @@ export default function ProjectUpdateClientInfo({ project }) {
   const [line2, setLine2] = useState(project.address.line2)
   const [suburb, setSuburb] = useState(project.address.suburb)
   const [city, setCity] = useState(project.address.city)
-  const [formError, setFormError] = useState(null)
-  const [showModal, setShowModal] = useState(false)
+
 
 
   const handleClose = () => setShowModal(false)
@@ -58,7 +59,7 @@ export default function ProjectUpdateClientInfo({ project }) {
   return (
     <div className="project-client-info">
       <div>
-        <button type="btn" onClick={() => setShowModal(true)}>
+        <button type="btn" id="btn_right" onClick={() => setShowModal(true)}>
           + Update Client Details
         </button>
       </div>

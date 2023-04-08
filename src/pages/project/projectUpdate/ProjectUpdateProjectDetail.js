@@ -71,7 +71,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
   return (
     <div className="project-client-info">
       <div>
-        <button type="btn" onClick={() => setShowModal(true)}>
+        <button type="btn" id="btn_right" onClick={() => setShowModal(true)}>
           + Update Project Details
         </button>
       </div>
@@ -134,9 +134,9 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 </label>
 
 
-                {/* <div>
+                <div>
                   <h3>Assign Staff Members</h3>
-                  {teamList ? teamList.map((singleStaff, index) => {
+                  {teamList && Array.isArray(teamList) ? teamList.map((singleStaff, index) => {
                     return (
                     <>
                       <div key={index}>
@@ -156,8 +156,9 @@ export default function ProjectUpdateProjectDetail({ project }) {
                       </div>
                     </>
                   )
+                    
                   }) : <p>No team staff assigned</p>}
-                </div> */}
+                </div>
 
                 <form>
                   <label>

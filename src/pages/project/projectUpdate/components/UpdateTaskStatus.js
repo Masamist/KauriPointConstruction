@@ -25,7 +25,12 @@ export default function UpdateTaskStatus({task, dispatch}) {
     <>
       <div>
         <button class="btn" type="btn" onClick={() => setShowModal(true)}>
-          Update
+          Modify
+        </button>
+        <button class="btn" type="btn" onClick={() => dispatch({ type: ACTIONS.DELETE_TASK_ITEM,
+                      payload:{ task: task.task }
+                    })}>
+          Delete
         </button>
       </div>
 

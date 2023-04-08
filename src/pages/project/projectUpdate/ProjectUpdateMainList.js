@@ -10,7 +10,9 @@ import '../../../components/MainList.css'
 export const ACTIONS = {
     ADD_TASK: 'add_task',
     CHANGE_STATUS: 'change_status',
+    DELETE_TASK_ITEM: 'delete_task_item',
 }
+
 
 function reducer(reStages, action) {
 
@@ -22,8 +24,8 @@ function reducer(reStages, action) {
         case ACTIONS.CHANGE_STATUS:
             console.log("stageDetails", reStages)
             // console.log("tasks", reStages.map(stage => { return stage.tasks.map(task => task.task)  }))
-            console.log("payload task name:", action.payload.task)
-            console.log("payload status:", action.payload.status)
+            // console.log("payload task name:", action.payload.task)
+            // console.log("payload status:", action.payload.status)
 
             // return reStages.map(stage => {
             //     stage.tasks.map(task => {
@@ -83,6 +85,17 @@ function reducer(reStages, action) {
 
             // })
             // )
+        case ACTIONS.DELETE_TASK_ITEM:
+            return reStages.map(stage => {
+                console.log('action.payload.task', action.payload.task)
+                return {   
+                    ...stage,
+                    tasks: 
+                        stage.tasks.filter(!stage.tasks.task === action.payload.task).map((task) => {
+                                return {...task}
+                        })  
+                    }
+                })
         default:
             return reStages
     }
@@ -147,8 +160,11 @@ export default function MainList({stages}) {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        const MainList = {
+            MainList: reStages
+        }
         
-        await updateDocument(id, reStages)
+        await updateDocument(id, MainList)
 
         if (!response.error) {
             history.push('/')
@@ -158,7 +174,7 @@ export default function MainList({stages}) {
     return (
             <div>
                 <h2>Main List:</h2>
-                <button onClick={handleSubmit}>Update MainList</button>
+                <button onClick={handleSubmit} id="btn_right">Update MainList</button>
                 { Object.entries(reStages).map( ([key, stage]) => {
                             return <Stage key={key} stage={stage} dispatch={dispatch} />
                 })}

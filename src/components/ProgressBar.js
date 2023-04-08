@@ -43,7 +43,7 @@ const calculateProjectProgress = (project) => {
         return(
             <React.Fragment key={key}>
                 {Object.entries(stages.tasks).map( ([key, tasks]) => {
-                    console.log('Tasks: ', tasks)
+                    // console.log('Tasks: ', tasks)
                     let stageSums = calculateStageProgress(tasks)
                     totalClaimed += stageSums.totalClaimed
                     totalCost += stageSums.totalCost
