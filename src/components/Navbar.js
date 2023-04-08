@@ -11,29 +11,34 @@ export default function Navbar() {
   const { logout, isPending } = useLogout()
   const { user } = useAuthContext()
 
+
+  // removed link for Security // <li><Link to="/signup">Signup</Link></li>
   return (
     <nav className="navbar">
-      <ul>
-        <li className="logo">
-          <img src={Logo} alt="pkc logo" />
-        </li>
+      <ContactCard />
 
+      <div className="logo">
+          <img src={Logo} alt="pkc logo" />
+        </div>
+
+      <ul>
+        
         {!user && (
           <>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/signup">Signup</Link></li>
             <li><Link to="/home">Home</Link></li>
-            <li><Link to="/team">Team</Link></li>
             <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/team">Team</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            
             
           </>
         )}
         {user && (
           <>
             <li><Link to="/home">Home</Link></li>
-            <li><Link to="/team">Team</Link></li>
             <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/team">Team</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/">App</Link></li>
 
@@ -48,7 +53,16 @@ export default function Navbar() {
         )}
         
       </ul>
+      
     </nav>
   )
 }
 
+const ContactCard = ()=> {
+  return(
+    <div className='quickContactCard'>
+      <div className='phone'>021 037 2837</div>
+      <div className='email'>simon@kauripointconstruction.co.nz</div>
+    </div>
+  )
+}

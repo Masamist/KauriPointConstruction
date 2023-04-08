@@ -1,12 +1,11 @@
 import './home.css'
-import Service_DoubleGarage from '../../assets/service_doubleGarage.png'
-import Service_Renovation from '../../assets/service_renovation.jpg'
-import Service_fencingDecking from '../../assets/service_fencingDecking.JPG'
-import Service_demolition from '../../assets/service_demolition.JPG'
-import Service_houseRemoval from '../../assets/service_houseRemoval.JPG'
-import Service_extension from '../../assets/service_extension.JPG'
-import testimonial from '../../assets/testimonial.jpg'
+import { Link } from 'react-router-dom'
+import renovation from '../../assets/renovation.jpg'
+import cedarExterior from '../../assets/cedarExterior.JPG'
+import customJoinery from '../../assets/customJoinery.jpg'
 
+import hallway from '../../assets/hallway.jpg'
+import garageFraming from '../../assets/service_construction.JPG'
 
 
 export default function Home() {
@@ -25,12 +24,13 @@ function Poster() {
         <div className='poster'>
             <div className='backingImage'></div>
             <div className='backingTint'></div>
-            <h2 className='poster-header'>Bringing our ideas to life.<br/>
-                Through our expertise.
+            <h2 className='poster-header'>
+                Talented Craftsmen<br/>
+                Superior Service
             </h2>
             <div className='poster-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua.
+            Our team of experienced builders will guide you through 
+            the entire process from design right through to completion 
             </div>
         </div>
 
@@ -43,42 +43,36 @@ function Services () {
             <h1>Kauri Point Construction Services</h1>
             <div className='services'>
                 <Service 
-                    title='Construction' 
-                    text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua.'
-                    imageURL={Service_DoubleGarage}
+                    title='New builds' 
+                    text='Across our team, we have decades of building project experience from 
+                    luxury upscale builds, challenging access sites, and architecturally ambitious houses. 
+                    Our team brings this hands-on experience to support your project right from inception.'
+                    imageURL={garageFraming}
                 />
                 <Service 
                     title='Renovation' 
-                    text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua.'
-                    imageURL={Service_Renovation}
+                    text='We are passionate about bringing your ideas to life, from bathroom or kitchen 
+                    remodels, sympathetic heritage upgrades, or any other internal enhancements. 
+                    Along with our amazing network of suppliers and subcontractors, we can help you 
+                    achieve your ideal home.'
+                    imageURL={renovation}
 
                 />
                 <Service 
-                    title='Extension' 
-                    text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua.'
-                    imageURL={Service_extension}
+                    title='Exterior' 
+                    text='Our team provides the complete construction package, indoor and out. We can 
+                    support you for any external residential construction including decking, fencing 
+                    and any other external outdoor construction needs..'
+                    imageURL={cedarExterior}
                 />
                 <Service 
-                    title='Fencing and Decking' 
-                    text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua.'
-                    imageURL={Service_fencingDecking}
+                    title='Custom support and bespoke carpentry' 
+                    text='Our talented craftsmen have the skills to support small and large projects; 
+                    our team is detail oriented and has a wide range of knowledge on products, 
+                    materials and systems. Let us help you support, protect or upgrade your assets'
+                    imageURL={customJoinery}
                 />
-                <Service 
-                    title='Demolition' 
-                    text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua.'
-                    imageURL={Service_demolition}
-                />
-                <Service 
-                    title='House Removal' 
-                    text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua.'
-                    imageURL={Service_houseRemoval}
-                />
+                
                 </div>
         </div>
     )
@@ -99,13 +93,20 @@ function Testimonial() {
         <div className='testimonial'>
             <div className='testimonial-text'>
                 <h2>
-                   Thanks to Simon and the KPC team. Stunning results and great communication.
+                    <i>"Thanks to Simon and the KPC team. Stunning results and great communication."</i>
                 </h2>
-                <h3>John and Ann Smith</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>We hired Kauri Point in 2022 to renovate our Ponsonby Villa. 
+                    Simon was a dream to work with. Not only is he an excellent builder, 
+                    but is a wonderful communicator and was quick to complete the timeline of work. 
+                    Nothing was ever a problem, and he guided us through the whole process. Simon 
+                    liaised with our other tradespersons, such as our painter, electrician, plumber etc. 
+                    to make sure everything was running smoothly during the renovation. 
+                    Simon is both professional and personable and I would absolutely recommend to anyone 
+                    considering a new build or renovation.
+                </p>
+                <h3>Anna Miles</h3>
             </div>
-            <img className='testimonial-image' src={testimonial} alt='previous clients'></img>
+            <img className='testimonial-image' src={hallway} alt='previous clients'></img>
         </div>
     )
 }
@@ -115,12 +116,12 @@ function Sustainability () {
         <div className='sustainability'>
             <div className='sustainabilityImage'> </div>
             <div className='sustainability-text'>
-                <h1>Supporting Local communitites with sustainable practices.</h1>
+                <h1>Supporting local communitites <br/>with sustainable practices.</h1>
                 <h2>
-                    Kauri Point Construction has a key focus on the environment, 
-                    it's part of everything we do.
+                    Kauri Point Construction has a key focus on the environment. 
+                    It's part of everything we do.
                 </h2>
-                <button className='btn-green'>Plan your project with us</button>
+                <Link to="/contact"><button className='btn-green'>Plan your project <br/> with us</button></Link>
             </div>
         </div>
     )

@@ -10,7 +10,6 @@
   }
   .footer ul > li{
     margin: .5em 2em;
-
   }
   .footer .logo {
     display: flex;
@@ -31,3 +30,9 @@
     text-align: center;
     font-size: .7em;
   }
+
+  @media screen and (max-width: 500px) {
+    .footer ul > li{
+      margin: .5em 1em;
+    }
+    }

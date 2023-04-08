@@ -4,6 +4,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .backingImage {
@@ -29,14 +30,15 @@
 .poster-header {
     position: relative;
     float: right;
-    margin: 5rem 5rem;
+    margin: 1em 1.5em;
     color: var(--bg-color);
     font-weight: 500;
+    font-size: 2em;
     text-align: right;
 }
 
 .poster-text {
-    margin: 4rem;
+    margin: 0 40% 3em 2em;
     color: var(--bg-color);
     height: 100%;
     position: relative;
@@ -47,6 +49,7 @@
     display: flex;
     flex-direction: row;
     justify-content: stretch;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding: 20px;
     text-align: left;
@@ -54,7 +57,7 @@
 
 .service{
     margin: 50px 15px;
-    width: 30%;
+    width: 43%
 }
 
 .service > h2 {
@@ -85,21 +88,22 @@
     background-color: var(--secondary-color);
     padding: 2em 4em;
     display: flex;
+    justify-content: space-between;
+
+}
+.testimonial-text {
+    margin-right: 1.5em;
+    width: 40vw;
 }
 
 .testimonial-text > h2, .testimonial-text > h3, .testimonial-text > p{
     color: var(--bg-color);
-}
-
-.testimonial-text {
-    flex-grow: 2;
-    margin-right: 1.5em;
-    max-width: 70%;
+    margin: .5em 0;
 }
 
 .testimonial-image {
     background-color: var(--primary-color);
-    object-fit: cover;
+    width: 40vw;
 }
 
 .sustainability {
@@ -127,6 +131,10 @@
     margin: .5em;
 }
 
+.sustainability-text > .btn-green{
+    min-width: 15em;
+}
+
 .sustainabilityImage {
     background-image: url('../../assets/kauri-forest.jpg');
     position: absolute;
@@ -139,15 +147,18 @@
 }
 
 
-@media screen and (max-width: 950px) {
-    .service{
-        width: 43%;
+
+/* @media screen and (max-width: 1200px) {
+    .testimonial-image {
+        height: 90%;
+        width: 500px;
     }
-}
+} */
+
 
 @media screen and (max-width: 700px) {
     .testimonial{
-        flex-wrap: wrap;
+        flex-direction: column;
     }
     .service{
         width: 100%;
@@ -155,4 +166,10 @@
     .btn-green{
         width: 60%;
     }
+    .testimonial-text{
+        width: 80vw;
+    } 
+    .testimonial-image{
+        width: 80vw;
+    } 
 }
