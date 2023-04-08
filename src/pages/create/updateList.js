@@ -32,7 +32,7 @@ function ConvertToList(List) {
 
 export default function modifyData(project) {
     
-    project.MainList = ConvertToList(project.mainList)
+    project.mainList = ConvertToList(project.mainList)
     project.labourList = ConvertToList(project.labourList)
 
     return project

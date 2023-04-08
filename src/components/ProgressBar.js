@@ -27,11 +27,10 @@ function calculateTaskClaimed(task){
 const calculateStageProgress = (stage) => { 
     let totalCost = 0;
     let totalClaimed = 0;
-    Object.entries(stage).map(([key, task]) => {
+    stage.tasks.forEach( task => {
         //console.log('StageProgressTask: ', task)
         totalCost += parseFloat(task.calculatedamount);
         totalClaimed += parseFloat(calculateTaskClaimed(task))
-        return <></>
     })
             
 
@@ -43,20 +42,11 @@ const calculateStageProgress = (stage) => {
 const calculateProjectProgress = (project) => {
     let totalClaimed = 0
     let totalCost = 0
-    Object.entries(project.mainList).map(([key,stage]) => {
-        return(
-            <React.Fragment key={key}>
-                {Object.entries(stage).map( ([key,stage]) => {
-                    //console.log('Stage: ', stage)
-                    let stageSums = calculateStageProgress(stage)
-                    totalClaimed += stageSums.totalClaimed
-                    totalCost += stageSums.totalCost
-                    return <></>}
-                )}
-                </React.Fragment>
-            )}
-        )        
-
+    project.mainList.forEach( stage => {
+        const stageSums = calculateStageProgress(stage)
+        totalClaimed += stageSums.totalClaimed
+        totalCost += stageSums.totalCost
+    })    
     return { "totalClaimed": totalClaimed, "totalCost": totalCost,}    
 }
 

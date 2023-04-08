@@ -63,31 +63,25 @@ function CardMainList({mainList}) {
   const HandleCollapseMainList = () => {
     setExpandMainList(!expandList)
   }
-
+  
   return (
     <div className='cardMainList'>
       <h4 onClick={HandleCollapseMainList}>MainList</h4>
-    {Object.entries(mainList).map( ([key, value]) => {
-      //console.log('value1: ', value)
-      return(
-        <React.Fragment key={key}>
-          {expandList &&
-            Object.entries(value).map( ([key, stage]) => {
-              //console.log('value2: ', value)
-              const stageStats = calculateStageProgress(stage)
-              const stageClaimed = stageStats.totalClaimed / stageStats.totalCost * 100
 
-              return (
+      { Object.entries(mainList).map( ([key,stage]) => {
+        const stageStats = calculateStageProgress(stage)
+        const stageClaimed = stageStats.totalClaimed / stageStats.totalCost * 100
+        return (
+          <React.Fragment key={key}>
+            {expandList &&
                 <div key={key}> 
-                  <CardStageTasks stageName={key} stageTasks={stage} stageClaimed={stageClaimed}/>
+                  <CardStageTasks stageName={stage.name} stageTasks={stage.tasks} stageClaimed={stageClaimed}/>
                 </div>
-              )
-            })
-          }
-        </React.Fragment>
-      )
-    })}    
-    
+            }
+          </React.Fragment> 
+        )
+      })}
+
     </div>
   )
 }
