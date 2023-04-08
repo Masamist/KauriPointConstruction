@@ -24,7 +24,7 @@ function calculateTaskClaimed(task){
 }
 
 //calculate stage completion
-const calculateStageProgress = (tasks) => { 
+const calculateStageProgress = (stage) => { 
     let totalCost = 0;
     let totalClaimed = 0;
     stage.tasks.forEach( task => {
