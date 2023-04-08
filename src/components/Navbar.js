@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
 import Avatar from './Avatar'
+import phone from '../assets/icons/phone.png'
 
 // styles & images
 import './Navbar.css'
@@ -61,7 +62,10 @@ export default function Navbar() {
 const ContactCard = ()=> {
   return(
     <div className='quickContactCard'>
-      <div className='phone'>021 037 2837</div>
+      <div className='phone'>
+        <img src={phone} alt='phone-image'></img>
+        <div className='phone-text'>021 037 2837</div>
+      </div>
       <div className='email'>simon@kauripointconstruction.co.nz</div>
     </div>
   )
