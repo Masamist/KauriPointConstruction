@@ -7,15 +7,19 @@ import '../ProjectUpdate.css'
 
 
 // export default function UpdateTaskStatus(task, dispatch) {
-export default function UpdateTaskStatus({id, task, dispatch}) {
+export default function UpdateTaskStatus({task, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
-
-  console.log('id', id)
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setFormError(null)
+    dispatch({ type: ACTIONS.UPDATE_MAINLIST })
+  }
 
   return (
     <>
@@ -44,19 +48,21 @@ export default function UpdateTaskStatus({id, task, dispatch}) {
               <div className="modal-desc">
 
 
-                <form onSubmit={''}>
+                <form onSubmit={handleSubmit}>
                 <div>
                   <span>Task Name: {task.task}</span>
                   <p>Subcontractor: {task.subcontractor}</p>
                   <p>Charge Amount: {task.calculatedamount}</p>
+                  <p>Status: {task.status}</p>
                 </div>
                 <label>
                   <span>Status:</span>
                     <input
                       type="text"
                       value={task.status}
-                      onChange={() => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                      payload:{ taskId: id, status: task.status }})}
+                      onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
+                      payload:{ task:task.task, status:e.target.value }
+                    })}
                     />
                 </label>
                 {/* <label>

@@ -24,17 +24,12 @@ function calculateTaskClaimed(task){
 }
 
 //calculate stage completion
-const calculateStageProgress = (stage) => { 
+const calculateStageProgress = (tasks) => { 
     let totalCost = 0;
     let totalClaimed = 0;
-    Object.entries(stage).map(([key, task]) => {
-        //console.log('StageProgressTask: ', task)
-        totalCost += parseFloat(task.calculatedamount);
-        totalClaimed += parseFloat(calculateTaskClaimed(task))
-        return <></>
-    })
-            
-
+    // console.log('StageProgressTask: ', tasks.claims)
+    totalCost += parseFloat(tasks.calculatedamount);
+        totalClaimed += parseFloat(calculateTaskClaimed(tasks))
     let results = {"totalCost": totalCost, "totalClaimed": totalClaimed}
 
     return results
@@ -43,12 +38,13 @@ const calculateStageProgress = (stage) => {
 const calculateProjectProgress = (project) => {
     let totalClaimed = 0
     let totalCost = 0
-    Object.entries(project.mainList).map(([key,stage]) => {
+    Object.entries(project.MainList).map(([key, stages]) => {
+        console.log('stages: ', stages)
         return(
             <React.Fragment key={key}>
-                {Object.entries(stage).map( ([key,stage]) => {
-                    //console.log('Stage: ', stage)
-                    let stageSums = calculateStageProgress(stage)
+                {Object.entries(stages.tasks).map( ([key, tasks]) => {
+                    console.log('Tasks: ', tasks)
+                    let stageSums = calculateStageProgress(tasks)
                     totalClaimed += stageSums.totalClaimed
                     totalCost += stageSums.totalCost
                     return <></>}
@@ -58,6 +54,27 @@ const calculateProjectProgress = (project) => {
         )        
 
     return { "totalClaimed": totalClaimed, "totalCost": totalCost,}    
-}
+}  
+
+// const calculateProjectProgress = (project) => {
+//     let totalClaimed = 0
+//     let totalCost = 0
+//     Object.entries(project.MainList).map(([key, stage]) => {
+//         console.log('key: ', key)
+//         return(
+//             <React.Fragment key={key}>
+//                 {Object.entries(stage).map( ([key, stage]) => {
+//                     console.log('Stage: ', stage)
+//                     let stageSums = calculateStageProgress(stage)
+//                     totalClaimed += stageSums.totalClaimed
+//                     totalCost += stageSums.totalCost
+//                     return <></>}
+//                 )}
+//                 </React.Fragment>
+//             )}
+//         )        
+
+//     return { "totalClaimed": totalClaimed, "totalCost": totalCost,}    
+// }
 
 export { ProgressBar, calculateTaskClaimed, calculateStageProgress, calculateProjectProgress}

@@ -1,59 +1,92 @@
 import { useState, useReducer } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
+import { useFirestore } from '../../../hooks/useFirestore'
+
 import UpdateTaskStatus from './components/UpdateTaskStatus'
+
 //styles
 import '../../../components/MainList.css'
 
 export const ACTIONS = {
     ADD_TASK: 'add_task',
-    CHANGE_STATUS: 'change_status'
+    CHANGE_STATUS: 'change_status',
 }
 
-function reducer(stage, action) {
+function reducer(reStages, action) {
+
     switch(action.type){
         case ACTIONS.ADD_TASK:
             // return [...tasks, newStage(action.payload.task)]
-            return stage
+            return reStages
 
         case ACTIONS.CHANGE_STATUS:
-            console.log("stage", stage)
-            console.log("test:",action.payload.id)
-            return stage.map(singleStage => {
-                if(singleStage === action.payload.id){
-                    return {...singleStage, status: action.payload.status}
-                }
-            return singleStage
-            })    
-            
+            console.log("stageDetails", reStages)
+            // console.log("tasks", reStages.map(stage => { return stage.tasks.map(task => task.task)  }))
+            console.log("payload task name:", action.payload.task)
+            console.log("payload status:", action.payload.status)
+
+            // return reStages.map(stage => {
+            //     stage.tasks.map(task => {
+            //         if(task.task === action.payload.task){
+            //             return {
+            //                 ...stage,
+            //                 tasks: [
+            //                     { ...task, status: action.payload.status }
+            //                 ]
+            //             }
+            //         }
+            //         return {...task}
+            //     })
+            //     return { ...stage }
+            // })
+                    
+            return reStages.map(stage => {
+                    return {   
+                        ...stage,
+                        tasks: 
+                            stage.tasks.map(task => 
+                                {
+                                    if(task.task === action.payload.task){
+                                        return {
+                                            ...task,
+                                            code: task.code,
+                                            task: task.task,
+                                            status: action.payload.status,
+                                            details: task.details,
+                                            subcontractor: task.subcontractor,
+                                            // subcontractedamount: task.subcontractedamount,
+                                            // calculatedamount: task.calculatedamount,
+                                            
+                                            // comments: task.comments,
+                                            // budgetamount: task.budgetamount,
+                                            // stilltoclaim: task.stilltoclaim,
+                                            // complete: task.budgetamount,
+                                            // comment: task.comment,
+                                            // claims: task.claims 
+                                            // {
+                                            //     "claim1": "120",
+                                            //     "claim3": "100"''
+                                            // }
+                                        }
+                                    }
+                            return {...task}
+                                
+                        })  
+                    }
+                }) 
+
+            // return stages.map(stage => (stage.tasks).filter(action.payload.task)).map(stage => ({
+            //     ...stage,
+            //     "tasks": [{ ...stage.tasks,
+            //                 "status": action.payload.status
+            //     }]
+
+            // })
+            // )
         default:
-            return stage
+            return reStages
     }
 }
-
-// function newStage(name){
-//     return {id:"", task: name, status: ""}
-// }
-    // 1 : {
-    //     "code": "A-300",
-    //     "task": "Hire Costs (Tools & Machinery)",
-    //     "details": "The provision of machinery, tools, consumables, plant hire and vehicles needed for the work",
-    //     "subcontractedamount": "200",
-    //     "calculatedamount": "220",
-    //     "subcontractor": "KPC",
-    //     "quote,estimateorprovision": "Provision",
-    //     "comments": "",
-    //     "budgetamount": "220",
-    //     "stilltoclaim": "0",
-    //     "complete": "1",
-    //     "status": "",
-    //     "comment": "",
-    //     "claims": {
-    //       "claim1": "120",
-    //       "claim3": "100"
-    //     }
-    //   },
-
-
-
 
 function Tasks ({ stage, dispatch }) { 
     return(
@@ -89,10 +122,8 @@ function Tasks ({ stage, dispatch }) {
     )
 }
 
-function Stage({ stage }) {
+function Stage({ stage, dispatch }) {
     const [expandStages, setCollapseStages] = useState(false)
-    const [stageDtails, dispatch] = useReducer(reducer, stage)
-        console.log('allStage', stageDtails)
     
     function handleExpand() { setCollapseStages(!expandStages)}
     // console.log('stage: ',stage)
@@ -109,13 +140,27 @@ function Stage({ stage }) {
 }
 
 export default function MainList({stages}) {
+    const [reStages, dispatch] = useReducer(reducer, stages)
+    const { updateDocument, response } = useFirestore('projects')
+    const { id } = useParams()
+    const history = useHistory()
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        
+        await updateDocument(id, reStages)
+
+        if (!response.error) {
+            history.push('/')
+          }
+    }
     
     return (
             <div>
                 <h2>Main List:</h2>
-                
-                { Object.entries(stages).map( ([key, stage]) => {
-                            return <Stage key={key} stage={stage} />
+                <button onClick={handleSubmit}>Update MainList</button>
+                { Object.entries(reStages).map( ([key, stage]) => {
+                            return <Stage key={key} stage={stage} dispatch={dispatch} />
                 })}
             </div> 
         )
