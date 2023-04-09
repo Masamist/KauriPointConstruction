@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import MainList from "../../components/MainList"
 import ProjectUpdateMainList from "./projectUpdate/ProjectUpdateMainList"
 
@@ -7,9 +7,16 @@ import './ProjectDetail.css'
 
 export default function ProjectDetail({project}) {
 
-    const startDate = "DATE" //project.startDate ? project.startDate.toDate().toDateString() : "undefined"
+    // const startDate = "DATE"
+    const startDate = project.startDate ? project.startDate.toDate().toDateString() : "undefined"
     const details = project.description ? project.description : '-' 
     const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
+    const [ switchUpdateMainlist, SetSwitchUpdateMainlist ] = useState(false)
+
+    // Switches for Main and Labour components
+    const handleSwitchUpdateMainlist = () => {
+      SetSwitchUpdateMainlist(!switchUpdateMainlist)
+    }
 
   return (
     <div className="project-detail">
@@ -25,8 +32,20 @@ export default function ProjectDetail({project}) {
             <p><span>Cost to Completion excluding GST:</span>$00.00</p>
         </div>
         
-        <MainList stages={project.mainList} />
-        <ProjectUpdateMainList stages={project.mainList} />
+        {!switchUpdateMainlist &&
+          <>
+          <MainList stages={project.mainList} />
+          <button onClick={handleSwitchUpdateMainlist}>+ Update Main List</button>
+          </>        
+        }
+        {switchUpdateMainlist &&
+          <>
+            <ProjectUpdateMainList stages={project.mainList} />
+            <button onClick={handleSwitchUpdateMainlist}>Back Main List</button>
+          </>
+          
+        }
+        
         
 
         <h3>Project Detail</h3>

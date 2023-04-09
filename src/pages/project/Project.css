@@ -27,6 +27,24 @@
 
 }
 
+.update_btn {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    color: #888;
+  }
+
+.update_btn:hover {
+    color: var(--primary-color);
+  }
+  
+#btn_right{
+    float: right;
+  }
+
 @media screen and (max-width: 400px) {
   .page-container{
     flex-direction: column;

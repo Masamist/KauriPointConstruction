@@ -26,7 +26,6 @@ function reducer(reStages, action) {
             // console.log("tasks", reStages.map(stage => { return stage.tasks.map(task => task.task)  }))
             // console.log("payload task name:", action.payload.task)
             // console.log("payload status:", action.payload.status)
-
             // return reStages.map(stage => {
             //     stage.tasks.map(task => {
             //         if(task.task === action.payload.task){
@@ -55,10 +54,9 @@ function reducer(reStages, action) {
                                             task: task.task,
                                             status: action.payload.status,
                                             details: task.details,
-                                            subcontractor: task.subcontractor,
-                                            // subcontractedamount: task.subcontractedamount,
-                                            // calculatedamount: task.calculatedamount,
-                                            
+                                            calculatedamount: action.payload.calculatedamount,
+
+                                            // subcontractedamount: task.subcontractedamount,                                           
                                             // comments: task.comments,
                                             // budgetamount: task.budgetamount,
                                             // stilltoclaim: task.stilltoclaim,
@@ -69,31 +67,33 @@ function reducer(reStages, action) {
                                             //     "claim1": "120",
                                             //     "claim3": "100"''
                                             // }
+
                                         }
                                     }
-                            return {...task}
-                                
+                            return {...task}    
                         })  
                     }
                 }) 
 
-            // return stages.map(stage => (stage.tasks).filter(action.payload.task)).map(stage => ({
-            //     ...stage,
-            //     "tasks": [{ ...stage.tasks,
-            //                 "status": action.payload.status
-            //     }]
-
-            // })
-            // )
         case ACTIONS.DELETE_TASK_ITEM:
             return reStages.map(stage => {
                 console.log('action.payload.task', action.payload.task)
+                console.log('stage.tasks', stage.tasks)
+
+                // let newStage = stage.tasks.splice(stage.tasks.findIndex(task => task.task === action.payload.task),1)
+                // console.log(newStage)
+                  
                 return {   
                     ...stage,
                     tasks: 
-                        stage.tasks.filter(!stage.tasks.task === action.payload.task).map((task) => {
-                                return {...task}
-                        })  
+                      stage.tasks.filter(task => task.task !== action.payload.task)
+                        .map(task => {
+                          return {...task}
+                        })
+                        //stage.tasks.map(task => {
+                        // if(!task.task === action.payload.task){
+                        //   return Array.
+                        // }        
                     }
                 })
         default:
@@ -174,7 +174,7 @@ export default function MainList({stages}) {
     return (
             <div>
                 <h2>Main List:</h2>
-                <button onClick={handleSubmit} id="btn_right">Update MainList</button>
+                <button onClick={handleSubmit} className="btn" id="btn_right">Update MainList</button>
                 { Object.entries(reStages).map( ([key, stage]) => {
                             return <Stage key={key} stage={stage} dispatch={dispatch} />
                 })}
