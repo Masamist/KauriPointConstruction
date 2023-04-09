@@ -3,14 +3,11 @@ import { useState } from 'react';
 import './LabourList.css'
 
 export default function LabourList({ list , team }) {
-    console.log('list: ', list)
-    console.log('team:', team)
+    // console.log('list: ', list)
+    // console.log('team:', team)
 
     const staffRole = Object.entries(team).map(([i, staff]) => staff.role)
-
-
     // console.log('staffRole:', staffRole);
-
 
     return (
         <>
@@ -29,19 +26,15 @@ function LabourStageCard({stage, team}) {
     const handleToggleStage = ()=>{setExpandLabourStage(!expandLabourStage)}
 
     // const [totalHours, setTotalHours] = useState([{}])
-   
 
     const calcHours = Object.entries(stage.tasks).map(([key, task]) => (
-        Object.entries(task.hoursPredicted).map(([cat, id]) =>  id.hours)
+        Object.entries(task.hoursPredicted).map(([role, hours]) =>  hours)
     ))
-    const calcHours2 = stage.tasks.map( task => {
-        Object.entries(task.hoursPredicted).map(([cat, id]) =>  id.hours)
-    })
 
     // const roleOne = calcHours.map((role) => role.at(0))
     // const a = roleOne.reduce(setSum, 0)
     // console.log(roleOne)
-    // console.log(calcHours)
+    console.log(calcHours)
     // console.log('At', a)
 
     let totalDyas = []
@@ -55,7 +48,7 @@ function LabourStageCard({stage, team}) {
     }
 
     function setSum(total, num){
-        if (num === "") {
+        if(!num || num===" ") {
             num = 0
         }
         return total + parseFloat(num)
@@ -109,19 +102,17 @@ function LabourStageTask({ stage }){
 }
 
 function LabourStageHours({ hoursPredicted }){
-    return (
+    // console.log(hoursPredicted)
+    return (      
         <>
-            {Object.entries(hoursPredicted).map( ([cat, id]) => {
-                    // console.log(id.hours)
-                    // console.log(id.role)
-
-                if( id.hours === "" ){
-                    id.hours = "-"
+            {Object.entries(hoursPredicted).map( ([role, hours]) => {
+                if( hours === "" || hours===" " ){
+                    hours = "-"
                 }
                 return(
-                    <React.Fragment key={id.role}>
+                    <React.Fragment key={role}>
                         <div className="single-hour-container">
-                            <span> {id.hours} </span>
+                            <span> {hours} </span>
                         </div>
                         
                     </React.Fragment>

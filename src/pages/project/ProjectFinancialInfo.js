@@ -18,7 +18,7 @@ export default function ProjectFinancialInfo({stages}) {
         stilltoclaimArr.push(parseFloat(task.stilltoclaim))
 
         Object.entries(task.claims).map(([k, claim]) => {
-          console.log("claim",k, claim)
+          // console.log("claim",k, claim)
           CurrentClaimArr.push(parseFloat(claim))
           return <></>
         })
