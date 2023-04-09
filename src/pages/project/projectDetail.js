@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import MainList from "../../components/MainList"
 import ProjectUpdateMainList from "./projectUpdate/ProjectUpdateMainList"
+import ProjectFinancialInfo from "./ProjectFinancialInfo"
 
 // styles
 import './ProjectDetail.css'
@@ -23,14 +24,7 @@ export default function ProjectDetail({project}) {
       <div className="project-summary">
 
         {/* Financial details */}
-        <div>
-            <p><span>Total excluding GST:</span>$00.00</p>
-            <p><span>GST:</span>$00.00</p>
-            <p><span>Total including GST:</span>$00.00</p>
-            <p><span>Payment Claim to Date excluding GST:</span>$00.00</p>
-            <p><span>Current Claim excluding GST:</span>$00.00</p>
-            <p><span>Cost to Completion excluding GST:</span>$00.00</p>
-        </div>
+        <ProjectFinancialInfo stages={project.mainList} />
         
         {!switchUpdateMainlist &&
           <>
