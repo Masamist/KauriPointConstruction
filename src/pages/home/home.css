@@ -51,12 +51,12 @@
     justify-content: stretch;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 1.5em 0;
     text-align: left;
 }
 
 .service{
-    margin: 50px 15px;
+    margin: 2em 0;
     width: 43%
 }
 
@@ -86,7 +86,7 @@
 
 .testimonial {
     background-color: var(--secondary-color);
-    padding: 2em 4em;
+    padding: 2em 30px;
     display: flex;
     justify-content: space-between;
 
@@ -117,7 +117,7 @@
 }
 
 .sustainability-text {
-    margin: 2rem;
+    margin: 0;
     padding: 5vh;
     color: var(--bg-color);
     position: relative;
@@ -160,6 +160,9 @@
     .testimonial{
         flex-direction: column;
     }
+    .services{
+        padding: 1.5em 0;
+    }
     .service{
         width: 100%;
     }
@@ -167,9 +170,9 @@
         width: 60%;
     }
     .testimonial-text{
-        width: 80vw;
+        width: 100%;
     } 
     .testimonial-image{
-        width: 80vw;
+        width: 100%;
     } 
 }

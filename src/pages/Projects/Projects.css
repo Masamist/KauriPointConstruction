@@ -6,7 +6,7 @@
 .showcasePoster >.text{
     position: absolute;
     z-index: 1;
-    left: 3em;
+    left: 2em;
     bottom: 3em;
     width: 70%;
     margin-bottom:  1em;
@@ -37,7 +37,7 @@
 }
 
 .projectCard{
-    width: 80%;
+    width: 90%;
     margin: 4em auto;
     display: flex;
 }
