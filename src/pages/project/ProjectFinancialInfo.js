@@ -29,15 +29,16 @@ export default function ProjectFinancialInfo({stages}) {
   amountCalculator()
 
   // console.log(CurrentClaimArr)
-  const totalExcGst = calculatedamountArr.reduce((a,b) => a+b, 0)
-  const gst = parseFloat(totalExcGst*0.15) // GST 15%
-  const totalIncGst = parseFloat(totalExcGst*1.15)
+  const totalExcGst = parseFloat(calculatedamountArr.reduce((a,b) => a+b, 0)).toFixed(2)
+  const gst = parseFloat(totalExcGst*0.15).toFixed(2) // GST 15%
+  const totalIncGst = parseFloat(totalExcGst*1.15).toFixed(2)
   
-  const CurrentClaimExcGst = CurrentClaimArr.reduce((a,b) => a+b, 0)
-  const costToCompletionExcGst = stilltoclaimArr.reduce((a,b) => a+b, 0)
+  const CurrentClaimExcGst = parseFloat(CurrentClaimArr.reduce((a,b) => a+b, 0)).toFixed(2)
+  const costToCompletionExcGst = parseFloat(stilltoclaimArr.reduce((a,b) => a+b, 0)).toFixed(2)
 
-  const stilltoclaim =  parseFloat(totalExcGst - (CurrentClaimExcGst + costToCompletionExcGst))
+  let stilltoclaim =  parseFloat(totalExcGst - (CurrentClaimExcGst + costToCompletionExcGst)).toFixed(2)
 
+  
 
   return (
       <div className="project-financial-info">
@@ -47,7 +48,7 @@ export default function ProjectFinancialInfo({stages}) {
             <p><span>Total including GST: </span> $ {totalIncGst}</p>
           </div>
           <div>
-            <p><span>Payment Claim to Date excluding GST: </span> $ {stilltoclaim}</p>
+            <p><span>Payment Claim to Date excluding GST: </span> $ {(( !stilltoclaim) || !NaN ) ? 0 : stilltoclaim}</p>
             <p><span>Current Claim excluding GST: </span> $ {CurrentClaimExcGst}</p>
             <p><span>Cost to Completion excluding GST: </span>$ {costToCompletionExcGst}</p>
           </div> 
