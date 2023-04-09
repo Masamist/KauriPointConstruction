@@ -103,15 +103,17 @@ const ContactHeader = () => {return <h1 className='contactHeader'>Contact us</h1
 const ContactInfo = () => {
     return (
         <div className='contactInfo'>
-        <div>
-            <h1 >We'd love to hear from you!</h1>
-            <p>
-                Ready to help you, for More information about our services, 
-                please call or message us. We will get in touch as soon as possible.
-            </p>
-        </div>
-        <ContactPhone />
-        <ContactEmail />
+            <div>
+                <h1 >We'd love to hear from you!</h1>
+                <p>
+                    Ready to help you, for More information about our services, 
+                    please call or message us. We will get in touch as soon as possible.
+                </p>
+            </div >
+            <div className='contact-cards'>
+                <ContactPhone />
+                <ContactEmail />
+            </div>
         </div>
     )
 }

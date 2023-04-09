@@ -18,11 +18,17 @@
     width: 40%;
 }
 
+.contact-cards {
+    position: relative;
+    top: -1em;
+}
+
 .contactCard {
     background-color: var(--bg-color);
     margin: 4em 0 1em 0;
     padding: 0 0 1em 0;
     border: 1px solid gray;
+    border-radius: 3px;
     position: relative;
 }
 
