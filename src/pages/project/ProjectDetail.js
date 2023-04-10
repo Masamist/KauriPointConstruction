@@ -5,6 +5,7 @@ import ProjectFinancialInfo from "./ProjectFinancialInfo"
 
 // styles
 import './ProjectDetail.css'
+import CreateMainList from "../create/CreateMainList"
 
 export default function ProjectDetail({project}) {
 
@@ -34,6 +35,7 @@ export default function ProjectDetail({project}) {
         }
         {switchUpdateMainlist &&
           <>
+            {/* <CreateMainList /> */}
             <ProjectUpdateMainList stages={project.mainList} />
             <button onClick={handleSwitchUpdateMainlist}>Back Main List</button>
           </>

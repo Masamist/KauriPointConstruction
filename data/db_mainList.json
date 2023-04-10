@@ -1,0 +1,3154 @@
+{
+  "taskLibrarys": {
+      "mainList":{
+      "Preliminary and General":{
+      "1":{
+      "code":"A-100",
+      "task/item":"Site Inspections",
+      "details":"Pre-start meetings and inspections",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "2":{
+      "code":"A-110",
+      "task/item":"Project Costing",
+      "details":"Producing quotes, quantity surveying and obtaining sub-contractor quotes",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "3":{
+      "code":"A-120",
+      "task/item":"Consent Cost",
+      "details":"Time and costs associated with obtain consents",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "4":{
+      "code":"A-130",
+      "task/item":"Programme",
+      "details":"Preparing and Updating the programme",
+      "subcontracted amount":"140",
+      "calculated amount":"154",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "5":{
+      "code":"A-140",
+      "task/item":"Insurances",
+      "details":"Contract works and public liability",
+      "subcontracted amount":"400",
+      "calculated amount":"440",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "6":{
+      "code":"A-150",
+      "task/item":"Site Preparation",
+      "details":"Set out and surveys, Site investigations, CCTV existing services",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "7":{
+      "code":"A-160",
+      "task/item":"Warranties & Guarantee",
+      "details":"Produce 10 year building guarantee and product/work warranties ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "8":{
+      "code":"A-170",
+      "task/item":"Administration",
+      "details":"Project related documentation, office administration",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "9":{
+      "code":"A-180",
+      "task/item":"As-Built documentation",
+      "details":"Documentation describing the operation of all system and maintenance manuals",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "10":{
+      "code":"A-190",
+      "task/item":"Surveying",
+      "details":"Setting out the work to the correct lines and levels, with progressive checking for accuracy",
+      "subcontracted amount":"2000",
+      "calculated amount":"2200",
+      "subcontractor":"Fluker Surveyors",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "11":{
+      "code":"A-200",
+      "task/item":"Engineering",
+      "details":"On site enginnering queries and detailing as/if required",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "12":{
+      "code":"A-210",
+      "task/item":"Temporary Construction",
+      "details":"Temporary buildings including amenities, Temporary fences, hoardings and protective constructions, temporary surfaces",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "13":{
+      "code":"A-220",
+      "task/item":"Temporary Services",
+      "details":"Temporary services to be provided, including: Power, Water, Drainage, Lighting, Communication services inc office",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "14":{
+      "code":"A-230",
+      "task/item":"Signage",
+      "details":"On site signage requirments",
+      "subcontracted amount":"120",
+      "calculated amount":"132",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "15":{
+      "code":"A-240",
+      "task/item":"Health and Safety",
+      "details":"Protective clothing and equipment, General management of health and safety, First aid and site treatment facilities",
+      "subcontracted amount":"300",
+      "calculated amount":"330",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "16":{
+      "code":"A-250",
+      "task/item":"Site Security",
+      "details":"Site security requirements",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "17":{
+      "code":"A-260",
+      "task/item":"Delivery Fees",
+      "details":"Costs for delivery or courier of products and materials",
+      "subcontracted amount":"576",
+      "calculated amount":"633.6",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "18":{
+      "code":"A-270",
+      "task/item":"Tight site truck",
+      "details":"Specific delivery/unloading requirements for a tight site",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "19":{
+      "code":"A-280",
+      "task/item":"Crane/ HIAB hire",
+      "details":"Allowance of machine lifting",
+      "subcontracted amount":"500",
+      "calculated amount":"550",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "20":{
+      "code":"A-290",
+      "task/item":"Traffic management ",
+      "details":"Costs and time associated with partial or full road closure due to construction events",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "21":{
+      "code":"A-300",
+      "task/item":"Hire Costs (Tools & Machinery)",
+      "details":"The provision of machinery, tools, consumables, plant hire and vehicles needed for the work",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "22":{
+      "code":"A-310",
+      "task/item":"Onsite and Offsite Storage",
+      "details":"Hireage for 20ft shipping container and site lock ups",
+      "subcontracted amount":"195",
+      "calculated amount":"214.5",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "23":{
+      "code":"A-320",
+      "task/item":"Scaffold Errect + Dismantel",
+      "details":"Time spent erecting and dismantling scaffold and temporary platforms  ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "24":{
+      "code":"A-330",
+      "task/item":"Scaffold Hire",
+      "details":"Weekly hire of scaffolding",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "25":{
+      "code":"A-340",
+      "task/item":"Shrink Wrap",
+      "details":"Costs associated with partial or full shrink wrap",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "26":{
+      "code":"A-350",
+      "task/item":"Rubbish Removal",
+      "details":"Rubbish and waste handling on and off site, provision of facilities for storage, sorting, transport, recycling and disposal",
+      "subcontracted amount":"2000",
+      "calculated amount":"2200",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "27":{
+      "code":"A-360",
+      "task/item":"Port-a-loo",
+      "details":"On site toilet costs",
+      "subcontracted amount":"750",
+      "calculated amount":"825",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "28":{
+      "code":"A-370",
+      "task/item":"Subscriptions",
+      "details":"Subscriptions, Project management tools, Forman phone/ipad",
+      "subcontracted amount":"200",
+      "calculated amount":"220",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "29":{
+      "code":"A-380",
+      "task/item":"Office Consumables/Printing",
+      "details":"Stationary, office + Ammenities consumables as required",
+      "subcontracted amount":"240",
+      "calculated amount":"264",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "30":{
+      "code":"A-390",
+      "task/item":"Unloading",
+      "details":"Time spent unloading and storing product and materials  ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "31":{
+      "code":"A-399",
+      "task/item":"Water Blasting",
+      "details":"Cost for exterior waterblasting",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":" ",
+      "quote, estimate or  provision":" ",
+      "comments":""
+      },
+      "32":{
+      "code":"A-400",
+      "task/item":"Builders Clean",
+      "details":"Time spent cleaning contract works on completion ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "33":{
+      "code":"A-410",
+      "task/item":"Project Management (Onsite) ",
+      "details":"On site working forman - The co-ordination of all activities and attendance on site",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "34":{
+      "code":"A-420",
+      "task/item":"Project Management (Offsite)",
+      "details":"Co-ordination of all aspects of the project, Meetings on + Off site, Project administration, subscriptions, office requirments",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Equipment & Machinery":{
+      "35":{
+      "code":"AA-100",
+      "task/item":"Mobile Scaffold - 4.6x1.4x0.6",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"1600",
+      "calculated amount":"1760",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "36":{
+      "code":"AA-110",
+      "task/item":"Work Bench",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"400",
+      "calculated amount":"440",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "37":{
+      "code":"AA-120",
+      "task/item":"5m Alumium Plank",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"400",
+      "calculated amount":"440",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "38":{
+      "code":"AA-130",
+      "task/item":"Concrete Mixer",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "39":{
+      "code":"AA-140",
+      "task/item":"Submersible Pump",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"200",
+      "calculated amount":"220",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "40":{
+      "code":"AA-150",
+      "task/item":"Security Fencing",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "41":{
+      "code":"AA-160",
+      "task/item":"Site Shelter",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"400",
+      "calculated amount":"440",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "42":{
+      "code":"AA-170",
+      "task/item":"Mobile Thicknesser",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "43":{
+      "code":"AA-180",
+      "task/item":"Concrete Breaker",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"120",
+      "calculated amount":"132",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "44":{
+      "code":"AA-190",
+      "task/item":"Plate Compactor",
+      "details":"Hireage cost for equipment or machinery",
+      "subcontracted amount":"200",
+      "calculated amount":"220",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      }
+      },
+      "Site Works":{
+      "45":{
+      "code":"B-110",
+      "task/item":"Reinforcing",
+      "details":"Cost of supply and delivery of ground works reo",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "46":{
+      "code":"B-120",
+      "task/item":"In-situ concrete supply",
+      "details":"Concrete - Ready mix supply only",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "47":{
+      "code":"B-121",
+      "task/item":"Small load charge",
+      "details":"Cost incurred for ordering below minimum concrete quantity",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "48":{
+      "code":"B-130",
+      "task/item":"Demolition",
+      "details":"Demolishing to ground including footings and ground surfaces",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "49":{
+      "code":"B-140",
+      "task/item":"Partial Demolition",
+      "details":"Partial demolition of structures to prepare for retrofitting",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "50":{
+      "code":"B-150",
+      "task/item":"Decomissioning services",
+      "details":"Decommissioning all services prior to demolition",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "51":{
+      "code":"B-160",
+      "task/item":"Hazardous Substance/ Asbestos Removal",
+      "details":"Encapsulating or removing and disposing of toxic and/or hazardous substance",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "52":{
+      "code":"B-170",
+      "task/item":"Silt Control",
+      "details":"Cost of keeping silt contained on site ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "53":{
+      "code":"B-180",
+      "task/item":"Tree and Vegetation removal",
+      "details":"Clearing and disposing of green waste",
+      "subcontracted amount":"600",
+      "calculated amount":"660",
+      "subcontractor":"Reform Earthworks",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "54":{
+      "code":"B-190",
+      "task/item":"Temporary Roading/ Site Access",
+      "details":"Costs associated with putting in a temporary metal road or similar",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "55":{
+      "code":"B-200",
+      "task/item":"Excavation",
+      "details":"Excavating to required levels",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"Narrellan Pools",
+      "quote, estimate or  provision":" ",
+      "comments":""
+      },
+      "56":{
+      "code":"B-210",
+      "task/item":"Trenching Services",
+      "details":"Excavating service trenches and haunching with fines",
+      "subcontracted amount":"1000",
+      "calculated amount":"1100",
+      "subcontractor":"Reform Earthworks",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "57":{
+      "code":"B-220",
+      "task/item":"Ground Stabilization",
+      "details":"Stabilizing existing ground by means of geotextile stabilization, compaction.",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "58":{
+      "code":"B-230",
+      "task/item":"Backfilling ",
+      "details":"Backfilling to trenches, constructed works, benching, batters and compaction",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "59":{
+      "code":"B-240",
+      "task/item":"Polyrock Provision",
+      "details":"Provision for poly rock where large voids need filling",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "60":{
+      "code":"B-250",
+      "task/item":"Site Surfacing",
+      "details":"Surfacing to the site, hard fill, temp drives, substrates and blinding",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "61":{
+      "code":"B-260",
+      "task/item":"Truck Hire",
+      "details":"Hired vehicle for moving fill not associated with main excavation",
+      "subcontracted amount":"600",
+      "calculated amount":"660",
+      "subcontractor":"Reform Earthworks",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "62":{
+      "code":"B-270",
+      "task/item":"Digger/ Dingo/ Bobcat Hire",
+      "details":"Cost of day hire for equipment",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "63":{
+      "code":"B-280",
+      "task/item":"Concrete Piling",
+      "details":"Cast in place concrete piles",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "64":{
+      "code":"B-290",
+      "task/item":"Capping Beams",
+      "details":"Cast in place concrete capping beams to piles",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "65":{
+      "code":"B-300",
+      "task/item":"Ground Anchors",
+      "details":"Installing soil and rock anchors & soil nails for soil stabilization and retaining walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "66":{
+      "code":"B-310",
+      "task/item":"Concrete Strip Footings",
+      "details":"Form, reinforce and pour strip footings",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "67":{
+      "code":"B-320",
+      "task/item":"Concrete Masonry Retaining walls",
+      "details":"Construct masonry retaining walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "68":{
+      "code":"B-330",
+      "task/item":"Carpentry Works Associated With Masonry Retaining",
+      "details":"General set-out, forming lintels, preparing reinforcing, tying stirrups, washouts ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "69":{
+      "code":"B-340",
+      "task/item":"Timber Piles and Poles",
+      "details":"Timber piles to provide support to the site and for the superstructure",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "70":{
+      "code":"B-350",
+      "task/item":"Timber Retaining Walls",
+      "details":"Constructing timber retaining walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "71":{
+      "code":"B-360",
+      "task/item":"Site Drainage",
+      "details":"Cost to supply and install Nova coils , sub soil drains",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Concrete Works":{
+      "72":{
+      "code":"C-100",
+      "task/item":"Site Concrete",
+      "details":"Costs and labour associated with pouring site concrete",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "73":{
+      "code":"C-110",
+      "task/item":"Ancillary Items",
+      "details":"Props, anchors, cast plates, brackets, studs etc where not included in system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "74":{
+      "code":"C-120",
+      "task/item":"Masonry Blocks Supply",
+      "details":"Supply and delivery of blocks",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "75":{
+      "code":"C-130",
+      "task/item":"Reinforcing and Mesh Supply",
+      "details":"Reinforcing steel supply and delivery",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "76":{
+      "code":"C-140",
+      "task/item":"Rx Bar",
+      "details":"Allowance for RX bar to waterproof cold joints",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "77":{
+      "code":"C-150",
+      "task/item":"Blocklaying",
+      "details":"Cost of block laying sub-contractor",
+      "subcontracted amount":"11663",
+      "calculated amount":"12829.3",
+      "subcontractor":"West Auckland Brick & Block",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "78":{
+      "code":"C-160",
+      "task/item":"Block Fill",
+      "details":"Concrete blockfill/ grout",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "79":{
+      "code":"C-170",
+      "task/item":"Carpentry Works Associated With Masonry Walls",
+      "details":"General set-out, forming lintels, preparing reinforcing, tying stirrups, washouts ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "80":{
+      "code":"C-180",
+      "task/item":"In-situ Concrete Systems",
+      "details":"(Rib raft floor) Poured concrete systems/ Sub contractors. Expol costs",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "81":{
+      "code":"C-190",
+      "task/item":"Off Form Concrete Carpentry",
+      "details":"Poured in-situ concrete walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "82":{
+      "code":"C-200",
+      "task/item":"Sprayed Concrete",
+      "details":"Shotcrete or similar",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "83":{
+      "code":"C-210",
+      "task/item":"Concrete Supply, Place and Finish",
+      "details":"Placement and finishing - Sub contractor",
+      "subcontracted amount":"5986.15",
+      "calculated amount":"6584.765",
+      "subcontractor":"West End Concrete",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "84":{
+      "code":"C-220",
+      "task/item":"Concrete Pump",
+      "details":"Line pump, boom pump for onsite concrete ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "85":{
+      "code":"C-230",
+      "task/item":"Concrete Cutting",
+      "details":"Expansion cuts, demolition cuts",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "86":{
+      "code":"C-240",
+      "task/item":"Core Drilling",
+      "details":"Drilling through concrete slabs and walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "87":{
+      "code":"C-250",
+      "task/item":"Pre-cast Concrete",
+      "details":"Precast concrete items for use as structural members, including supply and delivery",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "88":{
+      "code":"C-260",
+      "task/item":"Propping and Shore-loading ",
+      "details":"Cost of hiring props and scaffold to support concrete systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "89":{
+      "code":"C-270",
+      "task/item":"Remedial Works",
+      "details":"Provision for concrete repairs ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "90":{
+      "code":"C-280",
+      "task/item":"Exterior Plasterer",
+      "details":"Exterior plaster system ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Waterproofing":{
+      "91":{
+      "code":"D-100",
+      "task/item":"DPM/Waterproofing ",
+      "details":"Damp proof membrane and sub-floor waterproofing system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "92":{
+      "code":"D-110",
+      "task/item":"Tanking",
+      "details":"Internal and external tanking of masonry walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "93":{
+      "code":"D-120",
+      "task/item":"TPO ",
+      "details":"TPO supply and install",
+      "subcontracted amount":"12690",
+      "calculated amount":"13959",
+      "subcontractor":"Masterproof",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "94":{
+      "code":"D-130",
+      "task/item":"Mulseal",
+      "details":"Supply and install of mulseal/ black seal or similar",
+      "subcontracted amount":"250",
+      "calculated amount":"275",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "95":{
+      "code":"D-140",
+      "task/item":"Mapelastic smart",
+      "details":"Supply and install of mapelastic smart waterproofing system",
+      "subcontracted amount":"432",
+      "calculated amount":"475.2",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "96":{
+      "code":"D-150",
+      "task/item":"Interior waterproofing ",
+      "details":"Bathroom/wet area waterproofing",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Structural Steel & Flashings":{
+      "97":{
+      "code":"E-100",
+      "task/item":"Structural Steel Supply",
+      "details":"Fabrication, Supply of all structural steel ",
+      "subcontracted amount":"2500",
+      "calculated amount":"2750",
+      "subcontractor":"Impact Steel",
+      "quote, estimate or  provision":"Estimate",
+      "comments":"Preliminary Cost - To Be Updated"
+      },
+      "98":{
+      "code":"E-110",
+      "task/item":"Structural Steel Installation ",
+      "details":"Installation of Structural steel beams ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "99":{
+      "code":"E-119",
+      "task/item":"Custom Roof Flashing",
+      "details":"Supply and install of custom roof flashings",
+      "subcontracted amount":"2500",
+      "calculated amount":"2750",
+      "subcontractor":"Impact Steel",
+      "quote, estimate or  provision":"Estimate",
+      "comments":"Preliminary Cost - To Be Updated"
+      },
+      "100":{
+      "code":"E-120",
+      "task/item":"Crane/ HIAB hire",
+      "details":"On Site Lifting",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "101":{
+      "code":"E-130",
+      "task/item":"Site Welding",
+      "details":"Site welding, site fabrication",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "102":{
+      "code":"E-140",
+      "task/item":"Joinery and Skylight Flashings",
+      "details":"Any flashing involved with the install of joinery or skylights",
+      "subcontracted amount":"",
+      "calculated amount":"",
+      "subcontractor":" ",
+      "quote, estimate or  provision":" ",
+      "comments":" "
+      },
+      "103":{
+      "code":"E-150",
+      "task/item":"Custom Chimney/ Parapet Caps",
+      "details":"Supply and install custom flashings for chimney and parapets",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "104":{
+      "code":"E-160",
+      "task/item":"Rainheads",
+      "details":"Custom Rain heads",
+      "subcontracted amount":"400",
+      "calculated amount":"440",
+      "subcontractor":"Impact Steel",
+      "quote, estimate or  provision":"Estimate",
+      "comments":"Preliminary Cost - To Be Updated"
+      },
+      "105":{
+      "code":"E-170",
+      "task/item":"Channel Grates",
+      "details":"Supply and install of channel grates",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "106":{
+      "code":"E-180",
+      "task/item":"Powder Coating",
+      "details":"Transport and powder coating cost",
+      "subcontracted amount":"2000",
+      "calculated amount":"2200",
+      "subcontractor":"Impact Steel",
+      "quote, estimate or  provision":"Estimate",
+      "comments":"Preliminary Cost - To Be Updated"
+      },
+      "107":{
+      "code":"E-190",
+      "task/item":"Architectural Steel",
+      "details":"Any other custom fabrication item specified by either client or architect",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Roofing":{
+      "108":{
+      "code":"F-100",
+      "task/item":"Roofing",
+      "details":"Supply and installation of roofing system",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":" ",
+      "quote, estimate or  provision":" ",
+      "comments":""
+      },
+      "109":{
+      "code":"F-110",
+      "task/item":"Spouting",
+      "details":"Supply and installation of souting/ guttering  system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "110":{
+      "code":"F-120",
+      "task/item":"Downpipes",
+      "details":"Supply and installation of downpipes  system",
+      "subcontracted amount":"250",
+      "calculated amount":"275",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "111":{
+      "code":"F-130",
+      "task/item":"Flashings",
+      "details":"Supply and installation of custom made roof flashings",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "112":{
+      "code":"F-131",
+      "task/item":"Skylights",
+      "details":"Supply and installation of skylights",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "113":{
+      "code":"F-140",
+      "task/item":"Louvre Tech",
+      "details":"Supply and installation of louvred roofing system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Cladding":{
+      "114":{
+      "code":"G-100",
+      "task/item":"Cladding Supply ",
+      "details":"Cost to supply cladding",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Windows & Doors":{
+      "115":{
+      "code":"H-100",
+      "task/item":"Hardware",
+      "details":"Supply and install",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "116":{
+      "code":"H-110",
+      "task/item":"Aluminium Joinery Supply",
+      "details":"Supply of aluminium joinery system",
+      "subcontracted amount":"17847.5",
+      "calculated amount":"19096.825",
+      "subcontractor":"Rylock",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "117":{
+      "code":"H-120",
+      "task/item":"Timber Joinery Supply",
+      "details":"Supply of timber joinery system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":" ",
+      "quote, estimate or  provision":" ",
+      "comments":""
+      },
+      "118":{
+      "code":"H-121",
+      "task/item":"Timber Joinery Paint System",
+      "details":"To have door preprimed ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "119":{
+      "code":"H-130",
+      "task/item":"Internal Doors Supply",
+      "details":"Supply of internal doors",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "120":{
+      "code":"H-140",
+      "task/item":"Steel Joinery & Shutters",
+      "details":"Supply and install of steel joinery and shutters",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "121":{
+      "code":"H-150",
+      "task/item":"Glazing",
+      "details":"Site Glazing exterior joinery",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "122":{
+      "code":"H-160",
+      "task/item":"Garage Doors",
+      "details":"Supply and installation of garage doors",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "123":{
+      "code":"H-170",
+      "task/item":"Front Door",
+      "details":"Supply and installation of front door system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "124":{
+      "code":"H-180",
+      "task/item":"Shutters",
+      "details":"Supply and install of shutters or any decorative screens",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "125":{
+      "code":"H-190",
+      "task/item":"Gates",
+      "details":"Supply and install of gate systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "126":{
+      "code":"H-200",
+      "task/item":"Door/Window Hardware Supply",
+      "details":"Supply of all hardware associated with internal doors/ window latch systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Stairs":{
+      "127":{
+      "code":"I-100",
+      "task/item":"Stairs (Timber)",
+      "details":"Supply and install of timber stairs",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "128":{
+      "code":"I-110",
+      "task/item":"Stairs (Steel)",
+      "details":"Supply and install of steel framed staircase",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "129":{
+      "code":"I-120",
+      "task/item":"Handrail",
+      "details":"Supply and install of handrail",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "130":{
+      "code":"I-130",
+      "task/item":"Balustrade",
+      "details":"Supply and install of balustrade system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Plumbing & Drainage":{
+      "131":{
+      "code":"J-100",
+      "task/item":"Water and Gas Mains",
+      "details":"Costs associated with connection/disconnection of gas and water mains",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "132":{
+      "code":"J-110",
+      "task/item":"Plumbing General",
+      "details":"Sub contractor for all first and Second fix plumbing systems ",
+      "subcontracted amount":"10378.62",
+      "calculated amount":"11105.1234",
+      "subcontractor":"Pinnacle Plumbing",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "133":{
+      "code":"J-120",
+      "task/item":"Gas Fitting",
+      "details":"Sub contractor for all first and Second fix Gas sytems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "134":{
+      "code":"J-130",
+      "task/item":"Lagging Pipework",
+      "details":"Sub contractor for all first and Second fix plumbing insulation systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "135":{
+      "code":"J-140",
+      "task/item":"Hot Water Heating",
+      "details":"Supply and install of hot water heating systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "136":{
+      "code":"J-150",
+      "task/item":"Slot Drains and Shower Grates",
+      "details":"Supply and install of shower drainage systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "137":{
+      "code":"J-160",
+      "task/item":"Fittings and Accessories",
+      "details":"Selected fittings and accessories for plumbed areas",
+      "subcontracted amount":"3500",
+      "calculated amount":"3745",
+      "subcontractor":"",
+      "quote, estimate or  provision":"Estimate",
+      "comments":"For Consideration"
+      },
+      "138":{
+      "code":"J-170",
+      "task/item":"Stormwater ",
+      "details":"Sub contractor for all first and Second fix Stormwater systems",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "139":{
+      "code":"J-180",
+      "task/item":"Drainlaying",
+      "details":"Sub contractor for all first and Second fix Drainage systems",
+      "subcontracted amount":"6000",
+      "calculated amount":"6420",
+      "subcontractor":"DrainCo",
+      "quote, estimate or  provision":"Estimate",
+      "comments":"Preliminary Cost - To Be Updated"
+      },
+      "140":{
+      "code":"J-190",
+      "task/item":"Septic Tanks/ Treatment Plant",
+      "details":"Supply and install of septic tanks/ treatment plant",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "141":{
+      "code":"J-200",
+      "task/item":"Hydronic Underfloor Heating System",
+      "details":"Supply and install of Hydronic Underfloor Heating System",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "142":{
+      "code":"J-210",
+      "task/item":"Radiators",
+      "details":"Supply and install of radiators ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "143":{
+      "code":"J-220",
+      "task/item":"Water tanks ",
+      "details":"Supply and install of water tanks including excavation and fill",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "144":{
+      "code":"J-230",
+      "task/item":"Pumps & Water Supply",
+      "details":"Supply and install of pumps and water supply for tank systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "145":{
+      "code":"J-240",
+      "task/item":"Pool Water Supply ",
+      "details":"Supply of pool water",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "146":{
+      "code":"J-250",
+      "task/item":"Water Filtration Systems",
+      "details":"Supply and install of water filtration systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "147":{
+      "code":"J-260",
+      "task/item":"Fire Stopping Systems",
+      "details":"Supply and install of fire stopping systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Electrical & Mechanical ":{
+      "148":{
+      "code":"K-100",
+      "task/item":"Electrical ",
+      "details":"Sub contractor for all first and second fix electrical systems ",
+      "subcontracted amount":"10431.72",
+      "calculated amount":"11161.9404",
+      "subcontractor":"Hoffmann Electrics",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "149":{
+      "code":"K-110",
+      "task/item":"Electrical Mains Cabling",
+      "details":"Supply and install of mains cable, costs associated with road connections",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "150":{
+      "code":"K-111",
+      "task/item":"Switchboard Upgrade",
+      "details":"Supply and install a new switchboard as required",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "151":{
+      "code":"K-120",
+      "task/item":"Light Fittings",
+      "details":"Supply of selected fittings",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "152":{
+      "code":"K-130",
+      "task/item":"Range Hood",
+      "details":"Supply and install of range hood",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "153":{
+      "code":"K-140",
+      "task/item":"Solar Power",
+      "details":"Supply and install of solar power systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "154":{
+      "code":"K-150",
+      "task/item":"Audio Visual",
+      "details":"Sub contractor for all first and second fix Audio/Visual systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "155":{
+      "code":"K-160",
+      "task/item":"Automation",
+      "details":"Sub contractor for all first and second fix Automation systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "156":{
+      "code":"K-170",
+      "task/item":"Security ",
+      "details":"Sub contractor for all first and second fix Security systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "157":{
+      "code":"K-180",
+      "task/item":"Data Cabling",
+      "details":"Supply and install of data cabling",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "158":{
+      "code":"K-190",
+      "task/item":"Aerial/ Satellite  ",
+      "details":"Supply and install of Aerial/ Satellite dish",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "159":{
+      "code":"K-200",
+      "task/item":"Under Tile Heating",
+      "details":"Sub contractor for all first and second fix Under Tile Heating systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "160":{
+      "code":"K-210",
+      "task/item":"Under Floor Heating",
+      "details":"Sub contractor for all first and second fix Under Floor Heating systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "161":{
+      "code":"K-220",
+      "task/item":"Central Heating",
+      "details":"Sub contractor for all first and second fix Central Heating systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "162":{
+      "code":"K-230",
+      "task/item":"Air Conditioning/ Ventilation ",
+      "details":"Sub contractor for all first and second fix Air Conditioning & Ventilation systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "163":{
+      "code":"K-240",
+      "task/item":"Fire and Smoke Systems",
+      "details":"Sub contractor for all first and second fix Fire and Smoke systems ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "164":{
+      "code":"K-250",
+      "task/item":"Central Vacuum ",
+      "details":"Supply and Install of central vacuum",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Insulation & Interior Linings":{
+      "165":{
+      "code":"L-100",
+      "task/item":"Gib Supply",
+      "details":"Cost of Gib supply and delivery ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "166":{
+      "code":"L-110",
+      "task/item":"Gib Fixing (Sub-contractor) ",
+      "details":"Sub contractor installation of gib",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "167":{
+      "code":"L-120",
+      "task/item":"Insulation Supply ",
+      "details":"Supply of all insulation thermal and acoustic ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "168":{
+      "code":"L-130",
+      "task/item":"Insulation (Sub-contactor)",
+      "details":"Sub contractor insulation install ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "169":{
+      "code":"L-140",
+      "task/item":"Rondo",
+      "details":"Supply and install of rondo ceiling system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "170":{
+      "code":"L-150",
+      "task/item":"Access Hatches",
+      "details":"Supply and installation of Access Hatches ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "171":{
+      "code":"L-160",
+      "task/item":"Gib Stopping",
+      "details":"Sub contractor for gib stopping",
+      "subcontracted amount":"3207.6",
+      "calculated amount":"3432.132",
+      "subcontractor":"Sevin Decorating",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "172":{
+      "code":"L-170",
+      "task/item":"Gib Stopping Remedial ",
+      "details":"Provision for gib stopping remedial works due to cracking etc",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "173":{
+      "code":"L-180",
+      "task/item":"Feature Wall Panelling ",
+      "details":"Supply and install of feature wall panelling ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "174":{
+      "code":"L-190",
+      "task/item":"Interior Plaster Systems ",
+      "details":"Sub contractor for interior plaster works",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "175":{
+      "code":"L-200",
+      "task/item":"VIlla and Soffit Joint Stopping",
+      "details":"Subcontractor for stopping villa joints in tiled areas and soffit joints where required",
+      "subcontracted amount":"500",
+      "calculated amount":"550",
+      "subcontractor":"Sevin Decorating",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      }
+      },
+      "Interior Cabinetry & Kitchens":{
+      "176":{
+      "code":"M-100",
+      "task/item":"Kitchen Cabinetry ",
+      "details":"Supply and install of kitchen cabinetry",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "177":{
+      "code":"M-110",
+      "task/item":"Laundry Cabinetry ",
+      "details":"Supply and install of laundry cabinetry ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "178":{
+      "code":"M-120",
+      "task/item":"Bathroom Cabinetry ",
+      "details":"Supply and install of custom bathroom cabinetry",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "179":{
+      "code":"M-130",
+      "task/item":"Cabinetry - General",
+      "details":"Supply and install of all other cabinetry throughout",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "180":{
+      "code":"M-140",
+      "task/item":"Wardrobes",
+      "details":"Supply and install of wardrobes",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "181":{
+      "code":"M-150",
+      "task/item":"Bench Tops ",
+      "details":"Supply and install of bench tops ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "182":{
+      "code":"M-160",
+      "task/item":"Splashbacks",
+      "details":"Supply and install of splash backs",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "183":{
+      "code":"M-170",
+      "task/item":"Appliances ",
+      "details":"Supply of selected appliances",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "184":{
+      "code":"M-180",
+      "task/item":"Cabinetry Handles",
+      "details":"Supply and install of selected cabinetry handles ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Fireplaces ":{
+      "185":{
+      "code":"N-100",
+      "task/item":"Fireplace Supply",
+      "details":"Supply of selected fireplace",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "186":{
+      "code":"N-110",
+      "task/item":"Fireplace Install ",
+      "details":"Installation of selected fireplace",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "187":{
+      "code":"N-120",
+      "task/item":"Flue Flashings",
+      "details":"Costs of additional flashing requirements",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "188":{
+      "code":"N-130",
+      "task/item":"Hebel Blocks",
+      "details":"Supply and install of hebel blocks",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "189":{
+      "code":"N-140",
+      "task/item":"Fire Bricks",
+      "details":"Supply and install of fire bricks",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "190":{
+      "code":"N-150",
+      "task/item":"Fireplace Surround",
+      "details":"Costs associated with construction or re-furbishment of fireplace surround",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "191":{
+      "code":"N-160",
+      "task/item":"Hearths",
+      "details":"Hearth construction costs",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Stone":{
+      "192":{
+      "code":"O-100",
+      "task/item":"Stone Veneer",
+      "details":"Supply and install of stone veneer system",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "193":{
+      "code":"O-110",
+      "task/item":"Stone Tops/ Splashbacks",
+      "details":"Supply and install of stone tops and splash backs",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "194":{
+      "code":"O-120",
+      "task/item":"Landscaping Stone",
+      "details":"Supply and install of landscaping stone",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Tiling":{
+      "195":{
+      "code":"P-100",
+      "task/item":"Floor Leveling and Preparation",
+      "details":"Grinding/ leveling before waterproofing - General surface preparation",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "196":{
+      "code":"P-110",
+      "task/item":"Waterproofing",
+      "details":"Supply and install waterproofing",
+      "subcontracted amount":"1500",
+      "calculated amount":"1650",
+      "subcontractor":"Cando Tiling",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "197":{
+      "code":"P-120",
+      "task/item":"Tile Supply",
+      "details":"Supply and delivery of selected tiles",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":"For Consideration"
+      },
+      "198":{
+      "code":"P-130",
+      "task/item":"Tiling",
+      "details":"Sub-contractor for tiling, grout and silicone ",
+      "subcontracted amount":"2570",
+      "calculated amount":"2749.9",
+      "subcontractor":"Cando Tiling",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "199":{
+      "code":"P-140",
+      "task/item":"Silicone Joints ",
+      "details":"Provisional amount for specific silicone work",
+      "subcontracted amount":"100",
+      "calculated amount":"110",
+      "subcontractor":"Cando Tiling",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      }
+      },
+      "Flooring":{
+      "200":{
+      "code":"Q-100",
+      "task/item":"Timber flooring supply",
+      "details":"Supply and deliver timber floor boards",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "201":{
+      "code":"Q-110",
+      "task/item":"Timber Flooring",
+      "details":"Sub contractor to install timber floor boards",
+      "subcontracted amount":"4000",
+      "calculated amount":"4400",
+      "subcontractor":"Cando Flooring",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "202":{
+      "code":"Q-120",
+      "task/item":"Timber Floor Sand & Finish",
+      "details":"Sub contractor to sand & finish old or new timber floors",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":" ",
+      "comments":""
+      },
+      "203":{
+      "code":"Q-130",
+      "task/item":"Grinding & Leveling ",
+      "details":"Provision for floor level prior to install",
+      "subcontracted amount":"1000",
+      "calculated amount":"1100",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "204":{
+      "code":"Q-140",
+      "task/item":"Polished Concrete",
+      "details":"Sub contractor for polished concrete finish",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "205":{
+      "code":"Q-150",
+      "task/item":"Carpet",
+      "details":"Supply and install of carpet and underlay including garage carpet",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "206":{
+      "code":"Q-160",
+      "task/item":"Internal Decks",
+      "details":"Construction and finishing of internal decks",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "207":{
+      "code":"Q-170",
+      "task/item":"Floor Coatings ",
+      "details":"Supply and install of floor coverings",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Painting & Decorating":{
+      "208":{
+      "code":"R-100",
+      "task/item":"Machine Coating",
+      "details":"Cost of having product machine coated prior to install",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "209":{
+      "code":"R-110",
+      "task/item":"Interior Painting",
+      "details":"Sub contractor for all internal prep and painting ",
+      "subcontracted amount":"5394",
+      "calculated amount":"5771.58",
+      "subcontractor":"Sevin Decorating",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "210":{
+      "code":"R-120",
+      "task/item":"Exterior Painting",
+      "details":"Sub contractor for all exterior prep and painting",
+      "subcontracted amount":"6918",
+      "calculated amount":"7402.26",
+      "subcontractor":"Sevin Decorating",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "211":{
+      "code":"R-130",
+      "task/item":"Painting Touch-ups ",
+      "details":"Provision for touch-ups",
+      "subcontracted amount":"400",
+      "calculated amount":"440",
+      "subcontractor":"Sevin Decorating",
+      "quote, estimate or  provision":"Provision",
+      "comments":""
+      },
+      "212":{
+      "code":"R-140",
+      "task/item":"Roof Painting",
+      "details":"Sub contractor for roof painting",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "213":{
+      "code":"R-150",
+      "task/item":"Wall Papering",
+      "details":"Supply and install of wallpaper ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Glazing":{
+      "214":{
+      "code":"S-100",
+      "task/item":"Exterior Joinery Glazing",
+      "details":"Supply and install joinery glazing",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "215":{
+      "code":"S-110",
+      "task/item":"Shower Glass",
+      "details":"Supply and install of shower glass",
+      "subcontracted amount":"1795.83",
+      "calculated amount":"1975.413",
+      "subcontractor":"360 Glass",
+      "quote, estimate or  provision":"Quote",
+      "comments":""
+      },
+      "216":{
+      "code":"S-120",
+      "task/item":"Glass Balustrades",
+      "details":"Supply and install of glass balustrades",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "217":{
+      "code":"S-130",
+      "task/item":"Mirrors",
+      "details":"Supply and install of custom mirrors",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Finishing":{
+      "218":{
+      "code":"T-100",
+      "task/item":"Curtains and Blinds",
+      "details":"Supply and install of curtains and blinds",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "219":{
+      "code":"T-110",
+      "task/item":"Shade Canopy and Awnings",
+      "details":"Supply and install of canopy and awning",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "220":{
+      "code":"T-120",
+      "task/item":"Custom Furniture",
+      "details":"Supply of custom furniture",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "221":{
+      "code":"T-130",
+      "task/item":"Silicone",
+      "details":"Provision for specialist silicone work",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Landscaping":{
+      "222":{
+      "code":"U-100",
+      "task/item":"Landscape Earthworks",
+      "details":"Sub contractor for general landscape earthworks ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "223":{
+      "code":"U-110",
+      "task/item":"Retaining Walls",
+      "details":"Labour to Setout, prep footings, walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "224":{
+      "code":"U-120",
+      "task/item":"Landscape Concrete Carpentry",
+      "details":"Labour for Footpaths, patios, stepping stones, staircases, driveways",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "225":{
+      "code":"U-130",
+      "task/item":"Driveway",
+      "details":"Driveway construction",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "226":{
+      "code":"U-140",
+      "task/item":"Concrete Pump",
+      "details":"Pumping of any landscape concrete",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "227":{
+      "code":"U-150",
+      "task/item":"Concrete Placing",
+      "details":"Placing of any landscape concrete",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "228":{
+      "code":"U-160",
+      "task/item":"Decking",
+      "details":"Labour for framing and laying decks",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "229":{
+      "code":"U-170",
+      "task/item":"Fencing",
+      "details":"Labour for building fences",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "230":{
+      "code":"U-180",
+      "task/item":"Plumbing & Drainage",
+      "details":"Landscaping plumbing & drainage, cess pits, drains, SW",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "231":{
+      "code":"U-190",
+      "task/item":"Block Laying",
+      "details":"Masonry Work to retaining walls & Garden walls",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "232":{
+      "code":"U-200",
+      "task/item":"Irrigation ",
+      "details":"Supply & Installation of Irrigation systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "233":{
+      "code":"U-210",
+      "task/item":"Garden Lighting",
+      "details":"Supply & Installation of garden lighting",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "234":{
+      "code":"U-220",
+      "task/item":"Exterior Paving",
+      "details":"Laying pavers/ tiles",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "235":{
+      "code":"U-230",
+      "task/item":"Exterior Plastering",
+      "details":"Plaster finish to concrete walls ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "236":{
+      "code":"U-240",
+      "task/item":"Handrails & Balustrades",
+      "details":"Supply & Installation of handrails",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "237":{
+      "code":"U-250",
+      "task/item":"Fencing (Sub contractor)",
+      "details":"Supply & Installation of pedestrian gates, driveway gates",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "238":{
+      "code":"U-260",
+      "task/item":"Gates",
+      "details":"Supply & Installation of fencing systems",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "239":{
+      "code":"U-270",
+      "task/item":"Planting",
+      "details":"Landscape planting",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "240":{
+      "code":"U-280",
+      "task/item":"Water feature",
+      "details":"Supply & Install of water feature and filtration ",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "241":{
+      "code":"U-290",
+      "task/item":"Pool Fencing",
+      "details":"Supply & Installation of swimming pool fencing",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "242":{
+      "code":"U-300",
+      "task/item":"Swimming Pool",
+      "details":"Supply & Installation of swimming pool shell, pump gear, finishing works",
+      "subcontracted amount":"",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      },
+      "Materials":{
+      "243":{
+      "code":"V-100",
+      "task/item":"Site Setup",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "244":{
+      "code":"V-110",
+      "task/item":"Concrete",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "245":{
+      "code":"V-120",
+      "task/item":"Floor Framing and Flooring",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "246":{
+      "code":"V-130",
+      "task/item":"Decking",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "247":{
+      "code":"V-140",
+      "task/item":"Wall Framing",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "248":{
+      "code":"V-150",
+      "task/item":"Roof Framing",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "249":{
+      "code":"V-160",
+      "task/item":"Miscellaneous Framing",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "250":{
+      "code":"V-170",
+      "task/item":"Wall and Roof Hardware",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "251":{
+      "code":"V-180",
+      "task/item":"Floor and Deck hardware",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "252":{
+      "code":"V-190",
+      "task/item":"Ceilings",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "253":{
+      "code":"V-200",
+      "task/item":"Exterior Claddings and Trim",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "254":{
+      "code":"V-210",
+      "task/item":"Interior Linings and Trim",
+      "details":"",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "255":{
+      "code":"V-220",
+      "task/item":"Insulation",
+      "details":"",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "256":{
+      "code":"V-230",
+      "task/item":"Doors and Hardware",
+      "details":"",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "257":{
+      "code":"V-240",
+      "task/item":"General Hardware and Consumables",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "258":{
+      "code":"V-250",
+      "task/item":"Special Timbers",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "259":{
+      "code":"V-260",
+      "task/item":"Special Fixings",
+      "details":"",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "260":{
+      "code":"V-270",
+      "task/item":"Deliveries",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "261":{
+      "code":"V-280",
+      "task/item":"Skip Bins",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "262":{
+      "code":" ",
+      "task/item":"Total Materials before Variation",
+      "details":" As per Placemakers take-off + allowance for general wasteage and consumables",
+      "subcontracted amount":"33380",
+      "calculated amount":"36718",
+      "subcontractor":"KPC",
+      "quote, estimate or  provision":"Estimate",
+      "comments":""
+      },
+      "263":{
+      "code":"V-300",
+      "task/item":"Variation 1  ",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      },
+      "264":{
+      "code":"V-301",
+      "task/item":"Variation 2",
+      "details":" ",
+      "subcontracted amount":"0",
+      "calculated amount":"0",
+      "subcontractor":"",
+      "quote, estimate or  provision":"",
+      "comments":""
+      }
+      }
+      },
+      "labourList":{
+          "general":{
+          "1":{
+          "name":"PROJECT ADMIN./ MEETINGS/ ORDERING MATERIALS/ DRAWING DETAILS ETC.."
+          },
+          "2":{
+          "name":"WORK WITH & ATTENDANCE OF SUB-TRADES & SITE MANAGEMENT"
+          },
+          "3":{
+          "name":"CHECK EXTERIOR JOINERY SHOP DRAWINGS"
+          },
+          "4":{
+          "name":"CHECK CABINETRY SHOP DRAWINGS"
+          },
+          "5":{
+          "name":"TILE SET OUTS "
+          },
+          "6":{
+          "name":"COUNCIL MEETINGS AND INSPECTIONS"
+          },
+          "7":{
+          "name":"SITE SET UP & SAFETY"
+          },
+          "8":{
+          "name":"DEMOLITION / SALVAGE WORKS"
+          },
+          "9":{
+          "name":"REMOVE / REPLACE FENCE"
+          },
+          "10":{
+          "name":"REMOVE CHIMNEY"
+          },
+          "11":{
+          "name":"COVER AND PROTECT EXISTING HOUSE"
+          },
+          "12":{
+          "name":"PROFILE AND SETOUT "
+          },
+          "13":{
+          "name":"SET UP TEMP. BARRIERS & HOARDINGS"
+          }
+          },
+          "site&concreteworks":{
+          "14":{
+          "name":"SET NEW PILES UNDER FLOOR EXTENSION AND POINT LOADS "
+          },
+          "15":{
+          "name":"EXCAVATION WORKS"
+          },
+          "16":{
+          "name":"FOOTING REO"
+          },
+          "17":{
+          "name":"SET FOOTIING SHS"
+          },
+          "18":{
+          "name":"POUR AND PLACE FOOTINGS"
+          },
+          "19":{
+          "name":"PLACE AND COMPACT HARDFILL/DRAINAGE METAL"
+          },
+          "20":{
+          "name":"BOX SLAB"
+          },
+          "21":{
+          "name":"LAY DPM"
+          },
+          "22":{
+          "name":"LAY POLYSTYRENE PODS"
+          },
+          "23":{
+          "name":"INSTALL REO"
+          },
+          "24":{
+          "name":""
+          },
+          "25":{
+          "name":""
+          },
+          "26":{
+          "name":""
+          },
+          "27":{
+          "name":"BOX REBATES"
+          },
+          "28":{
+          "name":"CLEAR GROUND, PREP SUBGRADE"
+          },
+          "29":{
+          "name":"BOX SLAB PERIMETER"
+          },
+          "30":{
+          "name":"VAPOR BARRIER "
+          },
+          "31":{
+          "name":"REINFORCING"
+          },
+          "32":{
+          "name":"POUR AND CURE SLAB"
+          },
+          "33":{
+          "name":"CONCRETE DECK PILES"
+          },
+          "34":{
+          "name":"INSTALL DRAIN COILS"
+          },
+          "35":{
+          "name":"INSTALL POLYTHENE DPM"
+          },
+          "36":{
+          "name":"STRIP BOXING, CLEAN CONCRETE"
+          }
+          },
+          "1stfixcarpentryworksstart":{
+          "37":{
+          "name":"EXTERIOR WALL FRAMING"
+          },
+          "38":{
+          "name":"GENERAL FRAMING                                 "
+          },
+          "39":{
+          "name":"INSTALL PFC BEAMS"
+          },
+          "40":{
+          "name":"WALL AND BEAM HARDWARE"
+          },
+          "41":{
+          "name":"PACK BEAMS"
+          },
+          "42":{
+          "name":"INSTALLING RAFTERS AND NOGS"
+          },
+          "43":{
+          "name":"PARAPET FRAMING"
+          },
+          "44":{
+          "name":"INSTALL FURRINGS "
+          },
+          "45":{
+          "name":"FRAME GUTTER"
+          },
+          "46":{
+          "name":"INSTALL ROOF PLY"
+          },
+          "47":{
+          "name":"SET OUT & INSTALL ALL FLOOR JOISTS"
+          },
+          "48":{
+          "name":"INSTALL FLOOR JOIST NOGS & BLOCKING"
+          },
+          "49":{
+          "name":"INSTALL FLOOR HARDWARE"
+          },
+          "50":{
+          "name":"BUZZ & STRAIGHTEN FLOOR FRAMING"
+          },
+          "51":{
+          "name":"REPAIR FLOORING WHERE REQUIRED"
+          },
+          "52":{
+          "name":"REFURBISH BI-FOLD DOORS"
+          },
+          "53":{
+          "name":"INSTALL 18MM COMPRESSED SHEET TO F/F BATHROOM FLOORS"
+          },
+          "54":{
+          "name":"REPLACE ROTTEN WEATHER BOARDS"
+          },
+          "55":{
+          "name":"REPLACE ROTTEN FASCIA"
+          },
+          "56":{
+          "name":"CLEAR OUT AND DIG DOWN TO ACHIEVE GROUND CLEANACE ON NORTH EAST WALL"
+          },
+          "57":{
+          "name":"FRAME SKYLIGHTS  X 2"
+          },
+          "58":{
+          "name":"FRAME UP ROOF WHERE CHIMNEY WAS"
+          },
+          "59":{
+          "name":"FRAME SOFFITS"
+          },
+          "60":{
+          "name":""
+          },
+          "61":{
+          "name":"SET OUT & NOG FOR BATTEN POSITIONS"
+          },
+          "62":{
+          "name":"FRAME SOFFIT "
+          },
+          "63":{
+          "name":"LINE SOFFIT"
+          },
+          "64":{
+          "name":"WRAP WALLS & TAPE ALL OPENINGS "
+          },
+          "65":{
+          "name":"INSTALL TIMBER JOINERY"
+          },
+          "66":{
+          "name":"INSTALL ALUMINIUM JOINERY"
+          },
+          "67":{
+          "name":"INSTALL CAVITY SYSTEM"
+          },
+          "68":{
+          "name":"INSTALL WEATHERBOARD SYSTEM"
+          },
+          "69":{
+          "name":"INSTALL JAMES HARDIES EASY LAP SYSTEM"
+          },
+          "70":{
+          "name":"INSTALL TIMBER SLIDING DOOR"
+          },
+          "71":{
+          "name":"INSTALL HEAD & SILL FLASHINGS"
+          },
+          "72":{
+          "name":"INSTALL HARDIFLEX CLADDING SYSTEM"
+          },
+          "73":{
+          "name":"INSTALL CLADDING SYSTEM "
+          },
+          "74":{
+          "name":"INSTALL SHADOWCLAD CLADDING SYSTEM"
+          },
+          "75":{
+          "name":"AIR SEAL & FOAM ALL OPENINGS "
+          },
+          "76":{
+          "name":"FRAME AND LINE SOFFIT"
+          },
+          "77":{
+          "name":"INSTALL COVER BATTENS, BOX CORNERS, SCRIBERS AND HEAD TRIM"
+          },
+          "78":{
+          "name":"INTERIOR SETOUT"
+          },
+          "79":{
+          "name":"FRAME INTERNAL WALLS"
+          },
+          "80":{
+          "name":"FRAME CEILINGS & SOLID BLOCKING"
+          },
+          "81":{
+          "name":"INSTALL INTERIOR DOORS"
+          },
+          "82":{
+          "name":"SKYLIGHT REVEALS"
+          },
+          "83":{
+          "name":"FRAME KITCHEN BULKHEAD"
+          },
+          "84":{
+          "name":"INSULATE MIDFLOOR"
+          },
+          "85":{
+          "name":"EXTERIOR FINISHING"
+          },
+          "86":{
+          "name":"INSULATE WALLS AND CEILING"
+          },
+          "87":{
+          "name":"INSTALL NOGS & SOLID BLOCKING TO ALL INTERNAL WALLS INC. SKIRTING"
+          },
+          "88":{
+          "name":"INSTALL WALL HARDWARE"
+          },
+          "89":{
+          "name":"BUZZ & STRAIGHTEN INTERNAL WALLS "
+          },
+          "90":{
+          "name":"BUZZ, STRAIGHTEN & PACK BATHROOM/ POWDER WALLS G/F  X 3"
+          },
+          "91":{
+          "name":"BUZZ, STRAIGHTEN & PACK EN-SUITE WALLS "
+          },
+          "92":{
+          "name":"INSTALL INSULATION - WALLS"
+          },
+          "93":{
+          "name":"INSTALL CAVITY SLIDERS AND DOOR"
+          },
+          "94":{
+          "name":"INSTALL GIB"
+          }
+          },
+          "2ndfixcarpentryworksstart":{
+          "95":{
+          "name":"FINISHING LINES & DETAILING"
+          },
+          "96":{
+          "name":"INSTALL  ARCHITRAVES "
+          },
+          "97":{
+          "name":"INSTALL 140X10 SKIRTINGS "
+          },
+          "98":{
+          "name":"INSTALL SCOTIA "
+          },
+          "99":{
+          "name":"PATCH DINING ROOM CEILING"
+          },
+          "100":{
+          "name":"INSTALL BATHROOM FIXTURES"
+          },
+          "101":{
+          "name":"INSTALL FLOORING"
+          },
+          "102":{
+          "name":""
+          },
+          "103":{
+          "name":"FINAL DETAILING"
+          },
+          "104":{
+          "name":"INSTALL CABINETRY"
+          }
+          },
+          "landscapeworks":{
+          "105":{
+          "name":"DECK POSTS"
+          },
+          "106":{
+          "name":"DECK FRAMING"
+          },
+          "107":{
+          "name":"DECKING"
+          }
+          },
+          "misc.works":{
+          "108":{
+          "name":"SET UP TEMPORARY ACCESS & SCAFFOLD SYSTEMS"
+          },
+          "109":{
+          "name":"UNLOADING CABINETRY, JOINERY AND MATERIALS"
+          },
+          "110":{
+          "name":"ADJUSTMENTS TO INTERIOR DOORS"
+          },
+          "111":{
+          "name":"REMOVE & REHANG DOORS & WINDOWS FOR PAINTING"
+          },
+          "112":{
+          "name":"TEMP. COVER & PROTECT ROOF SURFACES"
+          },
+          "113":{
+          "name":"TEMP. COVER & PROTECT FLOOR SURFACES"
+          },
+          "114":{
+          "name":"UNLOADING & MOVING CABINETRY INSIDE"
+          },
+          "115":{
+          "name":"WATERBLASTING DRIVE & ROAD"
+          },
+          "116":{
+          "name":"FINAL SITE CLEAN"
+          },
+          "117":{
+          "name":"DELIVERIES, UNLOADING, MOVING & STACKING MATERIALS AROUND SITE"
+          },
+          "118":{
+          "name":"DAILY SITE SET UP & PACK UP"
+          },
+          "119":{
+          "name":"DAILY SITE CLEANING  "
+          },
+          "120":{
+          "name":"TOOL & PLANT MAINTENANCE"
+          },
+          "121":{
+          "name":"PERFECTING DETAILS"
+          },
+          "122":{
+          "name":"INSTALL ALL WC & ENSUITE FIXTURES ETC"
+          },
+          "123":{
+          "name":"CCC APPLICATION"
+          }
+          },
+          "other":{
+          "124":{
+          "name":""
+          },
+          "125":{
+          "name":""
+          },
+          "126":{
+          "name":""
+          },
+          "127":{
+          "name":""
+          },
+          "128":{
+          "name":""
+          },
+          "129":{
+          "name":""
+          },
+          "130":{
+          "name":""
+          },
+          "131":{
+          "name":""
+          },
+          "132":{
+          "name":""
+          },
+          "133":{
+          "name":""
+          }
+          },
+          "variation1":{
+          "134":{
+          "name":"DEMOLITION - Remove fittings, strip vanity wall, open up walls into laundry, open up shower walls"
+          },
+          "135":{
+          "name":"Cut floor in shower area, frame floor for shower base                                "
+          },
+          "136":{
+          "name":"Install floor ply and tile and slate underlay"
+          },
+          "137":{
+          "name":"Strip, prop and re-frame laundry area"
+          },
+          "138":{
+          "name":"General framing"
+          },
+          "139":{
+          "name":"Lining walls"
+          },
+          "140":{
+          "name":"FINISHING LINES & DETAILING"
+          },
+          "141":{
+          "name":" "
+          },
+          "142":{
+          "name":" "
+          },
+          "143":{
+          "name":" "
+          },
+          "144":{
+          "name":" "
+          },
+          "145":{
+          "name":" "
+          },
+          "146":{
+          "name":" "
+          },
+          "147":{
+          "name":" "
+          },
+          "148":{
+          "name":"End Variation 1"
+          }
+          }
+          }
+  }
+}

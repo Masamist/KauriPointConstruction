@@ -3,9 +3,11 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useFirestore } from '../../../hooks/useFirestore'
 
 import UpdateTaskStatus from './components/UpdateTaskStatus'
+import AddTask from './components/AddTask'
 
 //styles
 import '../../../components/MainList.css'
+import './ProjectUpdateMainList.css'
 
 export const ACTIONS = {
     ADD_TASK: 'add_task',
@@ -15,169 +17,163 @@ export const ACTIONS = {
 
 
 function reducer(reStages, action) {
+  switch(action.type){
+    case ACTIONS.ADD_TASK:
+        // return [...tasks, newStage(action.payload.task)]
+        return reStages
 
-    switch(action.type){
-        case ACTIONS.ADD_TASK:
-            // return [...tasks, newStage(action.payload.task)]
-            return reStages
-
-        case ACTIONS.CHANGE_STATUS:
-            console.log("stageDetails", reStages)
-            // console.log("tasks", reStages.map(stage => { return stage.tasks.map(task => task.task)  }))
-            // console.log("payload task name:", action.payload.task)
-            // console.log("payload status:", action.payload.status)
-            // return reStages.map(stage => {
-            //     stage.tasks.map(task => {
-            //         if(task.task === action.payload.task){
-            //             return {
-            //                 ...stage,
-            //                 tasks: [
-            //                     { ...task, status: action.payload.status }
-            //                 ]
-            //             }
-            //         }
-            //         return {...task}
-            //     })
-            //     return { ...stage }
-            // })
-                    
-            return reStages.map(stage => {
-                    return {   
-                        ...stage,
-                        tasks: 
-                            stage.tasks.map(task => 
-                                {
-                                    if(task.task === action.payload.task){
-                                        return {
-                                            ...task,
-                                            code: task.code,
-                                            task: task.task,
-                                            status: action.payload.status,
-                                            details: task.details,
-                                            calculatedamount: action.payload.calculatedamount,
-
-                                            // subcontractedamount: task.subcontractedamount,                                           
-                                            // comments: task.comments,
-                                            // budgetamount: task.budgetamount,
-                                            // stilltoclaim: task.stilltoclaim,
-                                            // complete: task.budgetamount,
-                                            // comment: task.comment,
-                                            // claims: task.claims 
-                                            // {
-                                            //     "claim1": "120",
-                                            //     "claim3": "100"''
-                                            // }
-
-                                        }
-                                    }
-                            return {...task}    
-                        })  
-                    }
-                }) 
-
-        case ACTIONS.DELETE_TASK_ITEM:
-            return reStages.map(stage => {
-                console.log('action.payload.task', action.payload.task)
-                console.log('stage.tasks', stage.tasks)
-
-                // let newStage = stage.tasks.splice(stage.tasks.findIndex(task => task.task === action.payload.task),1)
-                // console.log(newStage)
-                  
+    case ACTIONS.CHANGE_STATUS:
+        // console.log("stageDetails", reStages)
+        // console.log("tasks", reStages.map(stage => { return stage.tasks.map(task => task.task)  }))
+        // console.log("payload task name:", action.payload.task)
+        // console.log("payload status:", action.payload.status)
+        // return reStages.map(stage => {
+        //     stage.tasks.map(task => {
+        //         if(task.task === action.payload.task){
+        //             return {
+        //                 ...stage,
+        //                 tasks: [
+        //                     { ...task, status: action.payload.status }
+        //                 ]
+        //             }
+        //         }
+        //         return {...task}
+        //     })
+        //     return { ...stage }
+        // })
+        return reStages.map(stage => {
                 return {   
                     ...stage,
                     tasks: 
-                      stage.tasks.filter(task => task.task !== action.payload.task)
-                        .map(task => {
-                          return {...task}
-                        })
-                        //stage.tasks.map(task => {
-                        // if(!task.task === action.payload.task){
-                        //   return Array.
-                        // }        
-                    }
-                })
-        default:
-            return reStages
-    }
+                        stage.tasks.map(task => 
+                            {
+                                if(task.task === action.payload.task){
+                                    return {
+                                        ...task,
+                                        code: task.code,
+                                        task: task.task,
+                                        status: action.payload.status,
+                                        details: task.details,
+                                        calculatedamount: action.payload.calculatedamount,
+
+                                        // subcontractedamount: task.subcontractedamount,                                           
+                                        // comments: task.comments,
+                                        // budgetamount: task.budgetamount,
+                                        // stilltoclaim: task.stilltoclaim,
+                                        // complete: task.budgetamount,
+                                        // comment: task.comment,
+                                        // claims: task.claims 
+                                        // {
+                                        //     "claim1": "120",
+                                        //     "claim3": "100"''
+                                        // }
+
+                                    }
+                                }
+                        return {...task}    
+                    })  
+                }
+            }) 
+
+    case ACTIONS.DELETE_TASK_ITEM:
+      return reStages.map(stage => {
+          // console.log('action.payload.task', action.payload.task)
+          // console.log('stage.tasks', stage.tasks)
+
+        return {   
+          ...stage,
+          tasks: 
+            stage.tasks.filter(task => task.task !== action.payload.task)
+              .map(task => {
+                return {...task}
+            })    
+        }
+      })
+    default:
+      return reStages
+  }
 }
 
 function Tasks ({ stage, dispatch }) { 
-    return(
-        <div>
-            <table className='mainlist-taskHeaderBackground'>
-                <thead className='mainlist-taskHeader flex'>
-                    <th>Task Items</th>
-                    <th>SubContractor</th>
-                    <th>Charge Amount</th>
-                    <th>Status</th>
-                </thead>
-                {Object.entries(stage).map( ([key,task]) => {
-                    const taskName = task.task ? task.task : ' -'
-                    const subContractor = task.subcontractor ? task.subcontractor : " -"
-                    const calculatedamount= task.calculatedamount ? task.calculatedamount : ' -'
-                    const status = task.status ? task.status : ' -'
-                    const id = key
-                
-                    return (
-                        <tbody className='mainlist-taskBackground' key={key}>
-                            <td >{taskName} </td>
-                            <td>{subContractor}</td>
-                            <td>{calculatedamount}</td>
-                            <td>{status} </td>
-                            {/* <td><UpdateTaskStatus key={task.id} task={task} dispatch={dispatch} /></td> */}
-
-                        <td><UpdateTaskStatus id={id} task={task} dispatch={dispatch} /></td>
-                        </tbody>
-                    )
-                })}
-            </table>
-        </div>
-    )
+  return(
+    <div>
+      <table className='mainlist-taskHeaderBackground'>
+        <thead className='mainlist-taskHeader flex'>
+          <th>Task Items</th>
+          <th>SubContractor</th>
+          <th>Charge Amount</th>
+          <th>Status</th>
+        </thead>
+        {Object.entries(stage).map( ([key,task]) => {
+          const taskName = task.task ? task.task : ' -'
+          const subContractor = task.subcontractor ? task.subcontractor : " -"
+          const calculatedamount= task.calculatedamount ? task.calculatedamount : ' -'
+          const status = task.status ? task.status : ' -'
+          const id = key
+          return (
+            <tbody className='mainlist-taskBackground' key={key}>
+              <td>{taskName}</td>
+              <td>{subContractor}</td>
+              <td>{calculatedamount}</td>
+              <td>{status}</td>
+              {/* <td><UpdateTaskStatus key={task.id} task={task} dispatch={dispatch} /></td> */}
+              
+              <td><UpdateTaskStatus id={id} task={task} dispatch={dispatch} /></td>
+            </tbody>
+          )
+        })}
+      </table>
+      <AddTask stage={stage} dispatch={dispatch} />
+    </div>
+  )
 }
 
 function Stage({ stage, dispatch }) {
-    const [expandStages, setCollapseStages] = useState(false)
-    
-    function handleExpand() { setCollapseStages(!expandStages)}
-    // console.log('stage: ',stage)
-    return (
-        <div className='mainlist-stageCard'>
-            <div className='flex'>
-                <h3 onClick={handleExpand}>{stage.name}</h3>
-            </div>
-            <div>
-                {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
-            </div>
-        </div>
-    )
+  const [expandStages, setCollapseStages] = useState(false)
+  
+  function handleExpand() { setCollapseStages(!expandStages)}
+  // console.log('stage: ',stage)
+  return (
+      <div className='mainlist-stageCard'>
+          <div className='flex'>
+              <h3 onClick={handleExpand}>{stage.name}</h3>
+          </div>
+          <div>
+              {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
+          </div>
+      </div>
+  )
 }
 
 export default function MainList({stages}) {
-    const [reStages, dispatch] = useReducer(reducer, stages)
-    const { updateDocument, response } = useFirestore('projects')
-    const { id } = useParams()
-    const history = useHistory()
+  const [reStages, dispatch] = useReducer(reducer, stages)
+  const { updateDocument, response } = useFirestore('projects')
+  const { id } = useParams()
+  const history = useHistory()
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
-        const mainList = {
-            mainList: reStages
-        }
-        
-        await updateDocument(id, mainList)
-
-        if (!response.error) {
-            history.push('/')
-          }
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    const mainList = {
+        mainList: reStages
     }
     
-    return (
-            <div>
-                <h2>Main List:</h2>
-                <button onClick={handleSubmit} className="btn" id="btn_right">Update MainList</button>
-                { Object.entries(reStages).map( ([key, stage]) => {
-                            return <Stage key={key} stage={stage} dispatch={dispatch} />
-                })}
-            </div> 
-        )
+    await updateDocument(id, mainList)
+
+    if (!response.error) {
+        history.push('/')
+      }
+  }
+  
+  return (
+    <div>
+      <h2>Main List:</h2>
+      <div className="update-mainlist">    
+      { Object.entries(reStages).map( ([key, stage]) => {
+                  return <Stage key={key} stage={stage} dispatch={dispatch} />
+      })}
+      <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
+      <button className="btn-cancel" id="btn_right">Cancel</button>
+      </div>
+    </div> 
+  )
 }
