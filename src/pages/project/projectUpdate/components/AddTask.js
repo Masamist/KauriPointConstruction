@@ -1,14 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDocument } from '../../../../hooks/useDocument'
 import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
+import Select from 'react-select'
 
 export default function AddTask({stage, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
+  const id = 'mainList'
+  const { error, document } = useDocument('taskLibrary' , id)
+
+  const [taskList, setTaskList] = useState([])
+  const [tempTask, setTempTask] = useState([])
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
+
+  
+  useEffect(() => {
+    if(document){
+      const options = Object.entries(document.stages).map(([index, stages]) => {
+        // return { value: {...stage, id:project.id}, label: project.name}
+        return { value: {...stages, id: index}, label:stages.name}
+      })
+      setTaskList(options)
+    }
+  }, [document])
+  console.log(taskList)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -48,6 +67,19 @@ export default function AddTask({stage, dispatch}) {
 
 
           <form onSubmit={handleSubmit}>
+            <div>
+              <h3>Stage: {stage.name}</h3>
+            </div>
+            <div>
+              <label>
+              <h3>Task:</h3>
+                <span>Select Task from Task Library:</span>
+                  <Select
+                    onChange={(option) => setTempTask(option)}
+                    options={taskList}
+                  />
+              </label>
+            </div>
             <div>
               <p>Details:</p>
               <p>Subcontractor:</p>

@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useFirestore } from '../../../hooks/useFirestore'
 
 import UpdateTaskStatus from './components/UpdateTaskStatus'
+import AddStage from './components/AddStage'
 import AddTask from './components/AddTask'
 
 //styles
@@ -123,7 +124,6 @@ function Tasks ({ stage, dispatch }) {
           )
         })}
       </table>
-      <AddTask stage={stage} dispatch={dispatch} />
     </div>
   )
 }
@@ -134,14 +134,17 @@ function Stage({ stage, dispatch }) {
   function handleExpand() { setCollapseStages(!expandStages)}
   // console.log('stage: ',stage)
   return (
-      <div className='mainlist-stageCard'>
-          <div className='flex'>
-              <h3 onClick={handleExpand}>{stage.name}</h3>
-          </div>
-          <div>
-              {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
-          </div>
+    <div className='mainlist-stageCard'>
+      <div className='flex'>
+        <h3 onClick={handleExpand}>{stage.name}</h3>
       </div>
+      <div>
+        {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
+      </div>
+      <div>
+        <AddTask stage={stage} dispatch={dispatch} />
+      </div>
+    </div>
   )
 }
 
@@ -171,6 +174,7 @@ export default function MainList({stages}) {
       { Object.entries(reStages).map( ([key, stage]) => {
                   return <Stage key={key} stage={stage} dispatch={dispatch} />
       })}
+      <AddStage stage={stages} dispatch={dispatch} />
       <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
       <button className="btn-cancel" id="btn_right">Cancel</button>
       </div>
