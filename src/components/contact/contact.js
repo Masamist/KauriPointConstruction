@@ -123,7 +123,7 @@ const ContactPhone = () => {
         <div className='contactCard'>
             <img src={phone} alt='phone'></img>
             <h3>Phone Number</h3>
-            <p className='number'> 09 234 5678</p>
+            <p className='number'> 021 037 2837</p>
         </div>
     )
 }
