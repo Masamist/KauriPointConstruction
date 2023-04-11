@@ -45,7 +45,7 @@ export default function Create() {
 
   const [formError, setFormError] = useState(null)
 
-  console.log(startDate)
+  // console.log(startDate)
   useEffect(() => {
     if(documents){
       const options = documents.map(project => {

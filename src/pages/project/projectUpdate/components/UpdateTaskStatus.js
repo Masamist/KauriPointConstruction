@@ -5,8 +5,6 @@ import Modal from "react-overlays/Modal"
 // styles
 import '../ProjectUpdate.css'
 
-
-// export default function UpdateTaskStatus(task, dispatch) {
 export default function UpdateTaskStatus({task, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
@@ -21,16 +19,18 @@ export default function UpdateTaskStatus({task, dispatch}) {
     dispatch({ type: ACTIONS.UPDATE_MAINLIST })
   }
 
+  function handleDelete(e) {
+    e.preventDefault()
+    handleClose()
+    dispatch({ type: ACTIONS.DELETE_TASK_ITEM, payload:{ task: task.task }})
+    
+  }
+
   return (
     <>
       <div>
         <button class="btn" type="btn" onClick={() => setShowModal(true)}>
           Modify
-        </button>
-        <button class="btn" type="btn" onClick={() => dispatch({ type: ACTIONS.DELETE_TASK_ITEM,
-                      payload:{ task: task.task }
-                    })}>
-          Delete
         </button>
       </div>
 
@@ -131,6 +131,15 @@ export default function UpdateTaskStatus({task, dispatch}) {
                   </button>
                 </div>
                 <div>
+                  <button 
+                    class="btn" 
+                    type="btn"
+                    onClick= {handleDelete}
+                  >
+                    Delete
+                  </button>
+                </div>
+                <div>
                   <button className="btn">
                     Update Project Details
                   </button>
@@ -139,9 +148,8 @@ export default function UpdateTaskStatus({task, dispatch}) {
             {formError && <p className="error">{formError}</p>}
           </form>
 
-
-            </div>
           </div>
+        </div>
       </Modal>
 
     </>

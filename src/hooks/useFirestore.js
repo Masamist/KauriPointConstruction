@@ -1,5 +1,7 @@
 import { useReducer, useEffect, useState } from "react"
 import { projectFirestore, timestamp } from "../firebase/config"
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 let initialState = {
   document: null,
@@ -66,6 +68,20 @@ export const useFirestore = (collection) => {
     }
   }
 
+    // set arrey in documents for taskLibrary
+    const updateArrDocument = async (id, updateDoc) => {
+      dispatch({ type: 'IS_PENDING' })
+  
+      try{
+        const updatedDocument = await ref.doc(id).set(updateDoc)
+        
+        dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
+      }
+      catch (err) {
+        dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+      }
+    }
+
 
   // delete a document
   const deleteDocument = async (id) => {
@@ -84,6 +100,6 @@ export const useFirestore = (collection) => {
     return () => setIsCancelled(true)
   }, [])
 
-  return { addDocument, updateDocument, deleteDocument, response }
+  return { addDocument, updateDocument, deleteDocument, updateArrDocument, response }
 
 }

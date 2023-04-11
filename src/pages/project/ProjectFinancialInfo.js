@@ -8,12 +8,12 @@ export default function ProjectFinancialInfo({stages}) {
   let stilltoclaimArr = []
   let CurrentClaimArr = []
 
-  console.log(stages)
+  // console.log(stages)
 
   function amountCalculator(){
     Object.entries(stages).map(([key, stage]) => (
       Object.entries(stage.tasks).map(([k, task]) => {
-        console.log(task.calculatedamount)
+        // console.log(task.calculatedamount)
         calculatedamountArr.push(parseFloat(task.calculatedamount))
         stilltoclaimArr.push(parseFloat(task.stilltoclaim))
 

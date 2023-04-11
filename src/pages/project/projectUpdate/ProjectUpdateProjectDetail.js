@@ -12,10 +12,10 @@ export default function ProjectUpdateProjectDetail({ project }) {
   const [formError, setFormError] = useState(null)
   const history = useHistory()
   const { id } = useParams()
-  const location = useLocation()
+  // const location = useLocation()
 
 
-  console.log(location.pathname)
+  // console.log(location.pathname)
 
   const [startDate, setStartDate] = useState(project.startDate.toDate().toISOString().substring(0, 10))
   const [GSTno, setGSTno] = useState(project.GSTno)
@@ -26,7 +26,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
   const [memberRate, setMemberRate ] = useState('') 
   const [teamList, setTeamList] = useState(project.team)
 
-  console.log(project.team)
+  // console.log(project.team)
 
   const [showModal, setShowModal] = useState(false)
 

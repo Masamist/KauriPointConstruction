@@ -1,30 +1,23 @@
-import React from 'react';
-import { useState } from 'react';
+import React, {useState} from 'react';
 import './LabourList.css'
 
 export default function LabourList({ list , team }) {
-    // console.log('list: ', list)
-    // console.log('team:', team)
-
-    const staffRole = Object.entries(team).map(([i, staff]) => staff.role)
-    // console.log('staffRole:', staffRole);
-
     return (
         <>
             <h2>LABOUR LIST</h2>
             { Object.entries( list ).map( ([key, stage ]) => {
                 return (
-                    <LabourStageCard key={key} stage={stage} team={staffRole} />    
+                    <LabourStageCard key={key} stage={stage} team={team} />    
             )})}
         </>
     )
-
 }
 
 function LabourStageCard({stage, team}) {
     const [expandLabourStage, setExpandLabourStage] = useState(false)
     const handleToggleStage = ()=>{setExpandLabourStage(!expandLabourStage)}
-
+    const staffRole = Object.entries(team).map(([i, staff]) => staff.role)
+    // const staffRate = Object.entries(team).map(([i, staff]) => staff.rate)
     // const [totalHours, setTotalHours] = useState([{}])
 
     const calcHours = Object.entries(stage.tasks).map(([key, task]) => (
@@ -34,17 +27,17 @@ function LabourStageCard({stage, team}) {
     // const roleOne = calcHours.map((role) => role.at(0))
     // const a = roleOne.reduce(setSum, 0)
     // console.log(roleOne)
-    console.log(calcHours)
+    //console.log(calcHours)
     // console.log('At', a)
 
     let totalDyas = []
 
-    for (let i = 0; i < team.length; i++ ){
+    for (let i = 0; i < staffRole.length; i++ ){
         const hourArray = calcHours.map((role) => role.at(i))
         const hourSum = hourArray.reduce(setSum, 0)
         // console.log('for:', hourSum)
         totalDyas.push(hourSum)
-        console.log('TotalSum',i, ': ',totalDyas)
+        // console.log('TotalSum',i, ': ',totalDyas)
     }
 
     function setSum(total, num){
@@ -57,14 +50,10 @@ function LabourStageCard({stage, team}) {
     return (
         <>
             <div onClick={handleToggleStage} className='stage-container'>
-                
                 <div className="stage-name-container">{stage.name}</div>
                 <div className="stage-role-container">
-                {team.map((role) => (
-                    <div>{role}</div>
-                ))}
+                {staffRole.map((role) => (<div>{role}</div>))}
                 </div>
-                
             </div>
             {expandLabourStage && <LabourStageTask stage={stage.tasks} />}
             <div className='labourList-StageTask'>
@@ -74,7 +63,12 @@ function LabourStageCard({stage, team}) {
                 </div>
             </div>
             <div className='labourList-StageTask'>
-                <div>Total Amount:</div>
+              <div className='task-container'>Total Amount:</div>
+                <div className='hours-container'>
+                  {/* {totalDyas.map((totalDay, staffRate) => 
+                    <span>{totalDay * staffRate}</span>
+                  )} */}
+                </div>
             </div>
             <div className='labourList-StageTask'>
                 <div>Stage Total: 000days $00000</div>
@@ -113,8 +107,7 @@ function LabourStageHours({ hoursPredicted }){
                     <React.Fragment key={role}>
                         <div className="single-hour-container">
                             <span> {hours} </span>
-                        </div>
-                        
+                        </div>  
                     </React.Fragment>
                 )}   
             )}
@@ -122,3 +115,9 @@ function LabourStageHours({ hoursPredicted }){
     )
 }
 
+// function CalcTotalAmountPerRoll({stage, team}) {
+// const staffRate = Object.entries(team).map(([i, staff]) => staff.rate)
+//   return{
+//     <>>
+//   }
+// }
