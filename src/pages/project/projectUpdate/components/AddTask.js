@@ -17,17 +17,34 @@ export default function AddTask({stage, dispatch}) {
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
 
-  
-  useEffect(() => {
-    if(document){
-      const options = Object.entries(document.stages).map(([index, stages]) => {
-        // return { value: {...stage, id:project.id}, label: project.name}
-        return { value: {...stages, id: index}, label:stages.name}
+  function createTaskOption() {
+
+      console.log('document',document)
+
+      const allTasks = Object.values(document.stages).map(libStages => {
+          return  { stageName: libStages.name, value: libStages.tasks }       
       })
-      setTaskList(options)
-    }
-  }, [document])
-  console.log(taskList)
+
+      console.log('allTasks', allTasks)
+
+      let stageTasks = allTasks.filter(singleStage => singleStage.stageName === stage.name)
+      console.log('stageTasks', stageTasks)
+
+      let selectedTasks
+
+      Object.entries(stageTasks).map(([key, stage]) => (
+        selectedTasks = Object.entries(stage.value).map(([id, taskInfo]) => {
+          return { value: {...taskInfo, id: id}, label: taskInfo.task}
+        })
+      ))
+      // let selectedTasks = allTasks.filter(function(singleStage){
+      //   console.log('singleStage.stageName', singleStage.stageName);
+      //   return (singleStage.stageName === stage.name)
+      // })
+      console.log(selectedTasks)
+      setTaskList(selectedTasks)
+      setShowModal(true)
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -38,7 +55,7 @@ export default function AddTask({stage, dispatch}) {
   return (
     <>
       <div>
-        <button type="btn" onClick={() => setShowModal(true)}>
+      <button type="btn" onClick={createTaskOption}>
           + Add Task
         </button>
       </div>
