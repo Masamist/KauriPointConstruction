@@ -1,6 +1,53 @@
 .create-form {
-  max-width: 600px;
+  max-width: 800px;
   background-color: #fff;
   border-radius: 5px;
-  padding: 3rem;
+  padding: 2em;
+  margin: 1em 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-form span {
+  margin: 0;
+}
+.create-form label {
+  margin: .5em 0;
+}
+
+.content-section{
+  padding-left: 1em;
+}
+
+.remove-btn{
+  border-radius: 0;
+}
+
+.add-btn{
+  font-size: 1.5em;
+  margin: 1em; 
+}
+
+.align-btn{
+  text-align: center;
+}
+
+.assigned-staff{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.staffMember{
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.staffMember > p, .staffMember > span{
+  margin-left: .2em;
+}
+
+@media screen and (max-width: 700px) {
+  .create-form {
+    padding: 1em;
+  }
 }
