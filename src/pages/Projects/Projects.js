@@ -20,7 +20,7 @@ function ShowcasePoster() {
     return (
         <div className='showcasePoster'>
             <div className='text'>
-                <h1>Showcasing our creativity and Excellence</h1>
+                <h1>Showcasing our creativity and excellence</h1>
                 <p>
                 Every project we take on, big or small, recieves the same level of attention. We are always aiming to create lasting relationships with our clients 
                 </p>
@@ -36,17 +36,17 @@ function CompletedProjects(){
             <Project 
                 imageUrl={benchTop} 
                 title='Beach house kitchen' 
-                text='With a  recycled timber island top (built on site) serving as the center piece, this kitchen is one of a kind' 
+                text='With a  recycled timber island top (built on site) serving as the center piece, this kitchen is one of a kind.' 
             />
             <Project 
                 imageUrl={cedar_reclad} 
                 title='Cedar Reclad' 
-                text='An exterior refresh in Freemans Bay. A good opportunity to showcase our craftsmanship .' 
+                text='An exterior refresh in Freemans Bay. A good opportunity to showcase our craftsmanship.' 
             />
             <Project 
                 imageUrl={bathroom} 
-                title='Snt Heliers Bathroom' 
-                text='With clean finishing lines and great selections. This bathroom was finished to the highest level' 
+                title='St Heliers Bathroom' 
+                text='With clean finishing lines and great selections. This bathroom was finished to the highest level.' 
             />
         </div>
     )
@@ -73,7 +73,7 @@ function SkillsPoster() {
     return (
         <div className='skillsPoster'>
             <div className='text'>
-                <h1>We make it happen</h1>
+                <h1>We make it happen.</h1>
                 <h1>Multi-skilled in all aspects of construction.</h1>
                 
             </div>

@@ -7,10 +7,13 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .navbar ul > li {
   margin-bottom: 1em;
+}
+.navbar ul > li:hover {
+  font-weight: 600;
 }
 .navbar .logo {
   font-weight: bold;
@@ -58,5 +61,10 @@
 @media screen and (max-width: 500px) {
   .navbar .logo img {
     width: 120px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .navbar ul {
+    justify-content: space-between;
   }
 }
