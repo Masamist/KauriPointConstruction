@@ -1,54 +1,109 @@
 import { useState, useEffect } from 'react'
 import { useDocument } from '../../../../hooks/useDocument'
+import { useFirestore } from '../../../../hooks/useFirestore'
 import { ACTIONS } from '../ProjectUpdateMainList'
+import { useHistory, useParams } from 'react-router-dom'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
 
 export default function AddTask({stage, dispatch}) {
+  //Modal
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
-  const id = 'mainList'
-  const { error, document } = useDocument('taskLibrary' , id)
 
-  const [taskList, setTaskList] = useState([])
-  const [tempTask, setTempTask] = useState([])
+  // Firebase
+  const mainList_id = 'mainList'
+  const { error, document } = useDocument('taskLibrary' , mainList_id)
+  const { id } = useParams()
+  const { updateDocumentAddTask, response } = useFirestore('projects')
+
+  const history = useHistory()
+  const [selected, setSelected] = useState([])
+  const [options, setOptions] = useState([])
+
+  // const [code, setCode] =useState('')
+  const [task, setTask] =useState('')
+  // const [status, setStatus] =useState('')
+  // const [details, setDetails] =useState('')
+  // const [comments, setComments] =useState('')
+  // const [subcontractor, setSubcontractor] =useState('')
+  // const [subcontractedamount, setSubcontractedamount] =useState('')
+  // const [calculatedamount, setCalculatedamount] =useState('')
+  // const [quoteEstimateOrProvision, setQuoteEstimateOrProvision] =useState('')
 
   // Modal display functions
-  const handleClose = () => setShowModal(false)
+  const handleClose = () => {
+    setSelected([])
+    setShowModal(false)
+  }
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
 
-  function createTaskOption() {
 
-      console.log('document',document)
+  // Adding Task
+    //console.log('stageListHasSelected', stageListHasSelected)
+  const stageListHasSelected = Object.entries(stage.tasks).map(([key, stageTask])=> {
+    return stageTask.task
+  })
 
-      const allTasks = Object.values(document.stages).map(libStages => {
-          return  { stageName: libStages.name, value: libStages.tasks }       
+  // console.log(startDate)
+  useEffect(() => {
+    if(selected){
+      const taskSet = Object.entries(selected).map(([k,v]) => {
+
+        console.log('k', k , ' : v', v)
+        return {
+         code: v
+        }
       })
+      
+      // setProjectList(options)
+    }
+    console.log(task)
+  }, [selected])
 
-      console.log('allTasks', allTasks)
+  // function handleSelect(option){
+  //   setSelected(option)
+  //   console.log(selected)
+  //   const newtask = selected.map(([k,v]) => {
+  //     return v.label
+  //   })
+  //   console.log(newtask)
+  //   for (const [key, value] of Object.entries(object1)) {
+  //       console.log(`${key}: ${value}`);
+  //     }
+  // }
 
+
+  function createTaskOption() {
+      const allTasks = Object.values(document.stages).map(libStages => {
+          return { stageName: libStages.name, value: libStages.tasks }       
+      })
       let stageTasks = allTasks.filter(singleStage => singleStage.stageName === stage.name)
-      console.log('stageTasks', stageTasks)
 
       let selectedTasks
-
       Object.entries(stageTasks).map(([key, stage]) => (
         selectedTasks = Object.entries(stage.value).map(([id, taskInfo]) => {
-          return { value: {...taskInfo, id: id}, label: taskInfo.task}
+          return { value: {...taskInfo}, label: taskInfo.task}
         })
       ))
-      // let selectedTasks = allTasks.filter(function(singleStage){
-      //   console.log('singleStage.stageName', singleStage.stageName);
-      //   return (singleStage.stageName === stage.name)
-      // })
-      console.log(selectedTasks)
-      setTaskList(selectedTasks)
+      const filetredTasks = selectedTasks.filter(function(selectTask) {
+        return !stageListHasSelected.includes(selectTask.label)
+      })
+      setOptions(filetredTasks)
       setShowModal(true)
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = async(e) => {
     e.preventDefault()
     setFormError(null)
+
+    console.log(selected)
+
+    await updateDocumentAddTask(id, selected)
+
+    if (!response.error) {
+      history.push('/')
+    }
     // dispatch({ type: ACTIONS.UPDATE_MAINLIST })
   }
 
@@ -92,20 +147,32 @@ export default function AddTask({stage, dispatch}) {
               <h3>Task:</h3>
                 <span>Select Task from Task Library:</span>
                   <Select
-                    onChange={(option) => setTempTask(option)}
-                    options={taskList}
+                    onChange={(option) => setSelected(option)}
+                    options={options}
                   />
+                  {/* <button className="btn" onClick={handleSet}>Set Option</button> */}
               </label>
             </div>
+            {/* <br />
             <div>
-              <p>Details:</p>
+            <label>
+              <span>Task Name: {task}</span>
+              <span>Task Code: {code}</span>
+              <span>Task Details: </span>
+              <input
+                  type="text"
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
+                />
+            </label>
+
               <p>Subcontractor:</p>
               <p>Subcontracted Amount: </p>
               <p>Charge Amount:</p>
               <p>Unclaim Amount:</p>
               <p>Status:</p>
               <p>Complete:</p>
-            </div>
+            </div> */}
             {/* <label>
               <span>Charge Aamount:</span>
               <input

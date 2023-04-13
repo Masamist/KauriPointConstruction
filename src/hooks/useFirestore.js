@@ -68,19 +68,70 @@ export const useFirestore = (collection) => {
     }
   }
 
-    // set arrey in documents for taskLibrary
-    const updateArrDocument = async (id, updateDoc) => {
-      dispatch({ type: 'IS_PENDING' })
-  
-      try{
-        const updatedDocument = await ref.doc(id).set(updateDoc)
-        
-        dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
-      }
-      catch (err) {
-        dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
-      }
+  // adding task
+  const updateDocumentAddTask = async (id, updateDoc) => {
+    dispatch({ type: 'IS_PENDING' })
+
+    try{
+      console.log('updateDoc',updateDoc)
+      
+      const updatedDocument = await ref.doc(id).update({
+        mainList: firebase.firestore.tasks.arrayUnion(updateDoc)
+      })
+      
+      dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
     }
+    catch (err) {
+      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+    }
+  }
+
+  // adding task
+  // const updateDocumentAddTask = async (id, updateDoc) => {
+  //   dispatch({ type: 'IS_PENDING' })
+
+  //   try{
+  //     const updatedDocument = await ref.doc(id).update({
+  //       mainList: 
+  //     })
+      
+  //     dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
+  //   }
+  //   catch (err) {
+  //     dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+  //   }
+  // }
+
+  
+
+    // Temporary function
+    // set arrey in documents for taskLibrary
+
+    // const updateArrDocument = async (id, updateDoc) => {
+    //   dispatch({ type: 'IS_PENDING' })
+  
+    //   try{
+    //     const updatedDocument = await ref.doc(id).set(updateDoc)
+        
+    //     dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
+    //   }
+    //   catch (err) {
+    //     dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+    //   }
+    // }
+
+    // const updateArrDocument = async (id, updateDoc) => {
+    //   dispatch({ type: 'IS_PENDING' })
+  
+    //   try{
+    //     const updatedDocument = await ref.doc(id).set(updateDoc)
+        
+    //     dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
+    //   }
+    //   catch (err) {
+    //     dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+    //   }
+    // }
 
 
   // delete a document
@@ -100,6 +151,6 @@ export const useFirestore = (collection) => {
     return () => setIsCancelled(true)
   }, [])
 
-  return { addDocument, updateDocument, deleteDocument, updateArrDocument, response }
+  return { addDocument, updateDocument, deleteDocument, updateDocumentAddTask, response }
 
 }
