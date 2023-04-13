@@ -40,7 +40,7 @@
     width: 100%;
 }
 .memberPhoto {
-    background-color: blue;
+    background-color: var(--primary-color);
     float: right;
     object-fit: cover;
     width: 100%;

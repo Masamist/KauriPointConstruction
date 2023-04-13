@@ -106,7 +106,7 @@ const ContactInfo = () => {
             <div>
                 <h1 >We'd love to hear from you!</h1>
                 <p>
-                    For More information about our services, 
+                    For more information about our services, 
                     please call or message us. We will get in touch as soon as possible.
                 </p>
             </div >

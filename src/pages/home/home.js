@@ -44,31 +44,31 @@ function Services () {
             <div className='services'>
                 <Service 
                     title='New builds' 
-                    text='Across our team, we have decades of building project experience from 
-                    luxury upscale builds, challenging access sites, and architecturally ambitious houses. 
+                    text='Across our team, we have decades of building project experience from
+                    luxury upscale builds, challenging access sites, and architecturally ambitious houses.
                     Our team brings this hands-on experience to support your project right from inception.'
                     imageURL={garageFraming}
                 />
                 <Service 
                     title='Renovation' 
-                    text='We are passionate about bringing your ideas to life, from bathroom or kitchen 
-                    remodels, sympathetic heritage upgrades, or any other internal enhancements. 
-                    Along with our amazing network of suppliers and subcontractors, we can help you 
+                    text='We are passionate about bringing your ideas to life, from bathroom or kitchen
+                    remodels, sympathetic heritage upgrades, or any other internal enhancements.
+                    Along with our amazing network of suppliers and subcontractors, we can help you
                     achieve your ideal home.'
                     imageURL={renovation}
 
                 />
                 <Service 
                     title='Exterior' 
-                    text='Our team provides the complete construction package, indoor and out. We can 
-                    support you for any external residential construction including decking, fencing 
+                    text='Our team provides the complete construction package, indoor and out. We can
+                    support you for any external residential construction including decking, fencing
                     and any other external outdoor construction needs..'
                     imageURL={cedarExterior}
                 />
                 <Service 
-                    title='Custom support and bespoke carpentry' 
-                    text='Our talented craftsmen have the skills to support small and large projects; 
-                    our team is detail oriented and has a wide range of knowledge on products, 
+                    title='Custom support and bespoke carpentry'
+                    text='Our talented craftsmen have the skills to support small and large projects;
+                    our team is detail oriented and has a wide range of knowledge on products,
                     materials and systems. Let us help you support, protect or upgrade your assets'
                     imageURL={customJoinery}
                 />

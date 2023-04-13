@@ -149,28 +149,28 @@ function Attributes() {
             <div className='attributes'>
                 <Attribute title='Cost'
                             img={img_cost}
-                            text='Our efficiency and organization ensures we 
+                            text='Our efficiency and organization ensures we
                             can keep costs low and work within your budget'/>
                 <Attribute title='Quality'
                             img={img_quality}
-                            text='We strive for perfection and refuse to compromise. 
+                            text='We strive for perfection and refuse to compromise.
                             Our quality at all stages is at the highest level'/>
                 <Attribute title='Communication'
                             img={img_communication}
-                            text='We aim to set ourselves apart by using clear communication to offer 
+                            text='We aim to set ourselves apart by using clear communication to offer
                             complete transparency and build lasting relationships '/>
                 <Attribute title='Planning'
                             img={img_planning}
                             text='Our planning ensures we deliver your project on time and on budget'/>
                 <Attribute title='Scheduling'
                             img={img_scheduling}
-                            text='Our detailed programme ensures that our amazing 
-                            network of subcontractors and suppliers work in seamlessly 
+                            text='Our detailed programme ensures that our amazing
+                            network of subcontractors and suppliers work in seamlessly
                             with our construction plan'/>
                 <Attribute title='Team Work'
                             img={img_teamWork}
-                            text='We form a great working relationship with everybody 
-                            involved in our projects. We like to maintain an enjoyable 
+                            text='We form a great working relationship with everybody
+                            involved in our projects. We like to maintain an enjoyable
                             environment on all of our sites '/>
             </div>
         </>

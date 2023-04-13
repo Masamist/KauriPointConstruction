@@ -22,7 +22,7 @@ function ShowcasePoster() {
             <div className='text'>
                 <h1>Showcasing our creativity and excellence</h1>
                 <p>
-                Every project we take on, big or small, recieves the same level of attention. We are always aiming to create lasting relationships with our clients 
+                Every project we take on, big or small, receives the same level of attention. We are always aiming to create lasting relationships with our clients 
                 </p>
             </div>
             <img className='showcaseImage' src={FrontDoor} alt='Front Door'></img>
@@ -36,7 +36,7 @@ function CompletedProjects(){
             <Project 
                 imageUrl={benchTop} 
                 title='Beach house kitchen' 
-                text='With a  recycled timber island top (built on site) serving as the center piece, this kitchen is one of a kind.' 
+                text='With a recycled timber island top (built on site) serving as the centre piece, this kitchen is one of a kind.' 
             />
             <Project 
                 imageUrl={cedar_reclad} 
