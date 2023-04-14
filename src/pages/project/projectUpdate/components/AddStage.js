@@ -3,6 +3,7 @@ import { useDocument } from '../../../../hooks/useDocument'
 import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
+import { cleanup } from '@testing-library/react'
 
 export default function AddStage({stage, dispatch}) {
   //Modal
@@ -14,71 +15,108 @@ export default function AddStage({stage, dispatch}) {
   const { error, document } = useDocument('taskLibrary' , mainList_id)
 
   // Adding a stage and task in state (reStage)
-  const [taskList, setTaskList] = useState([])
   const [stageOptions, setStageOptions] = useState([])
   const [selectedStage, setSelectedStage] = useState([])
   const [taskOptions, setTaskOptions] = useState([])
   const [selectedTask, setSelectedTask] = useState([])
-
-  const [stageName, setStageName] = useState('')
-
 
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
 
-  
-  //console.log('stageListHasSelected', stageListCurrentlySelected) // e.g, Preliminary and General
-  
   // const taskListCurrentlySelected = Object.entries(stage.tasks).map(([key, stageTask])=> {
   //   console.log('stageTask.name', stageTask.name)
   //   return stageTask.task
   // })
+
   function createStageOption() {
     // Store the tasks currently in the state 
     const stageListCurrentlySelected = Object.entries(stage).map(([key, stageName])=> {
       return stageName.name
     })
+    // console.log('stageListHasSelected', stageListCurrentlySelected) 
+    
     const allStages = Object.values(document.stages).map(libStages => {
-        return { stageName: libStages.name, value: libStages.tasks }       
+        return { label: libStages.name, value: libStages.tasks }       
     })
-    let stageSet = allStages.filter(singleStage => !stageListCurrentlySelected)
-    setStageOptions(stageSet)
+    let filteredStage = allStages.filter(function(singleStage) {
+      return !stageListCurrentlySelected.includes(singleStage.label)
+    })     
+    // console.log('allStages',allStages)
+    // console.log('filteredStage',filteredStage)
+    setStageOptions(filteredStage)
     setShowModal(true)
   }
 
-  function createTaskOption() {
-    // Store the tasks currently in the state 
-    const taskListCurrentlySelected = Object.entries(stage.tasks).map(([key, task])=> {
-      return task.task
-    })
+  // console.log('selectedStage, outside of useEffect',selectedStage)
 
-    const setTask = Object.values(selectedTask).map(libTasks => {
-      return { taskName: libTasks.value.task, value: libTasks.value }       
-    })
-    let stageTasks = setTask.filter(singleTask => {
-      return  taskListCurrentlySelected.forEach(crrTask => crrTask !== singleTask.taskName)
-    })
-    setTaskOptions(stageTasks)
-  }
+  // function createTaskOption(option) {
+  //   setSelectedStage(option)
 
-  
-  // useEffect(() => {
-  //   if(document){
-  //     const options = Object.entries(document.stages).map(([index, stages]) => {
-  //       // return { value: {...stage, id:project.id}, label: project.name}
-  //       return { value: {...stages, id: index}, label:stages.name}
-  //     })
-  //     setTaskList(options)
-  //   }
-  // }, [document])
-  // console.log(taskList)
+  //   if(selectedStage){
+  //     // Store the tasks currently in the state 
+  //     console.log('selectedStage.label', selectedStage.label)
+  //     console.log('selectedStage.value', selectedStage.value)
+  //     const extractValue = selectedStage.value
+  //     console.log('extractValue', extractValue)
+      // let setTask = { label: extractValue.task, value: extractValue }    
+
+
+      // let setTask = Object.entries(extractValue).map(([key, valueTask]) => {
+      //   return { label: valueTask.task, value: valueTask }       
+      // })
+
+      // const taskListCurrentlySelected = stage.filter(function(singleStage) {
+      //   return singleStage.name === selectedStage.label
+      // })
+
+      // let filteredTasks = setTask.filter(function(singleTask) {
+      //   console.log('filteredTask',filteredTasks)
+      //   return  !taskListCurrentlySelected.includes(singleTask.label)
+      // })
+      // setTaskOptions(filteredTasks)
+  //     }
+  // }
+
+
+  useEffect(() => {
+      if(selectedStage !== ""){
+        console.log('hello')
+        // Store the tasks currently in the state 
+        // console.log('selectedStage.label', selectedStage.label)
+        // console.log('selectedStage.value', selectedStage.value)
+        const extractValue = selectedStage.value
+        // console.log('extractValue', extractValue)
+        // let setTask = { label: extractValue.task, value: extractValue }    
+
+
+    //     let setTask = Object.entries(extractValue).map(([key, valueTask]) => {
+    //       return { label: valueTask.task, value: valueTask }       
+    //     })
+
+    //     const taskListCurrentlySelected = stage.filter(function(singleStage) {
+    //       return singleStage.name === selectedStage.label
+    //     })
+
+    //     let filteredTasks = setTask.filter(function(singleTask) {
+    //       console.log('filteredTask',filteredTasks)
+    //       return  !taskListCurrentlySelected.includes(singleTask.label)
+    //     })
+    //     setTaskOptions(filteredTasks)
+       }
+    
+    console.log('taskOptions', taskOptions);
+
+  }, [selectedStage])
+
+
 
   function handleSubmit(e) {
     e.preventDefault()
-    setFormError(null)
-    // dispatch({ type: ACTIONS.UPDATE_MAINLIST })
+    // setFormError(null)
+    dispatch({ type: ACTIONS.ADD_STAGE, 
+      payload: { addStage: selectedStage, addTask:selectedTask } })
   }
 
   return (
@@ -118,6 +156,7 @@ export default function AddStage({stage, dispatch}) {
               <h3>Stage List:</h3>
                 <span>Select Stage from Task Library:</span>
                   <Select
+                    // onChange={(option) => setSelectedStage(option)}
                     onChange={(option) => setSelectedStage(option)}
                     options={stageOptions}
                   />
@@ -126,45 +165,12 @@ export default function AddStage({stage, dispatch}) {
               <h3>Stage List:</h3>
                 <span>Select Task from Task Library:</span>
                   <Select
+                    isMulti
                     onChange={(option) => setSelectedTask(option)}
                     options={taskOptions}
                   />
               </label>
-              <label>
-              <h3>Stage List:</h3>
-                <span>Create a new stage:</span>
-                  <imput />
-              </label>
             </div>
-            <div>
-              <p>Details:</p>
-              <p>Subcontractor:</p>
-              <p>Subcontracted Amount: </p>
-              <p>Charge Amount:</p>
-              <p>Unclaim Amount:</p>
-              <p>Status:</p>
-              <p>Complete:</p>
-            </div>
-            {/* <label>
-              <span>Charge Aamount:</span>
-              <input
-                  type="text"
-                  value="{task.calculatedamount}"
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                  payload:{ task:task.task, calculatedamount:e.target.value }
-                })}
-                />
-            </label>
-            <label>
-              <span>Status:</span>
-                <input
-                  type="text"
-                  value={task.status}
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                  payload:{ task:task.task, status:e.target.value }
-                })}
-                />
-            </label> */}
 
 
               <div className="modal-footer">
@@ -176,10 +182,10 @@ export default function AddStage({stage, dispatch}) {
 
                 <div>
                   <button className="btn">
-                    Add Task
+                    Add Stage and Task
                   </button>
                 </div>
-              </div>
+            </div>
             {formError && <p className="error">{formError}</p>}
           </form>
 

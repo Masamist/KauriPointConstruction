@@ -21,7 +21,7 @@ export default function AddTask({stage, dispatch}) {
   const [taskList, setTaskList] = useState([])
 
   // const [code, setCode] =useState('')
-  const [task, setTask] =useState('')
+  // const [task, setTask] =useState('')
   // const [status, setStatus] =useState('')
   // const [details, setDetails] =useState('')
   // const [comments, setComments] =useState('')
@@ -44,20 +44,9 @@ export default function AddTask({stage, dispatch}) {
     return stageTask.task
   })
 
-  // console.log(startDate)
+
   useEffect(() => {
-    // let taskSet
-    // let test1
-    
     if(selectedTask){
-      // taskSet = Object.entries(selectedTask).map(([k,v]) => {
-      //   if(k==="value"){
-      //     console.log(v.code)
-      //     test1 = Object.entries(v)
-      //   }
-      //   console.log('k', k , ' : v', v)
-      //   return { code: k }
-      // })
       const passTask = selectedTask.value
       const passStage = selectedTask.stageName
       setTaskList(passTask)
@@ -65,7 +54,6 @@ export default function AddTask({stage, dispatch}) {
     }
     // console.log('taskList',taskList);
     // console.log('stageName',stageName);
-
   }, [selectedTask])
 
 
@@ -91,7 +79,7 @@ export default function AddTask({stage, dispatch}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // setFormError(null)
+    setFormError(null)
     dispatch({ type: ACTIONS.ADD_TASK, payload: { stageName: stageName, task:taskList} })
 
     handleClose()

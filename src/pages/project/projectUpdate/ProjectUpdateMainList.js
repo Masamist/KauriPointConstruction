@@ -11,6 +11,7 @@ import '../../../components/MainList.css'
 import './ProjectUpdateMainList.css'
 
 export const ACTIONS = {
+    ADD_STAGE: 'add_stage',
     ADD_TASK: 'add_task',
     CHANGE_STATUS: 'change_status',
     DELETE_TASK_ITEM: 'delete_task_item',
@@ -20,10 +21,20 @@ export const ACTIONS = {
 function reducer(reStages, action) {
   switch(action.type){
 
+    case ACTIONS.ADD_STAGE:
+      return {...reStages,
+            name: action.payload.addStage.label,
+            ...action.payload.addStage.value,
+              tasks: [
+                    ...action.payload.addTask,
+              ]           
+        
+      }
+
     case ACTIONS.ADD_TASK:
       return reStages.map(stage => {
-        console.log('reducer', action.payload.stageName)
-        console.log('action.payload.taskList', action.payload.taskList)
+        // console.log('reducer', action.payload.stageName)
+        // console.log('action.payload.taskList', action.payload.taskList)
         // console.log('stage', stage)
 
         if(stage.name === action.payload.stageName )
@@ -32,7 +43,6 @@ function reducer(reStages, action) {
             tasks: [
               ...stage.tasks, 
               action.payload.task,          
-
               // action.payload.taskList.map(details => {return {...details}})          
             ]
           }
@@ -55,19 +65,6 @@ function reducer(reStages, action) {
                       status: action.payload.status,
                       details: task.details,
                       calculatedamount: action.payload.calculatedamount,
-
-                      // subcontractedamount: task.subcontractedamount,                                           
-                      // comments: task.comments,
-                      // budgetamount: task.budgetamount,
-                      // stilltoclaim: task.stilltoclaim,
-                      // complete: task.budgetamount,
-                      // comment: task.comment,
-                      // claims: task.claims 
-                      // {
-                      //     "claim1": "120",
-                      //     "claim3": "100"''
-                      // }
-
                     }
                   }
         return {...task}    
