@@ -259,65 +259,76 @@ export default function Create() {
           <h3>Assign Staff Members</h3>
           <div className='content-section'>
             <div className='assigned-staff'>
-            {teamList.map((singleStaff, index) => {
-              const name = singleStaff.name ? singleStaff.name : '-no-name-'
-              const role = singleStaff.role ? singleStaff.role : '-no-roll-'
-              const rate = singleStaff.rate ? singleStaff.rate : '-no-rate-'
-              return (
-                  <div key={index}>
-                    <div className='staffMember'>
-                      <span>Staff {index + 1}:</span>
-                      <p>{name}</p>
-                      <p>{role}</p>
-                      <p>{rate}</p>  
-                      <button 
-                        type="button" 
-                        className="btn-red"
-                        onClick={() => handleTeamRemove(index)}
-                        >
-                        Remove
-                      </button>          
-                    </div>
-                    
-                  </div>
-              )})}
-            </div>
-          <form>
+              <table className='staffTable'>
+                <tr>
+                  <th>#</th>
+                  <th>name</th>
+                  <th>role</th>
+                  <th>rate</th>
+                  <th>delete</th>
+                </tr>
+
+                {teamList.map((singleStaff, index) => {
+                const name = singleStaff.name ? singleStaff.name : '-no-name-'
+                const role = singleStaff.role ? singleStaff.role : '-no-roll-'
+                const rate = singleStaff.rate ? singleStaff.rate : '-no-rate-'
+                return (
+                    <tr key={index} className='staffMember'>
+                        <td>{index + 1}</td>
+                        <td>{name}</td>
+                        <td>{role}</td>
+                        <td>{rate}</td>  
+                        <td>
+                          <button 
+                            type="button" 
+                            className="btn-red"
+                            onClick={() => handleTeamRemove(index)}
+                            >
+                            x
+                          </button>
+                        </td>
+                      
+                    </tr>
+                )})}
+                
+              </table>
+            
+              <form>
             <label>
-              <div>
-                  <span>New Staff:</span>
-                  <p>Staff Name</p>
                   <input 
                     name="name" 
                     type="text" 
-                    id="name" 
+                    id="name"
+                    placeholder='name'
                     required
                     value={memberName}
                     
                     onChange = {(e) => setMemberName(e.target.value)}
                   />
-                  <p>Role</p>
                   <input 
                     name="role" 
                     type="text" 
                     id="role" 
+                    placeholder='role'
                     required
                     value={memberRole}
                     onChange = {(e) => setMemberRole(e.target.value)}
                   />
-                  <p>Rate</p>
                   <input 
                     name="rate" 
                     type="text" 
-                    id="rate" 
+                    id="rate"
+                    placeholder='rate'
                     required
                     value={memberRate}
                     onChange = {(e) => setMemberRate(e.target.value)}
                   />
-                  <button className="btn" onClick={handleTeamAdd}>Add Staff</button>                     
-                </div>
+                  <button className="btn" onClick={handleTeamAdd}>+</button>                     
             </label>
           </form>
+
+            </div>
+          
         </div>
 
         {/* <label>

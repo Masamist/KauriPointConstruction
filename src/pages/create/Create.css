@@ -6,14 +6,16 @@
   max-width: 800px;
   background-color: #fff;
   border-radius: 5px;
-  padding: 2em;
-  margin: 1em 0 0 0;
+  padding: 1em;
   display: flex;
   flex-direction: column;
 }
 
 .create-form > h2{
   align-self: center;
+}
+.create-form h3{
+  text-align: center;
 }
 
 .create-form label{
@@ -28,6 +30,11 @@
 }
 .create-form label > div{
   width: 100%;
+}
+
+textarea{
+  width: 100%;
+  min-height: 8em;
 }
 
 .create-form span {
@@ -57,6 +64,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
+}
+
+.assigned-staff .btn{
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.staffTable{
+  width: 100%;
+}
+
+
+.staffTable > tr > th{
+  text-align: left;
+  
 }
 
 .staffMember{
