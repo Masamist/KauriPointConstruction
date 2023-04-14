@@ -69,24 +69,6 @@ export const useFirestore = (collection) => {
   }
 
   // adding task
-  const updateDocumentAddTask = async (id, updateDoc) => {
-    dispatch({ type: 'IS_PENDING' })
-
-    try{
-      console.log('updateDoc',updateDoc)
-      
-      const updatedDocument = await ref.doc(id).update({
-        mainList: firebase.firestore.tasks.arrayUnion(updateDoc)
-      })
-      
-      dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
-    }
-    catch (err) {
-      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
-    }
-  }
-
-  // adding task
   // const updateDocumentAddTask = async (id, updateDoc) => {
   //   dispatch({ type: 'IS_PENDING' })
 
@@ -151,6 +133,6 @@ export const useFirestore = (collection) => {
     return () => setIsCancelled(true)
   }, [])
 
-  return { addDocument, updateDocument, deleteDocument, updateDocumentAddTask, response }
+  return { addDocument, updateDocument, deleteDocument, response }
 
 }

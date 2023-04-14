@@ -4,30 +4,76 @@ import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
 
-export default function AddTask({stage, dispatch}) {
+export default function AddStage({stage, dispatch}) {
+  //Modal
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
-  const id = 'mainList'
-  const { error, document } = useDocument('taskLibrary' , id)
 
+  // Firebase
+  const mainList_id = 'mainList'
+  const { error, document } = useDocument('taskLibrary' , mainList_id)
+
+  // Adding a stage and task in state (reStage)
   const [taskList, setTaskList] = useState([])
-  const [tempTask, setTempTask] = useState([])
+  const [stageOptions, setStageOptions] = useState([])
+  const [selectedStage, setSelectedStage] = useState([])
+  const [taskOptions, setTaskOptions] = useState([])
+  const [selectedTask, setSelectedTask] = useState([])
+
+  const [stageName, setStageName] = useState('')
+
+
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
 
   
-  useEffect(() => {
-    if(document){
-      const options = Object.entries(document.stages).map(([index, stages]) => {
-        // return { value: {...stage, id:project.id}, label: project.name}
-        return { value: {...stages, id: index}, label:stages.name}
-      })
-      setTaskList(options)
-    }
-  }, [document])
-  console.log(taskList)
+  //console.log('stageListHasSelected', stageListCurrentlySelected) // e.g, Preliminary and General
+  
+  // const taskListCurrentlySelected = Object.entries(stage.tasks).map(([key, stageTask])=> {
+  //   console.log('stageTask.name', stageTask.name)
+  //   return stageTask.task
+  // })
+  function createStageOption() {
+    // Store the tasks currently in the state 
+    const stageListCurrentlySelected = Object.entries(stage).map(([key, stageName])=> {
+      return stageName.name
+    })
+    const allStages = Object.values(document.stages).map(libStages => {
+        return { stageName: libStages.name, value: libStages.tasks }       
+    })
+    let stageSet = allStages.filter(singleStage => !stageListCurrentlySelected)
+    setStageOptions(stageSet)
+    setShowModal(true)
+  }
+
+  function createTaskOption() {
+    // Store the tasks currently in the state 
+    const taskListCurrentlySelected = Object.entries(stage.tasks).map(([key, task])=> {
+      return task.task
+    })
+
+    const setTask = Object.values(selectedTask).map(libTasks => {
+      return { taskName: libTasks.value.task, value: libTasks.value }       
+    })
+    let stageTasks = setTask.filter(singleTask => {
+      return  taskListCurrentlySelected.forEach(crrTask => crrTask !== singleTask.taskName)
+    })
+    setTaskOptions(stageTasks)
+  }
+
+  
+  // useEffect(() => {
+  //   if(document){
+  //     const options = Object.entries(document.stages).map(([index, stages]) => {
+  //       // return { value: {...stage, id:project.id}, label: project.name}
+  //       return { value: {...stages, id: index}, label:stages.name}
+  //     })
+  //     setTaskList(options)
+  //   }
+  // }, [document])
+  // console.log(taskList)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -38,7 +84,7 @@ export default function AddTask({stage, dispatch}) {
   return (
     <>
       <div>
-        <button type="btn" onClick={() => setShowModal(true)}>
+        <button type="btn" onClick={createStageOption}>
           + Add Stage
         </button>
       </div>
@@ -68,16 +114,26 @@ export default function AddTask({stage, dispatch}) {
 
           <form onSubmit={handleSubmit}>
             <div>
-              <h3>Add</h3>
-            </div>
-            <div>
+              <label>
+              <h3>Stage List:</h3>
+                <span>Select Stage from Task Library:</span>
+                  <Select
+                    onChange={(option) => setSelectedStage(option)}
+                    options={stageOptions}
+                  />
+              </label>
               <label>
               <h3>Stage List:</h3>
                 <span>Select Task from Task Library:</span>
                   <Select
-                    onChange={(option) => setTempTask(option)}
-                    options={taskList}
+                    onChange={(option) => setSelectedTask(option)}
+                    options={taskOptions}
                   />
+              </label>
+              <label>
+              <h3>Stage List:</h3>
+                <span>Create a new stage:</span>
+                  <imput />
               </label>
             </div>
             <div>

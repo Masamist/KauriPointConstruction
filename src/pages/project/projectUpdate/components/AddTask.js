@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDocument } from '../../../../hooks/useDocument'
-import { useFirestore } from '../../../../hooks/useFirestore'
 import { ACTIONS } from '../ProjectUpdateMainList'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
 
@@ -14,12 +13,12 @@ export default function AddTask({stage, dispatch}) {
   // Firebase
   const mainList_id = 'mainList'
   const { error, document } = useDocument('taskLibrary' , mainList_id)
-  const { id } = useParams()
-  const { updateDocumentAddTask, response } = useFirestore('projects')
 
-  const history = useHistory()
-  const [selected, setSelected] = useState([])
+  // Adding a task in state (reStage)
+  const [selectedTask, setSelectedTask] = useState([])
   const [options, setOptions] = useState([])
+  const [stageName, setStageName] = useState('')
+  const [taskList, setTaskList] = useState([])
 
   // const [code, setCode] =useState('')
   const [task, setTask] =useState('')
@@ -33,45 +32,41 @@ export default function AddTask({stage, dispatch}) {
 
   // Modal display functions
   const handleClose = () => {
-    setSelected([])
+    setSelectedTask([])
     setShowModal(false)
   }
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
 
 
-  // Adding Task
-    //console.log('stageListHasSelected', stageListHasSelected)
-  const stageListHasSelected = Object.entries(stage.tasks).map(([key, stageTask])=> {
+  // Store the tasks currently in the state 
+  //console.log('taskListCurrentlySelected', taskListCurrentlySelected)
+  const taskListCurrentlySelected = Object.entries(stage.tasks).map(([key, stageTask])=> {
     return stageTask.task
   })
 
   // console.log(startDate)
   useEffect(() => {
-    if(selected){
-      const taskSet = Object.entries(selected).map(([k,v]) => {
-
-        console.log('k', k , ' : v', v)
-        return {
-         code: v
-        }
-      })
-      
-      // setProjectList(options)
+    // let taskSet
+    // let test1
+    
+    if(selectedTask){
+      // taskSet = Object.entries(selectedTask).map(([k,v]) => {
+      //   if(k==="value"){
+      //     console.log(v.code)
+      //     test1 = Object.entries(v)
+      //   }
+      //   console.log('k', k , ' : v', v)
+      //   return { code: k }
+      // })
+      const passTask = selectedTask.value
+      const passStage = selectedTask.stageName
+      setTaskList(passTask)
+      setStageName(passStage)
     }
-    console.log(task)
-  }, [selected])
+    // console.log('taskList',taskList);
+    // console.log('stageName',stageName);
 
-  // function handleSelect(option){
-  //   setSelected(option)
-  //   console.log(selected)
-  //   const newtask = selected.map(([k,v]) => {
-  //     return v.label
-  //   })
-  //   console.log(newtask)
-  //   for (const [key, value] of Object.entries(object1)) {
-  //       console.log(`${key}: ${value}`);
-  //     }
-  // }
+  }, [selectedTask])
 
 
   function createTaskOption() {
@@ -83,28 +78,23 @@ export default function AddTask({stage, dispatch}) {
       let selectedTasks
       Object.entries(stageTasks).map(([key, stage]) => (
         selectedTasks = Object.entries(stage.value).map(([id, taskInfo]) => {
-          return { value: {...taskInfo}, label: taskInfo.task}
+          // console.log('stageName', stage.stageName)
+          return { value: {...taskInfo}, label: taskInfo.task, stageName: stage.stageName}
         })
       ))
       const filetredTasks = selectedTasks.filter(function(selectTask) {
-        return !stageListHasSelected.includes(selectTask.label)
+        return !taskListCurrentlySelected.includes(selectTask.label)
       })
       setOptions(filetredTasks)
       setShowModal(true)
   }
 
-  const handleSubmit = async(e) => {
+  function handleSubmit(e) {
     e.preventDefault()
-    setFormError(null)
+    // setFormError(null)
+    dispatch({ type: ACTIONS.ADD_TASK, payload: { stageName: stageName, task:taskList} })
 
-    console.log(selected)
-
-    await updateDocumentAddTask(id, selected)
-
-    if (!response.error) {
-      history.push('/')
-    }
-    // dispatch({ type: ACTIONS.UPDATE_MAINLIST })
+    handleClose()
   }
 
   return (
@@ -147,7 +137,7 @@ export default function AddTask({stage, dispatch}) {
               <h3>Task:</h3>
                 <span>Select Task from Task Library:</span>
                   <Select
-                    onChange={(option) => setSelected(option)}
+                    onChange={(option) => setSelectedTask(option)}
                     options={options}
                   />
                   {/* <button className="btn" onClick={handleSet}>Set Option</button> */}

@@ -19,108 +19,108 @@ export const ACTIONS = {
 
 function reducer(reStages, action) {
   switch(action.type){
+
     case ACTIONS.ADD_TASK:
-        // return [...tasks, newStage(action.payload.task)]
-        return reStages
-
-    case ACTIONS.CHANGE_STATUS:
-        // console.log("stageDetails", reStages)
-        // console.log("tasks", reStages.map(stage => { return stage.tasks.map(task => task.task)  }))
-        // console.log("payload task name:", action.payload.task)
-        // console.log("payload status:", action.payload.status)
-        // return reStages.map(stage => {
-        //     stage.tasks.map(task => {
-        //         if(task.task === action.payload.task){
-        //             return {
-        //                 ...stage,
-        //                 tasks: [
-        //                     { ...task, status: action.payload.status }
-        //                 ]
-        //             }
-        //         }
-        //         return {...task}
-        //     })
-        //     return { ...stage }
-        // })
-        return reStages.map(stage => {
-                return {   
-                    ...stage,
-                    tasks: 
-                        stage.tasks.map(task => 
-                            {
-                                if(task.task === action.payload.task){
-                                    return {
-                                        ...task,
-                                        code: task.code,
-                                        task: task.task,
-                                        status: action.payload.status,
-                                        details: task.details,
-                                        calculatedamount: action.payload.calculatedamount,
-
-                                        // subcontractedamount: task.subcontractedamount,                                           
-                                        // comments: task.comments,
-                                        // budgetamount: task.budgetamount,
-                                        // stilltoclaim: task.stilltoclaim,
-                                        // complete: task.budgetamount,
-                                        // comment: task.comment,
-                                        // claims: task.claims 
-                                        // {
-                                        //     "claim1": "120",
-                                        //     "claim3": "100"''
-                                        // }
-
-                                    }
-                                }
-                        return {...task}    
-                    })  
-                }
-            }) 
-
-    case ACTIONS.DELETE_TASK_ITEM:
       return reStages.map(stage => {
-          // console.log('action.payload.task', action.payload.task)
-          // console.log('stage.tasks', stage.tasks)
+        console.log('reducer', action.payload.stageName)
+        console.log('action.payload.taskList', action.payload.taskList)
+        // console.log('stage', stage)
 
+        if(stage.name === action.payload.stageName )
+          return {
+            ...stage,
+            tasks: [
+              ...stage.tasks, 
+              action.payload.task,          
+
+              // action.payload.taskList.map(details => {return {...details}})          
+            ]
+          }
+
+        return { ...stage }
+      })
+
+    case ACTIONS.CHANGE_STATUS:     
+      return reStages.map(stage => {
         return {   
           ...stage,
           tasks: 
-            stage.tasks.filter(task => task.task !== action.payload.task)
-              .map(task => {
-                return {...task}
-            })    
-        }
-      })
-    default:
-      return reStages
-  }
+              stage.tasks.map(task => 
+                {
+                  if(task.task === action.payload.task){
+                    return {
+                      ...task,
+                      code: task.code,
+                      task: task.task,
+                      status: action.payload.status,
+                      details: task.details,
+                      calculatedamount: action.payload.calculatedamount,
+
+                      // subcontractedamount: task.subcontractedamount,                                           
+                      // comments: task.comments,
+                      // budgetamount: task.budgetamount,
+                      // stilltoclaim: task.stilltoclaim,
+                      // complete: task.budgetamount,
+                      // comment: task.comment,
+                      // claims: task.claims 
+                      // {
+                      //     "claim1": "120",
+                      //     "claim3": "100"''
+                      // }
+
+                    }
+                  }
+        return {...task}    
+        })  
+      }
+    }) 
+
+  case ACTIONS.DELETE_TASK_ITEM:
+    return reStages.map(stage => {
+        // console.log('action.payload.task', action.payload.task)
+        // console.log('stage.tasks', stage.tasks)
+
+      return {   
+        ...stage,
+        tasks: 
+          stage.tasks.filter(task => task.task !== action.payload.task)
+            .map(task => {
+              return {...task}
+          })    
+      }
+    })
+
+  default:
+    return reStages
+}
 }
 
 function Tasks ({ stage, dispatch }) { 
-  return(
-    <div>
-      <table className='mainlist-taskHeaderBackground'>
-        <thead className='mainlist-taskHeader flex'>
-          <th>Task Items</th>
-          <th>SubContractor</th>
-          <th>Charge Amount</th>
-          <th>Status</th>
-        </thead>
-        {Object.entries(stage).map( ([key,task]) => {
-          const taskName = task.task ? task.task : ' -'
-          const subContractor = task.subcontractor ? task.subcontractor : " -"
-          const calculatedamount= task.calculatedamount ? task.calculatedamount : ' -'
-          const status = task.status ? task.status : ' -'
-          const id = key
-          return (
-            <tbody className='mainlist-taskBackground' key={key}>
-              <td>{taskName}</td>
-              <td>{subContractor}</td>
-              <td>{calculatedamount}</td>
-              <td>{status}</td>
-              {/* <td><UpdateTaskStatus key={task.id} task={task} dispatch={dispatch} /></td> */}
-              
-              <td><UpdateTaskStatus id={id} task={task} dispatch={dispatch} /></td>
-            </tbody>
+return(
+  <div>
+    <table className='mainlist-taskHeaderBackground'>
+      <thead className='mainlist-taskHeader flex'>
+        <th>Task Items</th>
+        <th>SubContractor</th>
+        <th>Charge Amount</th>
+        <th>Status</th>
+      </thead>
+      {Object.entries(stage).map( ([key,task]) => {
+        const taskName = task.task ? task.task : ' -'
+        const subContractor = task.subcontractor ? task.subcontractor : " -"
+        const calculatedamount= task.calculatedamount ? task.calculatedamount : ' -'
+        const status = task.status ? task.status : ' -'
+        const id = key
+        return (
+          <tbody className='mainlist-taskBackground' key={key}>
+            <td>{taskName}</td>
+            <td>{subContractor}</td>
+            <td>{calculatedamount}</td>
+            <td>{status}</td>
+            {/* <td><UpdateTaskStatus key={task.id} task={task} dispatch={dispatch} /></td> */}
+            
+            <td><UpdateTaskStatus id={id} task={task} dispatch={dispatch} /></td>
+          </tbody>
           )
         })}
       </table>
@@ -148,6 +148,7 @@ function Stage({ stage, dispatch }) {
   )
 }
 
+// Reducer setup here
 export default function MainList({stages}) {
   const [reStages, dispatch] = useReducer(reducer, stages)
   const { updateDocument, response } = useFirestore('projects')
@@ -166,6 +167,7 @@ export default function MainList({stages}) {
         history.push('/')
       }
   }
+  console.log("reStages", reStages)
   
   return (
     <div>
