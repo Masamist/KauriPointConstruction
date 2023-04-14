@@ -115,123 +115,21 @@ export default function Create() {
       <div className="create-form">
         <h2>New Project form</h2>
         <form onSubmit={handleSubmit}>
-          <div className='content-section'>
-            <label>
-              <span>Project name:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
-            </label>
-          </div>
-          <div className='content-section'>
-            <label>
-              <span>Client:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setClientName(e.target.value)}
-                value={clientName}
-              />
-            </label>
-            <label>
-              <span>Phone:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setPhone(e.target.value)}
-                value={phone}
-              />
-            </label>
-            <label>
-              <span>Email:</span>
-              <input
-                required 
-                type="email" 
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-            </label>
-            <h3>Address:</h3>
-            <label>
-              <span>Line 1:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setLine1(e.target.value)}
-                value={line1}
-              />
-              </label>
-            <label>
-              <span>Line 2:</span>
-              <input
-                type="text" 
-                onChange={(e) => setLine2(e.target.value)}
-                value={line2}
-              />
-              </label>
-            <label>
-              <span>Suburb:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setSuburb(e.target.value)}
-                value={suburb}
-              /></label>
-              <label>
-              <span>City:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setCity(e.target.value)}
-                value={city}
-              />
-            </label>
-          </div>
-
           
-          <h3>Project Details</h3>
-          <div className='content-section'>
-            <label>
-              <span>Start date:</span>
-                <input
-                  required 
-                  type="date" 
-                  onChange={(e) => setStartDate(e.target.value)} 
-                  value={startDate}
-                />
-            </label>
-            <label>
-              <span>GST No:</span>
-              <input
-                required 
-                type="text" 
-                onChange={(e) => setGSTno(e.target.value)}
-                value={GSTno}
-              />
-            </label>
-            <label>
-              <span>Sub Contract Fee:</span>
-              <input
-                required 
-                type="number" 
-                onChange={(e) => setSubContractFee(e.target.value)}
-                value={subContractFee}
-              />
-            </label>
-
-            <label>
-              <span>Description:</span>
-              <textarea 
-                required
-                onChange={(e) => setDescription(e.target.value)}
-                value={description} 
-              ></textarea>
-            </label>
-          </div>
-
+            <FormInput label='Name' onChange={setName} value={name} />
+            <FormInput label='Client' onChange={setClientName} value={clientName} />
+            <FormInput label='Phone' onChange={setPhone} value={phone} />
+            <FormInput label='Email' onChange={setEmail} value={email} />
+            <h3>Address:</h3>
+            <FormInput label='Line 1' onChange={setLine1} value={line1} />
+            <FormInput label='Line 2' onChange={setLine2} value={line2} />
+            <FormInput label='Suburb' onChange={setSuburb} value={suburb} />
+            <FormInput label='City' onChange={setCity} value={city} />
+            <h3>Project Details</h3>
+            <FormInput label='Start date' onChange={setStartDate} value={startDate} type='date'/>
+            <FormInput label='GST No' onChange={setGSTno} value={GSTno} />
+            <FormInput label='Sub Contract Fee' onChange={setSubContractFee} value={subContractFee} type='number'/>
+            <FormInput label='Description' onChange={setDescription} value={description} />
 
           <h3>Lists Templates</h3>
           <div className='content-section'>
@@ -245,19 +143,16 @@ export default function Create() {
               </div>
             </label>
             
-            
             <label>
               <span>Labour List:</span>
               <Select
                 onChange={(option) => setTempLabourList(option)}
                 options={projectList}
               />
-             
             </label>
           </div>
 
           <h3>Assign Staff Members</h3>
-          <div className='content-section'>
             <div className='assigned-staff'>
               <table className='staffTable'>
                 <tr>
@@ -293,8 +188,8 @@ export default function Create() {
                 
               </table>
             
-              <form>
-            <label>
+              <form >
+                <label>
                   <input 
                     name="name" 
                     type="text" 
@@ -324,13 +219,11 @@ export default function Create() {
                     onChange = {(e) => setMemberRate(e.target.value)}
                   />
                   <button className="btn" onClick={handleTeamAdd}>+</button>                     
-            </label>
-          </form>
-
+              </label>
+            </form>
+          
             </div>
           
-        </div>
-
         {/* <label>
           <span>Staff 1:</span>
           <p>Name</p>
@@ -359,5 +252,22 @@ export default function Create() {
     </div>
     </div>
     </div>
+  )
+}
+
+function FormInput({label, onChange, value, type}) {
+  const handleInput = (value) => {
+    onChange(value)
+  }
+  return (
+    <label>
+      <span>{label}</span>
+      <input 
+        required
+        type={type ? type : 'text'}
+        onChange={(e) => handleInput(e.target.value)}
+        value={value} 
+      ></input>
+    </label>
   )
 }

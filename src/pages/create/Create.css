@@ -16,13 +16,15 @@
 }
 .create-form h3{
   text-align: center;
+  margin-top: 2em;
 }
 
 .create-form label{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2em;
+  gap: .5em;
+  margin: .5em 0;
 }
 
 .create-form label > span{
@@ -40,13 +42,7 @@ textarea{
 .create-form span {
   margin: 0; 
 }
-.create-form label {
-  margin: .5em 0;
-}
 
-.content-section{
-  padding-left: 1em;
-}
 .content-section > label{
   margin-top: 1em;
 }
@@ -62,8 +58,12 @@ textarea{
 
 .assigned-staff{
   display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
+  flex-direction: column;
+}
+
+.assigned-staff > form > label{
+  margin:  .5em 0;
+  padding: 0 10% 0 7%;
 }
 
 .assigned-staff .btn{
