@@ -1,3 +1,7 @@
+.page-title{
+  color: var(--primary-color);
+}
+
 .create-form {
   max-width: 800px;
   background-color: #fff;
@@ -8,8 +12,26 @@
   flex-direction: column;
 }
 
+.create-form > h2{
+  align-self: center;
+}
+
+.create-form label{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+
+.create-form label > span{
+  width: 30%;
+}
+.create-form label > div{
+  width: 100%;
+}
+
 .create-form span {
-  margin: 0;
+  margin: 0; 
 }
 .create-form label {
   margin: .5em 0;
@@ -17,6 +39,9 @@
 
 .content-section{
   padding-left: 1em;
+}
+.content-section > label{
+  margin-top: 1em;
 }
 
 .add-btn{

@@ -19,7 +19,7 @@ function ProgressBar({ initial, warning, progress }) {
 function calculateTaskClaimed(task){
     let totalClaimed = 0;
     //console.log('task: ', task)
-    if(task.vlaim){
+    if(task.claims){
     Object.entries(task.claims).map(([key, claim]) => totalClaimed += parseFloat(claim) )
     } else {
         totalClaimed = 0  
