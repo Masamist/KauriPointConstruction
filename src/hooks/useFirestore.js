@@ -68,24 +68,6 @@ export const useFirestore = (collection) => {
     }
   }
 
-  // adding task
-  // const updateDocumentAddTask = async (id, updateDoc) => {
-  //   dispatch({ type: 'IS_PENDING' })
-
-  //   try{
-  //     const updatedDocument = await ref.doc(id).update({
-  //       mainList: 
-  //     })
-      
-  //     dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
-  //   }
-  //   catch (err) {
-  //     dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
-  //   }
-  // }
-
-  
-
     // Temporary function
     // set arrey in documents for taskLibrary
 
