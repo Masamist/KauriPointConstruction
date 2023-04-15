@@ -9,27 +9,34 @@ import AddTask from './components/AddTask'
 //styles
 import '../../../components/MainList.css'
 import './ProjectUpdateMainList.css'
+import CreateNewStage from './components/CreateNewStage'
 
 export const ACTIONS = {
+    CREATE_STAGE: 'create_stage',
     ADD_STAGE: 'add_stage',
     ADD_TASK: 'add_task',
     CHANGE_STATUS: 'change_status',
+    DELETE_STAGE: 'delete_stage',
     DELETE_TASK_ITEM: 'delete_task_item',
 }
 
-
 function reducer(reStages, action) {
+  let stageTask
+
+  const name = action.payload.stage
+  const tasks = action.payload.tasks
+  // console.log('reducer payload', tasks, name)
   switch(action.type){
+    case ACTIONS.CREATE_STAGE:
+      stageTask = [...reStages]
+      stageTask.push(action.payload.newStage)
+      return stageTask
 
     case ACTIONS.ADD_STAGE:
-      return {...reStages,
-            name: action.payload.addStage.label,
-            ...action.payload.addStage.value,
-              tasks: [
-                    ...action.payload.addTask,
-              ]           
-        
-      }
+      // console.log('Reducer')
+      stageTask = [...reStages]
+      stageTask.push({ name, tasks })
+      return stageTask
 
     case ACTIONS.ADD_TASK:
       return reStages.map(stage => {
@@ -48,7 +55,7 @@ function reducer(reStages, action) {
           }
 
         return { ...stage }
-      })
+    })
 
     case ACTIONS.CHANGE_STATUS:     
       return reStages.map(stage => {
@@ -72,7 +79,15 @@ function reducer(reStages, action) {
       }
     }) 
 
-  case ACTIONS.DELETE_TASK_ITEM:
+    case ACTIONS.DELETE_STAGE:
+      console.log('payload', action.payload.stageName);
+      return reStages.filter(stage => stage.name !== action.payload.stageName)
+        .map(stage => {
+          return {...stage}
+      })
+      return reStages
+
+    case ACTIONS.DELETE_TASK_ITEM:
     return reStages.map(stage => {
         // console.log('action.payload.task', action.payload.task)
         // console.log('stage.tasks', stage.tasks)
@@ -129,11 +144,20 @@ function Stage({ stage, dispatch }) {
   const [expandStages, setCollapseStages] = useState(false)
   
   function handleExpand() { setCollapseStages(!expandStages)}
+
+  function handleDeleteStage(e) {
+    const stageName = e.target.value
+    dispatch({ type: ACTIONS.DELETE_STAGE, payload:{ stageName: stageName }})
+  }
+
   // console.log('stage: ',stage)
   return (
     <div className='mainlist-stageCard'>
       <div className='flex'>
         <h3 onClick={handleExpand}>{stage.name}</h3>
+        <button value={stage.name} onClick={(e) => handleDeleteStage(e)}>
+          - Delete Stage
+        </button>
       </div>
       <div>
         {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
@@ -174,6 +198,7 @@ export default function MainList({stages}) {
                   return <Stage key={key} stage={stage} dispatch={dispatch} />
       })}
       <AddStage stage={stages} dispatch={dispatch} />
+      <CreateNewStage stage={stages} dispatch={dispatch} />
       <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
       <button className="btn-cancel" id="btn_right">Cancel</button>
       </div>
