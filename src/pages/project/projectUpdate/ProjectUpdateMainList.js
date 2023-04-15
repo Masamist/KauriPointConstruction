@@ -19,17 +19,17 @@ export const ACTIONS = {
 
 
 function reducer(reStages, action) {
+  let stageTask
+  const name = action.payload.stage
+  const tasks = action.payload.tasks
+  // console.log('reducer payload', tasks, name)
   switch(action.type){
 
     case ACTIONS.ADD_STAGE:
-      return {...reStages,
-            name: action.payload.addStage.label,
-            ...action.payload.addStage.value,
-              tasks: [
-                    ...action.payload.addTask,
-              ]           
-        
-      }
+      console.log('Reducer')
+      stageTask = [...reStages]
+      stageTask.push({ name, tasks })
+      return stageTask
 
     case ACTIONS.ADD_TASK:
       return reStages.map(stage => {
