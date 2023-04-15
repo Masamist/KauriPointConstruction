@@ -30,10 +30,23 @@ function ConvertToList(List) {
     return newMainList
 }
 
+function convertTeamToList(teamDict){
+    console.log('teamDict: ', teamDict)
+    let newteamDict = []
+    Object.entries(teamDict).map( ([key, member]) => {
+        newteamDict.push(member);
+        return ;
+    })
+    
+    console.log('new teamDict: ', newteamDict )
+    return newteamDict ;
+}
+
 export default function modifyData(project) {
     
     project.mainList = ConvertToList(project.mainList)
     project.labourList = ConvertToList(project.labourList)
+    project.team = convertTeamToList(project.team)
 
     return project
 }
