@@ -54,8 +54,10 @@ export default function AddStage({stage, dispatch}) {
   }
 
   useEffect(() => {
+
+
       if(selectedStage){
-        // Store the tasks currently in the state 
+        // Creat task options (second options) 
         // console.log('selectedStage.label', selectedStage.label)
         // console.log('selectedStage.value', selectedStage.value)
         const extractValue = selectedStage.value
@@ -77,14 +79,7 @@ export default function AddStage({stage, dispatch}) {
     const extractTasksValue = selectedTask.map(tasks => {
       return tasks.value
     })
-    console.log('extractTasksValue', extractTasksValue)
-
-    // const selectedStageAndTask = {
-    //   stage: selectedStage.label,
-    //   tasks: extractTasksValue
-    //   }
-      // console.log('Payload:',selectedStageAndTask)
-
+    // console.log('extractTasksValue', extractTasksValue)
     dispatch({ type: ACTIONS.ADD_STAGE, 
       payload: { stage: selectedStage.label, tasks: extractTasksValue } })
       // payload: { stageAndTask: selectedStageAndTask } })
@@ -115,41 +110,39 @@ export default function AddStage({stage, dispatch}) {
                 </h2>
               </div>
               <div>
-              <span className="close-button" onClick={handleClose}>
-                x
-              </span>
-            </div>
+                <span className="close-button" onClick={handleClose}>
+                  x
+                </span>
+              </div>
           </div>
-        <div className="modal-desc">
+          <div className="modal-desc">
 
-
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-              <h3>Stage List:</h3>
-                <span>Select Stage from Task Library:</span>
-                  <Select
-                    // onChange={(option) => setSelectedStage(option)}
-                    onChange={(option) => createTaskOption(option)}
-                    options={stageOptions}
-                  />
-              </label>
-                { switchTaskOption && 
+            <form onSubmit={handleSubmit}>
+              <div>
                 <label>
-                  <h3>Task List:</h3>
-                    <span>Select tasks from Task Library:</span>
-                      <Select
-                        isMulti
-                        onChange={(taskOption) => setSelectedTask(taskOption)}
-                        options={taskOptions}
-                      />
+                <h3>Stage List:</h3>
+                  <span>Select Stage from Task Library:</span>
+                    <Select
+                      // onChange={(option) => setSelectedStage(option)}
+                      onChange={(option) => createTaskOption(option)}
+                      options={stageOptions}
+                    />
                 </label>
-                }
- 
-            </div>
+                  { switchTaskOption && 
+                  <label>
+                    <h3>Task List:</h3>
+                      <span>Select tasks from Task Library:</span>
+                        <Select
+                          isMulti
+                          onChange={(taskOption) => setSelectedTask(taskOption)}
+                          options={taskOptions}
+                        />
+                  </label>
+                  }
+              </div>
 
 
-              <div className="modal-footer">
+                <div className="modal-footer">
                 <div>
                   <button className="btn-cancel" onClick={handleClose}>
                     Cancel
@@ -161,9 +154,9 @@ export default function AddStage({stage, dispatch}) {
                     Add Stage and Task
                   </button>
                 </div>
-            </div>
-            {formError && <p className="error">{formError}</p>}
-          </form>
+              </div>
+              {formError && <p className="error">{formError}</p>}
+            </form>
 
           </div>
         </div>

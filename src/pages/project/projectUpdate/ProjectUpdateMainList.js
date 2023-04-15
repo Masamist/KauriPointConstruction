@@ -9,15 +9,16 @@ import AddTask from './components/AddTask'
 //styles
 import '../../../components/MainList.css'
 import './ProjectUpdateMainList.css'
+import CreateNewStage from './components/CreateNewStage'
 
 export const ACTIONS = {
+    CREATE_STAGE: 'create_stage',
     ADD_STAGE: 'add_stage',
     ADD_TASK: 'add_task',
     CHANGE_STATUS: 'change_status',
     DELETE_STAGE: 'delete_stage',
     DELETE_TASK_ITEM: 'delete_task_item',
 }
-
 
 function reducer(reStages, action) {
   let stageTask
@@ -26,6 +27,11 @@ function reducer(reStages, action) {
   const tasks = action.payload.tasks
   // console.log('reducer payload', tasks, name)
   switch(action.type){
+    case ACTIONS.CREATE_STAGE:
+      stageTask = [...reStages]
+      stageTask.push(action.payload.newStage)
+      return stageTask
+
     case ACTIONS.ADD_STAGE:
       // console.log('Reducer')
       stageTask = [...reStages]
@@ -192,6 +198,7 @@ export default function MainList({stages}) {
                   return <Stage key={key} stage={stage} dispatch={dispatch} />
       })}
       <AddStage stage={stages} dispatch={dispatch} />
+      <CreateNewStage stage={stages} dispatch={dispatch} />
       <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
       <button className="btn-cancel" id="btn_right">Cancel</button>
       </div>
