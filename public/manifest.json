@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "KPC",
+  "name": "Kauri Point Construction",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,9 +13,9 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "logo550.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "450x550"
     }
   ],
   "start_url": ".",

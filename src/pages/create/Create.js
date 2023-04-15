@@ -116,7 +116,7 @@ export default function Create() {
         <h2>New Project form</h2>
         <form onSubmit={handleSubmit}>
           
-            <FormInput label='Name' onChange={setName} value={name} />
+            <FormInput label='Title' onChange={setName} value={name} />
             <FormInput label='Client' onChange={setClientName} value={clientName} />
             <FormInput label='Phone' onChange={setPhone} value={phone} />
             <FormInput label='Email' onChange={setEmail} value={email} />
