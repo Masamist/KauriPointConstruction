@@ -96,106 +96,55 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
 
                 <form onSubmit={handleUpdate}>
-                <label>
-                  <span>Start date:</span>
-                    <input
-                      required 
-                      type="date" 
-                      onChange={(e) => setStartDate(e.target.value)} 
-                      value={startDate}
-                    />
-                </label>
-                <label>
-                  <span>GST No:</span>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setGSTno(e.target.value)}
-                    value={GSTno}
-                  />
-                </label>
-                <label>
-                  <span>Sub Contract Fee:</span>
-                  <input
-                    required 
-                    type="number" 
-                    onChange={(e) => setSubContractFee(e.target.value)}
-                    value={subContractFee}
-                  />
-                </label>
 
-                <label>
-                  <span>Project Description:</span>
-                  <textarea 
-                    required
-                    onChange={(e) => setDescription(e.target.value)}
-                    value={description} 
-                  ></textarea>
-                </label>
+                <FormInput label='Start date' onChange={setStartDate} value={startDate} type='date'/>                
+                <FormInput label='GST No' onChange={setGSTno} value={GSTno} />
+                <FormInput label='Sub Contract Fee' onChange={setSubContractFee} value={subContractFee} type='number'/>
+                <FormInput label='Description' onChange={setDescription} value={description} />
 
 
                 <div>
                   <h3>Assign Staff Members</h3>
-                  {teamList && Array.isArray(teamList) ? teamList.map((singleStaff, index) => {
-                    return (
-                    <>
-                      <div key={index}>
-                        <div>
-                          <span>Staff {index + 1}:</span>
-                          <p><span>Staff Name: </span> {singleStaff.name}</p>
-                          <p><span>Role: </span> {singleStaff.role}</p>
-                          <p><span>Rate: </span> {singleStaff.rate}</p>            
-                        </div>
-                        <button 
-                            type="button" 
-                            className="btn"
-                            onClick={() => handleTeamRemove(index)}
-                          >
-                          Remove
-                        </button>
-                      </div>
-                    </>
-                  )
-                    
-                  }) : <p>No team staff assigned</p>}
+                  {teamList && Array.isArray(teamList) 
+                    ?<TeamMembers 
+                        teamList={teamList}
+                        handleTeamRemove={handleTeamRemove}/> 
+                    : <p>No team staff assigned</p>}
                 </div>
 
-                <form>
-                  <label>
-                    <div>
-                      <span>New Staff:</span>
-                      <p>Staff Name</p>
-                      <input 
-                        name="name" 
-                        type="text" 
-                        id="name" 
-                        required
-                        value={memberName}
-                        
-                        onChange = {(e) => setMemberName(e.target.value)}
-                      />
-                      <p>Role</p>
-                      <input 
-                        name="role" 
-                        type="text" 
-                        id="role" 
-                        required
-                        value={memberRole}
-                        onChange = {(e) => setMemberRole(e.target.value)}
-                      />
-                      <p>Rate</p>
-                      <input 
-                        name="rate" 
-                        type="text" 
-                        id="rate" 
-                        required
-                        value={memberRate}
-                        onChange = {(e) => setMemberRate(e.target.value)}
-                      />
-                      <button className="btn" onClick={handleTeamAdd}>Add Staff</button>                     
-                    </div>
-                  </label>
-                </form>
+                <form >
+                <label>
+                  <input 
+                    name="name" 
+                    type="text" 
+                    id="name"
+                    placeholder='name'
+                    required
+                    value={memberName}
+                    
+                    onChange = {(e) => setMemberName(e.target.value)}
+                  />
+                  <input 
+                    name="role" 
+                    type="text" 
+                    id="role" 
+                    placeholder='role'
+                    required
+                    value={memberRole}
+                    onChange = {(e) => setMemberRole(e.target.value)}
+                  />
+                  <input 
+                    name="rate" 
+                    type="text" 
+                    id="rate"
+                    placeholder='rate'
+                    required
+                    value={memberRate}
+                    onChange = {(e) => setMemberRate(e.target.value)}
+                  />
+                  <button className="btn" onClick={handleTeamAdd}>+</button>                     
+              </label>
+            </form>
 
 
                   <div className="modal-footer">
@@ -219,5 +168,63 @@ export default function ProjectUpdateProjectDetail({ project }) {
       </Modal>
 
     </div>    
+  )
+}
+
+function FormInput({label, onChange, value, type}) {
+  const handleInput = (value) => {
+    onChange(value)
+  }
+  return (
+    <label>
+      <span>{label}</span>
+      <input 
+        required
+        type={type ? type : 'text'}
+        onChange={(e) => handleInput(e.target.value)}
+        value={value} 
+      ></input>
+    </label>
+  )
+}
+
+const TeamMembers = ({teamList, handleTeamRemove}) => {
+  return (
+    <table className='staffTable'>
+                <tr>
+                  <th>#</th>
+                  <th>name</th>
+                  <th>role</th>
+                  <th>rate</th>
+                  <th>delete</th>
+                </tr>
+
+                {teamList.map((singleStaff, index) => {
+                const name = singleStaff.name ? singleStaff.name : '-no-name-'
+                const role = singleStaff.role ? singleStaff.role : '-no-roll-'
+                const rate = singleStaff.rate ? singleStaff.rate : '-no-rate-'
+
+               
+
+                return (
+                    <tr key={index} className='staffMember'>
+                        <td>{index + 1}</td>
+                        <td>{name}</td>
+                        <td>{role}</td>
+                        <td>{rate}</td>  
+                        <td>
+                          <button 
+                            type="button" 
+                            className="btn-red"
+                            onClick={() => handleTeamRemove(index)}
+                            >
+                            x
+                          </button>
+                        </td>
+                      
+                    </tr>
+                )})}
+
+                </table>
   )
 }

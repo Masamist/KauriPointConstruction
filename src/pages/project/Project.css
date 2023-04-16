@@ -45,6 +45,18 @@
     float: right;
   }
 
+
+  .modal-desc label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5em;
+    margin: .5em 0;
+  }
+  .modal-desc label > span{
+    width: 10em;
+  }
+
 @media screen and (max-width: 400px) {
   .page-container{
     flex-direction: column;

@@ -8,7 +8,6 @@ import {calculateTaskClaimed, calculateStageProgress} from '../../components/Pro
 import './ProjectSummary.css'
 import { useState } from 'react';
 import React from 'react';
-import { stringify } from 'querystring';
 
 
 export default function ProjectSummary({ projects }) {
