@@ -5,6 +5,7 @@ import Modal from "react-overlays/Modal"
 
 // styles
 import './ProjectUpdate.css'
+import { timestamp } from '../../../firebase/config'
 
 
 export default function ProjectUpdateProjectDetail({ project }) {
@@ -59,6 +60,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
       subContractFee,
       description,
       team: teamList,
+      startDate: timestamp.fromDate(new Date(startDate)),
     }
 
     await updateDocument(id, updateProject)
@@ -85,12 +87,14 @@ export default function ProjectUpdateProjectDetail({ project }) {
           <div>
             <div className="modal-header">
               <div className="modal-title">
-                <h3>Update Project Details:</h3></div>
-                <div>
-                  <span className="close-button" onClick={handleClose}>
-                    x
-                  </span>
-                </div>
+                <h3>Update Project:</h3>
+                <span>{project.name}</span>
+              </div>
+              <div>
+                <span className="close-button" onClick={handleClose}>
+                  x
+                </span>
+              </div>
               </div>
               <div className="modal-desc">
 
@@ -155,7 +159,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
                     </div>
                     <div>
                       <button className="btn">
-                        Update Project Details
+                        Update Project
                       </button>
                     </div>
                   </div>
