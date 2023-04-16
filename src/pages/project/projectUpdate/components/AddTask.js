@@ -79,7 +79,7 @@ export default function AddTask({stage, dispatch}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setFormError(null)
+    // setFormError(null)
     dispatch({ type: ACTIONS.ADD_TASK, payload: { stageName: stageName, task:taskList} })
 
     handleClose()
