@@ -1,0 +1,19 @@
+.page-title > strong{
+    color: var(--heading-color);
+    font-weight: 300;
+}
+
+.clientInfoLabel{ 
+    color: var(--primary-color);
+}
+
+.clientInfoValue{ 
+    font-weight: 350;
+}
+
+.project-client-info > div {
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em 2em;
+}
