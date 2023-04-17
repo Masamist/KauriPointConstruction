@@ -1,5 +1,4 @@
 import './ProjectClientInfo.css'
-import ProjectUpdateClientInfo from './projectUpdate/ProjectUpdateClientInfo'
 
 export default function ProjectClientInfo({ project }) {
   const name = project.name
@@ -23,7 +22,6 @@ export default function ProjectClientInfo({ project }) {
         <ClientInfo label='Email' value={email}/>
         <ClientInfo label='Address' value={address}/>
       </div>
-      <ProjectUpdateClientInfo project={project}/>
     </div>
   )
 }

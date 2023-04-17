@@ -42,16 +42,28 @@ export default function ProjectFinancialInfo({stages}) {
 
   return (
       <div className="project-financial-info">
-          <div>
-            <p><span>Total excluding GST: </span> $ {totalExcGst}</p>
-            <p><span>GST: </span> $ {gst}</p>
-            <p><span>Total including GST: </span> $ {totalIncGst}</p>
-          </div>
-          <div>
-            <p><span>Payment Claim to Date excluding GST: </span> $ {((!stilltoclaim) || !NaN ) ? 0 : stilltoclaim}</p>
-            <p><span>Current Claim excluding GST: </span> $ {CurrentClaimExcGst}</p>
-            <p><span>Cost to Completion excluding GST: </span>$ {costToCompletionExcGst}</p>
-          </div> 
+          <FinancialData label='Total excluding GST' 
+                          value={totalExcGst} />
+          <FinancialData label='GST' 
+                          value={gst} />
+          <FinancialData label='Total including GST' 
+                          value={totalIncGst} />
+          <FinancialData label='Payment Claim to Date excluding GST' 
+                          value={((!stilltoclaim) || !NaN ) ? 0 : stilltoclaim} />
+          <FinancialData label='Current Claim excluding GST' 
+                          value={CurrentClaimExcGst} />
+          <FinancialData label='Cost to Completion excluding GST' 
+                          value={costToCompletionExcGst} />
+    </div>
+  )
+}
+
+
+function FinancialData({label, value}) {
+  return (
+    <div className='financialData'>
+      <span className='financialData-label'>{label}: </span>
+      <span className='financialData-value'>{value}</span>
     </div>
   )
 }

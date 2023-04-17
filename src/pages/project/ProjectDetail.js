@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import MainList from "../../components/MainList"
 import ProjectUpdateMainList from "./projectUpdate/ProjectUpdateMainList"
-import ProjectFinancialInfo from "./ProjectFinancialInfo"
+
 
 // styles
 import './ProjectDetail.css'
@@ -23,9 +23,6 @@ export default function ProjectDetail({project}) {
   return (
     <div className="project-detail">
       <div className="project-summary">
-
-        {/* Financial details */}
-        <ProjectFinancialInfo stages={project.mainList} />
         
         {!switchUpdateMainlist &&
           <>

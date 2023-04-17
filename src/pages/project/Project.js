@@ -6,7 +6,9 @@ import Sidebar from '../../components/Sidebar'
 import ProjectClientInfo from './ProjectClientInfo'
 import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
+import ProjectUpdateClientInfo from './projectUpdate/ProjectUpdateClientInfo'
 import ProjectUpdateProjectDetail from './projectUpdate/ProjectUpdateProjectDetail'
+import ProjectFinancialInfo from "./ProjectFinancialInfo"
 
 
 // styles
@@ -37,6 +39,10 @@ export default function Project() {
         <div className="project">      
 
           <ProjectClientInfo project={document}/>
+          <ProjectUpdateClientInfo project={document}/>
+
+          {/* Financial details */}
+          <ProjectFinancialInfo stages={document.mainList} />
 
           <div className='listSelector'>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
@@ -50,6 +56,10 @@ export default function Project() {
             </>
           }
           {switchLabourList && <ProjectLabourList project={document} />}
+
+          
+        
+
         </div>
       </div>
     </div>
