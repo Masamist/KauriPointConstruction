@@ -14,12 +14,17 @@
     align-items: center;
 }
 
-.mainList-stageTasksTable{
-    border-collapse: collapse;
-    border-color: var(--bg-color);
-    border-radius: 0 0 3px 3px;
+.stageCard-header-titleBar{
     width: 100%;
+    display: flex;
 }
+.stageCard-header-titleBar > h3{
+    width: 60%;
+}
+.stageCard-header-titleBar > .progressbar{
+    width: 90%;
+}
+
 
 .mainlist-taskHeader {
     background-color: var(--lightgreen);
@@ -84,5 +89,16 @@
     }
     .mainlist-task{
         padding: .8em .5em;
+    }
+
+    .stageCard-header-titleBar{
+        flex-direction: column;
+    }
+    .stageCard-header-titleBar > h3{
+        width: 100%;
+    }
+    .stageCard-header-titleBar > .progressbar{
+        width: 95%;
+        height: .5em;
     }
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 //styles
 import './MainList.css'
-import { ProgressBar, calculateTaskClaimed } from './ProgressBar'
+import { ProgressBar, calculateStageProgress, calculateTaskClaimed } from './ProgressBar'
 import { numberWithCommas } from '../pages/project/ProjectFinancialInfo'
 
 const TaskSectionData = ({label, value}) => {
@@ -84,12 +84,21 @@ function Stage({ stage }) {
     const [expandStages, setCollapseStages] = useState(false)
     
     function handleExpand() { setCollapseStages(!expandStages)}
+
+    const stageFinancials = calculateStageProgress(stage)
+    const stageCost = stageFinancials.totalCost
+    const stageClaimed = stageFinancials.totalClaimed
+    const stageProgress = (stageClaimed / stageCost) * 100
+
     // console.log('stage: ',stage)
     return (
         <div className='mainlist-stageCard'>
             <div onClick={handleExpand} className='mainlist-stageCard-header'>
                 {expandStages? <div className='arrow-down' /> : <div className='arrow-right' />}
-                <h3 >{stage.name}</h3>
+                <div className='stageCard-header-titleBar'>
+                    <h3 >{stage.name}</h3>
+                    <ProgressBar progress={stageProgress}/>
+                </div>
             </div>
             {expandStages && <Tasks stage={stage.tasks} />}
         </div>
