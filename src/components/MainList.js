@@ -4,10 +4,62 @@ import './MainList.css'
 import { ProgressBar, calculateTaskClaimed } from './ProgressBar'
 import { numberWithCommas } from '../pages/project/ProjectFinancialInfo'
 
+const TaskSectionData = ({label, value}) => {
+    return (
+        <div className='TaskSectionData'>
+            <span className='TaskSectionData-label'>{label}: </span> 
+            <span className='TaskSectionData-value'>{value}</span>
+        </div>
+    )
+}
+
+function TaskSection({task}) {
+    return (
+        <div className='TaskSection'>
+            <TaskSectionData label='Code' value={task.code}/>
+            <TaskSectionData label='Details' value={task.details}/>
+            <TaskSectionData label='Quote, Estimate or Provision' value={task.quoteestimateorprovision}/>
+            <TaskSectionData label='comment' value={task.comment}/>
+        </div>
+    )
+}
+
+function TaskDetails({task}) {
+    const [expandTask, setExpandTask] = useState(false) 
+
+    const handleExpandTask = ()=>{
+        setExpandTask(!expandTask)
+    }
+    const taskName = task.task ? task.task : ' -'
+    const subContractor = task.subcontractor ? task.subcontractor : " -"
+    const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
+    const status = task.status ? task.status : ' -'
+    const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
+    const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
+
+    return (
+        <>
+        <tr onClick={handleExpandTask} className='mainlist-task'>
+            <td >
+                <div>{taskName}</div>
+                <ProgressBar progress={percentageComplete} />
+            </td>
+            <td>{subContractor}</td>
+            <td>{claimed} / {calculatedamount}</td>
+            <td>{status}</td>
+        </tr>
+        <tr>
+        {expandTask && <TaskSection task={task}/>}
+        </tr>
+        </>
+    )
+}
+
+
 function Tasks ({ stage }) { 
     // console.log("STAGE:", stage)
     return(
-        <table className='mainList-stageTasks'>
+        <table className='mainList-stageTasksTable'>
             <thead className='mainlist-taskHeader'>
                 <th>Task Items</th>
                 <th>SubContractor</th>
@@ -16,21 +68,11 @@ function Tasks ({ stage }) {
             </thead>
             <tbody >
             {Object.entries(stage).map( ([key,task]) => {
-                const taskName = task.task ? task.task : ' -'
-                const subContractor = task.subcontractor ? task.subcontractor : " -"
-                const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
-                const status = task.status ? task.status : ' -'
-                const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
                 
-                const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
-
                 return (
-                    <tr className='mainlist-task' key={key}>
-                        <td ><div>{taskName}</div><ProgressBar progress={percentageComplete} /></td>
-                        <td>{subContractor}</td>
-                        <td>{claimed} / {calculatedamount}</td>
-                        <td>{status}</td>
-                    </tr>
+                    <TaskDetails key={key} 
+                                task={task}
+                                />
                 )
             })}
             </tbody>
@@ -69,3 +111,4 @@ export default function MainList({ stages}) {
             </div> 
     )
 }
+

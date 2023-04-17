@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.mainList-stageTasks{
+.mainList-stageTasksTable{
     border-collapse: collapse;
     border-color: var(--bg-color);
     border-radius: 0 0 3px 3px;
@@ -38,4 +38,28 @@
     width: 100%;
     height: .5em;
     margin: 0;
+}
+
+
+.TaskSection{
+    padding: 1.5em;
+}
+
+.TaskSectionData{
+    margin: .5em;
+}
+
+.TaskSectionData-label{
+    color: var(--lightgreen);
+    font-weight: 500;
+}
+.TaskSectionData-value{
+    color: grey;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+    .mainList-stageTasksTable{
+        font-size: .8em;
+    }
 }
