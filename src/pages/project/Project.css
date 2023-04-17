@@ -20,11 +20,23 @@
   color: inherit
 }
 
+.listSelector{
+  display: flex;
+  justify-content: space-around;
+  gap: 2em;
+}
 
+#btn-active{
+  font-weight: 500;
+  font-size: 1.2em;
+  height: 2.5em;
+  background-color: var(--primary-color);
+  color: var(--bg-color)
+}
 #btn-disabled{
   background-color: #999;
   color: #fff;
-
+  height: 2.5em;
 }
 
 .update_btn {

@@ -6,7 +6,6 @@ import Sidebar from '../../components/Sidebar'
 import ProjectClientInfo from './ProjectClientInfo'
 import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
-import ProjectUpdateClientInfo from './projectUpdate/ProjectUpdateClientInfo'
 import ProjectUpdateProjectDetail from './projectUpdate/ProjectUpdateProjectDetail'
 
 
@@ -38,9 +37,8 @@ export default function Project() {
         <div className="project">      
 
           <ProjectClientInfo project={document}/>
-          <ProjectUpdateClientInfo project={document}/>
 
-          <div>
+          <div className='listSelector'>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
             <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
           </div>
