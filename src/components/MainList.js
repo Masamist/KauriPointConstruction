@@ -39,18 +39,19 @@ function TaskDetails({task}) {
 
     return (
         <>
-        <tr onClick={handleExpandTask} className='mainlist-task'>
-            <td >
+        <div onClick={handleExpandTask} className='mainlist-task'>
+            {expandTask ? <span className='arrow-down'/> : <span className='arrow-right'/> }
+            <span className='mainlist-taskHeader-name'>
                 <div>{taskName}</div>
                 <ProgressBar progress={percentageComplete} />
-            </td>
-            <td>{subContractor}</td>
-            <td>{claimed} / {calculatedamount}</td>
-            <td>{status}</td>
-        </tr>
-        <tr>
+            </span>
+            <span className='mainlist-taskHeader-subContractor'>{subContractor}</span>
+            <span className='mainlist-taskHeader-cost'>{claimed} / {calculatedamount}</span>
+            <span className='mainlist-taskHeader-status'>{status}</span>
+        </div>
+        <div>
         {expandTask && <TaskSection task={task}/>}
-        </tr>
+        </div>
         </>
     )
 }
@@ -59,14 +60,13 @@ function TaskDetails({task}) {
 function Tasks ({ stage }) { 
     // console.log("STAGE:", stage)
     return(
-        <table className='mainList-stageTasksTable'>
-            <thead className='mainlist-taskHeader'>
-                <th>Task Items</th>
-                <th>SubContractor</th>
-                <th>Claimed / Cost</th>
-                <th>Status</th>
-            </thead>
-            <tbody >
+        <div className='mainList-stageTasks'>
+            <div className='mainlist-taskHeader'>
+                <span className='mainlist-taskHeader-name'>Task Items</span>
+                <span className='mainlist-taskHeader-subContractor'>SubContractor</span>
+                <span className='mainlist-taskHeader-cost'>Claimed / Cost</span>
+                <span className='mainlist-taskHeader-status'>Status</span>
+            </div>
             {Object.entries(stage).map( ([key,task]) => {
                 
                 return (
@@ -75,8 +75,7 @@ function Tasks ({ stage }) {
                                 />
                 )
             })}
-            </tbody>
-        </table>
+            </div>
         
     )
 }
