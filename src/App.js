@@ -45,8 +45,7 @@ function App() {
                 {!user && <Login />}
               </Route>
               <Route path='/signup'>
-                {user && <Redirect to="/" />}
-                {!user && <Signup />}               
+                <Signup />           
               </Route>      
               <Route path='/home'>
                 <Home />
