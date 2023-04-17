@@ -2,6 +2,7 @@ import { useParams, useHistory, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
+import { FormInput } from '../../create/Create.js'
 
 // styles
 import './ProjectUpdate.css'
@@ -52,12 +53,13 @@ export default function ProjectUpdateClientInfo({ project }) {
     await updateDocument(id, updateProject)
 
     if (!response.error) {
-      history.push('/')
+      handleClose()
+      //history.push('/')
     }
   }
 
   return (
-    <div className="project-client-info">
+    <div className="project-updateClient-info">
       <div>
         <button type="btn" id="btn_right" onClick={() => setShowModal(true)}>
           + Update Client Details
@@ -83,64 +85,16 @@ export default function ProjectUpdateClientInfo({ project }) {
             <div className="modal-desc">
 
               <form onSubmit={handleUpdate}>
-                <label>
-                  <span>Client:</span>
-                  <input
-                    required 
-                    type="text" 
-                    key="clientName"
-                    onChange={(e) => setClientName(e.target.value)}
-                    value={clientName}
-                  />
-                </label>
-                <label>
-                  <span>Phone:</span>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setPhone(e.target.value)}
-                    value={phone}
-                  />
-                </label>
-                <label>
-                  <span>Email:</span>
-                  <input
-                    required 
-                    type="email" 
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                  />
-                </label>
-                <label>
-                  <span>Address:</span>
-                  <p>Line 1</p>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setLine1(e.target.value)}
-                    value={line1}
-                  />
-                  <p>Line 2</p>
-                  <input
-                    type="text" 
-                    onChange={(e) => setLine2(e.target.value)}
-                    value={line2}
-                  />
-                  <p>Suburb</p>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setSuburb(e.target.value)}
-                    value={suburb}
-                  />
-                  <p>City</p>
-                  <input
-                    required 
-                    type="text" 
-                    onChange={(e) => setCity(e.target.value)}
-                    value={city}
-                  />
-                </label>
+                <h3>Client:</h3>
+                <FormInput label='Name' onChange={setClientName} value={clientName}/>
+                <FormInput label='Phone' onChange={setPhone} value={phone}/>
+                <FormInput label='Email' onChange={setEmail} value={email}/>
+                
+                <h3>Address:</h3>
+                <FormInput label='Line 1' onChange={setLine1} value={line1}/>
+                <FormInput label='Line 2' onChange={setLine2} value={line2}/>
+                <FormInput label='Suburb' onChange={setSuburb} value={suburb}/>
+                <FormInput label='City' onChange={setCity} value={city}/>
                 <div className="modal-footer">
                   <div>
                     <button className="btn-cancel" onClick={handleClose}>
@@ -149,7 +103,7 @@ export default function ProjectUpdateClientInfo({ project }) {
                   </div>
                   <div>
                     <button className="btn">
-                      Update Client Detail
+                      Update Client
                     </button>
                   </div>
                 </div>

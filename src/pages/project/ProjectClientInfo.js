@@ -20,7 +20,6 @@ export default function ProjectClientInfo({ project }) {
         <ClientInfo label='Client' value={clientName}/>
         <ClientInfo label='Phone' value={phone}/>
         <ClientInfo label='Email' value={email}/>
-        <ClientInfo label='Name' value={clientName}/>
         <ClientInfo label='Address' value={address}/>
       </div>
     </div>

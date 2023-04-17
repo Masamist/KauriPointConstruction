@@ -17,3 +17,14 @@
     flex-wrap: wrap;
     gap: .5em 2em;
 }
+.address-line div {
+    width: 100%;
+}
+
+.project-updateClient-info{
+    float: right;
+}
+
+.address-line{
+    width: 100%;
+}
