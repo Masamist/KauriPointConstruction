@@ -7,16 +7,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1em;
   justify-content: space-around;
   border-radius: 5px;
   padding: 1em;
 }
 
-.financialData{
-  width: 45%;
+.financialData {
   display: flex;
   justify-content: space-between;
+  gap: 1em;
 }
 
 .financialData-value{

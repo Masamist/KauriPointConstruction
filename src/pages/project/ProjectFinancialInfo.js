@@ -1,63 +1,39 @@
 // style
+import { calculateProjectProgress } from '../../components/ProgressBar'
 import './ProjectFinancialInfo.css'
 
-export default function ProjectFinancialInfo({stages}) {
+export default function ProjectFinancialInfo({project}) {
 
-  // const [calculatedamountArr, setCalculatedamountArr] = useState([])
-  let calculatedamountArr = []
-  let stilltoclaimArr = []
-  let CurrentClaimArr = []
+  const financialInfo = calculateProjectProgress(project)
 
-  // console.log(stages)
+  const totalExcGst = financialInfo.totalCost
+  const totalClaimed = financialInfo.totalClaimed
+  const gst = totalExcGst * 0.15 // GST 15%
+  const totalIncGst = totalExcGst * 1.15
+  const stilltoclaim = totalIncGst - totalClaimed
 
-  // function amountCalculator(){
-  //   Object.entries(stages).map(([key, stage]) => (
-  //     Object.entries(stage.tasks).map(([k, task]) => {
-  //       // console.log(task.calculatedamount)
-  //       calculatedamountArr.push(parseFloat((task.calculatedamount || task.calculatedamount !== '' ) ? task.calculatedamount : 0))
-  //       stilltoclaimArr.push(parseFloat((task.stilltoclaim || task.stilltoclaim !== '' ) ? task.calculatedamount : 0))
-
-  //       (task.claims? Object.entries(task.claims).map(([k, claim]) => {
-  //         // console.log("claim",k, claim)
-  //         CurrentClaimArr.push(parseFloat(claim ? claim : 0))
-  //         return <></>
-  //       }) : <span>No claim has created</span>)
-  //       return <></>
-  //     })
-  //   ))
-  // }
-  // amountCalculator()
-
-  // console.log(CurrentClaimArr)
-  const totalExcGst = parseFloat(calculatedamountArr.reduce((a,b) => a+b, 0)).toFixed(2)
-  const gst = parseFloat(totalExcGst*0.15).toFixed(2) // GST 15%
-  const totalIncGst = parseFloat(totalExcGst*1.15).toFixed(2)
-  
-  const CurrentClaimExcGst = parseFloat(CurrentClaimArr.reduce((a,b) => a+b, 0)).toFixed(2)
-  const costToCompletionExcGst = parseFloat(stilltoclaimArr.reduce((a,b) => a+b, 0)).toFixed(2)
-
-  let stilltoclaim =  parseFloat(totalExcGst - (CurrentClaimExcGst + costToCompletionExcGst)).toFixed(2)
-
-  
 
   return (
       <div className="project-financial-info">
+        <div>
           <FinancialData label='Total excluding GST' 
-                          value={totalExcGst} />
+                          value={numberWithCommas(totalExcGst)} />
           <FinancialData label='GST' 
-                          value={gst} />
+                          value={numberWithCommas(gst)} />
           <FinancialData label='Total including GST' 
-                          value={totalIncGst} />
-          <FinancialData label='Payment Claim to Date excluding GST' 
-                          value={((!stilltoclaim) || !NaN ) ? 0 : stilltoclaim} />
-          <FinancialData label='Current Claim excluding GST' 
-                          value={CurrentClaimExcGst} />
-          <FinancialData label='Cost to Completion excluding GST' 
-                          value={costToCompletionExcGst} />
+                          value={numberWithCommas(totalIncGst)} />
+        </div>
+        <div>
+          <FinancialData label='Payment Claim to Date' 
+                          value={numberWithCommas(totalClaimed)} />
+          <FinancialData label='Cost to Completion' 
+                          value={numberWithCommas(stilltoclaim)} />
+        </div>
+        
+          
     </div>
   )
 }
-
 
 function FinancialData({label, value}) {
   return (
@@ -66,4 +42,13 @@ function FinancialData({label, value}) {
       <span className='financialData-value'>{value}</span>
     </div>
   )
+}
+
+function numberWithCommas(x) {
+  x = x.toFixed(2);
+  x = x.toString();
+  var pattern = /(-?\d+)(\d{3})/;
+  while (pattern.test(x))
+      x = '$' + x.replace(pattern, "$1,$2");
+  return x;
 }

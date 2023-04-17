@@ -42,7 +42,7 @@ export default function Project() {
           <ProjectUpdateClientInfo project={document}/>
 
           {/* Financial details */}
-          <ProjectFinancialInfo stages={document.mainList} />
+          <ProjectFinancialInfo project={document} />
 
           <div className='listSelector'>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
