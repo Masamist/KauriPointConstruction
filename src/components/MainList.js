@@ -1,36 +1,41 @@
 import { useState } from 'react'
 //styles
 import './MainList.css'
+import { ProgressBar, calculateTaskClaimed } from './ProgressBar'
+import { numberWithCommas } from '../pages/project/ProjectFinancialInfo'
 
 function Tasks ({ stage }) { 
     // console.log("STAGE:", stage)
     return(
-        <div>
+        <table className='mainList-stageTasks'>
+            <thead className='mainlist-taskHeader'>
+                <th>Task Items</th>
+                <th>SubContractor</th>
+                <th>Claimed / Cost</th>
+                <th>Status</th>
+            </thead>
+            <tbody >
+            {Object.entries(stage).map( ([key,task]) => {
+                const taskName = task.task ? task.task : ' -'
+                const subContractor = task.subcontractor ? task.subcontractor : " -"
+                const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
+                const status = task.status ? task.status : ' -'
+                const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
+                
+                const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
 
-            <table className='mainlist-taskHeaderBackground'>
-                <thead className='mainlist-taskHeader flex'>
-                    <th>Task Items</th>
-                    <th>SubContractor</th>
-                    <th>Charge Amount</th>
-                    <th>Status</th>
-                </thead>
-                {Object.entries(stage).map( ([key,task]) => {
-                    const taskName = task.task ? task.task : ' -'
-                    const subContractor = task.subcontractor ? task.subcontractor : " -"
-                    const calculatedamount= task.calculatedamount ? task.calculatedamount : ' -'
-                    const status = task.status ? task.status : ' -'
-                    
-                    return (
-                        <tbody className='mainlist-taskBackground' key={key}>
-                            <td >{taskName} </td>
-                            <td>{subContractor}</td>
-                            <td>{calculatedamount}</td>
-                            <td>{status}</td>
-                        </tbody>
-                    )
-                })}
-            </table>
-        </div>
+                return (
+                    <tr className='mainlist-task' key={key}>
+                        <td ><div>{taskName}</div><ProgressBar progress={percentageComplete} /></td>
+                        <td>{subContractor}</td>
+                        <td>{claimed} / {calculatedamount}</td>
+                        <td>{status}</td>
+                    </tr>
+                )
+            })}
+            </tbody>
+        </table>
+        
     )
 }
 
@@ -41,12 +46,11 @@ function Stage({ stage }) {
     // console.log('stage: ',stage)
     return (
         <div className='mainlist-stageCard'>
-            <div className='flex'>
-                <h3 onClick={handleExpand}>{stage.name}</h3>
+            <div onClick={handleExpand} className='mainlist-stageCard-header'>
+                {expandStages? <div className='arrow-down' /> : <div className='arrow-right' />}
+                <h3 >{stage.name}</h3>
             </div>
-            <div>
-                {expandStages && <Tasks stage={stage.tasks} />}
-            </div>
+            {expandStages && <Tasks stage={stage.tasks} />}
         </div>
     )
 }
