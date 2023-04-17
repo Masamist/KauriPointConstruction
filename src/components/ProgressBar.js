@@ -3,9 +3,9 @@ import './ProgressBar.css'
 
 function ProgressBar({ initial, warning, progress }) {
     function toPercent(value){
+        value = value > 103 ? 103 : value
         return value + "%"
     }
-
     return (
             <div className="progressbar" >
                 <div className="progress-initial" style={{width: toPercent(initial)}}></div>

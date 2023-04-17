@@ -33,7 +33,7 @@ export default function ProjectDetail({project}) {
         {switchUpdateMainlist &&
           <>
             {/* <CreateMainList /> */}
-            <ProjectUpdateMainList stages={project.mainList} />
+            <ProjectUpdateMainList stages={project.mainList} handleSwitchUpdateMainlist={handleSwitchUpdateMainlist} />
             <button onClick={handleSwitchUpdateMainlist}>Back Main List</button>
           </>
           

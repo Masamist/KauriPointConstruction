@@ -41,6 +41,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    padding: .5em;
 }
 .mainlist-task > .arrow-right {
     border-left: 1em solid var(--bg-color);
