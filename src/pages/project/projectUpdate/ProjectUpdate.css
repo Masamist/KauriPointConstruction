@@ -90,6 +90,13 @@ button:hover {
   flex-direction: column;
 }
 
+select{
+  padding: .5em;
+  width: 100%;
+  font-size: 1em;
+  color: var(--heading-color);
+  background-color: var;
+}
 @media screen and (max-width: 700px) {
   .modal {
     width: 90%; 

@@ -109,12 +109,16 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 <FormInput label='Description' onChange={setDescription} value={description} />
                 <label>
                 <span>status</span>
-                  <input 
+                  <select 
                     required
                     type='text'
                     onChange={(e) => setStatus(e.target.value)}
                     value={status} 
-                  ></input>
+                  >
+                    <option value='open'>open</option>
+                    <option value='close'>close</option>
+                    <option value='upcoming'>up coming</option>
+                  </select>
                 </label>
 
                 <div>
