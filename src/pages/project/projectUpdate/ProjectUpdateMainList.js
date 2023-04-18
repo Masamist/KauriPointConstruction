@@ -24,9 +24,6 @@ export const ACTIONS = {
 
 function reducer(reStages, action) {
   let stageTask
-
-  const name = action.payload.stage
-  const tasks = action.payload.tasks
   // console.log('reducer payload', tasks, name)
   switch(action.type){
     case ACTIONS.CREATE_STAGE:
@@ -35,6 +32,8 @@ function reducer(reStages, action) {
       return stageTask
 
     case ACTIONS.ADD_STAGE:
+      const name = action.payload.stage
+      const tasks = action.payload.tasks
       // console.log('Reducer')
       stageTask = [...reStages]
       stageTask.push({ name, tasks })
@@ -106,7 +105,7 @@ function reducer(reStages, action) {
 
   default:
     return reStages
-}
+  }
 }
 
 const TaskSectionData = ({label, value}) => {
@@ -223,7 +222,7 @@ function Stage({ stage, dispatch }) {
 }
 
 // Reducer setup here
-export default function MainList({stages, handleSwitchUpdateMainlist}) {
+export default function ProjectUpdateMainList({stages}) {
   const [reStages, dispatch] = useReducer(reducer, stages)
   const { updateDocument, response } = useFirestore('projects')
   const { id } = useParams()
@@ -247,7 +246,7 @@ export default function MainList({stages, handleSwitchUpdateMainlist}) {
     <div>
       <h2>Main List:</h2>
       { Object.entries(reStages).map( ([key, stage]) => {
-                  return <Stage key={key} stage={stage} dispatch={dispatch} />
+        return <Stage key={key} stage={stage} dispatch={dispatch} />
       })}
 
       <AddStage stage={stages} dispatch={dispatch} />

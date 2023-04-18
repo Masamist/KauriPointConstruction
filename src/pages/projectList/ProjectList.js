@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import ProjectSummary from './ProjectSummary'
 import Sidebar from '../../components/Sidebar'
 import { useCollection } from '../../hooks/useCollection'
@@ -7,9 +8,24 @@ import './ProjectList.css'
 
 export default function ProjectList() {
   const { documents, error } = useCollection('projects')
+  const [ projectOpen, setPojectOpen] = useState([])
+  const [ projectUpcoming, setPojectUpcomung] = useState([])
+  const [ projectClose, setPojectClose] = useState([])
 
 
-  
+  useEffect(() => {
+    if(documents){
+      const open = documents.filter(project => project.status === "open")
+      setPojectOpen(open)
+      const upcoming = documents.filter(project => project.status === "upcoming")
+      setPojectUpcomung(upcoming)
+      const close = documents.filter(project => project.status === "close")
+      setPojectClose(close)
+      // console.log(projectOpen)
+      console.log(projectOpen)
+    }  
+  }, [documents])
+
   return (
     <div className='page-container'>
     <Sidebar />
@@ -18,7 +34,12 @@ export default function ProjectList() {
       <div className="project-list">
             <h2 className="page-title">Project List</h2>
             { error && <p className='error'>{error}</p>}
-            {documents && <ProjectSummary projects={documents} />}
+            <h2>In Progress</h2>
+            {projectOpen && <ProjectSummary projects={projectOpen} />}
+            <h2>Upcoming</h2>
+            {projectUpcoming && <ProjectSummary projects={projectUpcoming} />}
+            <h2>Closed</h2>
+            {projectClose && <ProjectSummary projects={projectClose} />}
           </div>
     </div>
     </div>

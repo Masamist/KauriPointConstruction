@@ -97,6 +97,7 @@ export default function Create() {
       subContractFee,
       description,
       team: teamList,
+      status: "upcoming"
     }
 
     await addDocument(project)
@@ -224,26 +225,6 @@ export default function Create() {
           
             </div>
           
-        {/* <label>
-          <span>Staff 1:</span>
-          <p>Name</p>
-          <input
-            type="text" 
-            onChange={(e) => setStaffName(e.target.value)}
-            value={staffName}
-          />
-          <p>Role</p>
-          <Select
-            onChange={(option) => setStaffRole(option)}
-            options={staffRoleOption}
-          />
-          <p>Rate</p>
-          <input
-            type="number" 
-            onChange={(e) => setStaffRate(e.target.value)}
-            value={staffRate}
-          />
-        </label> */}
         <div className='align-btn'>
           <button className="btn add-btn">Add Project</button>
         </div>

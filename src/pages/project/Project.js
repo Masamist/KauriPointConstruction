@@ -1,6 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useDocument } from '../../hooks/useDocument'
+import { useAuthContext } from '../../hooks/useAuthContext'
+import { useUserRole } from '../../hooks/useUserRole'
+
 
 import Sidebar from '../../components/Sidebar'
 import ProjectClientInfo from './ProjectClientInfo'
@@ -19,6 +22,9 @@ export default function Project() {
   const { id } = useParams()
   const { error, document } = useDocument('projects' , id)
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
+  const { user, authIsReady } = useAuthContext()
+  const userRole = useUserRole(user)
+  console.log(userRole)
   
   if(error) {
     return <div className="error">{error}</div>
@@ -39,7 +45,8 @@ export default function Project() {
         <div className="project">      
 
           <ProjectClientInfo project={document}/>
-          <ProjectUpdateClientInfo project={document}/>
+          {userRole==="admin" &&
+          <ProjectUpdateClientInfo project={document}/>}
 
           {/* Financial details */}
           <ProjectFinancialInfo project={document} />
@@ -52,7 +59,9 @@ export default function Project() {
           {!switchLabourList && 
             <>
               <ProjectDetail project={document} />
-              <ProjectUpdateProjectDetail project={document} />
+              { userRole==="admin" &&
+                <ProjectUpdateProjectDetail project={document} />
+              }
             </>
           }
           {switchLabourList && <ProjectLabourList project={document} />}

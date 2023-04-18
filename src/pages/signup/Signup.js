@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSignup } from '../../hooks/useSignup'
+import Select from 'react-select'
 
 // styles
 import './Signup.css'
@@ -10,11 +11,21 @@ export default function Signup() {
   const [displayName, setDisplayName] = useState('')
   const [thumbnail, setThumbnail] = useState(null)
   const [thumbnailError, setThumbnailError] = useState(null)
+  const [userRole, setUserRole] = useState('')
   const { signup, isPending, error } = useSignup()
+
+  const userRoleList = [
+    { value:'admin', label:'admin' },
+    { value:'foreman', label:'foreman' },
+    { value:'staff', label:'staff' },
+    { value:'customer', label:'customer' }
+  ]
+  const role = userRole.value
+  console.log('role',role)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    signup(email, password, displayName, thumbnail)
+    signup(email, password, displayName, thumbnail, role)
   }
 
   const handleFileChange = (e) => {
@@ -42,7 +53,7 @@ export default function Signup() {
 
   return (
     <form onSubmit={handleSubmit} className="auth-form">
-      <h2>sign up</h2>
+      <h2>Create User Account</h2>
       <label>
         <span>email:</span>
         <input
@@ -70,6 +81,14 @@ export default function Signup() {
           value={displayName}
         />
       </label>
+      <label>
+        <span>User Role:</span>
+          <Select
+            required
+            onChange={(option) => setUserRole(option)}
+            options={userRoleList}
+          />
+        </label>
       <label>
         <span>Profile thumbnail:</span>
         <input 

@@ -16,6 +16,7 @@ export default function UpdateTaskStatus({task, dispatch}) {
   function handleSubmit(e) {
     e.preventDefault()
     setFormError(null)
+    handleClose()
     dispatch({ type: ACTIONS.UPDATE_MAINLIST })
   }
 
