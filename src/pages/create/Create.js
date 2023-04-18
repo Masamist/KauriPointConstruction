@@ -254,3 +254,4 @@ function FormInput({label, onChange, value, type}) {
 }
 
 export{ FormInput }
+
