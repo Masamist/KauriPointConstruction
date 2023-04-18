@@ -4,6 +4,7 @@ import { ACTIONS } from '../ProjectUpdateMainList'
 import { useParams } from 'react-router-dom'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
+import './AddTask.css'
 
 export default function AddTask({stage, dispatch}) {
   //Modal
@@ -94,7 +95,7 @@ export default function AddTask({stage, dispatch}) {
       </div>
 
       <Modal
-        className="modal"
+        className="modal modal-addTask"
         show={showModal}
         onHide={handleClose}
         renderBackdrop={renderBackdrop}
@@ -123,12 +124,12 @@ export default function AddTask({stage, dispatch}) {
             <div>
               <label>
               <h3>Task:</h3>
-                <span>Select Task from Task Library:</span>
-                  <Select
-                    onChange={(option) => setSelectedTask(option)}
-                    options={options}
-                  />
-                  {/* <button className="btn" onClick={handleSet}>Set Option</button> */}
+              <Select
+                className='inputSelector'
+                onChange={(option) => setSelectedTask(option)}
+                options={options}
+              />
+              {/* <button className="btn" onClick={handleSet}>Set Option</button> */}
               </label>
             </div>
             {/* <br />
