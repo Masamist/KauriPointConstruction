@@ -252,3 +252,5 @@ function FormInput({label, onChange, value, type}) {
     </label>
   )
 }
+
+export{ FormInput }

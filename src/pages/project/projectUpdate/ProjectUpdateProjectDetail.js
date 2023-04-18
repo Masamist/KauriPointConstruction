@@ -5,6 +5,7 @@ import Modal from "react-overlays/Modal"
 
 // styles
 import './ProjectUpdate.css'
+import { timestamp } from '../../../firebase/config'
 
 
 export default function ProjectUpdateProjectDetail({ project }) {
@@ -17,6 +18,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
   // console.log(location.pathname)
 
+  const [status, setStatus] = useState(project.status)
   const [startDate, setStartDate] = useState(project.startDate.toDate().toISOString().substring(0, 10))
   const [GSTno, setGSTno] = useState(project.GSTno)
   const [subContractFee, setSubContractFee] = useState(project.subContractFee)
@@ -55,10 +57,12 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
 
     const updateProject = {
+      status,
       GSTno,
       subContractFee,
       description,
       team: teamList,
+      startDate: timestamp.fromDate(new Date(startDate)),
     }
 
     await updateDocument(id, updateProject)
@@ -85,12 +89,14 @@ export default function ProjectUpdateProjectDetail({ project }) {
           <div>
             <div className="modal-header">
               <div className="modal-title">
-                <h3>Update Project Details:</h3></div>
-                <div>
-                  <span className="close-button" onClick={handleClose}>
-                    x
-                  </span>
-                </div>
+                <h3>Update Project:</h3>
+                <span>{project.name}</span>
+              </div>
+              <div>
+                <span className="close-button" onClick={handleClose}>
+                  x
+                </span>
+              </div>
               </div>
               <div className="modal-desc">
 
@@ -101,7 +107,19 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 <FormInput label='GST No' onChange={setGSTno} value={GSTno} />
                 <FormInput label='Sub Contract Fee' onChange={setSubContractFee} value={subContractFee} type='number'/>
                 <FormInput label='Description' onChange={setDescription} value={description} />
-
+                <label>
+                <span>status</span>
+                  <select 
+                    required
+                    type='text'
+                    onChange={(e) => setStatus(e.target.value)}
+                    value={status} 
+                  >
+                    <option value='open'>open</option>
+                    <option value='close'>close</option>
+                    <option value='upcoming'>up coming</option>
+                  </select>
+                </label>
 
                 <div>
                   <h3>Assign Staff Members</h3>
@@ -155,7 +173,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
                     </div>
                     <div>
                       <button className="btn">
-                        Update Project Details
+                        Update Project
                       </button>
                     </div>
                   </div>

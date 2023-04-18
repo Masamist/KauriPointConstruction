@@ -11,6 +11,7 @@ import ProjectDetail from './ProjectDetail'
 import ProjectLabourList from './ProjectLabourList'
 import ProjectUpdateClientInfo from './projectUpdate/ProjectUpdateClientInfo'
 import ProjectUpdateProjectDetail from './projectUpdate/ProjectUpdateProjectDetail'
+import ProjectFinancialInfo from "./ProjectFinancialInfo"
 
 
 // styles
@@ -47,7 +48,10 @@ export default function Project() {
           {userRole==="admin" &&
           <ProjectUpdateClientInfo project={document}/>}
 
-          <div>
+          {/* Financial details */}
+          <ProjectFinancialInfo project={document} />
+
+          <div className='listSelector'>
             <button onClick={ handleSwitchList } className="btn" id={switchLabourList ? 'btn-disabled' : 'btn-active'}>MainList</button>
             <button onClick={ handleSwitchList } className="btn" id={!switchLabourList ? 'btn-disabled' : 'btn-active'}>LabourList</button>
           </div>
@@ -61,6 +65,10 @@ export default function Project() {
             </>
           }
           {switchLabourList && <ProjectLabourList project={document} />}
+
+          
+        
+
         </div>
       </div>
     </div>

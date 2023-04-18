@@ -5,37 +5,16 @@
 
 .modal {
   position: fixed;
-  width: 38rem;
+  width: 95%;
+  max-width: 750px;
   z-index: 1040;
-  top: 10%;
-  left: 40%;
-  bottom: 10%;
+  top: 1em;
+  left: 1em;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   overflow: scroll;
-}
-@media screen and (max-width: 1100px) {
-  .modal {
-    left:15%;
-    width: 35rem;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .modal {
-    top: 8%;
-    left:5%;
-    width: 30rem;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .modal {
-    left:3%;
-    width: 20rem;
-  }
 }
 
 .backdrop {
@@ -98,10 +77,10 @@ button:hover {
 .modal-footer {
   border-top: 1px solid #e9ecef;
   display: flex;
-  justify-content: flex-end;
-  gap: 8px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2em;
 }
-
 
 .modal-example {
   height: 100vh;
@@ -109,4 +88,21 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+select{
+  padding: .5em;
+  width: 100%;
+  font-size: 1em;
+  color: var(--heading-color);
+  background-color: var;
+}
+@media screen and (max-width: 700px) {
+  .modal {
+    width: 90%; 
+  }
+  .modal-footer {
+    justify-content: space-between;
+    gap: 2em;
+  }
 }
