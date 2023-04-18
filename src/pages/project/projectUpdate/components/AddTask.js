@@ -95,7 +95,7 @@ export default function AddTask({stage, dispatch}) {
       </div>
 
       <Modal
-        className="modal modal-addTask"
+        className="modal"
         show={showModal}
         onHide={handleClose}
         renderBackdrop={renderBackdrop}
