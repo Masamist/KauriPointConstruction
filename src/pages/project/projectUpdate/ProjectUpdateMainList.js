@@ -22,8 +22,6 @@ export const ACTIONS = {
 
 function reducer(reStages, action) {
   let stageTask
-
-  
   // console.log('reducer payload', tasks, name)
   switch(action.type){
     case ACTIONS.CREATE_STAGE:

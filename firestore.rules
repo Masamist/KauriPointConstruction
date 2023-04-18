@@ -8,7 +8,7 @@ service cloud.firestore {
         match /{taskLibrary} {
           allow read, write, update, delete: if request.auth!=null;
         }
-        match /{users} match /{users} { allow read, write }
+        match /{users} { allow read, write }
         match /{contactMessage} { allow read, write }
     }
   }

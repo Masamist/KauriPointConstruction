@@ -52,7 +52,7 @@ export const useSignup = () => {
         setError(err.message)
         setIsPending(false)
       }
-    }
+    } 
   }
 
   useEffect(() => {
