@@ -127,7 +127,6 @@ function CardLabourList({labourList}) {
     setExpandLabourList(!expandLabourList)
   }
 
-  let VARIABLE = "VARIABLE"
   return (
     <div className='cardMainList'>
       <h4 onClick={HandlesetExpandLabourList}>Labour List</h4>

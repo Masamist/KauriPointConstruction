@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
+import Select from 'react-select'
 
 // styles
 import '../ProjectUpdate.css'
@@ -8,23 +9,41 @@ import '../ProjectUpdate.css'
 export default function UpdateTaskStatus({task, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
+  const [statusSelected, setStatusSelected] = useState()
+  
+  const statusOption = [
+    { label:'Open', value:'open' },
+    { label:'Close', value:'close' }
+  ]
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
 
+  useEffect(() => {
+    if(statusSelected){
+      const updateStatus = statusSelected.value
+      console.log('status change',statusSelected.value)
+  
+    return dispatch({ 
+        type: ACTIONS.CHANGE_STATUS, 
+        payload:{ task: task.task, status: updateStatus}
+      })
+    } 
+  }, [statusSelected])
+  
+
   function handleSubmit(e) {
     e.preventDefault()
     setFormError(null)
     handleClose()
-    dispatch({ type: ACTIONS.UPDATE_MAINLIST })
+    // dispatch({ type: ACTIONS.CHANGE_STATUS, payload:{ task: task.task }})
   }
 
   function handleDelete(e) {
     e.preventDefault()
     handleClose()
-    dispatch({ type: ACTIONS.DELETE_TASK_ITEM, payload:{ task: task.task }})
-    
+    dispatch({ type: ACTIONS.DELETE_TASK_ITEM, payload:{ task: task.task }})  
   }
 
   return (
@@ -87,55 +106,13 @@ export default function UpdateTaskStatus({task, dispatch}) {
                   payload:{ task:task.task, status:e.target.value }
                 })}
                 /> */}
-                <select 
-                  required
-                  type='text'
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                    payload:{ task:task.task, status:e.target.value }
-                  })}
-                  value={task.status} 
-                >
-                  <option value='open'>open</option>
-                  <option value='closed'>close</option>
-                </select>
+                <Select 
+                  onChange={(option) => setStatusSelected(option)}
+                  options={statusOption} 
+                />
+
             </label>
             
-            {/* <label>
-              <span>Culculated damount:</span>
-                <input
-                  required 
-                  type="date" 
-                  // onChange={(e) => setStartDate(e.target.value)} 
-                  value={task.culculatedamount}
-                />
-            </label>
-            <label>
-              <span>Still to Claim:</span>
-              <input
-                required 
-                type="text" 
-                // onChange={(e) => setGSTno(e.target.value)}
-                value={task.stilltoclaim}
-              />
-            </label>
-            <label>
-              <span>Status:</span>
-              <input
-                required 
-                type="number" 
-                // onChange={(e) => setSubContractFee(e.target.value)}
-                value={task.status}
-              />
-            </label>
-
-            <label>
-              <span>Task Details:</span>
-              <textarea 
-                required
-                // onChange={(e) => setDescription(e.target.value)}
-                value={task.detail} 
-              ></textarea>
-            </label> */}
 
               <div className="modal-footer">
                 <div>
