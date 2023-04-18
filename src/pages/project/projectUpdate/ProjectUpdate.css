@@ -90,7 +90,11 @@ button:hover {
   flex-direction: column;
 }
 
-select{
+.modal-label{
+  min-width: 4em;
+}
+
+select, .inputSelector{
   padding: .5em;
   width: 100%;
   font-size: 1em;

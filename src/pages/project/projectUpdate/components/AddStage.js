@@ -118,15 +118,24 @@ export default function AddStage({stage, dispatch}) {
           <div className="modal-desc">
 
             <form onSubmit={handleSubmit}>
-              <div>
+              <label>
+                <h3 className='modal-label'>Stage:</h3>
+                <Select
+                  className='inputSelector'
+                  // onChange={(option) => setSelectedStage(option)}
+                  onChange={(option) => createTaskOption(option)}
+                  options={stageOptions}
+                />
+              </label>
+                { switchTaskOption && 
                 <label>
-                <h3>Stage List:</h3>
-                  <span>Select Stage from Task Library:</span>
-                    <Select
-                      // onChange={(option) => setSelectedStage(option)}
-                      onChange={(option) => createTaskOption(option)}
-                      options={stageOptions}
-                    />
+                  <h3 className='modal-label'>Tasks:</h3>
+                      <Select
+                        className='inputSelector'
+                        isMulti
+                        onChange={(taskOption) => setSelectedTask(taskOption)}
+                        options={taskOptions}
+                      />
                 </label>
                   { switchTaskOption && 
                   <label>

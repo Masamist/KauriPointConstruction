@@ -6,7 +6,7 @@ export default function Footer () {
     return (
         <div className='footer'>
             <div className="logo">
-                <img src={Logo} alt="pkc logo" />
+                <img src={Logo} alt="KPC logo" />
             </div>
             <ul>
                 <li><Link to="/home">Home</Link></li>

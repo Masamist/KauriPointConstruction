@@ -69,7 +69,7 @@ export default function UpdateTaskStatus({task, dispatch}) {
               <p>Complete: {task.complete}</p>
             </div>
             <label>
-              <span>Charge Aamount:</span>
+              <span>Charge amount:</span>
               <input
                   type="text"
                   value={task.calculatedamount}
@@ -95,6 +95,7 @@ export default function UpdateTaskStatus({task, dispatch}) {
                   })}
                   value={task.status} 
                 >
+                  <option value=''>-</option>
                   <option value='open'>open</option>
                   <option value='closed'>close</option>
                 </select>
