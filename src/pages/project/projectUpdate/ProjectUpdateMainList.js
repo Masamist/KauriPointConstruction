@@ -2,6 +2,9 @@ import { useState, useReducer } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useFirestore } from '../../../hooks/useFirestore'
 
+import { ProgressBar, calculateStageProgress, calculateTaskClaimed } from '../../../components/ProgressBar'
+import { numberWithCommas } from '../ProjectFinancialInfo'
+
 import UpdateTaskStatus from './components/UpdateTaskStatus'
 import AddStage from './components/AddStage'
 import AddTask from './components/AddTask'
@@ -106,35 +109,77 @@ function reducer(reStages, action) {
   }
 }
 
+const TaskSectionData = ({label, value}) => {
+  return (
+      <div className='TaskSectionData'>
+          <span className='TaskSectionData-label'>{label}: </span> 
+          <span className='TaskSectionData-value'>{value}</span>
+      </div>
+  )
+}
+
+function TaskSection({task}) {
+  return (
+      <div className='TaskSection'>
+          <TaskSectionData label='Code' value={task.code}/>
+          <TaskSectionData label='Details' value={task.details}/>
+          <TaskSectionData label='Quote, Estimate or Provision' value={task.quoteestimateorprovision}/>
+          <TaskSectionData label='comment' value={task.comment}/>
+      </div>
+  )
+}
+
+function TaskDetails({key, task, dispatch}) {
+  const [expandTask, setExpandTask] = useState(false) 
+
+  const handleExpandTask = ()=>{
+      setExpandTask(!expandTask)
+  }
+  const taskName = task.task ? task.task : ' -'
+  const subContractor = task.subcontractor ? task.subcontractor : " -"
+  const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
+  const status = task.status ? task.status : ' -'
+  const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
+  const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
+
+  return (
+      <>
+      <div onClick={handleExpandTask} className='mainlist-task'>
+          {expandTask ? <span className='arrow-down'/> : <span className='arrow-right'/> }
+          <span className='mainlist-taskHeader-name'>
+              <div>{taskName}</div>
+              <ProgressBar progress={percentageComplete} />
+          </span>
+          <span className='mainlist-taskHeader-subContractor'>{subContractor}</span>
+          <span className='mainlist-taskHeader-cost'>{claimed} / {calculatedamount}</span>
+          <span className='mainlist-taskHeader-status'>{status}<UpdateTaskStatus id={key} task={task} dispatch={dispatch} /></span>
+      </div>
+      <div>
+      {expandTask && <TaskSection task={task}/>}
+      </div>
+      </>
+  )
+}
+
 function Tasks ({ stage, dispatch }) { 
 return(
-  <div>
-    <table className='mainlist-taskHeaderBackground'>
-      <thead className='mainlist-taskHeader flex'>
-        <th>Task Items</th>
-        <th>SubContractor</th>
-        <th>Charge Amount</th>
-        <th>Status</th>
-      </thead>
-      {Object.entries(stage).map( ([key,task]) => {
-        const taskName = task.task ? task.task : ' -'
-        const subContractor = task.subcontractor ? task.subcontractor : " -"
-        const calculatedamount= task.calculatedamount ? task.calculatedamount : ' -'
-        const status = task.status ? task.status : ' -'
-        const id = key
-        return (
-          <tbody className='mainlist-taskBackground' key={key}>
-            <td>{taskName}</td>
-            <td>{subContractor}</td>
-            <td>{calculatedamount}</td>
-            <td>{status}</td>
-            {/* <td><UpdateTaskStatus key={task.id} task={task} dispatch={dispatch} /></td> */}
-            
-            <td><UpdateTaskStatus id={id} task={task} dispatch={dispatch} /></td>
-          </tbody>
+  
+    <div className='mainList-stageTasks'>
+      <div className='mainlist-taskHeader'>
+          <span className='mainlist-taskHeader-name'>Task Items</span>
+          <span className='mainlist-taskHeader-subContractor'>SubContractor</span>
+          <span className='mainlist-taskHeader-cost'>Claimed / Cost</span>
+          <span className='mainlist-taskHeader-status'>Status</span>
+      </div>
+      {Object.entries(stage).map( ([key, task]) => {
+          
+          return (
+              <TaskDetails key={key} 
+                          task={task}
+                          dispatch={dispatch}
+                          />
           )
-        })}
-      </table>
+      })}
     </div>
   )
 }
@@ -154,16 +199,17 @@ function Stage({ stage, dispatch }) {
     <div className='mainlist-stageCard'>
       <div className='flex'>
         <h3 onClick={handleExpand}>{stage.name}</h3>
-        <button value={stage.name} onClick={(e) => handleDeleteStage(e)}>
-          - Delete Stage
-        </button>
+
+        
       </div>
       <div>
         {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
       </div>
-      <div>
+      <div className='modal-footer'>
         <AddTask stage={stage} dispatch={dispatch} />
+        <button value={stage.name} onClick={(e) => handleDeleteStage(e)}>- Delete Stage</button>
       </div>
+      
     </div>
   )
 }
@@ -198,8 +244,11 @@ export default function ProjectUpdateMainList({stages}) {
       })}
       <AddStage stage={stages} dispatch={dispatch} />
       <CreateNewStage stage={stages} dispatch={dispatch} />
-      <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
-      <button className="btn-cancel" id="btn_right">Cancel</button>
+      <div className='modal-footer'>
+        <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
+        <button className="btn-cancel" id="btn_right">Cancel</button>
+      </div>
+      
       </div>
     </div> 
   )
