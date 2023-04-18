@@ -19,7 +19,7 @@ export default function Navbar() {
       <ContactCard />
 
       <div className="logo">
-          <img src={Logo} alt="pkc logo" />
+          <img src={Logo} alt="KPC logo" />
         </div>
 
       <ul>
