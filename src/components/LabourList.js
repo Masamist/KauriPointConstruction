@@ -4,7 +4,6 @@ import './LabourList.css'
 export default function LabourList({ list , team }) {
     return (
         <>
-            <h2>LABOUR LIST</h2>
             { Object.entries( list ).map( ([key, stage ]) => {
                 return (
                     <LabourStageCard key={key} stage={stage} team={team} />    
@@ -48,7 +47,7 @@ function LabourStageCard({stage, team}) {
     }   
 
     return (
-        <>
+        <div className='labourStageCard'>
             <div onClick={handleToggleStage} className='stage-container'>
                 <div className="stage-name-container">{stage.name}</div>
                 <div className="stage-role-container">
@@ -56,13 +55,13 @@ function LabourStageCard({stage, team}) {
                 </div>
             </div>
             {expandLabourStage && <LabourStageTask stage={stage.tasks} />}
-            <div className='labourList-StageTask'>
+            <div className='labourList-StageTask labourList-StageSum'>
                 <div className='task-container'>Total Days:</div>
                 <div className='hours-container'>
                     {totalDyas.map((totalDay) => <span>{totalDay}</span>)}
                 </div>
             </div>
-            <div className='labourList-StageTask'>
+            <div className='labourList-StageTask labourList-StageSum'>
               <div className='task-container'>Total Amount:</div>
                 <div className='hours-container'>
                   {/* {totalDyas.map((totalDay, staffRate) => 
@@ -70,10 +69,10 @@ function LabourStageCard({stage, team}) {
                   )} */}
                 </div>
             </div>
-            <div className='labourList-StageTask'>
-                <div>Stage Total: 000days $00000</div>
+            <div className='labourList-StageTask labourList-StageTotal'>
+                <span>Stage Totals</span><span>000 days</span><span>$00000</span>
             </div>
-        </>
+        </div>
     )
 }
 
@@ -83,12 +82,15 @@ function LabourStageTask({ stage }){
         <>
             {Object.entries(stage).map( ([key, task]) => {
                 return(
+                    <>
                     <div className='labourList-StageTask' key={key}>
                         <div className='task-container'>{task.name}</div>
                         <div className='hours-container'> 
                             <LabourStageHours hoursPredicted={task.hoursPredicted} />
                         </div>
                     </div>
+                    <div className='lineSeperator' />
+                    </>
                 )
             })}
         </>

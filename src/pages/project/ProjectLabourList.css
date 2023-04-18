@@ -1,14 +1,12 @@
 .project-labour-list{
-  background-color: #fff;
-  padding: .8rem;
   border-radius: 5px;
 }
 
 .project-labour-list .task-group-container{
-  margin: 1rem;
-
-  
+  margin: 1rem;  
+  border-radius: inherit;
 }
+
 .project-labour-list .task-group-name-container {
   background-color:rgb(187, 198, 106);
   display: flex;

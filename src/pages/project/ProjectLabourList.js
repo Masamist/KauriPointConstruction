@@ -8,7 +8,7 @@ export default function ProjectLabourList({project}) {
   // console.log('labour List: ', project.labourList)
   return (
     <div className="project-detail">
-        <h3>Labour Const Breakdown by Stage</h3>
+        <h3>Labour Cost Breakdown</h3>
         <div className="project-labour-list">
           <LabourList list={project.labourList} team={project.team} />
         </div>    
