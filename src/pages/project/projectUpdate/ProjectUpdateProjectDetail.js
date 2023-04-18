@@ -18,6 +18,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
   // console.log(location.pathname)
 
+  const [status, setStatus] = useState(project.status)
   const [startDate, setStartDate] = useState(project.startDate.toDate().toISOString().substring(0, 10))
   const [GSTno, setGSTno] = useState(project.GSTno)
   const [subContractFee, setSubContractFee] = useState(project.subContractFee)
@@ -56,6 +57,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
 
     const updateProject = {
+      status,
       GSTno,
       subContractFee,
       description,
@@ -105,7 +107,15 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 <FormInput label='GST No' onChange={setGSTno} value={GSTno} />
                 <FormInput label='Sub Contract Fee' onChange={setSubContractFee} value={subContractFee} type='number'/>
                 <FormInput label='Description' onChange={setDescription} value={description} />
-
+                <label>
+                <span>status</span>
+                  <input 
+                    required
+                    type='text'
+                    onChange={(e) => setStatus(e.target.value)}
+                    value={status} 
+                  ></input>
+                </label>
 
                 <div>
                   <h3>Assign Staff Members</h3>

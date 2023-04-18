@@ -222,7 +222,7 @@ function Stage({ stage, dispatch }) {
 }
 
 // Reducer setup here
-export default function ProjectUpdateMainList({stages}) {
+export default function ProjectUpdateMainList({stages, handleSwitchUpdateMainlist}) {
   const [reStages, dispatch] = useReducer(reducer, stages)
   const { updateDocument, response } = useFirestore('projects')
   const { id } = useParams()
