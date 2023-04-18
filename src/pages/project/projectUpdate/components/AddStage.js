@@ -137,18 +137,7 @@ export default function AddStage({stage, dispatch}) {
                         options={taskOptions}
                       />
                 </label>
-                  { switchTaskOption && 
-                  <label>
-                    <h3>Task List:</h3>
-                      <span>Select tasks from Task Library:</span>
-                        <Select
-                          isMulti
-                          onChange={(taskOption) => setSelectedTask(taskOption)}
-                          options={taskOptions}
-                        />
-                  </label>
-                  }
-              </div>
+                }
 
 
                 <div className="modal-footer">

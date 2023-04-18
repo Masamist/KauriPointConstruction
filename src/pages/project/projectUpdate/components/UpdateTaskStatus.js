@@ -155,7 +155,7 @@ export default function UpdateTaskStatus({task, dispatch}) {
                 </div>
                 <div>
                   <button className="btn">
-                    Update Project Details
+                    Update Task Details
                   </button>
                 </div>
               </div>
