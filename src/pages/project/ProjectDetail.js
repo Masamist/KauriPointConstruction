@@ -1,4 +1,7 @@
 import React, { useState } from "react"
+import { useAuthContext } from '../../hooks/useAuthContext'
+import { useUserRole } from '../../hooks/useUserRole'
+
 import MainList from "../../components/MainList"
 import ProjectUpdateMainList from "./projectUpdate/ProjectUpdateMainList"
 import ProjectFinancialInfo from "./ProjectFinancialInfo"
@@ -8,17 +11,20 @@ import './ProjectDetail.css'
 import CreateMainList from "../create/CreateMainList"
 
 export default function ProjectDetail({project}) {
+  const { user, authIsReady } = useAuthContext()
+  const userRole = useUserRole(user)
 
-    // const startDate = "DATE"
-    const startDate = project.startDate ? project.startDate.toDate().toDateString() : "undefined"
-    const details = project.description ? project.description : '-' 
-    const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
-    const [ switchUpdateMainlist, SetSwitchUpdateMainlist ] = useState(false)
+  // const startDate = "DATE"
+  const startDate = project.startDate ? project.startDate.toDate().toDateString() : "undefined"
+  const details = project.description ? project.description : '-' 
+  const subContractFee = project.subContractFee ? project.subContractFee * 100 + '%' : '-'
+  const [ switchUpdateMainlist, SetSwitchUpdateMainlist ] = useState(false)
 
-    // Switches for Main and Labour components
-    const handleSwitchUpdateMainlist = () => {
-      SetSwitchUpdateMainlist(!switchUpdateMainlist)
-    }
+  // Switches for Main and Labour components
+  const handleSwitchUpdateMainlist = () => {
+    SetSwitchUpdateMainlist(!switchUpdateMainlist)
+  }
+
 
   return (
     <div className="project-detail">
@@ -27,20 +33,27 @@ export default function ProjectDetail({project}) {
         {/* Financial details */}
         <ProjectFinancialInfo stages={project.mainList} />
         
-        {!switchUpdateMainlist &&
+        
           <>
-          <MainList stages={project.mainList} />
-          <button onClick={handleSwitchUpdateMainlist}>+ Update Main List</button>
-          </>        
-        }
-        {switchUpdateMainlist &&
-          <>
-            {/* <CreateMainList /> */}
-            <ProjectUpdateMainList stages={project.mainList} />
-            <button onClick={handleSwitchUpdateMainlist}>Back Main List</button>
-          </>
+            { (!switchUpdateMainlist) &&
+              <>
+                <MainList stages={project.mainList} />
+                {((userRole ==="admin") || (userRole ==="foreman")) &&
+                  <button onClick={handleSwitchUpdateMainlist}>+ Update Main List</button>
+                }
+              </>        
+            }
+            { (switchUpdateMainlist && ((userRole ==="admin") || (userRole ==="foreman"))) &&
+              <>
+                {/* <CreateMainList /> */}
+                  <ProjectUpdateMainList stages={project.mainList} />
+                  <button onClick={handleSwitchUpdateMainlist}>Back Main List</button>
+              </>
+              
+            }
+          </> 
+
           
-        }
         
         
 
