@@ -2,9 +2,14 @@
     margin-bottom: 1em;
 }
 
+.labourList-StageTask {
+    background-color: #fff;
+
+}
+
 .stage-container {
     background-color: var(--lightgreen);
-    color:aliceblue;
+    color: var(--bg-color);
     padding: .6rem 0 .6rem .6rem;
     display: flex;
     flex-direction: row;
@@ -37,10 +42,14 @@
 }
 
 .lineSeperator{
+    width: 100%;
+    background-color: #fff;
+   
+}
+.lineSeperator > div{
     display: block;
-    width: 99%;
     border-bottom: 1px solid var(--palegreen);
-    margin: 0 auto;
+    margin: 0 3px;
 }
 
 .labourList-StageSum{
@@ -59,11 +68,12 @@
 }
 
 
-.labourList-StageTask .task-container{
+.labourList-StageTask > .task-container{
     width: 60%;
+
 }
 
-.labourList-StageTask .hours-container{
+.labourList-StageTask > .hours-container{
     width: 40%;
     justify-content: flex-end;
     display:flex;

@@ -106,9 +106,11 @@ export default function UpdateTaskStatus({task, dispatch}) {
                   payload:{ task:task.task, status:e.target.value }
                 })}
                 /> */}
+
                 <Select 
                   onChange={(option) => setStatusSelected(option)}
                   options={statusOption} 
+
                 />
 
             </label>
