@@ -106,33 +106,9 @@ export default function UpdateTaskStatus({task, dispatch}) {
                   payload:{ task:task.task, status:e.target.value }
                 })}
                 /> */}
-<<<<<<< HEAD
                 <Select 
                   onChange={(option) => setStatusSelected(option)}
                   options={statusOption} 
-=======
-                <select 
-                  required
-                  type='text'
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                    payload:{ task:task.task, status:e.target.value }
-                  })}
-                  value={task.status} 
-                >
-                  <option value=''>-</option>
-                  <option value='open'>open</option>
-                  <option value='closed'>close</option>
-                </select>
-            </label>
-            
-            {/* <label>
-              <span>Culculated damount:</span>
-                <input
-                  required 
-                  type="date" 
-                  // onChange={(e) => setStartDate(e.target.value)} 
-                  value={task.culculatedamount}
->>>>>>> 3f5bef79b415287b37aa1aa2981b707a48f6d6c2
                 />
 
             </label>
