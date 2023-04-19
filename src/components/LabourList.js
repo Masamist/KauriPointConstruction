@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './LabourList.css'
+import { calculateStageLabour } from './ProgressBar';
 
 export default function LabourList({ list , team }) {
     return (
@@ -19,9 +20,17 @@ function LabourStageCard({stage, team}) {
     // const staffRate = Object.entries(team).map(([i, staff]) => staff.rate)
     // const [totalHours, setTotalHours] = useState([{}])
 
-    const calcHours = Object.entries(stage.tasks).map(([key, task]) => (
-        Object.entries(task.hoursPredicted).map(([role, hours]) =>  hours)
-    ))
+    const calcStage = (stagetasks) => {
+        let stageHours = 0
+        //let stagecost = 0
+
+        stagetasks.forEach(task => {
+            Object.entries(task.hoursPredicted).map(
+                ([role, hours]) => stageHours += hours)
+        })
+
+        return stageHours
+    }
 
     // const roleOne = calcHours.map((role) => role.at(0))
     // const a = roleOne.reduce(setSum, 0)
@@ -30,6 +39,10 @@ function LabourStageCard({stage, team}) {
     // console.log('At', a)
 
     let totalDyas = []
+
+    const calcHours = Object.entries(stage.tasks).map(([key, task]) => (
+        Object.entries(task.hoursPredicted).map(([role, hours]) =>  hours)
+    ))
 
     for (let i = 0; i < staffRole.length; i++ ){
         const hourArray = calcHours.map((role) => role.at(i))
@@ -45,6 +58,9 @@ function LabourStageCard({stage, team}) {
         }
         return total + parseFloat(num)
     }   
+
+    //Calculate stage labour
+    const stageLabourHours = calculateStageLabour(stage.tasks)
 
     return (
         <div className='labourStageCard'>
@@ -70,7 +86,7 @@ function LabourStageCard({stage, team}) {
                 </div>
             </div>
             <div className='labourList-StageTask labourList-StageTotal'>
-                <span>Stage Totals</span><span>000 days</span><span>$00000</span>
+                <span>Stage Totals</span><span>{stageLabourHours.stageDays}</span><span>${stageLabourHours.stageCost}</span>
             </div>
         </div>
     )

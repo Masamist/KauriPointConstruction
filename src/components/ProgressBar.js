@@ -54,4 +54,57 @@ const calculateProjectProgress = (project) => {
     return { "totalClaimed": totalClaimed, "totalCost": totalCost,}    
 }  
 
-export { ProgressBar, calculateTaskClaimed, calculateStageProgress, calculateProjectProgress}
+//LABOUR LIST
+const calculateStageLabour = (stageTasks) => {
+    let stageDays = 0.0
+    let stageCost = 0.0
+
+    //Object.entries(stageTasks).map(task => {
+    stageTasks.forEach(task => {
+        Object.entries(task.hoursPredicted).map(
+            ([key, days]) => {
+                console.log('taskName: ', task.name)
+                console.log('key: ', key, 'days: ', days)
+                console.log('stageDays: ', stageDays)
+                console.log('stageCost: ', stageCost)
+                days = parseFloat(days)
+                if( days > 0) { 
+                    let taskCost = 0.0
+                    let dayForemanCost = 0.0
+                    let dayBuilderCost = 0.0
+                    let dayApprenticsCost = 0.0
+
+                    //NEEDS FIXING. Caculator needs attention
+                    dayForemanCost = key.toLocaleLowerCase().includes('foreman', 0) ?  days * 70 * 8 : 0
+                    dayBuilderCost = key.toLocaleLowerCase().includes('builder', 0) ?  days * 70 * 8 : 0
+                    dayApprenticsCost = key.toLocaleLowerCase().includes('apprentice', 0) ?  days * 40 * 8 : 0
+
+                    stageCost += dayForemanCost + dayBuilderCost + dayApprenticsCost
+                    stageDays += days
+                }
+            }
+        )
+    })
+
+    const result = { stageDays, stageCost }
+    return result
+}
+
+
+// function calculateTaskClaimed(task){
+//     let totalClaimed = 0;
+//     //console.log('task: ', task)
+//     if(task.claims){
+//     Object.entries(task.claims).map(([key, claim]) => totalClaimed += parseFloat(claim) )
+//     } else {
+//         totalClaimed = 0  
+//     }
+//     return totalClaimed 
+// }
+
+export { ProgressBar, 
+        calculateTaskClaimed, 
+        calculateStageProgress, 
+        calculateProjectProgress,
+        calculateStageLabour,
+        }
