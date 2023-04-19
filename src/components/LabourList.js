@@ -89,7 +89,7 @@ function LabourStageTask({ stage }){
                             <LabourStageHours hoursPredicted={task.hoursPredicted} />
                         </div>
                     </div>
-                    <div className='lineSeperator' />
+                    <div className='lineSeperator'><div></div></div>
                     </>
                 )
             })}
