@@ -87,7 +87,7 @@ function reducer(reStages, action) {
         .map(stage => {
           return {...stage}
       })
-      return reStages
+      // return reStages
 
     case ACTIONS.DELETE_TASK_ITEM:
     return reStages.map(stage => {
@@ -226,8 +226,9 @@ export default function ProjectUpdateMainList({stages}) {
     const mainList = {
         mainList: reStages
     }
-    console.log('mainList',mainList)
+    console.log('mainList before',mainList)
     await updateDocument(id, mainList)
+    console.log('mainList after',mainList)
 
     if (!response.error) {
         history.push('/')
