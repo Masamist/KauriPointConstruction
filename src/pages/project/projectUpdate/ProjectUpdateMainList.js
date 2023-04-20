@@ -25,6 +25,7 @@ export const ACTIONS = {
 
 function reducer(reStages, action) {
   let stageTask
+  let newTask
   // console.log('reducer payload', tasks, name)
   switch(action.type){
     case ACTIONS.CREATE_STAGE:
@@ -45,7 +46,6 @@ function reducer(reStages, action) {
         // console.log('reducer', action.payload.stageName)
         // console.log('action.payload.taskList', action.payload.taskList)
         // console.log('stage', stage)
-
         if(stage.name === action.payload.stageName )
           return {
             ...stage,
@@ -53,38 +53,40 @@ function reducer(reStages, action) {
               ...stage.tasks, 
               action.payload.task,          
               // action.payload.taskList.map(details => {return {...details}})          
-            ]
-          }
-
+            ]}
         return { ...stage }
     })
 
-    case ACTIONS.CHANGE_STATUS: 
-      return reStages.map(stage => {
+    case ACTIONS.CHANGE_STATUS:
+      stageTask = [...reStages]
+      const deleteTask =  stageTask.map(stage => {
         return {   
           ...stage,
           tasks: 
-            stage.tasks.map(task => 
-              {
-                if(task.task === action.payload.task){
-                  return {
-                    ...task,
-                    code: task.code,
-                    task: task.task,
-                    comments: task.coments,
-                    details: task.details,
-                    quoteEstimateOrProvision: task.quoteEstimateOrProvision,
-                    percentageComplete: task.percentageComplete,
-                    subcontractedamount: task.subcontractedamount,
-                    subContractor: task.subContractor,
-                    status: action.payload.status,
-                    calculatedamount: action.payload.calculatedamount,
-                  }
-                }
-                return {...task}    
-              })  
-        }
-      }) 
+            stage.tasks.filter(task => task.task !== action.payload.task.task)
+              .map(task => {
+                return {...task}
+            })    
+          }
+        })    
+      newTask = {
+        ...action.payload.task,
+        status: action.payload.status,
+        calculatedamount: action.payload.calculatedamount
+      }
+      console.log('new Task',newTask)
+      console.log('new Task',newTask)
+      reStages =  deleteTask.map(stage => {
+        console.log('deleteTask', deleteTask)
+        console.log('stage', stage)
+        return {
+          ...stage,
+          tasks: [
+            ...stage.tasks, 
+            newTask      
+          ]}
+        })
+      return reStages
 
       // const subContractor = task.subcontractor ? task.subcontractor : " -"
       // const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
@@ -105,7 +107,6 @@ function reducer(reStages, action) {
     return reStages.map(stage => {
         // console.log('action.payload.task', action.payload.task)
         // console.log('stage.tasks', stage.tasks)
-
       return {   
         ...stage,
         tasks: 

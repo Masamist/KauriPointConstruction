@@ -10,7 +10,8 @@ import Select from 'react-select'
 import '../ProjectUpdate.css'
 import { CLASS_TYPES } from '@babel/types'
 
-export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
+// export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
+export default function UpdateTaskStatus({task, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
 
@@ -49,9 +50,9 @@ export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
 
     dispatch({ 
       type: ACTIONS.CHANGE_STATUS, 
-      payload:{ task: task.task, calculatedamount: tempCulatedamount , status: tempStatus }
+      payload:{ task: task, calculatedamount: tempCulatedamount , status: tempStatus }
     })
-    console.log('task', task);
+    //console.log('task', task);
     // updateTaskInDocument(id, stageKey, index, tempCulatedamount, tempStatus)
     // dispatch({ type: ACTIONS.CHANGE_STATUS, payload:{ task: task.task }})
   }
