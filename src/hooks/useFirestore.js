@@ -58,13 +58,14 @@ export const useFirestore = (collection) => {
   // update documents
   const updateDocument = async (id, updateDoc) => {
     dispatch({ type: 'IS_PENDING' })
-
     try{
+      // const updatedDocument = await ref.doc(id).update(updateDoc)
       const updatedDocument = await ref.doc(id).update(updateDoc)
       dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
     }
     catch (err) {
       dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+      console.log(err.message)
     }
   }
 
@@ -83,17 +84,47 @@ export const useFirestore = (collection) => {
     //     dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
     //   }
     // }
-
-    // const updateArrDocument = async (id, updateDoc) => {
+    //Update task status
+    // const updateTaskInDocument = async (id, stageKey, index, calculatedamount, status) => {
     //   dispatch({ type: 'IS_PENDING' })
+    //   console.log('Firebase index', index)
+    //   console.log('Firebase culatedamount', calculatedamount)
+    //   console.log('Firebase status', status)
+    //   // console.log('Firebase', reStages)
+    //   // const updateMainlist = { mainList: reStages}
+    //   const nestedField = `mainList.${stageKey}.tasks.${index}.status`
+    //   const updateObj = {}
+    //   updateObj[nestedField] = firebase.firestore.FieldValue.set(status)
   
     //   try{
-    //     const updatedDocument = await ref.doc(id).set(updateDoc)
+    //     // const updatedDocument = await ref.doc(id).set({
+    //     const updatedDocument = await ref.doc(id).update({
+    //       [nestedField]: firebase.firestore.FieldValue.set(status)
+    //     })
+    //       // name: project.name,
+    //       // clientName: project.clientName,
+    //       // phone: project.phone,
+    //       // email: project.email,
+    //       // address: project.address,
+    //       // `mainList.${stageKey}.tasks.${index}.calculatedamount` : calculatedamount,
+    //       // ["mainList." + stageKey + ".tasks." + index + ".status"] : status,
+
+    //       // labourList: project.labourList,
+    //       // startDate: project.startDate,
+    //       // createdAt: project.createdAt,
+    //       // GSTno: project.GSTno,
+    //       // subContractFee: project.subContractFee,
+    //       // description: project.description,
+    //       // team: project.team,
+    //       // projectStatus: project.projectStatus        
+        
         
     //     dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
+    //     console.log('works')
     //   }
     //   catch (err) {
     //     dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+    //     console.log(err.message)
     //   }
     // }
 
@@ -115,6 +146,6 @@ export const useFirestore = (collection) => {
     return () => setIsCancelled(true)
   }, [])
 
-  return { addDocument, updateDocument, deleteDocument, response }
+  return { addDocument, updateDocument, deleteDocument,  response }
 
 }

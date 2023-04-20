@@ -97,7 +97,7 @@ export default function Create() {
       subContractFee,
       description,
       team: teamList,
-      status: "upcoming"
+      projectStatus: "upcoming"
     }
 
     await addDocument(project)

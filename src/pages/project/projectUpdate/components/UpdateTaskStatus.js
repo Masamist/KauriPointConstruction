@@ -2,19 +2,32 @@ import { useState, useEffect } from 'react'
 import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
+// import { useFirestore } from '../../../../hooks/useFirestore'
+// import { useParams, useHistory } from 'react-router-dom'
+
 
 // styles
 import '../ProjectUpdate.css'
+import { CLASS_TYPES } from '@babel/types'
 
-export default function UpdateTaskStatus({task, dispatch}) {
+export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
+
+  // const { updateTaskInDocument, response } = useFirestore('projects')
+  // const { id } = useParams()
+
+
+  const [tempCulatedamount, setTempCulatedamount] = useState(task.calculatedamount)
+  const [tempStatus, setTempStatus] = useState(task.status)
   const [statusSelected, setStatusSelected] = useState()
   
   const statusOption = [
     { label:'Open', value:'open' },
     { label:'Close', value:'close' }
   ]
+
+  // console.log('key',key)
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
@@ -23,12 +36,8 @@ export default function UpdateTaskStatus({task, dispatch}) {
   useEffect(() => {
     if(statusSelected){
       const updateStatus = statusSelected.value
-      console.log('status change',statusSelected.value)
-  
-    return dispatch({ 
-        type: ACTIONS.CHANGE_STATUS, 
-        payload:{ task: task.task, status: updateStatus}
-      })
+      // console.log('status change',statusSelected.value)
+      return setTempStatus(updateStatus)
     } 
   }, [statusSelected])
   
@@ -37,6 +46,13 @@ export default function UpdateTaskStatus({task, dispatch}) {
     e.preventDefault()
     setFormError(null)
     handleClose()
+
+    dispatch({ 
+      type: ACTIONS.CHANGE_STATUS, 
+      payload:{ task: task.task, calculatedamount: tempCulatedamount , status: tempStatus }
+    })
+    console.log('task', task);
+    // updateTaskInDocument(id, stageKey, index, tempCulatedamount, tempStatus)
     // dispatch({ type: ACTIONS.CHANGE_STATUS, payload:{ task: task.task }})
   }
 
@@ -91,10 +107,8 @@ export default function UpdateTaskStatus({task, dispatch}) {
               <span>Charge amount:</span>
               <input
                   type="text"
-                  value={task.calculatedamount}
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                  payload:{ task:task.task, calculatedamount:e.target.value }
-                })}
+                  value={tempCulatedamount}
+                  onChange={(e) => setTempCulatedamount(e.target.value)}
                 />
             </label>
             <label>
@@ -107,10 +121,9 @@ export default function UpdateTaskStatus({task, dispatch}) {
                 })}
                 /> */}
 
-                <Select 
+                <Select
                   onChange={(option) => setStatusSelected(option)}
                   options={statusOption} 
-
                 />
 
             </label>

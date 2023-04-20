@@ -71,8 +71,13 @@ function reducer(reStages, action) {
                     ...task,
                     code: task.code,
                     task: task.task,
-                    status: action.payload.status,
+                    comments: task.coments,
                     details: task.details,
+                    quoteEstimateOrProvision: task.quoteEstimateOrProvision,
+                    percentageComplete: task.percentageComplete,
+                    subcontractedamount: task.subcontractedamount,
+                    subContractor: task.subContractor,
+                    status: action.payload.status,
                     calculatedamount: action.payload.calculatedamount,
                   }
                 }
@@ -80,6 +85,13 @@ function reducer(reStages, action) {
               })  
         }
       }) 
+
+      // const subContractor = task.subcontractor ? task.subcontractor : " -"
+      // const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
+      // const status = task.status ? task.status : ' -'
+      // const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
+      // const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
+    
 
     case ACTIONS.DELETE_STAGE:
       console.log('payload', action.payload.stageName);
@@ -129,7 +141,8 @@ function TaskSection({task}) {
   )
 }
 
-function TaskDetails({key, task, dispatch}) {
+// function TaskDetails({stageKey, index, task, dispatch}) {
+function TaskDetails({task, dispatch}) {
   const [expandTask, setExpandTask] = useState(false) 
 
   const handleExpandTask = ()=>{
@@ -141,7 +154,7 @@ function TaskDetails({key, task, dispatch}) {
   const status = task.status ? task.status : ' -'
   const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
   const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
-
+  
   return (
       <>
       <div onClick={handleExpandTask} className='mainlist-task'>
@@ -152,7 +165,12 @@ function TaskDetails({key, task, dispatch}) {
           </span>
           <span className='mainlist-taskHeader-subContractor'>{subContractor}</span>
           <span className='mainlist-taskHeader-cost'>{claimed} / {calculatedamount}</span>
-          <span className='mainlist-taskHeader-status'>{status}<UpdateTaskStatus id={key} task={task} dispatch={dispatch} /></span>
+          <span className='mainlist-taskHeader-status'>{status}
+          
+            {/* <UpdateTaskStatus stageKey={stageKey} index={index} task={task} dispatch={dispatch} /> */}
+
+            <UpdateTaskStatus task={task} dispatch={dispatch} />
+          </span>
       </div>
       <div>
       {expandTask && <TaskSection task={task}/>}
@@ -161,7 +179,7 @@ function TaskDetails({key, task, dispatch}) {
   )
 }
 
-function Tasks ({ stage, dispatch }) { 
+function Tasks ({ stageKey, stage, dispatch }) { 
 return(
   
     <div className='mainList-stageTasks'>
@@ -172,9 +190,9 @@ return(
           <span className='mainlist-taskHeader-status'>Status</span>
       </div>
       {Object.entries(stage).map( ([key, task]) => {
-          
           return (
-              <TaskDetails key={key} 
+              <TaskDetails stageKey={stageKey}
+                          index={key} 
                           task={task}
                           dispatch={dispatch}
                           />
@@ -184,6 +202,7 @@ return(
   )
 }
 
+// function Stage({ stageKey, stage, dispatch }) {
 function Stage({ stage, dispatch }) {
   const [expandStages, setCollapseStages] = useState(false)
   
@@ -203,6 +222,7 @@ function Stage({ stage, dispatch }) {
         
       </div>
       <div>
+      {/* {expandStages && <Tasks stageKey={stageKey} stage={stage.tasks} dispatch={dispatch} />} */}
         {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
       </div>
       <div className='modal-footer'>
@@ -215,7 +235,9 @@ function Stage({ stage, dispatch }) {
 }
 
 // Reducer setup here
-export default function ProjectUpdateMainList({stages}) {
+export default function ProjectUpdateMainList({project}) {
+  const passMainlist = project.mainList
+  const [ stages, useStages] = useState(passMainlist)
   const [reStages, dispatch] = useReducer(reducer, stages)
   const { updateDocument, response } = useFirestore('projects')
   const { id } = useParams()
@@ -226,9 +248,10 @@ export default function ProjectUpdateMainList({stages}) {
     const mainList = {
         mainList: reStages
     }
-    console.log('mainList before',mainList)
+    console.log('mainList before', reStages)
+    // await updateDocument(id, mainList)
     await updateDocument(id, mainList)
-    console.log('mainList after',mainList)
+    //console.log('mainList after',mainList)
 
     if (!response.error) {
         history.push('/')
@@ -241,7 +264,9 @@ export default function ProjectUpdateMainList({stages}) {
       <h2>Main List:</h2>
       <div className="update-mainlist">    
       { Object.entries(reStages).map( ([key, stage]) => {
-        return <Stage key={key} stage={stage} dispatch={dispatch} />
+        // console.log('stageKey',key)
+        return <Stage stage={stage} dispatch={dispatch} />
+        // return <Stage stageKey={key} stage={stage} dispatch={dispatch} />
       })}
       <AddStage stage={stages} dispatch={dispatch} />
       <CreateNewStage stage={stages} dispatch={dispatch} />

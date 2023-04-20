@@ -15,11 +15,11 @@ export default function ProjectList() {
 
   useEffect(() => {
     if(documents){
-      const open = documents.filter(project => project.status === "open")
+      const open = documents.filter(project => project.projectStatus === "open")
       setPojectOpen(open)
-      const upcoming = documents.filter(project => project.status === "upcoming")
+      const upcoming = documents.filter(project => project.projectStatus === "upcoming")
       setPojectUpcomung(upcoming)
-      const close = documents.filter(project => project.status === "close")
+      const close = documents.filter(project => project.projectStatus === "close")
       setPojectClose(close)
       // console.log(projectOpen)
       console.log(projectOpen)

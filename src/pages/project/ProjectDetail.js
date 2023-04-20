@@ -30,7 +30,6 @@ export default function ProjectDetail({project}) {
     <div className="project-detail">
       <div className="project-summary">
         
-        
           <>
             { (!switchUpdateMainlist) &&
               <>
@@ -43,16 +42,13 @@ export default function ProjectDetail({project}) {
             { (switchUpdateMainlist && ((userRole ==="admin") || (userRole ==="foreman"))) &&
               <>
                 {/* <CreateMainList /> */}
-                  <ProjectUpdateMainList stages={project.mainList} />
+                  {/* <ProjectUpdateMainList stages={project.mainList} /> */}
+                  <ProjectUpdateMainList project={project} />
                   <button onClick={handleSwitchUpdateMainlist}>Back Main List</button>
               </>
               
             }
           </> 
-
-          
-        
-        
 
         <h3>Project Detail</h3>
         <p className="due-date">

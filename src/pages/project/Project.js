@@ -24,7 +24,7 @@ export default function Project() {
   const [ switchLabourList, SetSwitchLabourList ] = useState(false)
   const { user, authIsReady } = useAuthContext()
   const userRole = useUserRole(user)
-  console.log(userRole)
+  // console.log(userRole)
   
   if(error) {
     return <div className="error">{error}</div>
