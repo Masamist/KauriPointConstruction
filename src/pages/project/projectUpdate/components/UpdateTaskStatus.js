@@ -9,6 +9,7 @@ import Select from 'react-select'
 // styles
 import '../ProjectUpdate.css'
 import { CLASS_TYPES } from '@babel/types'
+import { FormInput } from '../../../create/Create'
 
 // export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
 export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
@@ -20,28 +21,18 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
 
 
   const [tempCulatedamount, setTempCulatedamount] = useState(task.calculatedamount)
-  const [tempStatus, setTempStatus] = useState(task.status)
-  const [statusSelected, setStatusSelected] = useState()
+  const [details, setDetails] = useState(task.details)
+  const [subcontractor, setSubcontractor] = useState(task.subcontractor)
+  const [subcontractedamount, setSubcontractedamount] = useState(task.subcontractedamount)
+  const [calculatedamount, setCalculatedamount] = useState(task.calculatedamount)
+  const [status, setStatus] = useState(task.status)
+  const [quoteEstimateOrProvision, setQuoteEstimateOrProvision] = useState()
   
-  const statusOption = [
-    { label:'Open', value:'open' },
-    { label:'Close', value:'close' }
-  ]
-
   // console.log('key',key)
 
   // Modal display functions
   const handleClose = () => setShowModal(false)
   const renderBackdrop = (props) => <div className="backdrop" {...props} />
-
-  useEffect(() => {
-    if(statusSelected){
-      const updateStatus = statusSelected.value
-      // console.log('status change',statusSelected.value)
-      return setTempStatus(updateStatus)
-    } 
-  }, [statusSelected])
-  
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -54,7 +45,7 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
                 index:index,
                 task: task,
                 calculatedamount:tempCulatedamount,
-                status:tempStatus ? tempStatus : "",
+                status: status,
               }
     })
     //console.log('task', task);
@@ -101,13 +92,25 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
 
           <form onSubmit={handleSubmit}>
             <div>
-              <p>Details: {task.details}</p>
-              <p>Subcontractor: {task.subcontractor}</p>
-              <p>Subcontracted Amount: {task.subcontractedamount}</p>
-              <p>Charge Amount: {task.calculatedamount}</p>
-              <p>Unclaim Amount: {task.stilltoclaim}</p>
-              <p>Status: {task.status}</p>
-              <p>Complete: {task.complete}</p>
+              <FormInput label='Details' 
+                          value={details} 
+                          onChange={setDetails} />
+              <FormInput label='Subcontractor' 
+                          value={subcontractor} onChange={setSubcontractor} />
+              <FormInput label='Subcontracted Amount' 
+                          value={subcontractedamount} 
+                          onChange={setSubcontractedamount} />
+              <FormInput label='Charge Amount' 
+                          value={calculatedamount} 
+                          onChange={setCalculatedamount} />
+              <FormInput label='Status' 
+                          value={status} 
+                          options={['open', 'closed']}
+                          onChange={setStatus} />
+              <FormInput label='Details' 
+                          value={details} 
+                          onChange={setDetails} />
+              
             </div>
             <label>
               <span>Charge amount:</span>
@@ -117,23 +120,6 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
                   onChange={(e) => setTempCulatedamount(e.target.value)}
                 />
             </label>
-            <label>
-              <span>Status:</span>
-                {/* <input
-                  type="text"
-                  value={task.status}
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                  payload:{ task:task.task, status:e.target.value }
-                })}
-                /> */}
-
-                <Select
-                  onChange={(option) => setStatusSelected(option)}
-                  options={statusOption} 
-                />
-
-            </label>
-            
 
               <div className="modal-footer">
                 <div>

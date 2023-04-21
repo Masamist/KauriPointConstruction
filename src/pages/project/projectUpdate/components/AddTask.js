@@ -91,6 +91,7 @@ export default function AddTask({stage, dispatch}) {
     newTask.subcontractedamount = subcontractedamount
     newTask.subcontractor = subcontractor
     newTask.quoteEstimateOrProvision = quoteEstimateOrProvision ? quoteEstimateOrProvision : "NULL"
+    newTask.status = 'open'
     dispatch({ type: ACTIONS.ADD_TASK, payload: { stageName: stageName, task: newTask} })
     
     
