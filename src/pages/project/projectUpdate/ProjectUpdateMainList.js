@@ -21,10 +21,14 @@ export const ACTIONS = {
     CHANGE_STATUS: 'change_status',
     DELETE_STAGE: 'delete_stage',
     DELETE_TASK_ITEM: 'delete_task_item',
+    RESET: 'reset',
 }
 
 function reducer(reStages, action) {
   let stageTask
+  let newTask
+  let taskIndex
+  let newTaskArr
   // console.log('reducer payload', tasks, name)
   switch(action.type){
     case ACTIONS.CREATE_STAGE:
@@ -45,7 +49,6 @@ function reducer(reStages, action) {
         // console.log('reducer', action.payload.stageName)
         // console.log('action.payload.taskList', action.payload.taskList)
         // console.log('stage', stage)
-
         if(stage.name === action.payload.stageName )
           return {
             ...stage,
@@ -53,45 +56,55 @@ function reducer(reStages, action) {
               ...stage.tasks, 
               action.payload.task,          
               // action.payload.taskList.map(details => {return {...details}})          
-            ]
-          }
-
+            ]}
         return { ...stage }
     })
 
-    case ACTIONS.CHANGE_STATUS: 
-      return reStages.map(stage => {
-        return {   
-          ...stage,
-          tasks: 
-            stage.tasks.map(task => 
-              {
-                if(task.task === action.payload.task){
-                  return {
-                    ...task,
-                    code: task.code,
-                    task: task.task,
-                    comments: task.coments,
-                    details: task.details,
-                    quoteEstimateOrProvision: task.quoteEstimateOrProvision,
-                    percentageComplete: task.percentageComplete,
-                    subcontractedamount: task.subcontractedamount,
-                    subContractor: task.subContractor,
-                    status: action.payload.status,
-                    calculatedamount: action.payload.calculatedamount,
-                  }
-                }
-                return {...task}    
-              })  
-        }
-      }) 
+    // Change task details
+    case ACTIONS.CHANGE_STATUS:
+      stageTask = [...reStages]
 
-      // const subContractor = task.subcontractor ? task.subcontractor : " -"
-      // const calculatedamount= task.calculatedamount ? numberWithCommas(parseFloat(task.calculatedamount)) : ' -'
-      // const status = task.status ? task.status : ' -'
-      // const claimed = calculateTaskClaimed(task) > 0 ? numberWithCommas(calculateTaskClaimed(task)) : '-'
-      // const percentageComplete = (calculateTaskClaimed(task) / parseFloat(task.calculatedamount)) * 100
-    
+      const deleteTask =  stageTask.map(stage => {
+        // console.log('action.payload.task', action.payload.task)
+        // console.log('stage.tasks', stage.tasks)
+      return {   
+        ...stage,
+        tasks: 
+          stage.tasks.filter(task => task.task !== action.payload.task.task)
+            .map(task => {
+              return {...task}
+          })    
+        }
+      })
+      // console.log('deleteTask', deleteTask) 
+      newTask = {
+        ...action.payload.task,
+        status: action.payload.status,
+        calculatedamount: action.payload.calculatedamount
+      }
+
+      console.log('new Task',newTask)
+      return deleteTask.map(stage => {
+        // console.log('reducer', action.payload.stageName)
+        // console.log('action.payload.taskList', action.payload.taskList)
+        // console.log('stage', stage)
+        taskIndex = action.payload.index
+        // console.log(taskIndex)
+        // console.log('action.payload.stageName', action.payload.stageName)
+        // console.log('stage.name', stage.name)
+        // console.log('newTaskArr',newTaskArr)
+        if(stage.name === action.payload.stageName ){
+          newTaskArr = stage.tasks
+          newTaskArr.splice(action.payload.index, 0, newTask)
+          return {
+            ...stage,
+            tasks: 
+              newTaskArr.map(replacetask => {return {...replacetask}})        
+              // action.payload.taskList.map(details => {return {...details}})          
+          }
+        }
+        return { ...stage }
+    })
 
     case ACTIONS.DELETE_STAGE:
       console.log('payload', action.payload.stageName);
@@ -105,7 +118,6 @@ function reducer(reStages, action) {
     return reStages.map(stage => {
         // console.log('action.payload.task', action.payload.task)
         // console.log('stage.tasks', stage.tasks)
-
       return {   
         ...stage,
         tasks: 
@@ -115,6 +127,9 @@ function reducer(reStages, action) {
           })    
       }
     })
+
+    case ACTIONS.RESET:
+      return action.payload
 
   default:
     return reStages
@@ -142,7 +157,7 @@ function TaskSection({task}) {
 }
 
 // function TaskDetails({stageKey, index, task, dispatch}) {
-function TaskDetails({task, dispatch}) {
+function TaskDetails({stageName, index, task, dispatch}) {
   const [expandTask, setExpandTask] = useState(false) 
 
   const handleExpandTask = ()=>{
@@ -169,7 +184,7 @@ function TaskDetails({task, dispatch}) {
           
             {/* <UpdateTaskStatus stageKey={stageKey} index={index} task={task} dispatch={dispatch} /> */}
 
-            <UpdateTaskStatus task={task} dispatch={dispatch} />
+            <UpdateTaskStatus stageName={stageName} index={index} task={task} dispatch={dispatch} />
           </span>
       </div>
       <div>
@@ -179,7 +194,7 @@ function TaskDetails({task, dispatch}) {
   )
 }
 
-function Tasks ({ stageKey, stage, dispatch }) { 
+function Tasks ({ stageName, stage, dispatch }) { 
 return(
   
     <div className='mainList-stageTasks'>
@@ -191,7 +206,7 @@ return(
       </div>
       {Object.entries(stage).map( ([key, task]) => {
           return (
-              <TaskDetails stageKey={stageKey}
+              <TaskDetails stageName={stageName}
                           index={key} 
                           task={task}
                           dispatch={dispatch}
@@ -223,7 +238,7 @@ function Stage({ stage, dispatch }) {
       </div>
       <div>
       {/* {expandStages && <Tasks stageKey={stageKey} stage={stage.tasks} dispatch={dispatch} />} */}
-        {expandStages && <Tasks stage={stage.tasks} dispatch={dispatch} />}
+        {expandStages && <Tasks stageName={stage.name} stage={stage.tasks} dispatch={dispatch} />}
       </div>
       <div className='modal-footer'>
         <AddTask stage={stage} dispatch={dispatch} />
@@ -237,7 +252,7 @@ function Stage({ stage, dispatch }) {
 // Reducer setup here
 export default function ProjectUpdateMainList({project}) {
   const passMainlist = project.mainList
-  const [ stages, useStages] = useState(passMainlist)
+  const [ stages, setStages] = useState(passMainlist)
   const [reStages, dispatch] = useReducer(reducer, stages)
   const { updateDocument, response } = useFirestore('projects')
   const { id } = useParams()
@@ -248,7 +263,7 @@ export default function ProjectUpdateMainList({project}) {
     const mainList = {
         mainList: reStages
     }
-    console.log('mainList before', reStages)
+    // console.log('mainList before', reStages)
     // await updateDocument(id, mainList)
     await updateDocument(id, mainList)
     //console.log('mainList after',mainList)
@@ -257,6 +272,9 @@ export default function ProjectUpdateMainList({project}) {
         history.push('/')
       }
   }
+
+  const handleReset = () => dispatch({ type: ACTIONS.RESET, payload: passMainlist})
+
   console.log("reStages", reStages)
   
   return (
@@ -266,13 +284,12 @@ export default function ProjectUpdateMainList({project}) {
       { Object.entries(reStages).map( ([key, stage]) => {
         // console.log('stageKey',key)
         return <Stage stage={stage} dispatch={dispatch} />
-        // return <Stage stageKey={key} stage={stage} dispatch={dispatch} />
       })}
       <AddStage stage={stages} dispatch={dispatch} />
       <CreateNewStage stage={stages} dispatch={dispatch} />
       <div className='modal-footer'>
         <button onClick={handleSubmit} className="btn" id="btn_right">Update All Change</button>
-        <button className="btn-cancel" id="btn_right">Cancel</button>
+        <button onClick={handleReset} className="btn-cancel" id="btn_right">Reset</button>
       </div>
       
       </div>
