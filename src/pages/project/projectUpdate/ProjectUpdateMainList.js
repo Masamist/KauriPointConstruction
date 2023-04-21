@@ -150,7 +150,7 @@ function TaskSection({task}) {
       <div className='TaskSection'>
           <TaskSectionData label='Code' value={task.code}/>
           <TaskSectionData label='Details' value={task.details}/>
-          <TaskSectionData label='Quote, Estimate or Provision' value={task.quoteestimateorprovision}/>
+          <TaskSectionData label='Quote, Estimate or Provision' value={task.quoteEstimateOrProvision}/>
           <TaskSectionData label='comment' value={task.comment}/>
       </div>
   )
