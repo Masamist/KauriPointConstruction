@@ -250,7 +250,7 @@ function Stage({ stage, dispatch }) {
 }
 
 // Reducer setup here
-export default function ProjectUpdateMainList({project}) {
+export default function ProjectUpdateMainList({project, SetSwitchUpdateMainlist}) {
   const passMainlist = project.mainList
   const [ stages, setStages] = useState(passMainlist)
   const [reStages, dispatch] = useReducer(reducer, stages)
@@ -269,7 +269,8 @@ export default function ProjectUpdateMainList({project}) {
     //console.log('mainList after',mainList)
 
     if (!response.error) {
-        history.push('/')
+        //history.push('/')
+        SetSwitchUpdateMainlist(false)
       }
   }
 

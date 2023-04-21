@@ -50,7 +50,12 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
 
     dispatch({ 
       type: ACTIONS.CHANGE_STATUS, 
-      payload:{ stageName:stageName, index:index, task: task, calculatedamount:tempCulatedamount , status:tempStatus }
+      payload:{ stageName:stageName,
+                index:index,
+                task: task,
+                calculatedamount:tempCulatedamount,
+                status:tempStatus ? tempStatus : "",
+              }
     })
     //console.log('task', task);
     // updateTaskInDocument(id, stageKey, index, tempCulatedamount, tempStatus)
