@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
 import './AddTask.css'
+import { FormInput } from '../../../create/Create'
 
 export default function AddTask({stage, dispatch}) {
   //Modal
@@ -19,17 +20,17 @@ export default function AddTask({stage, dispatch}) {
   const [selectedTask, setSelectedTask] = useState([])
   const [options, setOptions] = useState([])
   const [stageName, setStageName] = useState('')
-  const [taskList, setTaskList] = useState([])
+  const [task, setTask] = useState([])
 
-  // const [code, setCode] =useState('')
-  // const [task, setTask] =useState('')
-  // const [status, setStatus] =useState('')
-  // const [details, setDetails] =useState('')
-  // const [comments, setComments] =useState('')
-  // const [subcontractor, setSubcontractor] =useState('')
-  // const [subcontractedamount, setSubcontractedamount] =useState('')
-  // const [calculatedamount, setCalculatedamount] =useState('')
-  // const [quoteEstimateOrProvision, setQuoteEstimateOrProvision] =useState('')
+  // const [code, setCode] = useState('')
+  // const [taskName, setTaskName] = useState('')
+  //const [comments, setComments] = useState('')
+  //const [status, setStatus] = useState('')
+  const [details, setDetails] =useState('')
+  const [subcontractor, setSubcontractor] = useState('')
+  const [subcontractedamount, setSubcontractedamount] = useState('')
+  const [calculatedamount, setCalculatedamount] = useState('')
+  const [quoteEstimateOrProvision, setQuoteEstimateOrProvision] = useState('')
 
   // Modal display functions
   const handleClose = () => {
@@ -41,7 +42,7 @@ export default function AddTask({stage, dispatch}) {
 
   // Store the tasks currently in the state 
   //console.log('taskListCurrentlySelected', taskListCurrentlySelected)
-  const taskListCurrentlySelected = Object.entries(stage.tasks).map(([key, stageTask])=> {
+  const taskListCurrentlySelected = Object.entries(stage.tasks).map((stageTask)=> {
     return stageTask.task
   })
 
@@ -50,7 +51,7 @@ export default function AddTask({stage, dispatch}) {
     if(selectedTask){
       const passTask = selectedTask.value
       const passStage = selectedTask.stageName
-      setTaskList(passTask)
+      setTask(passTask)
       setStageName(passStage)
     }
     // console.log('taskList',taskList);
@@ -71,19 +72,41 @@ export default function AddTask({stage, dispatch}) {
           return { value: {...taskInfo}, label: taskInfo.task, stageName: stage.stageName}
         })
       ))
-      const filetredTasks = selectedTasks.filter(function(selectTask) {
+      const fileteredTasks = selectedTasks.filter(function(selectTask) {
         return !taskListCurrentlySelected.includes(selectTask.label)
       })
-      setOptions(filetredTasks)
+      setOptions(fileteredTasks)
       setShowModal(true)
   }
 
   function handleSubmit(e) {
     e.preventDefault()
     // setFormError(null)
-    dispatch({ type: ACTIONS.ADD_TASK, payload: { stageName: stageName, task: taskList} })
 
+    const newTask = task
+    
+    newTask.calculatedamount = calculatedamount
+    newTask.details = details
+    newTask.calculatedamount = calculatedamount
+    newTask.subcontractedamount = subcontractedamount
+    newTask.subcontractor = subcontractor
+    newTask.quoteEstimateOrProvision = quoteEstimateOrProvision ? quoteEstimateOrProvision : "NULL"
+    dispatch({ type: ACTIONS.ADD_TASK, payload: { stageName: stageName, task: newTask} })
+    
+    
+    console.log('quoteEstimateOrProvision: ', quoteEstimateOrProvision)
     handleClose()
+  }
+
+  function handleSelectedTask(task) {
+    console.log('task: ', task)
+    setSelectedTask(task)
+    setDetails(task.value.details)
+    setCalculatedamount(task.value.calculatedamount)
+    setSubcontractedamount(task.value.subcontractedamount)
+    setSubcontractor(task.value.subcontractor)
+    setQuoteEstimateOrProvision(task.value.quoteEstimateOrProvision)
+    
   }
 
   return (
@@ -100,92 +123,57 @@ export default function AddTask({stage, dispatch}) {
         onHide={handleClose}
         renderBackdrop={renderBackdrop}
         >
-          <div>
-            <div className="modal-header">
-              <div className="modal-title">
-                <h2>
-                  Add Task:<br /> 
-                  
-                </h2>
-              </div>
-              <div>
-              <span className="close-button" onClick={handleClose}>
-                x
-              </span>
-            </div>
+        <div>
+          <div className="modal-header">
+            <h2 className="modal-title">Add Task:</h2>
+            <span className="close-button" onClick={handleClose}>
+              x
+            </span>
           </div>
-        <div className="modal-desc">
+
+          <div className="modal-desc">
 
 
-          <form onSubmit={handleSubmit}>
-            <div>
+          <form>
               <h3>Stage: {stage.name}</h3>
-            </div>
-            <div>
               <label>
               <h3>Task:</h3>
               <Select
                 className='inputSelector'
-                onChange={(option) => setSelectedTask(option)}
+                onChange={(option) => handleSelectedTask(option)}
                 options={options}
               />
               {/* <button className="btn" onClick={handleSet}>Set Option</button> */}
               </label>
-            </div>
-            {/* <br />
+            <br />
             <div>
-            <label>
-              <span>Task Name: {task}</span>
-              <span>Task Code: {code}</span>
-              <span>Task Details: </span>
-              <input
-                  type="text"
-                  value={details}
-                  onChange={(e) => setDetails(e.target.value)}
-                />
-            </label>
-
-              <p>Subcontractor:</p>
-              <p>Subcontracted Amount: </p>
-              <p>Charge Amount:</p>
-              <p>Unclaim Amount:</p>
-              <p>Status:</p>
-              <p>Complete:</p>
-            </div> */}
-            {/* <label>
-              <span>Charge Aamount:</span>
-              <input
-                  type="text"
-                  value="{task.calculatedamount}"
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                  payload:{ task:task.task, calculatedamount:e.target.value }
-                })}
-                />
-            </label>
-            <label>
-              <span>Status:</span>
-                <input
-                  type="text"
-                  value={task.status}
-                  onChange={(e) => dispatch({ type: ACTIONS.CHANGE_STATUS,
-                  payload:{ task:task.task, status:e.target.value }
-                })}
-                />
-            </label> */}
-
+            
+            <FormInput label='Details' 
+                        value={details} 
+                        onChange={setDetails}/>
+            <FormInput label='Charge amount' 
+                        value={calculatedamount} 
+                        onChange={setCalculatedamount}/>
+            <FormInput label='SubContracted amount' 
+                        value={subcontractedamount} 
+                        onChange={setSubcontractedamount}/>
+            <FormInput label='SubContractor' 
+                        value={subcontractor} 
+                        onChange={setSubcontractor}/>
+            <FormInput label='Quote Estimate or Provision' 
+                        value={quoteEstimateOrProvision} 
+                        onChange={ (option) => {setQuoteEstimateOrProvision(option); console.log(quoteEstimateOrProvision)} }
+                        options={[ 'estimate', 'quote', 'provision']}/>
+            
+            </div>
 
               <div className="modal-footer">
-                <div>
                   <button className="btn-cancel" onClick={handleClose}>
                     Cancel
                   </button>
-                </div>
-
-                <div>
-                  <button className="btn">
+                  <button className="btn" onClick={handleSubmit}>
                     Add Task
                   </button>
-                </div>
               </div>
             {formError && <p className="error">{formError}</p>}
           </form>

@@ -236,21 +236,40 @@ export default function Create() {
   )
 }
 
-function FormInput({label, onChange, value, type}) {
+function FormInput({label, onChange, value, type, options}) {
   const handleInput = (value) => {
     onChange(value)
   }
-  return (
-    <label>
-      <span>{label}</span>
-      <input 
-        required
-        type={type ? type : 'text'}
-        onChange={(e) => handleInput(e.target.value)}
-        value={value} 
-      ></input>
-    </label>
-  )
+
+  if(!options){
+    return (
+      <label>
+        <span>{label}</span>
+        <input 
+          required
+          type={type ? type : 'text'}
+          onChange={(e) => handleInput(e.target.value)}
+          value={value} 
+        ></input>
+      </label>
+    )
+  }
+  else{
+    return (
+      <label>
+        <span>{label}</span>
+          <select 
+            required
+            type={type ? type : 'text'}
+            onChange={(e) => { handleInput(e.target.value); console.log('target.value: ', e.target.value) }}
+            value={value} 
+          >
+            { options.map(option => <option value={option}>{option}</option>) }
+          </select>
+      </label>
+    )
+  }
+  
 }
 
 export{ FormInput }

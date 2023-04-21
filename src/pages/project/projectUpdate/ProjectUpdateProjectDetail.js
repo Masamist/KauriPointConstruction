@@ -2,6 +2,7 @@ import { useParams, useHistory, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
+import { FormInput } from '../../create/Create'
 
 // styles
 import './ProjectUpdate.css'
@@ -18,7 +19,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
   // console.log(location.pathname)
 
-  const [status, setStatus] = useState(project.status)
+  const [projectStatus, setStatus] = useState(project.projectStatus)
   const [startDate, setStartDate] = useState(project.startDate.toDate().toISOString().substring(0, 10))
   const [GSTno, setGSTno] = useState(project.GSTno)
   const [subContractFee, setSubContractFee] = useState(project.subContractFee)
@@ -57,7 +58,7 @@ export default function ProjectUpdateProjectDetail({ project }) {
 
 
     const updateProject = {
-      status,
+      projectStatus,
       GSTno,
       subContractFee,
       description,
@@ -107,20 +108,8 @@ export default function ProjectUpdateProjectDetail({ project }) {
                 <FormInput label='GST No' onChange={setGSTno} value={GSTno} />
                 <FormInput label='Sub Contract Fee' onChange={setSubContractFee} value={subContractFee} type='number'/>
                 <FormInput label='Description' onChange={setDescription} value={description} />
-                <label>
-                <span>status</span>
-                  <select 
-                    required
-                    type='text'
-                    onChange={(e) => setStatus(e.target.value)}
-                    value={status} 
-                  >
-                    <option value='open'>open</option>
-                    <option value='close'>close</option>
-                    <option value='upcoming'>up coming</option>
-                  </select>
-                </label>
-
+                <FormInput label='Status' onChange={setStatus} value={projectStatus} options={['open', 'close', 'upcoming']} />
+                
                 <div>
                   <h3>Assign Staff Members</h3>
                   {teamList && Array.isArray(teamList) 
@@ -186,23 +175,6 @@ export default function ProjectUpdateProjectDetail({ project }) {
       </Modal>
 
     </div>    
-  )
-}
-
-function FormInput({label, onChange, value, type}) {
-  const handleInput = (value) => {
-    onChange(value)
-  }
-  return (
-    <label>
-      <span>{label}</span>
-      <input 
-        required
-        type={type ? type : 'text'}
-        onChange={(e) => handleInput(e.target.value)}
-        value={value} 
-      ></input>
-    </label>
   )
 }
 

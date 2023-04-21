@@ -61,6 +61,7 @@ export default function ProjectDetail({project}) {
         
         <p>Staff Rate:</p>
         <table className="team-table">
+          <tbody>
           <tr>
             <th>Staff</th>
             <th>Role</th>
@@ -69,22 +70,24 @@ export default function ProjectDetail({project}) {
             <th>Week</th>
             <th>Month</th>
           </tr>
-        {project.team ? Object.entries(project.team).map( ([key, member]) => {
-          return (
-            (member.name &&
-            <React.Fragment key={key}>
-                <tr>
-                    <td>{member.name}</td>
-                    <td>{member.role}</td>
-                    <td>$ {member.rate}</td>
-                    <td>$ {parseFloat(member.rate) * 9.5 }</td>
-                    <td>$ {parseFloat(member.rate) * 45 }</td>
-                    <td>$ {parseFloat(member.rate) * 180 }</td>
-                </tr>
-            </React.Fragment>
+          {project.team ? Object.entries(project.team).map( ([key, member]) => {
+            return (
+              (member.name &&
+              <React.Fragment key={key}>
+                  <tr>
+                      <td>{member.name}</td>
+                      <td>{member.role}</td>
+                      <td>$ {member.rate}</td>
+                      <td>$ {parseFloat(member.rate) * 9.5 }</td>
+                      <td>$ {parseFloat(member.rate) * 45 }</td>
+                      <td>$ {parseFloat(member.rate) * 180 }</td>
+                  </tr>
+              </React.Fragment>
+              )
             )
-          )
-          }) : <p>No team staff assigned...</p>}   
+            }) : <p>No team staff assigned...</p>}
+          </tbody>
+             
         </table>
       </div>
     </div>

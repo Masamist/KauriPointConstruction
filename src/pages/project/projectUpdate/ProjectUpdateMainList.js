@@ -284,7 +284,7 @@ export default function ProjectUpdateMainList({project, SetSwitchUpdateMainlist}
       <div className="update-mainlist">    
       { Object.entries(reStages).map( ([key, stage]) => {
         // console.log('stageKey',key)
-        return <Stage stage={stage} dispatch={dispatch} />
+        return <Stage stage={stage} dispatch={dispatch} key={key}/>
       })}
       <AddStage stage={stages} dispatch={dispatch} />
       <CreateNewStage stage={stages} dispatch={dispatch} />
