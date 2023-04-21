@@ -11,7 +11,7 @@ import '../ProjectUpdate.css'
 import { CLASS_TYPES } from '@babel/types'
 
 // export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
-export default function UpdateTaskStatus({task, dispatch}) {
+export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
 
@@ -50,7 +50,7 @@ export default function UpdateTaskStatus({task, dispatch}) {
 
     dispatch({ 
       type: ACTIONS.CHANGE_STATUS, 
-      payload:{ task: task, calculatedamount: tempCulatedamount , status: tempStatus }
+      payload:{ stageName:stageName, index:index, task: task, calculatedamount:tempCulatedamount , status:tempStatus }
     })
     //console.log('task', task);
     // updateTaskInDocument(id, stageKey, index, tempCulatedamount, tempStatus)

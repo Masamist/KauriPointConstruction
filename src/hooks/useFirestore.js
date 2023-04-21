@@ -1,7 +1,8 @@
 import { useReducer, useEffect, useState } from "react"
 import { projectFirestore, timestamp } from "../firebase/config"
-import firebase from "firebase/app";
 import "firebase/firestore";
+// import firebase from "firebase/app";
+
 
 let initialState = {
   document: null,
