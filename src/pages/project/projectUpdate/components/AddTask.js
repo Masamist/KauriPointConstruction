@@ -163,7 +163,7 @@ export default function AddTask({stage, dispatch}) {
                         onChange={setSubcontractor}/>
             <FormInput label='Quote Estimate or Provision' 
                         value={quoteEstimateOrProvision} 
-                        onChange={ (option) => {setQuoteEstimateOrProvision(option); console.log(quoteEstimateOrProvision)} }
+                        onChange={ option => setQuoteEstimateOrProvision(option) }
                         options={[ 'estimate', 'quote', 'provision']}/>
             
             </div>

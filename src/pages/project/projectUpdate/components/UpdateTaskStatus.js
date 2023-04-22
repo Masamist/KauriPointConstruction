@@ -20,7 +20,6 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
   // const { id } = useParams()
 
 
-  const [tempCulatedamount, setTempCulatedamount] = useState(task.calculatedamount)
   const [details, setDetails] = useState(task.details)
   const [subcontractor, setSubcontractor] = useState(task.subcontractor)
   const [subcontractedamount, setSubcontractedamount] = useState(task.subcontractedamount)
@@ -38,14 +37,19 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
     e.preventDefault()
     setFormError(null)
     handleClose()
+    
+    task.subcontractor = subcontractor
+    task.details = details
+    task.subcontractedamount = subcontractedamount
+    task.calculatedamount = calculatedamount
+    task.status = status
+    task.quoteEstimateOrProvision = quoteEstimateOrProvision
 
     dispatch({ 
       type: ACTIONS.CHANGE_STATUS, 
       payload:{ stageName:stageName,
                 index:index,
                 task: task,
-                calculatedamount:tempCulatedamount,
-                status: status,
               }
     })
     //console.log('task', task);
@@ -90,13 +94,14 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
         <div className="modal-desc">
 
 
-          <form onSubmit={handleSubmit}>
+          <form>
             <div>
               <FormInput label='Details' 
                           value={details} 
                           onChange={setDetails} />
               <FormInput label='Subcontractor' 
-                          value={subcontractor} onChange={setSubcontractor} />
+                          value={subcontractor} 
+                          onChange={setSubcontractor} />
               <FormInput label='Subcontracted Amount' 
                           value={subcontractedamount} 
                           onChange={setSubcontractedamount} />
@@ -106,21 +111,15 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
               <FormInput label='Status' 
                           value={status} 
                           options={['open', 'closed']}
-                          onChange={setStatus} />
-              <FormInput label='Details' 
-                          value={details} 
-                          onChange={setDetails} />
+                          onChange={ option => setStatus(option)} />
+              <FormInput label='quoteEstimateOrProvision' 
+                          value={quoteEstimateOrProvision} 
+                          options={[ 'estimate', 'quote', 'provision']}
+                          onChange={ option => setQuoteEstimateOrProvision(option) } />
+              
               
             </div>
-            <label>
-              <span>Charge amount:</span>
-              <input
-                  type="text"
-                  value={tempCulatedamount}
-                  onChange={(e) => setTempCulatedamount(e.target.value)}
-                />
-            </label>
-
+            
               <div className="modal-footer">
                 <div>
                   <button className="btn-cancel" onClick={handleClose}>
@@ -129,7 +128,7 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
                 </div>
                 <div>
                   <button 
-                    class="btn" 
+                    className="btn" 
                     type="btn"
                     onClick= {handleDelete}
                   >
@@ -137,7 +136,9 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
                   </button>
                 </div>
                 <div>
-                  <button className="btn">
+                  <button 
+                    className="btn" 
+                    onClick={handleSubmit}>
                     Update Task Details
                   </button>
                 </div>
