@@ -77,8 +77,19 @@ function reducer(reStages, action) {
         }
       })
       // console.log('deleteTask', deleteTask) 
+      // const newTaskArr = action.payload.task
       newTask = {
         ...action.payload.task,
+        // ...action.payload.taskDetails.map(singleItem => {return singleItem})
+        subcontractor: action.payload.subcontractor,
+        details: action.payload.details,
+        subcontractedamount: action.payload.subcontractedamount,
+        calculatedamount: action.payload.calculatedamount,
+        status: action.payload.status,
+        quoteEstimateOrProvision: action.payload.quoteEstimateOrProvision
+        // ...action.payload.task,
+        //status: action.payload.task.status,
+        //calculatedamount: action.payload.task.calculatedamount
       }
 
       console.log('new Task',newTask)

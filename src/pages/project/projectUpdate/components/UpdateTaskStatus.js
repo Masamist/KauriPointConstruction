@@ -18,14 +18,12 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
 
   // const { updateTaskInDocument, response } = useFirestore('projects')
   // const { id } = useParams()
-
-
   const [details, setDetails] = useState(task.details)
   const [subcontractor, setSubcontractor] = useState(task.subcontractor)
   const [subcontractedamount, setSubcontractedamount] = useState(task.subcontractedamount)
   const [calculatedamount, setCalculatedamount] = useState(task.calculatedamount)
   const [status, setStatus] = useState(task.status)
-  const [quoteEstimateOrProvision, setQuoteEstimateOrProvision] = useState()
+  const [quoteEstimateOrProvision, setQuoteEstimateOrProvision] = useState('')
   
   // console.log('key',key)
 
@@ -37,19 +35,34 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
     e.preventDefault()
     setFormError(null)
     handleClose()
-    
-    task.subcontractor = subcontractor
-    task.details = details
-    task.subcontractedamount = subcontractedamount
-    task.calculatedamount = calculatedamount
-    task.status = status
-    task.quoteEstimateOrProvision = quoteEstimateOrProvision
+
+    // const taskDetails = [
+    //   { subcontractor: subcontractor },
+    //   { details: details},
+    //   { subcontractedamount: subcontractedamount},
+    //   { calculatedamount: calculatedamount},
+    //   { status: status},
+    //   { quoteEstimateOrProvision: quoteEstimateOrProvision},
+    // ]
+   
+    // task.subcontractor = subcontractor
+    // task.details = details
+    // task.subcontractedamount = subcontractedamount
+    // task.calculatedamount = calculatedamount
+    // task.status = status
+    // task.quoteEstimateOrProvision = quoteEstimateOrProvision
 
     dispatch({ 
       type: ACTIONS.CHANGE_STATUS, 
       payload:{ stageName:stageName,
                 index:index,
                 task: task,
+                subcontractor: subcontractor,
+                details: details,
+                subcontractedamount: subcontractedamount,
+                calculatedamount: calculatedamount,
+                status: status,
+                quoteEstimateOrProvision: quoteEstimateOrProvision,
               }
     })
     //console.log('task', task);
