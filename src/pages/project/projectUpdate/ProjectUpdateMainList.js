@@ -79,8 +79,6 @@ function reducer(reStages, action) {
       // console.log('deleteTask', deleteTask) 
       newTask = {
         ...action.payload.task,
-        status: action.payload.status,
-        calculatedamount: action.payload.calculatedamount
       }
 
       console.log('new Task',newTask)
