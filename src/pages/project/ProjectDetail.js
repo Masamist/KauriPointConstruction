@@ -8,7 +8,7 @@ import ProjectUpdateMainList from "./projectUpdate/ProjectUpdateMainList"
 
 // styles
 import './ProjectDetail.css'
-import CreateMainList from "../create/CreateMainList"
+//import CreateMainList from "../create/CreateMainList"
 
 export default function ProjectDetail({project}) {
   const { user, authIsReady } = useAuthContext()

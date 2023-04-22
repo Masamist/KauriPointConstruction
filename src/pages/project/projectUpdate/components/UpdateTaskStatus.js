@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
-import Select from 'react-select'
 // import { useFirestore } from '../../../../hooks/useFirestore'
 // import { useParams, useHistory } from 'react-router-dom'
 
 
 // styles
 import '../ProjectUpdate.css'
-import { CLASS_TYPES } from '@babel/types'
 import { FormInput } from '../../../create/Create'
 
 // export default function UpdateTaskStatus({stageKey, index, task, dispatch}) {
@@ -79,7 +77,7 @@ export default function UpdateTaskStatus({stageName, index, task, dispatch}) {
   return (
     <>
       <div>
-        <button class="btn" type="btn" onClick={() => setShowModal(true)}>
+        <button className="btn" type="btn" onClick={() => setShowModal(true)}>
           Modify
         </button>
       </div>

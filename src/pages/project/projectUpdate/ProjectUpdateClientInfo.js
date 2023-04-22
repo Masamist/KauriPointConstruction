@@ -1,4 +1,4 @@
-import { useParams, useHistory, useLocation } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"
@@ -9,7 +9,7 @@ import './ProjectUpdate.css'
 
 export default function ProjectUpdateClientInfo({ project }) {
   const { updateDocument, response } = useFirestore('projects')
-  const history = useHistory()
+  //const history = useHistory()
   const { id } = useParams()
   const location = useLocation()
   const [formError, setFormError] = useState(null)

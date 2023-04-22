@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDocument } from '../../../../hooks/useDocument'
 import { ACTIONS } from '../ProjectUpdateMainList'
-import { useParams } from 'react-router-dom'
 import Modal from "react-overlays/Modal"
 import Select from 'react-select'
 import './AddTask.css'

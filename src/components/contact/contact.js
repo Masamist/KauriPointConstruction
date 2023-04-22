@@ -1,14 +1,11 @@
 import './contact.css'
-import { projectFirestore } from '../../firebase/config'
 import { useFirestore } from '../../hooks/useFirestore'
-import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 
 import phone from '../../assets/icons/phone.png'
 import email from '../../assets/icons/email.png'
 
 export default function ContactUs() {
-    const history = useHistory()
     const { addDocument, response } = useFirestore('contactMessage')
 
   // form field values

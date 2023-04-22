@@ -61,15 +61,15 @@ const calculateStageLabour = (stageTasks) => {
 
     //Object.entries(stageTasks).map(task => {
     stageTasks.forEach(task => {
-        Object.entries(task.hoursPredicted).map(
+        Object.entries(task.hoursPredicted).forEach(
             ([key, days]) => {
-                console.log('taskName: ', task.name)
-                console.log('key: ', key, 'days: ', days)
-                console.log('stageDays: ', stageDays)
-                console.log('stageCost: ', stageCost)
+                // console.log('taskName: ', task.name)
+                // console.log('key: ', key, 'days: ', days)
+                // console.log('stageDays: ', stageDays)
+                // console.log('stageCost: ', stageCost)
                 days = parseFloat(days)
                 if( days > 0) { 
-                    let taskCost = 0.0
+                    //let taskCost = 0.0
                     let dayForemanCost = 0.0
                     let dayBuilderCost = 0.0
                     let dayApprenticsCost = 0.0
@@ -82,6 +82,7 @@ const calculateStageLabour = (stageTasks) => {
                     stageCost += dayForemanCost + dayBuilderCost + dayApprenticsCost
                     stageDays += days
                 }
+                return
             }
         )
     })

@@ -15,18 +15,20 @@ export default function Sidebar( ) {
     <div className="sidebar">
       <nav className="links">
         <ul>
-          <li>
-            <NavLink exact to="/">Project List</NavLink>
-          </li>
+          {authIsReady &&
+            <li>
+              <NavLink exact to="/">Project List</NavLink>
+            </li>
+          }
           {userRole==="admin" &&
-          <li>
-            <NavLink to="/create">Create Project</NavLink>
-          </li>
-}
-          {userRole==="admin" && 
-          <li>
-            <NavLink to="/signup">Create New User</NavLink>
-          </li>
+            <>
+              <li>
+              <NavLink to="/create">Create Project</NavLink>
+              </li>
+              <li>
+              <NavLink to="/signup">Create New User</NavLink>
+              </li>
+            </>
            } 
         </ul> 
       </nav>    

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { ACTIONS } from '../ProjectUpdateMainList'
 import Modal from "react-overlays/Modal"
 
@@ -6,12 +6,8 @@ export default function CreateNewStage({stage, dispatch}) {
   const [showModal, setShowModal] = useState(false)
   const [formError, setFormError] = useState(null)
 
-  // Firebase
-  const mainList_id = 'mainList'
-
   // Adding a task in state (reStage)
   const [newStage, setNewStage] = useState('')
-  const [taskList, setTaskList] = useState([])
 
   const [code, setCode] =useState('')
   const [task, setTask] =useState('')

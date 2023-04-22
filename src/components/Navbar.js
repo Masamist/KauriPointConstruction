@@ -63,7 +63,7 @@ const ContactCard = ()=> {
   return(
     <div className='quickContactCard'>
       <div className='phone'>
-        <img src={phone} alt='phone-image'></img>
+        <img src={phone} alt='phone call'></img>
         <div className='phone-text'>021 037 2837</div>
       </div>
       <div className='email'>simon@kauripointconstruction.co.nz</div>

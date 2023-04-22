@@ -16,21 +16,9 @@ export default function LabourList({ list , team }) {
 function LabourStageCard({stage, team}) {
     const [expandLabourStage, setExpandLabourStage] = useState(false)
     const handleToggleStage = ()=>{setExpandLabourStage(!expandLabourStage)}
-    const staffRole = Object.entries(team).map(([i, staff]) => staff.role)
+    const staffRole = Object.entries(team).map( staff => staff.role)
     // const staffRate = Object.entries(team).map(([i, staff]) => staff.rate)
     // const [totalHours, setTotalHours] = useState([{}])
-
-    const calcStage = (stagetasks) => {
-        let stageHours = 0
-        //let stagecost = 0
-
-        stagetasks.forEach(task => {
-            Object.entries(task.hoursPredicted).map(
-                ([role, hours]) => stageHours += hours)
-        })
-
-        return stageHours
-    }
 
     // const roleOne = calcHours.map((role) => role.at(0))
     // const a = roleOne.reduce(setSum, 0)
@@ -38,7 +26,7 @@ function LabourStageCard({stage, team}) {
     //console.log(calcHours)
     // console.log('At', a)
 
-    let totalDyas = []
+    let totalDays = []
 
     const calcHours = Object.entries(stage.tasks).map(([key, task]) => (
         Object.entries(task.hoursPredicted).map(([role, hours]) =>  hours)
@@ -48,7 +36,7 @@ function LabourStageCard({stage, team}) {
         const hourArray = calcHours.map((role) => role.at(i))
         const hourSum = hourArray.reduce(setSum, 0)
         // console.log('for:', hourSum)
-        totalDyas.push(hourSum)
+        totalDays.push(hourSum)
         // console.log('TotalSum',i, ': ',totalDyas)
     }
 
@@ -74,7 +62,7 @@ function LabourStageCard({stage, team}) {
             <div className='labourList-StageTask labourList-StageSum'>
                 <div className='task-container'>Total Days:</div>
                 <div className='hours-container'>
-                    {totalDyas.map((totalDay) => <span>{totalDay}</span>)}
+                    {totalDays.map((totalDay) => <span>{totalDay}</span>)}
                 </div>
             </div>
             <div className='labourList-StageTask labourList-StageSum'>

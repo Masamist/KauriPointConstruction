@@ -38,7 +38,7 @@
 .quickContactCard > .phone {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .quickContactCard > .phone > img {
   height: 1.5em;

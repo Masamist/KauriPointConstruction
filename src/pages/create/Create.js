@@ -55,7 +55,8 @@ export default function Create() {
     }
   }, [documents])
 
-  const handleTeamAdd = () => {
+  const handleTeamAdd = (e) => {
+    (e).preventDefault()
     const member = {name: memberName, role: memberRole, rate: memberRate}
     setTeamList([...teamList, member])
     setMemberName('')
@@ -156,20 +157,21 @@ export default function Create() {
           <h3>Assign Staff Members</h3>
             <div className='assigned-staff'>
               <table className='staffTable'>
-                <tr>
-                  <th>#</th>
-                  <th>name</th>
-                  <th>role</th>
-                  <th>rate</th>
-                  <th>delete</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>#</th>
+                    <th>name</th>
+                    <th>role</th>
+                    <th>rate</th>
+                    <th>delete</th>
+                  </tr>
 
-                {teamList.map((singleStaff, index) => {
-                const name = singleStaff.name ? singleStaff.name : '-no-name-'
-                const role = singleStaff.role ? singleStaff.role : '-no-roll-'
-                const rate = singleStaff.rate ? singleStaff.rate : '-no-rate-'
-                return (
-                    <tr key={index} className='staffMember'>
+                  {teamList.map((singleStaff, index) => {
+                  const name = singleStaff.name ? singleStaff.name : '-no-name-'
+                  const role = singleStaff.role ? singleStaff.role : '-no-roll-'
+                  const rate = singleStaff.rate ? singleStaff.rate : '-no-rate-'
+                  return (
+                      <tr key={index} className='staffMember'>
                         <td>{index + 1}</td>
                         <td>{name}</td>
                         <td>{role}</td>
@@ -184,12 +186,14 @@ export default function Create() {
                           </button>
                         </td>
                       
-                    </tr>
-                )})}
+                      </tr>
+                    )
+                  })}
+                </tbody>
                 
               </table>
             
-              <form >
+              <div >
                 <label>
                   <input 
                     name="name" 
@@ -221,7 +225,7 @@ export default function Create() {
                   />
                   <button className="btn" onClick={handleTeamAdd}>+</button>                     
               </label>
-            </form>
+            </div>
           
             </div>
           
@@ -264,7 +268,7 @@ function FormInput({label, onChange, value, type, options}) {
             onChange={(e) => { handleInput(e.target.value); console.log('target.value: ', e.target.value) }}
             value={value} 
           >
-            { options.map(option => <option value={option}>{option}</option>) }
+            { Object.entries(options).map( ([key, option]) => <option key={key} value={option}>{option}</option>) }
           </select>
       </label>
     )

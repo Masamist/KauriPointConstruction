@@ -1,4 +1,4 @@
-import { useParams, useHistory, useLocation } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { useFirestore } from '../../../hooks/useFirestore'
 import Modal from "react-overlays/Modal"

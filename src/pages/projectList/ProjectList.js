@@ -22,7 +22,6 @@ export default function ProjectList() {
       const close = documents.filter(project => project.projectStatus === "close")
       setPojectClose(close)
       // console.log(projectOpen)
-      console.log(projectOpen)
     }  
   }, [documents])
 

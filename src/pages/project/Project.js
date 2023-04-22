@@ -59,7 +59,7 @@ export default function Project() {
           {!switchLabourList && 
             <>
               <ProjectDetail project={document} />
-              { userRole==="admin" &&
+              { userRole==="admin" && authIsReady &&
                 <ProjectUpdateProjectDetail project={document} />
               }
             </>

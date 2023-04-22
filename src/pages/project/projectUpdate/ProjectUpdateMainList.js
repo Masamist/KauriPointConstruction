@@ -1,8 +1,8 @@
 import { useState, useReducer } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useFirestore } from '../../../hooks/useFirestore'
 
-import { ProgressBar, calculateStageProgress, calculateTaskClaimed } from '../../../components/ProgressBar'
+import { ProgressBar, calculateTaskClaimed } from '../../../components/ProgressBar'
 import { numberWithCommas } from '../ProjectFinancialInfo'
 
 import UpdateTaskStatus from './components/UpdateTaskStatus'
@@ -27,7 +27,7 @@ export const ACTIONS = {
 function reducer(reStages, action) {
   let stageTask
   let newTask
-  let taskIndex
+  //let taskIndex
   let newTaskArr
   // console.log('reducer payload', tasks, name)
   switch(action.type){
@@ -97,7 +97,7 @@ function reducer(reStages, action) {
         // console.log('reducer', action.payload.stageName)
         // console.log('action.payload.taskList', action.payload.taskList)
         // console.log('stage', stage)
-        taskIndex = action.payload.index
+        //taskIndex = action.payload.index
         // console.log(taskIndex)
         // console.log('action.payload.stageName', action.payload.stageName)
         // console.log('stage.name', stage.name)
@@ -216,6 +216,7 @@ return(
       {Object.entries(stage).map( ([key, task]) => {
           return (
               <TaskDetails stageName={stageName}
+                          key={key}
                           index={key} 
                           task={task}
                           dispatch={dispatch}
@@ -261,11 +262,10 @@ function Stage({ stage, dispatch }) {
 // Reducer setup here
 export default function ProjectUpdateMainList({project, SetSwitchUpdateMainlist}) {
   const passMainlist = project.mainList
-  const [ stages, setStages] = useState(passMainlist)
+  const stages = passMainlist
   const [reStages, dispatch] = useReducer(reducer, stages)
   const { updateDocument, response } = useFirestore('projects')
   const { id } = useParams()
-  const history = useHistory()
 
   const handleSubmit = async(e) => {
     e.preventDefault()
