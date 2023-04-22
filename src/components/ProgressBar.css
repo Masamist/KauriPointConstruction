@@ -31,6 +31,6 @@
     background-color:var(--primary-color);
     float: left;
     width: 0%;
-    height: 70%;
+    height: 100%;
     position: absolute;
   }
