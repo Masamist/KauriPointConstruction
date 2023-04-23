@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { useLogout } from '../hooks/useLogout'
-import { useAuthContext } from '../hooks/useAuthContext'
-import Avatar from './Avatar'
-import phone from '../assets/icons/phone.png'
+import { useLogout } from '../../hooks/useLogout'
+import { useAuthContext } from '../../hooks/useAuthContext'
+import Avatar from './../Avatar'
+import phone from '../../assets/icons/phone.png'
 
 // styles & images
 import './Navbar.css'
-import Logo from '../assets/logo.png'
+import Logo from '../../assets/logo.png'
 
 export default function Navbar() {
   const { logout, isPending } = useLogout()

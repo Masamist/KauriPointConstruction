@@ -1,5 +1,5 @@
 // style
-import { calculateProjectProgress } from '../../components/ProgressBar'
+import { calculateProjectProgress } from '../../components/progressBar/ProgressBar'
 import './ProjectFinancialInfo.css'
 
 export default function ProjectFinancialInfo({project}) {

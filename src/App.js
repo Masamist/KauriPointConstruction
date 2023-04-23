@@ -10,7 +10,7 @@ import Create from './pages/create/Create'
 import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
 import Project from './pages/project/Project'
-import Navbar from './components/Navbar'
+import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/home';
 import Team from './pages/team/team';
 import Projects from './pages/Projects/Projects';

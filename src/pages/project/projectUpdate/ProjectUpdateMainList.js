@@ -2,7 +2,7 @@ import { useState, useReducer } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFirestore } from '../../../hooks/useFirestore'
 
-import { ProgressBar, calculateTaskClaimed } from '../../../components/ProgressBar'
+import { ProgressBar, calculateTaskClaimed } from '../../../components/progressBar/ProgressBar'
 import { numberWithCommas } from '../ProjectFinancialInfo'
 
 import UpdateTaskStatus from './components/UpdateTaskStatus'
