@@ -1,7 +1,7 @@
 import { useState } from 'react'
 //styles
 import './MainList.css'
-import { ProgressBar, calculateStageProgress, calculateTaskClaimed } from './ProgressBar'
+import { ProgressBar, calculateStageProgress, calculateTaskClaimed } from './progressBar/ProgressBar'
 import { numberWithCommas } from '../pages/project/ProjectFinancialInfo'
 
 const TaskSectionData = ({label, value}) => {

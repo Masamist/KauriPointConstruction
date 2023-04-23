@@ -7,10 +7,19 @@ function ProgressBar({ initial, warning, progress }) {
         return value + "%"
     }
     return (
-            <div className="progressbar" >
-                <div className="progress-initial" style={{width: toPercent(initial)}}></div>
-                <div className="progress-warning" style={{width: toPercent(warning)}}></div>
-                <div className="progress-progress" style={{width: toPercent(progress)}}></div>
+            < div className="progressbar" >
+                <div className="progress-initial" 
+                    style={{width: toPercent(initial)}}
+                    data-testid='initial'
+                    />
+                <div className="progress-warning" 
+                    style={{width: toPercent(warning)}}
+                    data-testid='warning'
+                    />
+                <div className="progress-progress" 
+                    style={{width: toPercent(progress)}}
+                    data-testid='progress'
+                    />
             </div>
     )
 }

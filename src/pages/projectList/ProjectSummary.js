@@ -1,8 +1,8 @@
 //import dayjs from 'dayjs';
 import { Link } from 'react-router-dom'
-import { ProgressBar, calculateProjectProgress } from '../../components/ProgressBar'
+import { ProgressBar, calculateProjectProgress } from '../../components/progressBar/ProgressBar'
 //functions
-import {calculateTaskClaimed, calculateStageProgress} from '../../components/ProgressBar'
+import {calculateTaskClaimed, calculateStageProgress} from '../../components/progressBar/ProgressBar'
 
 // styles
 import './ProjectSummary.css'

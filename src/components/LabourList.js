@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './LabourList.css'
-import { calculateStageLabour } from './ProgressBar';
+import { calculateStageLabour } from './progressBar/ProgressBar';
 
 export default function LabourList({ list , team }) {
     return (
