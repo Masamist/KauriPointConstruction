@@ -1,23 +1,15 @@
-# Getting Started with Create React App
+# Kauri Point Construction Web Project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## The Intoduction
 
-In the project directory, you can run:
+Kauri Point Construction is a company based in Auckland that provides construction services big and small such as new builds, renovation, cabinetry, fencing and landscaping. It is a limited company established in February 2021. The manager has award-winning building and management skills including project management and communication, the company consistently receives high customer ratings.
 
-### `npm start`
+## STATEMENT OF PROBLEM OR NEED
+The problem is Kauri Point Construction does not have a management system everything is currently done manually across many separate files. For instance, project scheduling is communicated verbally by the project manager if the plan changes this can result in confusion, rework and a dissatisfied customer. 
+A successful solution would be introducing digital solution that includes process automation and tracking. The web-based project management assists the business processes of projects, workforce scheduling and optimisation, accounting management, with all steps in one centralised place, therefore the project information is always updated. Moreover, the company focus on sustainability to contribute to society and community. The solution will reduce paper-based documentation saving valuable resources and decrease emissions by removing unnecessary travel due to scheduling errors.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
