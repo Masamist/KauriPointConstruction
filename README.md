@@ -11,35 +11,55 @@ The problem is Kauri Point Construction does not have a management system everyt
 A successful solution would be introducing digital solution that includes process automation and tracking. The web-based project management assists the business processes of projects, workforce scheduling and optimisation, accounting management, with all steps in one centralised place, therefore the project information is always updated. Moreover, the company focus on sustainability to contribute to society and community. The solution will reduce paper-based documentation saving valuable resources and decrease emissions by removing unnecessary travel due to scheduling errors.
 
 
-### `npm run build`
+## List of business requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+List of business processes
+•	Provide a web interface for the potential client; this is including the contact page to send a request for a consultation. Store the client details and send a notification to the manager.
+•	The manager or staff go to the site and consult with the potential client for first meeting to confirm all the requirements and collect required measurements etc to prepare a quote.
+•	Create a quote, a job description and a contract document within the system and send it out to the client for approval. store the information in the database.
+•	Once the client signs the contract, the quote becomes the project schedule/Agenda, and the start date for the project is scheduled.
+•	Manager organises the supplies, and resources for the job. (Supplies summed from tasks)
+•	Order material and receives invoice for them, to enable payment of expenses.
+•	The staff go to the site and follow the schedule. Creating a mandatory daily update with a simple report and photo via the application. If any issue occurs, then they must report it to the manager via the application.
+•	Tasks can be added to the schedule if work outside of the original scope is required.
+•	Variations Orders to the contract scope can be tracked, adding and removing all tasks involved to the Project Schedule.
+•	When the tasks have been completed, the manager inspects all the work and confirms the completion of the job on the web app.
+•	Completed tasks can be collated into a report and sent to the client as an invoice.
+•	Once the payment is confirmed, the process has been completed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## USER STORIES
 
-### `npm run eject`
+Write user stories for that business process including supporting business processes (e.g., data set up, configuration)
+Client: I want to be able to be out of town for a week and still see how the project is progressing daily.
+Manager: I dream of pricing up a job using a library of Tasks I've already executed on projects and re-use data to speed up the process.
+Manager: I want to record all project details in one place which can be shared with authorised users, so I don’t need to update disparate documents separately.
+Staff: I like to know that I’ve completed tasks and what’s expected on site for the day.
+Staff: It would be great to see a previous photo that my workmate took last week, he’s unavailable today.
+Accountant: As an accountant I like to see where my moneys going and want a detailed breakdown.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## SCOPE
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ITERATION 1
+List of user stories
+Client: I want to be able to be out of town for a week and still see how the project is progressing daily.
+Manager: I dream of pricing up a job using a library of Tasks I've already executed on projects and re-use data to speed up the process.
+Manager: I want to input all projects status in one place which can share to authorised members, so I don’t need to make status document separately.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ITERATION 2
+List of user stories
+Staff: I like to know that I’ve completed tasks and what’s expected on site for the day.
+Staff: It would be great to see a previous photo that my workmate took last week, he’s unavailable today.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### BACKLOG
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+List explicitly what is not included in the first iterations
+In the first release of this software, accounting system including payroll is out of scope. It will be included in the next release, or it might integrate to COTs such as Xero or MYOB. Depends on the financial situation of the construction company, however, COTs option may simplify bank reconciliation and accuracy, avoiding legal issues.
+List of user stories
+Accountant: As an accountant I like to see where my moneys going and want a detailed breakdown.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
 ### Analyzing the Bundle Size
 
