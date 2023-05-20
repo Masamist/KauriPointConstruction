@@ -61,6 +61,6 @@ List of user stories
 Accountant: As an accountant I like to see where my moneys going and want a detailed breakdown.
 
 ## Deploy
-This project was deployed at [Kauri Point Construction Website](https://github.com/facebook/create-react-app](https://www.kauripointconstruction.co.nz/).
+This project was deployed at [Kauri Point Construction Website](https://www.kauripointconstruction.co.nz/).
 
 
