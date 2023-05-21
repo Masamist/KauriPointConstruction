@@ -14,18 +14,18 @@ A successful solution would be introducing a digital solution that includes proc
 ## List of business requirements
 
 List of business processes
-•	Provide a web interface for the potential client; this is including the contact page to send a request for a consultation. Store the client details and send a notification to the manager.
-•	The manager or staff go to the site and consult with the potential client for first meeting to confirm all the requirements and collect required measurements etc to prepare a quote.
-•	Create a quote, a job description and a contract document within the system and send it out to the client for approval. Storing the information in the database.
-•	Once the client signs the contract, the quote becomes the project schedule/agenda, and the start date for the project is scheduled.
-•	Manager organises the supplies, and resources for the job. (Supplies summed from tasks)
-•	Order material and receives invoices for them, to enable payment of expenses.
-•	The staff go to the site and follow the schedule. Creating a mandatory daily update with a simple report and photo via the application. If any issue occurs, then they must report it to the manager via the application.
-•	Tasks can be added to the schedule if work outside of the original scope is required.
-•	Variations Orders to the contract scope can be tracked, adding and removing all tasks involved to the Project Schedule.
-•	When the tasks have been completed, the manager inspects all the work and confirms the completion of the job on the web app.
-•	Completed tasks can be collated into a report and sent to the client as an invoice.
-•	Once the payment is confirmed, the process has been completed.
+-	Provide a web interface for the potential client; this is including the contact page to send a request for a consultation. Store the client details and send a notification to the manager.
+-	The manager or staff go to the site and consult with the potential client for first meeting to confirm all the requirements and collect required measurements etc to prepare a quote.
+-	Create a quote, a job description and a contract document within the system and send it out to the client for approval. Storing the information in the database.
+-	Once the client signs the contract, the quote becomes the project schedule/agenda, and the start date for the project is scheduled.
+-	Manager organises the supplies, and resources for the job. (Supplies summed from tasks)
+-	Order material and receives invoices for them, to enable payment of expenses.
+-	The staff go to the site and follow the schedule. Creating a mandatory daily update with a simple report and photo via the application. If any issue occurs, then they must report it to the manager via the application.
+-	Tasks can be added to the schedule if work outside of the original scope is required.
+-	Variations Orders to the contract scope can be tracked, adding and removing all tasks involved to the Project Schedule.
+-	When the tasks have been completed, the manager inspects all the work and confirms the completion of the job on the web app.
+-	Completed tasks can be collated into a report and sent to the client as an invoice.
+-	Once the payment is confirmed, the process has been completed.
 
 
 ## USER STORIES
@@ -59,6 +59,14 @@ List explicitly what is not included in the first iterations
 In the first release of this software, accounting system intergration including payroll is out of scope. It will be included in the next release, or it might integrate to COTs such as Xero or MYOB. Depends on the financial situation of the construction company, however, COTs option may simplify bank reconciliation and accuracy, avoiding legal issues.
 List of user stories
 Accountant: As an accountant I like to see where my moneys going and want a detailed breakdown.
+
+## Technology
+The tools we have chosen to built this app were;
+- React
+- HTML
+- CSS
+- JavaScript
+- Firebase
 
 ## Deploy
 This project was deployed at [Kauri Point Construction Website](https://www.kauripointconstruction.co.nz/).
