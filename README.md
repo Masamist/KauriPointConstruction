@@ -1,6 +1,6 @@
 # Kauri Point Construction Web Project
 
-photo
+![Screen_Top](https://user-images.githubusercontent.com/79613044/236743899-4455585d-66ca-4ec8-b7de-ac7b9f24586c.png)
 
 ## The Intoduction
 
