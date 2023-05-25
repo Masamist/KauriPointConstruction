@@ -1,6 +1,6 @@
 # Kauri Point Construction Web Project
 
-![Screen_Top]([src/assets/kpc.png](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png))
+![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
 
 ## The Intoduction
 
