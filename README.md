@@ -1,6 +1,6 @@
 # Kauri Point Construction Web Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+photo
 
 ## The Intoduction
 
@@ -60,7 +60,7 @@ In the first release of this software, accounting system intergration including 
 List of user stories
 Accountant: As an accountant I like to see where my moneys going and want a detailed breakdown.
 
-## Technology
+## Used Libraries
 The tools we have chosen to built this app were;
 - React
 - HTML
