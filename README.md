@@ -1,5 +1,9 @@
 # Kauri Point Construction Web Project
 
+### Kauri Point Construction Website
+![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-web.png)
+
+### Kauri Point Construction App
 ![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
 
 ## The Intoduction
