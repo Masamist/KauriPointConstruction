@@ -1,7 +1,7 @@
 # Kauri Point Construction Web Project
 
 ### Kauri Point Construction Website
-![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-web.png |300x)
+![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-web.png | width=300)
 
 ### Kauri Point Construction App
 ![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
