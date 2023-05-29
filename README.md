@@ -2,7 +2,6 @@
 
 ### Kauri Point Construction Website
 ![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-web.png)
-<img src="https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-web.png" width="400" height="200" />
 
 ### Kauri Point Construction App
 ![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
