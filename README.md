@@ -31,12 +31,12 @@ List of business processes
 
 
 ## USER STORIES
-Client: I want to be able to be out of town for a week and still see how the project is progressing daily.
-Manager: I dream of pricing up a job using a library of Tasks I've already executed on projects and re-use data to speed up the process.
-Manager: I want to record all project details in one place which can be shared with authorised users, so I don’t need to update disparate documents separately.
-Staff: I like to know that I’ve completed tasks and what’s expected on site for the day.
-Staff: It would be great to see a previous photo that my workmate took last week, he’s unavailable today.
-Accountant: As an accountant I like to see where my moneys going, detailed breakdown and that clients have paid.
+**Client:** I want to be able to be out of town for a week and still see how the project is progressing daily.
+**Manager:** I dream of pricing up a job using a library of Tasks I've already executed on projects and re-use data to speed up the process.
+**Manager:** I want to record all project details in one place which can be shared with authorised users, so I don’t need to update disparate documents separately.
+**Staff:** I like to know that I’ve completed tasks and what’s expected on site for the day.
+**Staff:** It would be great to see a previous photo that my workmate took last week, he’s unavailable today.
+**Accountant:** As an accountant I like to see where my moneys going, detailed breakdown and that clients have paid.
 
 
 ## SCOPE
@@ -50,7 +50,7 @@ Our scope was to build the project management app for the manager which records 
 - JavaScript
 - Firebase
 
-##Link
-[Kauri Point Construction Website](https://www.kauripointconstruction.co.nz/).
+## Link
+[Kauri Point Construction Website Link](https://www.kauripointconstruction.co.nz/)
 
 
