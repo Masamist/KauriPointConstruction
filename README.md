@@ -7,16 +7,14 @@
 ![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
 
 ## The Intoduction
-
-Kauri Point Construction is a company based in Auckland that provides construction services big and small such as new builds, renovation, cabinetry, fencing and landscaping. It is a limited company established in February 2021. The manager has award-winning building and management skills including project management and communication, the company consistently receives high customer ratings.
+Kauri Point Construction is a company based in Auckland that provides construction services big and small such as new builds, renovation, cabinetry, fencing and landscaping. It is a limited company established in February 2021. This project included planning, building, and testing a project management app. Kauri Point Construction also had no website for their customers, thus customer landing pages were also in scope.  
 
 ## STATEMENT OF PROBLEM OR NEED
-The problem is Kauri Point Construction does not have a project management system everything is currently done manually across many separate files. For instance, project scheduling is communicated verbally by the project manager if the plan changes this can result in confusion, rework and a dissatisfied customer. 
-A successful solution would be introducing a digital solution that includes process automation and tracking. The web-based project management assists the business processes of projects, workforce scheduling and optimisation, accounting management, with all the steps in one centralised place, therefore the project information is always current and accurate. Moreover, the company has a focus on sustainability to contribute to society and the community. The solution will reduce paper-based documentation saving valuable resources and decrease emissions by removing unnecessary travel due to scheduling errors.
+The problem is Kauri Point Construction does not have a project management system everything is currently done manually across many separate files. For instance, project scheduling is communicated verbally by the project manager if the plan changes this can result in confusion, rework and a dissatisfied customer.
+A successful solution would be introducing a digital solution that includes process automation and tracking. The web-based project management system includes the business processes for project management, workforce scheduling and optimisation, accounting management, with all the steps in one centralised place, therefore the project information is always accurate and current. Moreover, the company focus on sustainability contributes to society and the community. The solution reduces paper-based documentation saving valuable resources and decreasing emissions by removing unnecessary travel due to scheduling errors.
 
 
 ## List of business requirements
-
 List of business processes
 -	Provide a web interface for the potential client; this is including the contact page to send a request for a consultation. Store the client details and send a notification to the manager.
 -	The manager or staff go to the site and consult with the potential client for first meeting to confirm all the requirements and collect required measurements etc to prepare a quote.
@@ -33,8 +31,6 @@ List of business processes
 
 
 ## USER STORIES
-
-Write user stories for the business processes including supporting business processes (e.g., data set up, configuration)
 Client: I want to be able to be out of town for a week and still see how the project is progressing daily.
 Manager: I dream of pricing up a job using a library of Tasks I've already executed on projects and re-use data to speed up the process.
 Manager: I want to record all project details in one place which can be shared with authorised users, so I don’t need to update disparate documents separately.
@@ -44,35 +40,17 @@ Accountant: As an accountant I like to see where my moneys going, detailed break
 
 
 ## SCOPE
-
-ITERATION 1
-List of user stories
-Client: I want to be able to be out of town for a week and still see how the project is progressing daily.
-Manager: I dream of pricing up a job using a library of Tasks I've already executed on projects and re-use data to speed up the process.
-Manager: I want to input all projects status in one place which can share to authorised members, so I don’t need to make status document separately.
-
-ITERATION 2
-List of user stories
-Staff: I like to know that I’ve completed tasks and what’s expected on site for the day.
-Staff: It would be great to see a previous photo that my workmate took last week, he’s unavailable today.
+Our scope was to build the project management app for the manager which records each projects details, tasks and estimate cost list, and labour list which shows estimate days per task by labour. Customer landing pages were also included in the first release. The workforce management system is in the backlog, as currently they use an existing online service for staff to clock in and clock out. Accounting system including payroll is out of scope. It will be included in the next release, or it might integrate to COTs such as Xero or MYOB. Depending on the financial situation of the construction company, however the COTs option would be my recommendation to simplify bank reconciliation and accuracy, avoiding legal issues.
 
 
-### BACKLOG
-
-List explicitly what is not included in the first iterations
-In the first release of this software, accounting system intergration including payroll is out of scope. It will be included in the next release, or it might integrate to COTs such as Xero or MYOB. Depends on the financial situation of the construction company, however, COTs option may simplify bank reconciliation and accuracy, avoiding legal issues.
-List of user stories
-Accountant: As an accountant I like to see where my moneys going and want a detailed breakdown.
-
-## Used Libraries
-The tools we have chosen to built this app were;
+## Technologies
 - React
 - HTML
 - CSS
 - JavaScript
 - Firebase
 
-## Deploy
-This project was deployed at [Kauri Point Construction Website](https://www.kauripointconstruction.co.nz/).
+##Link
+[Kauri Point Construction Website](https://www.kauripointconstruction.co.nz/).
 
 
