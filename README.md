@@ -3,11 +3,12 @@
 ### Kauri Point Construction Website
 ![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-web.png)
 
+### Kauri Point Construction App
+![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
+
 ## Link
 [Kauri Point Construction Website Link](https://www.kauripointconstruction.co.nz/)
 
-### Kauri Point Construction App
-![Screen_Top](https://github.com/Masamist/KauriPointConstruction/blob/main/src/assets/kpc-app.png)
 
 ## The Intoduction
 Kauri Point Construction is a company based in Auckland that provides construction services big and small such as new builds, renovation, cabinetry, fencing and landscaping. It is a limited company established in February 2021. This project included planning, building, and testing a project management app. Kauri Point Construction also had no website for their customers, thus customer landing pages were also in scope.  
