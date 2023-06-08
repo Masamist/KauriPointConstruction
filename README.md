@@ -42,8 +42,8 @@ Our scope was to build the project management app for the manager which records 
 
 ### Technologies
 - React v17.0.2
-- HTML
-- CSS
+- HTML 5
+- CSS 3
 - JavaScript
 - Firebase v8.5
 
